@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ColorChangedCircleView">
+        <attr name="firstColor" format="color"/>
+        <attr name="secondColor" format="color"/>
+        <attr name="speed" format="integer"/>
+        <attr name="circleWidth" format="dimension"/>
+    </declare-styleable>
+</resources>
