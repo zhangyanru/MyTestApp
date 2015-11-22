@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/zyr/project/MyTestApp/app/libs/weiboSDKCore_3.1.2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1c0bfcddc15de1e8a90ff166da0b9abe011346af">
+        <dex dex="/home/zyr/project/MyTestApp/app/build/intermediates/pre-dexed/debug/weiboSDKCore_3.1.2-823ee759c4d6b9e6faa882975c929fe6ca843512.jar" />
+    </item>
+    <item
+        jar="/home/zyr/soft/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="/home/zyr/project/MyTestApp/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-5a5332483cc3629e3f1c4e5397bcbcbf1b496a8b.jar" />
+    </item>
+
+</items>

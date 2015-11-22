@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ColorChangedCircleView">
+        <attr name="firstColor" format="color"/>
+        <attr name="secondColor" format="color"/>
+        <attr name="speed" format="integer"/>
+        <attr name="circleWidth" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="RoundProgressBar">
+        <attr name="p_firstColor" format="color"/>
+        <attr name="p_secondColor" format="color"/>
+        <attr name="p_circleWidth" format="dimension"/>
+        <attr name="p_textColor" format="color"/>
+        <attr name="p_textSize" format="dimension"/>
+        <attr name="p_progress" format="dimension"/>
+    </declare-styleable>
+
+    <attr name="position">
+        <enum name="left_top" value="0" />
+        <enum name="right_top" value="1" />
+        <enum name="right_bottom" value="2" />
+        <enum name="left_bottom" value="3" />
+    </attr>
+    <declare-styleable name="ArcMenu">
+        <attr name="position" />
+        <attr name="arc_r" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="ArcMenu2">
+        <attr name="arc2_r" format="dimension"/>
+        <attr name="position2">
+            <enum name="left_top" value="0"/>
+            <enum name="left_bottom" value="1"/>
+            <enum name="right_top" value="2"/>
+            <enum name="right_bottom" value="3"/>
+        </attr>
+        <attr name="pointId" format="integer"/>
+        <attr name="isPointById" format="boolean"/>
+    </declare-styleable>
+</resources>

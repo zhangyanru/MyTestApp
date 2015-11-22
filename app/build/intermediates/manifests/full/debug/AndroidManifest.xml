@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 用于调用 JNI -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:hardwareAccelerated="false"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name" >
+        <activity
+            android:name="com.example.myapp.activity.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.myapp.activity.WeiboSsoAuthActivity" />
+        <activity android:name="com.example.myapp.activity.DrawPathActivity" />
+        <activity android:name="com.example.myapp.activity.PictureTestActivity" />
+        <activity android:name="com.example.myapp.activity.AnimationActivity" />
+        <activity android:name="com.example.myapp.activity.XListViewActivity" />
+        <activity android:name="com.example.myapp.activity.GridPasswardActivity" />
+        <activity android:name="com.example.myapp.activity.FlowLayoutActivity" />
+        <activity android:name="com.example.myapp.activity.BaseActivity" />
+        <activity android:name="com.example.myapp.activity.ViewPagerActivity" />
+        <activity android:name="com.example.myapp.activity.ViewPagerFragmentActivity" />
+        <activity android:name="com.example.myapp.activity.TopBarActivity" />
+        <activity android:name="com.example.myapp.activity.AActivity" />
+        <activity android:name="com.example.myapp.activity.BActivity" />
+        <activity android:name="com.example.myapp.activity.CActivity" />
+        <activity android:name="com.example.myapp.activity.ColorChangedCircleActivity" />
+        <activity android:name="com.example.myapp.activity.ArcMenuActivity" />
+        <activity android:name="com.example.myapp.activity.ArcMenu2Activity" />
+        <activity android:name="com.example.myapp.activity.DragViewActivity" />
+
+        <!-- 必须注册在微博授权，分享微博时候用到 -->
+        <activity
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+    </application>
+
+</manifest>

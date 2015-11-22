@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.myapp.view.DragView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="Drag Me!"
+        android:gravity="center"
+        android:background="@color/white"/>
+</com.example.myapp.view.DragView><!-- From: file:/home/zyr/project/MyTestApp/app/src/main/res/layout/drag_view_layout.xml -->
