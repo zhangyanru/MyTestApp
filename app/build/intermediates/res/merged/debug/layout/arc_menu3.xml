@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/accent">
+    <include layout="@layout/arc_menu2" />
+    <include layout="@layout/arc_menu_lefttop"/>
+    <include layout="@layout/arc_menu_leftbuttom"/>
+    <include layout="@layout/arc_menu_rightbottom"/>
+</RelativeLayout><!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/src/main/res/layout/arc_menu3.xml -->

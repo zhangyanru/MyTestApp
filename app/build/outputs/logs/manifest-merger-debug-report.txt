@@ -1,0 +1,151 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:2:1-52:12
+	xmlns:android
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:2:11-69
+	package
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:3:11-38
+		INJECTED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml
+		INJECTED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:5:11-36
+	android:versionCode
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:4:11-34
+		INJECTED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml
+		INJECTED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml
+uses-sdk
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:6:5-8:45
+	android:targetSdkVersion
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:8:13-42
+		INJECTED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml
+		INJECTED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:7:13-39
+		INJECTED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml
+		INJECTED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:10:5-67
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:10:22-64
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:11:5-76
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:11:22-73
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:12:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:13:5-81
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:13:22-78
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:15:5-75
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:15:22-72
+application
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:16:5-51:19
+	android:label
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:16:18-50
+	android:icon
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:16:51-80
+	android:hardwareAccelerated
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:17:18-53
+activity#com.example.myapp.activity.MainActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:18:9-24:20
+	android:label
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:19:19-51
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:18:19-56
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:20:13-23:29
+action#android.intent.action.MAIN
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:21:17-68
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:21:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:22:17-76
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:22:27-74
+activity#com.example.myapp.activity.WeiboSsoAuthActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:25:9-76
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:25:19-64
+activity#com.example.myapp.activity.DrawPathActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:26:9-72
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:26:19-60
+activity#com.example.myapp.activity.PictureTestActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:27:9-75
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:27:19-63
+activity#com.example.myapp.activity.AnimationActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:28:9-73
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:28:19-61
+activity#com.example.myapp.activity.XListViewActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:29:9-73
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:29:19-61
+activity#com.example.myapp.activity.GridPasswardActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:30:9-76
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:30:19-64
+activity#com.example.myapp.activity.FlowLayoutActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:31:9-74
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:31:19-62
+activity#com.example.myapp.activity.BaseActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:32:9-68
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:32:19-56
+activity#com.example.myapp.activity.ViewPagerActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:33:9-73
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:33:19-61
+activity#com.example.myapp.activity.ViewPagerFragmentActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:34:9-81
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:34:19-69
+activity#com.example.myapp.activity.TopBarActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:35:9-70
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:35:19-58
+activity#com.example.myapp.activity.AActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:36:9-65
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:36:19-53
+activity#com.example.myapp.activity.BActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:37:9-65
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:37:19-53
+activity#com.example.myapp.activity.CActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:38:9-65
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:38:19-53
+activity#com.example.myapp.activity.ColorChangedCircleActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:39:9-82
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:39:19-70
+activity#com.example.myapp.activity.ArcMenuActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:40:9-61
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:40:19-59
+activity#com.example.myapp.activity.ArcMenu2Activity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:41:9-62
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:41:19-60
+activity#com.example.myapp.activity.DragViewActivity
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:42:9-62
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:42:19-60
+activity#com.sina.weibo.sdk.component.WeiboSdkBrowser
+ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:46:9-50:20
+	android:windowSoftInputMode
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:48:19-61
+	android:configChanges
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:47:19-69
+	android:exported
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:49:19-43
+	android:name
+		ADDED from /home/zyr/project/Yanru/MyTestApp/app/src/main/AndroidManifest.xml:46:19-78

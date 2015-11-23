@@ -1,0 +1,135 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .DS_Store
+* .idea/
+* .idea/.name
+* .idea/codeStyleSettings.xml
+* .idea/compiler.xml
+* .idea/copyright/
+* .idea/copyright/profiles_settings.xml
+* .idea/misc.xml
+* .idea/modules.xml
+* .idea/uiDesigner.xml
+* .idea/vcs.xml
+* .idea/workspace.xml
+* ant.properties
+* build.xml
+* myapp.iml
+* out/
+* out/production/
+* out/production/myapp/
+* out/production/myapp/com/
+* out/production/myapp/com/example/
+* out/production/myapp/com/example/myapp/
+* out/production/myapp/com/example/myapp/AccessTokenKeeper.class
+* out/production/myapp/com/example/myapp/BuildConfig.class
+* out/production/myapp/com/example/myapp/R$anim.class
+* out/production/myapp/com/example/myapp/R$array.class
+* out/production/myapp/com/example/myapp/R$attr.class
+* out/production/myapp/com/example/myapp/R$color.class
+* out/production/myapp/com/example/myapp/R$dimen.class
+* out/production/myapp/com/example/myapp/R$drawable.class
+* out/production/myapp/com/example/myapp/R$id.class
+* out/production/myapp/com/example/myapp/R$layout.class
+* out/production/myapp/com/example/myapp/R$string.class
+* out/production/myapp/com/example/myapp/R$styleable.class
+* out/production/myapp/com/example/myapp/R.class
+* out/production/myapp/com/example/myapp/activity/
+* out/production/myapp/com/example/myapp/activity/AActivity.class
+* out/production/myapp/com/example/myapp/activity/AnimationActivity.class
+* out/production/myapp/com/example/myapp/activity/BActivity.class
+* out/production/myapp/com/example/myapp/activity/BaseActivity.class
+* out/production/myapp/com/example/myapp/activity/CActivity.class
+* out/production/myapp/com/example/myapp/activity/ColorChangedCircleActivity.class
+* out/production/myapp/com/example/myapp/activity/DrawPathActivity.class
+* out/production/myapp/com/example/myapp/activity/FlowLayoutActivity.class
+* out/production/myapp/com/example/myapp/activity/GridPasswardActivity.class
+* out/production/myapp/com/example/myapp/activity/ImageConfirmCodeActivity.class
+* out/production/myapp/com/example/myapp/activity/MainActivity.class
+* out/production/myapp/com/example/myapp/activity/PictureTestActivity$SampleView.class
+* out/production/myapp/com/example/myapp/activity/PictureTestActivity.class
+* out/production/myapp/com/example/myapp/activity/TopBarActivity.class
+* out/production/myapp/com/example/myapp/activity/ViewPagerActivity$MyAdapter.class
+* out/production/myapp/com/example/myapp/activity/ViewPagerActivity.class
+* out/production/myapp/com/example/myapp/activity/ViewPagerFragmentActivity$MyAdapter.class
+* out/production/myapp/com/example/myapp/activity/ViewPagerFragmentActivity$MyAdapter2.class
+* out/production/myapp/com/example/myapp/activity/ViewPagerFragmentActivity.class
+* out/production/myapp/com/example/myapp/activity/WeiboSsoAuthActivity$1.class
+* out/production/myapp/com/example/myapp/activity/WeiboSsoAuthActivity$AuthListener.class
+* out/production/myapp/com/example/myapp/activity/WeiboSsoAuthActivity.class
+* out/production/myapp/com/example/myapp/activity/XListViewActivity.class
+* out/production/myapp/com/example/myapp/fragment/
+* out/production/myapp/com/example/myapp/fragment/ViewpagerFragment1.class
+* out/production/myapp/com/example/myapp/fragment/ViewpagerFragment2.class
+* out/production/myapp/com/example/myapp/fragment/ViewpagerFragment3.class
+* out/production/myapp/com/example/myapp/view/
+* out/production/myapp/com/example/myapp/view/ColorChangedCircleView$1.class
+* out/production/myapp/com/example/myapp/view/ColorChangedCircleView.class
+* out/production/myapp/com/example/myapp/view/FlowLayout.class
+* out/production/myapp/com/example/myapp/view/GridPasswordView.class
+* out/production/myapp/com/example/myapp/view/ImageConfirmCode.class
+* out/production/myapp/com/example/myapp/view/MaskView.class
+* out/production/myapp/com/example/myapp/view/XListView$1.class
+* out/production/myapp/com/example/myapp/view/XListView.class
+* out/production/myapp/com/example/myapp/view/XListViewHeaderView.class
+* out/production/myapp/myapp.apk
+* out/production/myapp/myapp.unaligned.apk
+* proguard-project.txt
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:19.1.0
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app/src/main/AndroidManifest.xml
+* assets/ => app/src/main/assets
+* libs/arm64-v8a/libweibosdkcore.so => app/src/main/jniLibs/arm64-v8a/libweibosdkcore.so
+* libs/armeabi-v7a/libweibosdkcore.so => app/src/main/jniLibs/armeabi-v7a/libweibosdkcore.so
+* libs/armeabi/libweibosdkcore.so => app/src/main/jniLibs/armeabi/libweibosdkcore.so
+* libs/mips/libweibosdkcore.so => app/src/main/jniLibs/mips/libweibosdkcore.so
+* libs/mips64/libweibosdkcore.so => app/src/main/jniLibs/mips64/libweibosdkcore.so
+* libs/weiboSDKCore_3.1.2.jar => app/libs/weiboSDKCore_3.1.2.jar
+* libs/x86/libweibosdkcore.so => app/src/main/jniLibs/x86/libweibosdkcore.so
+* libs/x86_64/libweibosdkcore.so => app/src/main/jniLibs/x86_64/libweibosdkcore.so
+* res/ => app/src/main/res/
+* src/ => app/src/main/java/
+* src/.DS_Store => app/src/main/resources/.DS_Store
+* src/com/.DS_Store => app/src/main/resources/com/.DS_Store
+* src/com/example/.DS_Store => app/src/main/resources/com/example/.DS_Store
+* src/com/example/myapp/.DS_Store => app/src/main/resources/com/example/myapp/.DS_Store
+* src/com/example/myapp/activity/.DS_Store => app/src/main/resources/com/example/myapp/activity/.DS_Store
+* src/com/example/myapp/view/.DS_Store => app/src/main/resources/com/example/myapp/view/.DS_Store
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)
