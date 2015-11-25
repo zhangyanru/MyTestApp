@@ -1,5 +1,8 @@
 package com.example.myapp.view;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -16,6 +19,8 @@ import android.view.animation.TranslateAnimation;
 
 import com.example.myapp.R;
 
+import java.util.ArrayList;
+
 /**
  * Created by zyr
  * DATE: 15-11-21
@@ -31,6 +36,8 @@ public class ArcMenu2 extends ViewGroup {
     private boolean isPointById = false;//是第一个子iew旋转还是子iew中的一个特定的id的view旋转
     private int pointId;
     private View pointView;
+    private ArrayList<Float> childX = new ArrayList<Float>();
+    private ArrayList<Float> childY = new ArrayList<Float>();
     /**
      * 用户点击的按钮
      */
@@ -144,27 +151,31 @@ public class ArcMenu2 extends ViewGroup {
                 int cHeight = child.getMeasuredHeight();
 
                 if(mPosition ==Position.LEFT_TOP){
-                    cx = pointX + cx -cWidth/2;
-                    cy = pointY + cy -cHeight/2;
+                    cx = pointX + cx - cWidth/2;
+                    cy = pointY + cy - cHeight/2;
                 }
 
                 if(mPosition ==Position.LEFT_BOTTOM){
-                    cx = pointX + cx -cWidth/2;
-                    cy = pointY - cy -cHeight/2;
+                    cx = pointX + cx - cWidth/2;
+                    cy = pointY - cy - cHeight/2;
                 }
 
                 if(mPosition ==Position.RIGHT_TOP){
-                    cx = pointX - cx -cWidth/2;
-                    cy = pointY + cy -cHeight/2;
+                    cx = pointX - cx - cWidth/2;
+                    cy = pointY + cy - cHeight/2;
                 }
 
                 if(mPosition ==Position.RIGHT_BOTTOM){
-                    cx = pointX - cx -cWidth/2;
-                    cy = pointY - cy -cHeight/2;
+                    cx = pointX - cx - cWidth/2;
+                    cy = pointY - cy - cHeight/2;
                 }
 
-                Log.e("zyr", cx + " , " + cy);
-                child.layout(cx, cy, cx + cWidth, cy + cHeight);
+                childX.add(cx + 0.0f);
+                childY.add(cy + 0.0f);
+
+                Log.e("zyr", "child "+i+":"+cx + " , " + cy );
+//                child.layout(cx, cy, cx + cWidth, cy + cHeight);
+                child.layout(childX.get(0).intValue(),childY.get(0).intValue(), childX.get(0).intValue() + cWidth, childY.get(0).intValue() + cHeight);
             }
 
         }
@@ -186,8 +197,6 @@ public class ArcMenu2 extends ViewGroup {
                 toggleMenu(300);
             }
         });
-        int mViewGroupWidth  = getMeasuredWidth();  //当前ViewGroup的总宽度
-        int mViewGroupHeight = getMeasuredHeight();
 
         int x = l;
         int y = t;
@@ -204,16 +213,21 @@ public class ArcMenu2 extends ViewGroup {
             case RIGHT_TOP:
                 x = r - width;
                 y = t;
+
                 break;
             case RIGHT_BOTTOM:
                 x = r - width;
                 y = b - height;
+
                 break;
 
         }
-        pointX = x +width/2;
-        pointY = y +height/2;
-        Log.e("zyr", x + " , " + y + " , " + (x + width) + " , " + (y + height));
+        pointX = x + width/2;
+        pointY = y + height/2;
+        childX.add( x + 0.0f);
+        childY.add( y + 0.0f);
+        Log.e("zyr", "l,t:" + l + " , " + t);
+        Log.e("zyr", "child 0:" + x + " , " + y);
         pointBtn.layout(x, y, x + width, y + height);
     }
     /**
@@ -243,63 +257,77 @@ public class ArcMenu2 extends ViewGroup {
             final View childView = getChildAt(i);
             childView.setVisibility(View.VISIBLE);
 
-            AnimationSet animset = new AnimationSet(true);
-            Animation animation = null;
-            AlphaAnimation alphaAnimation = null;
             if (mCurrentStatus == Status.CLOSE)
             {// to open
-                animset.setInterpolator(new OvershootInterpolator(2F));
-                animation = new TranslateAnimation( pointX - childView.getX(),
-                        0,
-                        pointY - childView.getY(),
-                        0);
 
-                alphaAnimation = new AlphaAnimation(0,1);
-                childView.setClickable(true);
-                childView.setFocusable(true);
-            } else
-            {// to close
-                animation = new TranslateAnimation(  0,
-                        pointX - childView.getX(),
-                        0,
-                        pointY - childView.getY());
-                alphaAnimation = new AlphaAnimation(1,0);
-                childView.setClickable(false);
-                childView.setFocusable(false);
+                AnimatorSet animatorSet = new AnimatorSet();
+                ObjectAnimator transXAnim =  ObjectAnimator.ofFloat(childView, "x", childX.get(i)).setDuration(durationMillis);
+                ObjectAnimator transYAnim =  ObjectAnimator.ofFloat(childView, "y", childY.get(i)).setDuration(durationMillis);
+                ObjectAnimator alphaAnim =   ObjectAnimator.ofFloat(childView, "alpha", 0.0f, 1.0f).setDuration(durationMillis);
+                ObjectAnimator rotateAnim =  ObjectAnimator.ofFloat(childView,"rotation",0.0f,720f).setDuration(durationMillis);
+
+                animatorSet.setDuration(durationMillis);
+                animatorSet.playTogether(transXAnim, transYAnim, alphaAnim, rotateAnim);
+                animatorSet.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        mCurrentStatus = Status.OPEN;
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                });
+                animatorSet.start();
+            } else {// to close
+
+                AnimatorSet animatorSet = new AnimatorSet();
+                ObjectAnimator transXAnim = ObjectAnimator.ofFloat(childView, "x",pointX).setDuration(durationMillis);
+
+                ObjectAnimator transYAnim = ObjectAnimator.ofFloat(childView, "y",pointY).setDuration(durationMillis);
+
+                ObjectAnimator alphaAnim =   ObjectAnimator.ofFloat(childView, "alpha", 1.0f,0.0f).setDuration(durationMillis);
+
+                ObjectAnimator rotateAnim =  ObjectAnimator.ofFloat(childView,"rotation",0.0f,720f).setDuration(durationMillis);
+
+                animatorSet.setDuration(durationMillis);
+                animatorSet.playTogether(transXAnim, transYAnim, alphaAnim, rotateAnim);
+                animatorSet.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        mCurrentStatus = Status.CLOSE;
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                });
+                animatorSet.start();
+
             }
-            animation.setAnimationListener(new Animation.AnimationListener()
-            {
-                public void onAnimationStart(Animation animation)
-                {
-                }
 
-                public void onAnimationRepeat(Animation animation)
-                {
-                }
-
-                public void onAnimationEnd(Animation animation)
-                {
-                    if (mCurrentStatus == Status.CLOSE)
-                        childView.setVisibility(View.GONE);
-
-                }
-            });
-
-            animation.setFillAfter(true);
-            animation.setDuration(durationMillis);
-            // 为动画设置一个开始延迟时间，纯属好看，可以不设
-            animation.setStartOffset(((i-1) * 100) / (count - 1));
-            RotateAnimation rotate = new RotateAnimation(0, 720,
-                    Animation.RELATIVE_TO_SELF, 0.5f,
-                    Animation.RELATIVE_TO_SELF, 0.5f);
-            rotate.setDuration(durationMillis);
-            rotate.setFillAfter(true);
-            alphaAnimation.setDuration(durationMillis);
-            alphaAnimation.setFillAfter(true);
-            animset.addAnimation(rotate);
-            animset.addAnimation(animation);
-            animset.addAnimation(alphaAnimation);
-            childView.startAnimation(animset);
             final int index = i -1;
             childView.setOnClickListener(new View.OnClickListener()
             {
@@ -309,18 +337,12 @@ public class ArcMenu2 extends ViewGroup {
                     if (iOnChildClickListener != null)
                         iOnChildClickListener.OnChildClick(childView,index);
                     menuItemAnin(index + 1);
-                    changeStatus();
+                    mCurrentStatus = Status.CLOSE;
                 }
             });
 
         }
-        changeStatus();
         Log.e("zyr", mCurrentStatus.name() + "");
-    }
-    private void changeStatus()
-    {
-        mCurrentStatus = (mCurrentStatus == Status.CLOSE ? Status.OPEN
-                : Status.CLOSE);
     }
     /**
      * 开始菜单动画，点击的MenuItem放大消失，其他的缩小消失
@@ -333,14 +355,11 @@ public class ArcMenu2 extends ViewGroup {
             View childView = getChildAt(i);
             if (i == item)
             {
-                childView.startAnimation(scaleBigAnim(300));
+                scaleBigAnim(childView, 300);
             } else
             {
-                childView.startAnimation(scaleSmallAnim(300));
+                scaleSmallAnim(childView,300);
             }
-            childView.setClickable(false);
-            childView.setFocusable(false);
-
         }
     }
     /**
@@ -348,33 +367,78 @@ public class ArcMenu2 extends ViewGroup {
      * @param durationMillis
      * @return
      */
-    private Animation scaleBigAnim(int durationMillis)
+    private void scaleBigAnim(final View childView,int durationMillis)
     {
-        AnimationSet animationset = new AnimationSet(true);
+        AnimatorSet animatorSet = new AnimatorSet();
+        ObjectAnimator alphaAnim = ObjectAnimator.ofFloat(childView,"alpha",0.0f).setDuration(durationMillis);
+        ObjectAnimator scalXAnim = ObjectAnimator.ofFloat(childView,"scaleX",4.0f).setDuration(durationMillis);
+        ObjectAnimator scalYAnim = ObjectAnimator.ofFloat(childView,"scaleY",4.0f).setDuration(durationMillis);
+        animatorSet.setDuration(durationMillis);
+        animatorSet.playTogether(alphaAnim, scalXAnim, scalYAnim);
+        animatorSet.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
 
-        Animation anim = new ScaleAnimation(1.0f, 4.0f, 1.0f, 4.0f,
-                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
-                0.5f);
-        Animation alphaAnimation = new AlphaAnimation(1, 0);
-        animationset.addAnimation(anim);
-        animationset.addAnimation(alphaAnimation);
-        animationset.setDuration(durationMillis);
-        animationset.setFillAfter(true);
-        return animationset;
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                childView.setScaleX(1.0f);
+                childView.setScaleY(1.0f);
+                childView.setX(pointX);
+                childView.setY(pointY);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        animatorSet.start();
     }
     /**
      * 缩小消失
      * @param durationMillis
      * @return
      */
-    private Animation scaleSmallAnim(int durationMillis)
+    private void scaleSmallAnim(final View childView,int durationMillis)
     {
-        Animation anim = new ScaleAnimation(1.0f, 0f, 1.0f, 0f,
-                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
-                0.5f);
-        anim.setDuration(durationMillis);
-        anim.setFillAfter(true);
-        return anim;
+        AnimatorSet animatorSet = new AnimatorSet();
+        ObjectAnimator alphaAnim = ObjectAnimator.ofFloat(childView,"alpha",0.0f).setDuration(durationMillis);
+        ObjectAnimator scalXAnim = ObjectAnimator.ofFloat(childView,"scaleX",0.0f).setDuration(durationMillis);
+        ObjectAnimator scalYAnim = ObjectAnimator.ofFloat(childView,"scaleY",0.0f).setDuration(durationMillis);
+        animatorSet.setDuration(durationMillis);
+        animatorSet.playTogether(alphaAnim, scalXAnim, scalYAnim);
+        animatorSet.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                childView.setScaleX(1.0f);
+                childView.setScaleY(1.0f);
+                childView.setX(pointX);
+                childView.setY(pointY);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        animatorSet.start();
     }
 
     public void setOnChildClickListener(final OnChildClickListener onChildClickListener){

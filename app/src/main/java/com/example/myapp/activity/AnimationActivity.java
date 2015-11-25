@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.*;
@@ -36,6 +37,7 @@ public class AnimationActivity extends Activity implements View.OnClickListener{
     private Button valueAnim;
     private Button animSet;
     private ImageView imageView;
+    private Button transX;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +59,7 @@ public class AnimationActivity extends Activity implements View.OnClickListener{
         btn = (Button)findViewById(R.id.button_anim);
         valueAnim = (Button)findViewById(R.id.value_amin);
         animSet = (Button)findViewById(R.id.anim_set);
+        transX = (Button)findViewById(R.id.tran_x);
 
     }
 
@@ -71,6 +74,7 @@ public class AnimationActivity extends Activity implements View.OnClickListener{
         btn.setOnClickListener(this);
         valueAnim.setOnClickListener(this);
         animSet.setOnClickListener(this);
+        transX.setOnClickListener(this);
     }
 
     /**
@@ -251,6 +255,19 @@ public class AnimationActivity extends Activity implements View.OnClickListener{
                 });
                 animatorSet.start();
                 animSet.setEnabled(false);
+                break;
+            case R.id.tran_x:
+                AnimatorSet animatorSet1 = new AnimatorSet();
+                ObjectAnimator objectAnimator =ObjectAnimator.ofFloat(imageView, "x", imageView.getX(), imageView.getX() + 500).setDuration(5000);
+
+                Log.d("zyr",imageView.getX()+"imageX");
+
+                ObjectAnimator objectAnimator2 = ObjectAnimator.ofFloat(imageView, "y", imageView.getY(), imageView.getY() + 500).setDuration(5000);
+                Log.d("zyr", imageView.getY() + "imageY");
+
+                animatorSet1.setDuration(5000);
+                animatorSet1.playTogether(objectAnimator,objectAnimator2);
+                animatorSet1.start();
                 break;
         }
 

@@ -1,6 +1,7 @@
 package com.example.myapp.view;
 
 import android.content.Context;
+import android.support.v4.view.MotionEventCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -38,19 +39,26 @@ public class DragView extends ViewGroup{
 
             @Override
             public int clampViewPositionHorizontal(View child, int left, int dx) {
-                return 300;
-            }
+                int parentLeft = (int) (getX() + getPaddingLeft());
+                int parentRight =(int) (getY() - getPaddingRight());
 
-            @Override
-            public int clampViewPositionVertical(View child, int top, int dy) {
-                return 300;
+                if(left > (parentRight-child.getWidth())){
+                    return parentRight-child.getWidth();
+                }else if(left <parentLeft){
+                    return parentLeft;
+                }
+                return left;
             }
         });
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-
+        final int action = MotionEventCompat.getActionMasked(ev);
+        if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
+            viewDragHelper.cancel();
+            return false;
+        }
         return viewDragHelper.shouldInterceptTouchEvent(ev);
     }
 
@@ -60,14 +68,28 @@ public class DragView extends ViewGroup{
         return true;
     }
 
+    /**
+     * 有三种可能的模式：
+     UNSPECIFIED：父布局没有给子布局任何限制，子布局可以任意大小。
+     EXACTLY：父布局决定子布局的确切大小。不论子布局多大，它都必须限制在这个界限里。
+     AT_MOST：子布局可以根据自己的大小选择任意大小。
+     * @param widthMeasureSpec
+     * @param heightMeasureSpec
+     */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int count = getChildCount();
         for (int i = 0; i < count; i++)
         {
             // mesure child
-            getChildAt(i).measure(MeasureSpec.UNSPECIFIED,
-                    MeasureSpec.UNSPECIFIED);
+            View child = getChildAt(i);
+            LayoutParams lp = child.getLayoutParams();
+            int childWidthMeasureSpec = getChildMeasureSpec(widthMeasureSpec,
+                    getPaddingLeft()+getPaddingRight(), lp.width);
+            int childHeightMeasureSpec = getChildMeasureSpec(heightMeasureSpec,
+                    getPaddingTop()+getPaddingBottom(), lp.height);
+            child.measure(childWidthMeasureSpec,
+                    childHeightMeasureSpec);
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:ordering="together" >
+
+    <objectAnimator
+        android:duration="300"
+        android:propertyName="scaleX"
+        android:valueFrom="0"
+        android:valueTo="1" >
+    </objectAnimator>
+    <objectAnimator
+        android:duration="300"
+        android:propertyName="scaleY"
+        android:valueFrom="0"
+        android:valueTo="1" >
+    </objectAnimator>
+    <objectAnimator
+        android:duration="300"
+        android:propertyName="tran"
+        android:valueFrom="0"
+        android:valueTo="1" >
+    </objectAnimator>
+
+</set><!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/src/main/res/anim/open.xml -->
