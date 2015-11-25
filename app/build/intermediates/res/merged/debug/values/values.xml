@@ -30,6 +30,7 @@
     <color name="white">#ffffff</color>
     <declare-styleable name="ArcMenu"><attr name="position"/><attr format="dimension" name="arc_r"/></declare-styleable>
     <declare-styleable name="ArcMenu2"><attr format="dimension" name="arc2_r"/><attr name="position2"><enum name="left_top" value="0"/><enum name="left_bottom" value="1"/><enum name="right_top" value="2"/><enum name="right_bottom" value="3"/></attr><attr format="integer" name="pointId"/><attr format="boolean" name="isPointById"/></declare-styleable>
+    <declare-styleable name="ArcMenu3"><attr format="dimension" name="arc3_r"/><attr name="position_arc3"><enum name="left_top_arc3" value="0"/><enum name="left_bottom_arc3" value="1"/><enum name="right_top_arc3" value="2"/><enum name="right_bottom_arc3" value="3"/></attr><attr format="integer" name="pointId3"/><attr format="boolean" name="isPointById3"/></declare-styleable>
     <declare-styleable name="ColorChangedCircleView"><attr format="color" name="firstColor"/><attr format="color" name="secondColor"/><attr format="integer" name="speed"/><attr format="dimension" name="circleWidth"/></declare-styleable>
     <declare-styleable name="RoundProgressBar"><attr format="color" name="p_firstColor"/><attr format="color" name="p_secondColor"/><attr format="dimension" name="p_circleWidth"/><attr format="color" name="p_textColor"/><attr format="dimension" name="p_textSize"/><attr format="dimension" name="p_progress"/></declare-styleable>
     <!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/src/main/res/values/dimens.xml -->

@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
     <com.example.myapp.view.ArcMenu2
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:position2="left_top"
         app:pointId ="@+id/point4"
-        app:isPointById = "true">
+        app:isPointById = "false">
 
         <RelativeLayout android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/icon_arcmenu_bg"
+            android:background="@drawable/arc_blue_bg"
             >
             <ImageView android:id="@+id/point4"
                 android:layout_width="20dp"
@@ -46,5 +43,4 @@
             android:layout_centerInParent="true"
             android:src="@drawable/icon_album"
             android:tag="Sun" />
-    </com.example.myapp.view.ArcMenu2>
-</LinearLayout><!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/src/main/res/layout/arc_menu_lefttop.xml -->
+    </com.example.myapp.view.ArcMenu2><!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/src/main/res/layout/arc_menu_lefttop.xml -->

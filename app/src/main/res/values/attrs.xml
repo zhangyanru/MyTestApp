@@ -37,4 +37,16 @@
         <attr name="pointId" format="integer"/>
         <attr name="isPointById" format="boolean"/>
     </declare-styleable>
+
+    <declare-styleable name="ArcMenu3">
+        <attr name="arc3_r" format="dimension"/>
+        <attr name="position_arc3">
+            <enum name="left_top_arc3" value="0"/>
+            <enum name="left_bottom_arc3" value="1"/>
+            <enum name="right_top_arc3" value="2"/>
+            <enum name="right_bottom_arc3" value="3"/>
+        </attr>
+        <attr name="pointId3" format="integer"/>
+        <attr name="isPointById3" format="boolean"/>
+    </declare-styleable>
 </resources>
