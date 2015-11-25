@@ -38,5 +38,8 @@ public class ArcMenu2Activity extends Activity {
 //                Toast.makeText(ArcMenu2Activity.this,position + "",Toast.LENGTH_SHORT).show();
 //            }
 //        });
+
+
+
     }
 }

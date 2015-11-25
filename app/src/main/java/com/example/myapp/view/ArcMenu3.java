@@ -345,6 +345,8 @@ public class ArcMenu3 extends ViewGroup {
             });
 
         }
+
+
         Log.e("zyr", mCurrentStatus.name() + "");
     }
     /**

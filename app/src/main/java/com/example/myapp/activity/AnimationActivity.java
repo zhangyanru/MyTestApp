@@ -38,6 +38,7 @@ public class AnimationActivity extends Activity implements View.OnClickListener{
     private Button animSet;
     private ImageView imageView;
     private Button transX;
+    private Button transX2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +61,7 @@ public class AnimationActivity extends Activity implements View.OnClickListener{
         valueAnim = (Button)findViewById(R.id.value_amin);
         animSet = (Button)findViewById(R.id.anim_set);
         transX = (Button)findViewById(R.id.tran_x);
-
+        transX2 = (Button)findViewById(R.id.tran_x2);
     }
 
     public void initListener(){
@@ -75,6 +76,7 @@ public class AnimationActivity extends Activity implements View.OnClickListener{
         valueAnim.setOnClickListener(this);
         animSet.setOnClickListener(this);
         transX.setOnClickListener(this);
+        transX2.setOnClickListener(this);
     }
 
     /**
@@ -258,16 +260,24 @@ public class AnimationActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.tran_x:
                 AnimatorSet animatorSet1 = new AnimatorSet();
-                ObjectAnimator objectAnimator =ObjectAnimator.ofFloat(imageView, "x", imageView.getX(), imageView.getX() + 500).setDuration(5000);
+                ObjectAnimator objectAnimator =ObjectAnimator.ofFloat(imageView, "x", imageView.getX(), imageView.getX() + 300).setDuration(5000);
 
                 Log.d("zyr",imageView.getX()+"imageX");
 
-                ObjectAnimator objectAnimator2 = ObjectAnimator.ofFloat(imageView, "y", imageView.getY(), imageView.getY() + 500).setDuration(5000);
+                ObjectAnimator objectAnimator2 = ObjectAnimator.ofFloat(imageView, "y", imageView.getY(), imageView.getY() + 300).setDuration(5000);
                 Log.d("zyr", imageView.getY() + "imageY");
 
                 animatorSet1.setDuration(5000);
-                animatorSet1.playTogether(objectAnimator,objectAnimator2);
+//                animatorSet1.playTogether(objectAnimator,objectAnimator2);
+                animatorSet1.play(objectAnimator).with(objectAnimator2);
                 animatorSet1.start();
+                break;
+            case R.id.tran_x2:
+                AnimatorSet animatorSet2 = new AnimatorSet();
+                ObjectAnimator objectAnimator3 = ObjectAnimator.ofFloat(imageView,"translationX",300).setDuration(5000);
+                ObjectAnimator objectAnimator4 = ObjectAnimator.ofFloat(imageView,"translationY",300).setDuration(5000);
+                animatorSet2.playTogether(objectAnimator3,objectAnimator4);
+                animatorSet2.start();
                 break;
         }
 
