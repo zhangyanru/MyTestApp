@@ -84,6 +84,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Darg View"/>
+            <Button android:id="@+id/hslid_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HSlidListView"/>
+            <Button android:id="@+id/auto_slid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="随手指移动"/>
+            <Button android:id="@+id/look_big_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="点击查看大图"/>
         </LinearLayout>
     </ScrollView>
 

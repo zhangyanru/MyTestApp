@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView android:id="@+id/iamge_view_item_image"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:scaleType="fitXY"
+        android:layout_margin="10dp"/>
+</LinearLayout><!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/src/main/res/layout/list_view_item_image.xml -->

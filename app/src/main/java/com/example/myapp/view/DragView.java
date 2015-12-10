@@ -13,6 +13,8 @@ import android.view.ViewGroup;
  * DATE: 15-11-22
  * Time: 下午7:00
  * Email: yanru.zhang@renren-inc.com
+ * http://m.blog.csdn.net/blog/coder_nice/44678153
+ * http://blog.csdn.net/coder_nice/article/details/44592989
  */
 public class DragView extends ViewGroup{
 
@@ -37,17 +39,61 @@ public class DragView extends ViewGroup{
                 return true;
             }
 
+            /**
+             * 处理水平方向上的拖动
+             * @param child 被拖动到view
+             * @param left 移动到达的x轴的距离
+             * @param dx 建议的移动的x距离
+             */
             @Override
             public int clampViewPositionHorizontal(View child, int left, int dx) {
-                int parentLeft = (int) (getX() + getPaddingLeft());
-                int parentRight =(int) (getY() - getPaddingRight());
 
-                if(left > (parentRight-child.getWidth())){
-                    return parentRight-child.getWidth();
-                }else if(left <parentLeft){
-                    return parentLeft;
+                //取得左边界的坐标
+                final int leftBound = getPaddingLeft();
+                //取得右边界的坐标
+                final int rightBound = getWidth() - child.getWidth() - leftBound;
+                //这个地方的含义就是 如果left的值 在leftbound和rightBound之间 那么就返回left
+                //如果left的值 比 leftbound还要小 那么就说明 超过了左边界 那我们只能返回给他左边界的值
+                //如果left的值 比rightbound还要大 那么就说明 超过了右边界，那我们只能返回给他右边界的值
+
+                return Math.min(Math.max(left, leftBound), rightBound);
+
+            }
+            /**
+             *  处理竖直方向上的拖动
+             * @param  child 被拖动到view
+             * @param  top 移动到达的y轴的距离
+             * @param  dy 建议的移动的y距离
+             */
+            @Override
+            public int clampViewPositionVertical(View child, int top, int dy) {
+                // 两个if主要是为了让viewViewGroup里
+                if(getPaddingTop() > top) {
+                    return getPaddingTop();
                 }
-                return left;
+
+                if(getHeight() - child.getHeight() < top) {
+                    return getHeight() - child.getHeight();
+                }
+
+                return top;
+            }
+
+            /**
+             * 当拖拽到状态改变时回调
+             * @params 新的状态
+             */
+            @Override
+            public void onViewDragStateChanged(int state) {
+                switch (state) {
+                    case ViewDragHelper.STATE_DRAGGING:  // 正在被拖动
+                        break;
+                    case ViewDragHelper.STATE_IDLE:  // view没有被拖拽或者 正在进行fling/snap
+                        break;
+                    case ViewDragHelper.STATE_SETTLING: // fling完毕后被放置到一个位置
+                        break;
+                }
+                super.onViewDragStateChanged(state);
             }
         });
     }

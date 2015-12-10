@@ -40,6 +40,10 @@
         <activity android:name=".activity.ArcMenuActivity"/>
         <activity android:name=".activity.ArcMenu2Activity"/>
         <activity android:name=".activity.DragViewActivity"/>
+        <activity android:name=".activity.HSlidListViewActivity"/>
+        <activity android:name=".activity.AutoSlidActivity"/>
+        <activity android:name=".activity.BigImageActivity"/>
+        <activity android:name=".activity.SmallImageActivity"/>
 
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->

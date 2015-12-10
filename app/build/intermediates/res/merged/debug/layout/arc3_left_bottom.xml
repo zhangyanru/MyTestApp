@@ -3,16 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:position_arc3="left_top_arc3">
+    app:position_arc3="right_bottom_arc3"
+    app:isPointById3="true"
+    app:pointId3="@+id/dot">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"/>
     <RelativeLayout android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/arc_blue_bg"
         >
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+        <ImageView android:id="@+id/dot"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_centerInParent="true"
-            android:src="@drawable/icon_arcmenu" />
+            android:src="@drawable/icon_arcmenu"
+            android:scaleType="center"/>
     </RelativeLayout>
     <ImageView
         android:layout_width="wrap_content"
@@ -39,5 +46,4 @@
         android:layout_centerInParent="true"
         android:src="@drawable/icon_album"
         android:tag="Sun" />
-
 </com.example.myapp.view.ArcMenu3><!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/src/main/res/layout/arc3_left_bottom.xml -->

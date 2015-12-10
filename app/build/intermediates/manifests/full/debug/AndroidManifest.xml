@@ -46,6 +46,10 @@
         <activity android:name="com.example.myapp.activity.ArcMenuActivity" />
         <activity android:name="com.example.myapp.activity.ArcMenu2Activity" />
         <activity android:name="com.example.myapp.activity.DragViewActivity" />
+        <activity android:name="com.example.myapp.activity.HSlidListViewActivity" />
+        <activity android:name="com.example.myapp.activity.AutoSlidActivity" />
+        <activity android:name="com.example.myapp.activity.BigImageActivity" />
+        <activity android:name="com.example.myapp.activity.SmallImageActivity" />
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->
         <activity

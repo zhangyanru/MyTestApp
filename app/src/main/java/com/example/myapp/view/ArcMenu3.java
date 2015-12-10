@@ -3,16 +3,20 @@ package com.example.myapp.view;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 
 import com.example.myapp.R;
+import com.example.myapp.activity.ArcMenu2Activity;
 
 import java.util.ArrayList;
 
@@ -64,6 +68,9 @@ public class ArcMenu3 extends ViewGroup {
         public void OnChildClick(View view,int position);
     }
 
+    int screenWidth;
+    int screenHeigh;
+
     public ArcMenu3(Context context) {
         this(context, null);
     }
@@ -113,18 +120,25 @@ public class ArcMenu3 extends ViewGroup {
         initView();
     }
     private void initView() {
-
+        // 获取屏幕宽高（方法1）
+        DisplayMetrics dm = new DisplayMetrics();
+        WindowManager wm = (WindowManager)getContext().getSystemService(Context.WINDOW_SERVICE);
+        wm.getDefaultDisplay().getMetrics(dm);
+        screenWidth = dm.widthPixels;
+        screenHeigh = dm.heightPixels;
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int count = getChildCount();
-        for (int i = 0; i < count; i++)
+        for (int i = 1; i < count; i++)
         {
             // mesure child
             getChildAt(i).measure(MeasureSpec.UNSPECIFIED,
                     MeasureSpec.UNSPECIFIED);
         }
+        getChildAt(0).measure(screenWidth,
+                screenHeigh);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
@@ -132,15 +146,16 @@ public class ArcMenu3 extends ViewGroup {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         if (changed)
         {
-            layoutPointButton(l,t,r,b);
+            layoutWhiteView();
+            layoutPointButton(l, t, r, b);
             int count = getChildCount();
-            for (int i = 1; i < count; i++)
+            for (int i = 2; i < count; i++)
             {
                 View child = getChildAt(i);
-                child.setVisibility(View.GONE);
+                child.setVisibility(GONE);
 
-                int cx = (int) (mR *  Math.sin(Math.PI / 2 / (count - 2) * (i-1))  );
-                int cy = (int) (mR *  Math.cos(Math.PI / 2 / (count - 2) * (i-1))  );
+                int cx = (int) (mR *  Math.sin(Math.PI / 2 / (count - 3) * (i-2))  );
+                int cy = (int) (mR *  Math.cos(Math.PI / 2 / (count - 3) * (i-2))  );
                 // childview width
                 int cWidth = child.getMeasuredWidth();
                 // childview height
@@ -171,14 +186,33 @@ public class ArcMenu3 extends ViewGroup {
 
                 Log.e("zyr", "child " + i + ":" + cx + " , " + cy);
 //                child.layout(cx, cy, cx + cWidth, cy + cHeight);
-                child.layout(childX.get(0).intValue(),childY.get(0).intValue(), childX.get(0).intValue() + cWidth, childY.get(0).intValue() + cHeight);
+                child.layout(childX.get(1).intValue(),childY.get(1).intValue(), childX.get(1).intValue() + cWidth, childY.get(1).intValue() + cHeight);
             }
 
         }
     }
 
+    private void layoutWhiteView() {
+        getChildAt(0).layout(0,0, screenWidth, screenHeigh);
+        getChildAt(0).setVisibility(GONE);
+        childX.add(0.0f);
+        childY.add(0.0f);
+        getChildAt(0).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mCurrentStatus ==Status.CLOSE){
+
+                }else{
+                    alphaView(300);
+                    toggleMenu(300);
+                }
+
+            }
+        });
+    }
+
     private void layoutPointButton(int l,int t,int r,int b) {
-        pointBtn = getChildAt(0);
+        pointBtn = getChildAt(1);
         if(isPointById){
             pointView = pointBtn.findViewById(pointId);
         }
@@ -186,9 +220,9 @@ public class ArcMenu3 extends ViewGroup {
             @Override
             public void onClick(View v) {
                 if(isPointById){
-                    rotateView(pointView, 0f, 270f, 300);
+                    rotateView(pointView,315,300);
                 }else{
-                    rotateView(pointBtn, 0f, 270f, 300);
+                    rotateView(pointBtn,315,300);
                 }
                 toggleMenu(300);
             }
@@ -220,8 +254,8 @@ public class ArcMenu3 extends ViewGroup {
         }
         pointX = x + width/2;
         pointY = y + height/2;
-        childX.add( x + 0.0f);
-        childY.add( y + 0.0f);
+        childX.add(x + 0.0f);
+        childY.add(y + 0.0f);
         Log.e("zyr", "l,t:" + l + " , " + t);
         Log.e("zyr", "child 0:" + x + " , " + y);
         pointBtn.layout(x, y, x + width, y + height);
@@ -230,25 +264,41 @@ public class ArcMenu3 extends ViewGroup {
      * 按钮的旋转动画
      *
      * @param view
-     * @param fromDegrees
      * @param toDegrees
      * @param durationMillis
      */
-    public static void rotateView(View view, float fromDegrees,
-                                  float toDegrees, int durationMillis)
+    public void rotateView(View view, float toDegrees, int durationMillis)
     {
-        RotateAnimation rotate = new RotateAnimation(fromDegrees, toDegrees,
-                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
-                0.5f);
-        rotate.setDuration(durationMillis);
-        rotate.setFillAfter(true);
-        view.startAnimation(rotate);
+        if(mCurrentStatus == Status.CLOSE){//to open
+           alphaView(durationMillis);
+
+            ObjectAnimator rotateAnim = ObjectAnimator.ofFloat(view,"rotation",0,toDegrees).setDuration(durationMillis);
+            rotateAnim.start();
+        }else if(mCurrentStatus == Status.OPEN){// to close
+            alphaView(durationMillis);
+
+            ObjectAnimator rotateAnim = ObjectAnimator.ofFloat(view,"rotation",toDegrees,0).setDuration(durationMillis);
+            rotateAnim.start();
+        }
+
+    }
+
+    public void alphaView(int durationMillis){
+        if(mCurrentStatus == Status.CLOSE){//to open
+            getChildAt(0).setVisibility(VISIBLE);
+            ObjectAnimator alphaAnim = ObjectAnimator.ofFloat(getChildAt(0),"alpha",0.0f,0.8f).setDuration(durationMillis);
+            alphaAnim.start();
+        } else if(mCurrentStatus == Status.OPEN){// to close
+            getChildAt(0).setVisibility(VISIBLE);
+            ObjectAnimator alphaAnim = ObjectAnimator.ofFloat(getChildAt(0),"alpha",0.8f,0.0f).setDuration(durationMillis);
+            alphaAnim.start();
+        }
     }
 
     public void toggleMenu(int durationMillis)
     {
         int count = getChildCount();
-        for (int i = 1; i < count; i++)
+        for (int i = 2; i < count; i++)
         {
             final View childView = getChildAt(i);
             childView.setVisibility(View.VISIBLE);
@@ -355,7 +405,7 @@ public class ArcMenu3 extends ViewGroup {
      */
     private void menuItemAnin(int item)
     {
-        for (int i = 1; i < getChildCount(); i++)
+        for (int i = 2; i < getChildCount(); i++)
         {
             View childView = getChildAt(i);
             if (i == item)

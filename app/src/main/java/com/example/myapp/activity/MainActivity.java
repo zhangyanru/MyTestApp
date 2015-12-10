@@ -1,8 +1,6 @@
 package com.example.myapp.activity;
 
 import android.app.Activity;
-import android.app.DatePickerDialog;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -13,7 +11,6 @@ import android.widget.DatePicker;
 import android.widget.Toast;
 import com.example.myapp.R;
 import com.example.myapp.fragment.AnimFragment;
-import com.example.myapp.view.ArcMenu2;
 import com.example.myapp.view.DatePickerDialogWithMaxMin;
 
 import java.util.Calendar;
@@ -38,6 +35,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button datePicker;
     private Button arcMenu2;
     private Button dragView;
+    private Button slidListview;
+    private Button autoSlid;
+    private Button lookBigImage;
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
 
@@ -67,6 +67,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
         fragmentAnim = (Button)findViewById(R.id.fragment_anim);
         arcMenu2 = (Button)findViewById(R.id.arc_menu2);
         dragView = (Button)findViewById(R.id.drag_view);
+        slidListview = (Button)findViewById(R.id.hslid_listview);
+        autoSlid = (Button)findViewById(R.id.auto_slid);
+        lookBigImage = (Button)findViewById(R.id.look_big_image);
 
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
@@ -89,6 +92,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
         fragmentAnim.setOnClickListener(this);
         arcMenu2.setOnClickListener(this);
         dragView.setOnClickListener(this);
+        slidListview.setOnClickListener(this);
+        autoSlid.setOnClickListener(this);
+        lookBigImage.setOnClickListener(this);
     }
 
     public void show(Class<? extends Activity> activity){
@@ -189,6 +195,15 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.drag_view:
                 show(DragViewActivity.class);
+                break;
+            case R.id.hslid_listview:
+                show(HSlidListViewActivity.class);
+                break;
+            case R.id.auto_slid:
+                show(AutoSlidActivity.class);
+                break;
+            case R.id.look_big_image:
+                show(SmallImageActivity.class);
                 break;
             default:
                 break;
