@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:gravity="center_vertical"
+    android:background="#f0000f"
+    xmlns:android="http://schemas.android.com/apk/res/android" /><!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/src/main/res/layout/array_adapter_2.xml -->

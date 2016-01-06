@@ -44,6 +44,12 @@
         <activity android:name=".activity.AutoSlidActivity"/>
         <activity android:name=".activity.BigImageActivity"/>
         <activity android:name=".activity.SmallImageActivity"/>
+        <activity android:name=".activity.TouchActivity"/>
+        <activity android:name=".activity.CustomViewGroupActivity"/>
+        <activity android:name=".activity.DinamicLineActivity"/>
+        <activity android:name=".activity.RandomImageCodeActivity"/>
+        <activity android:name=".activity.MutilAdapterActivity"/>
+        <activity android:name=".activity.SectionedDemo"/>
 
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->

@@ -96,6 +96,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="点击查看大图"/>
+            <Button android:id="@+id/touch_event_dispatch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="点击事件传递"/>
+            <Button android:id="@+id/custom_view_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="自定义ViewGroup深入探究"/>
+            <Button android:id="@+id/dinamic_line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="动态生成折线"/>
+            <Button android:id="@+id/random_image_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="随机生成图片验证码"/>
+            <Button android:id="@+id/mutil_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="多个listview"/>
         </LinearLayout>
     </ScrollView>
 

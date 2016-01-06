@@ -50,6 +50,12 @@
         <activity android:name="com.example.myapp.activity.AutoSlidActivity" />
         <activity android:name="com.example.myapp.activity.BigImageActivity" />
         <activity android:name="com.example.myapp.activity.SmallImageActivity" />
+        <activity android:name="com.example.myapp.activity.TouchActivity" />
+        <activity android:name="com.example.myapp.activity.CustomViewGroupActivity" />
+        <activity android:name="com.example.myapp.activity.DinamicLineActivity" />
+        <activity android:name="com.example.myapp.activity.RandomImageCodeActivity" />
+        <activity android:name="com.example.myapp.activity.MutilAdapterActivity" />
+        <activity android:name="com.example.myapp.activity.SectionedDemo" />
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->
         <activity

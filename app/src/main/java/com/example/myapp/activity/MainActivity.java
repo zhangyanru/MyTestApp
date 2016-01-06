@@ -38,6 +38,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button slidListview;
     private Button autoSlid;
     private Button lookBigImage;
+    private Button touchuEvent;
+    private Button customViewGroup;
+    private Button dinamicLine;
+    private Button randomImageCode;
+    private Button mutilListView;
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
 
@@ -70,9 +75,14 @@ public class MainActivity extends Activity implements View.OnClickListener{
         slidListview = (Button)findViewById(R.id.hslid_listview);
         autoSlid = (Button)findViewById(R.id.auto_slid);
         lookBigImage = (Button)findViewById(R.id.look_big_image);
-
+        touchuEvent = (Button)findViewById(R.id.touch_event_dispatch);
+        customViewGroup = (Button)findViewById(R.id.custom_view_group);
+        dinamicLine = (Button)findViewById(R.id.dinamic_line);
+        randomImageCode = (Button)findViewById(R.id.random_image_code);
+        mutilListView = (Button)findViewById(R.id.mutil_listview);
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
+
     }
 
     public void initListener(){
@@ -95,6 +105,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
         slidListview.setOnClickListener(this);
         autoSlid.setOnClickListener(this);
         lookBigImage.setOnClickListener(this);
+        touchuEvent.setOnClickListener(this);
+        customViewGroup.setOnClickListener(this);
+        dinamicLine.setOnClickListener(this);
+        randomImageCode.setOnClickListener(this);
+        mutilListView.setOnClickListener(this);
     }
 
     public void show(Class<? extends Activity> activity){
@@ -204,6 +219,22 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.look_big_image:
                 show(SmallImageActivity.class);
+                break;
+            case R.id.touch_event_dispatch:
+                show(TouchActivity.class);
+                break;
+            case R.id.custom_view_group:
+                show(CustomViewGroupActivity.class);
+                break;
+            case R.id.dinamic_line:
+                show(DinamicLineActivity.class);
+                break;
+            case R.id.random_image_code:
+                show(RandomImageCodeActivity.class);
+                break;
+            case R.id.mutil_listview:
+//                show(SectionedDemo.class);
+                show(MutilAdapterActivity.class);
                 break;
             default:
                 break;
