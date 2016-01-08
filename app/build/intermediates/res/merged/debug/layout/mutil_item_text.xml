@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:gravity="center"
+    android:background="@color/white"
+    android:layout_margin="5dp"
+    android:text="text"
+    android:textColor="#000000"
+    android:id="@+id/text_view">
+
+</TextView><!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/src/main/res/layout/mutil_item_text.xml -->

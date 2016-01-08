@@ -43,6 +43,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button dinamicLine;
     private Button randomImageCode;
     private Button mutilListView;
+    private Button mutilItemListView;
+    private Button yindao;
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
 
@@ -80,6 +82,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
         dinamicLine = (Button)findViewById(R.id.dinamic_line);
         randomImageCode = (Button)findViewById(R.id.random_image_code);
         mutilListView = (Button)findViewById(R.id.mutil_listview);
+        mutilItemListView = (Button)findViewById(R.id.mutil_item_listview);
+        yindao = (Button)findViewById(R.id.yindao);
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
@@ -110,6 +114,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
         dinamicLine.setOnClickListener(this);
         randomImageCode.setOnClickListener(this);
         mutilListView.setOnClickListener(this);
+        mutilItemListView.setOnClickListener(this);
+        yindao.setOnClickListener(this);
     }
 
     public void show(Class<? extends Activity> activity){
@@ -158,7 +164,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 show(ViewPagerActivity.class);
                 break;
             case R.id.viewpager_fragment:
-                show(ViewPagerFragmentActivity.class);
+//                show(ViewPagerFragmentActivity.class);
                 break;
             case R.id.topbar:
                 show(TopBarActivity.class);
@@ -235,6 +241,12 @@ public class MainActivity extends Activity implements View.OnClickListener{
             case R.id.mutil_listview:
 //                show(SectionedDemo.class);
                 show(MutilAdapterActivity.class);
+                break;
+            case R.id.mutil_item_listview:
+                show(MutilItemListViewActivity.class);
+                break;
+            case R.id.yindao:
+                show(YindaoActivity.class);
                 break;
             default:
                 break;

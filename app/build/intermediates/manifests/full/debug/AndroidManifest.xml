@@ -56,6 +56,8 @@
         <activity android:name="com.example.myapp.activity.RandomImageCodeActivity" />
         <activity android:name="com.example.myapp.activity.MutilAdapterActivity" />
         <activity android:name="com.example.myapp.activity.SectionedDemo" />
+        <activity android:name="com.example.myapp.activity.MutilItemListViewActivity" />
+        <activity android:name="com.example.myapp.activity.YindaoActivity" />
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->
         <activity

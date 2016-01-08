@@ -9,18 +9,18 @@
         <dex dex="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-5a5332483cc3629e3f1c4e5397bcbcbf1b496a8b.jar" />
     </item>
     <item
-        jar="/home/zyr/project/Yanru/MyTestApp/app/libs/weiboSDKCore_3.1.2.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1c0bfcddc15de1e8a90ff166da0b9abe011346af">
-        <dex dex="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/pre-dexed/debug/weiboSDKCore_3.1.2-d296c6c1406ac2cd51a83563d3a5646464b42ca9.jar" />
-    </item>
-    <item
         jar="/home/zyr/project/Yanru/MyTestApp/app/libs/android-support-v7-recyclerview.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="d0a070bea031e60ee29ccf4b7d730c32253efd34">
         <dex dex="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/pre-dexed/debug/android-support-v7-recyclerview-f9bb95d9a4e851826967f16d693823dae03fb957.jar" />
+    </item>
+    <item
+        jar="/home/zyr/project/Yanru/MyTestApp/app/libs/weiboSDKCore_3.1.2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1c0bfcddc15de1e8a90ff166da0b9abe011346af">
+        <dex dex="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/pre-dexed/debug/weiboSDKCore_3.1.2-d296c6c1406ac2cd51a83563d3a5646464b42ca9.jar" />
     </item>
 
 </items>

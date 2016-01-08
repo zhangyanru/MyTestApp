@@ -116,6 +116,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="多个listview"/>
+            <Button android:id="@+id/mutil_item_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="listview一行展示多个item"/>
+            <Button android:id="@+id/yindao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="引导页"/>
         </LinearLayout>
     </ScrollView>
 
