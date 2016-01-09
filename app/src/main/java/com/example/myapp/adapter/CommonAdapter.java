@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.example.myapp.R;
@@ -17,12 +19,17 @@ import java.util.ArrayList;
  * Time: 下午2:52
  * Email: yanru.zhang@renren-inc.com
  */
-public class CommonAdapter extends BaseAdapter {
-    ArrayList<String> arrayList = new ArrayList<String>();
+public class CommonAdapter extends BaseAdapter implements Filterable{
+    public ArrayList<String> arrayList = new ArrayList<String>();
     private Context context;
+    private MyFilter mFilter;
 
     public CommonAdapter(Context context){
         this.context = context;
+    }
+    public CommonAdapter(Context context,ArrayList<String> arrayList){
+        this.context = context;
+        this.arrayList = new ArrayList<String>(arrayList);
     }
 
     public void setData(ArrayList<String> array){
@@ -39,7 +46,7 @@ public class CommonAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return position;
+        return arrayList.get(position);
     }
 
     @Override
@@ -60,6 +67,36 @@ public class CommonAdapter extends BaseAdapter {
 
         viewHolder.textView.setText(arrayList.get(position));
         return convertView;
+    }
+
+    @Override
+    public Filter getFilter() {
+        if (mFilter == null) {
+            mFilter = new MyFilter();
+        }
+        return mFilter;
+    }
+    class MyFilter extends Filter {
+
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            FilterResults results = new FilterResults();
+            if (arrayList == null) {
+                arrayList = new ArrayList<String>();
+            }
+            results.values = arrayList;
+            results.count = arrayList.size();
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            if (results.count > 0) {
+                notifyDataSetChanged();
+            } else {
+                notifyDataSetInvalidated();
+            }
+        }
     }
 
     class ViewHolder{

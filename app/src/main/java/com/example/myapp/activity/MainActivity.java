@@ -45,6 +45,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button mutilListView;
     private Button mutilItemListView;
     private Button yindao;
+    private Button autoEdittext;
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
 
@@ -84,6 +85,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         mutilListView = (Button)findViewById(R.id.mutil_listview);
         mutilItemListView = (Button)findViewById(R.id.mutil_item_listview);
         yindao = (Button)findViewById(R.id.yindao);
+        autoEdittext = (Button)findViewById(R.id.auto_textview);
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
@@ -116,6 +118,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         mutilListView.setOnClickListener(this);
         mutilItemListView.setOnClickListener(this);
         yindao.setOnClickListener(this);
+        autoEdittext.setOnClickListener(this);
     }
 
     public void show(Class<? extends Activity> activity){
@@ -247,6 +250,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.yindao:
                 show(YindaoActivity.class);
+                break;
+            case R.id.auto_textview:
+                show(AutoCompleteEdittextActivity.class);
                 break;
             default:
                 break;
