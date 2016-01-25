@@ -16,6 +16,7 @@ import android.widget.MultiAutoCompleteTextView;
 import com.example.myapp.R;
 import com.example.myapp.adapter.AutoTextAdapater;
 import com.example.myapp.adapter.CommonAdapter;
+import com.example.myapp.view.AutoCompleteEmailViewWithClearBtn;
 
 import java.util.ArrayList;
 
@@ -25,8 +26,9 @@ import java.util.ArrayList;
  * Time: 下午5:40
  * Email: yanru.zhang@renren-inc.com
  */
-public class AutoCompleteEdittextActivity extends Activity{
+public class AutoCompleteEdittextActivity extends Activity implements TextWatcher{
     private AutoCompleteTextView autoCompleteTextView;
+    private AutoCompleteEmailViewWithClearBtn emailViewWithClearBtn;
     private ArrayAdapter<String> arrayAdapter;
     private AutoTextAdapater autoTextAdapater;
     private CommonAdapter commonAdapter;
@@ -37,7 +39,9 @@ public class AutoCompleteEdittextActivity extends Activity{
 
         setContentView(R.layout.activity_auto_complete_layout);
         autoCompleteTextView = (AutoCompleteTextView)findViewById(R.id.auto_complete_text);
-
+        emailViewWithClearBtn = (AutoCompleteEmailViewWithClearBtn)findViewById(R.id.email);
+        autoCompleteTextView.addTextChangedListener(this);
+        emailViewWithClearBtn.addTextChangedListener(this);
         final String [] arr={"@qq.com","@gmail.com","@163.com"};
         arrayList.add("@qq.com");
         arrayList.add("@gmail.com");
@@ -75,5 +79,24 @@ public class AutoCompleteEdittextActivity extends Activity{
             }
         });
         autoCompleteTextView.setThreshold(1); //使得在输入n个字符之后便开启自动完成
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        if(emailViewWithClearBtn.getText().length() > 0 && autoCompleteTextView.getText().length()>0){
+            Log.d("zyr","true" + "  " + emailViewWithClearBtn.getText());
+        }else{
+            Log.d("zyr","false");
+        }
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
     }
 }

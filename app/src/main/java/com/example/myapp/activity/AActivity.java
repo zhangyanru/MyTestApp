@@ -3,6 +3,7 @@ package com.example.myapp.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -49,9 +50,11 @@ public class AActivity extends BaseActivity{
         if(resultCode ==RESULT_OK){
             switch (requestCode){
                 case TO_B_ACTIVITY :
-                    String haha = data.getStringExtra("haha");
-                    String ee = data.getStringExtra("ee");
-                    tv.setText(haha+ee);
+                    Log.d("zyr","aaaaaaaaaa" );
+                    finish();
+//                    String haha = data.getStringExtra("haha");
+//                    String ee = data.getStringExtra("ee");
+//                    tv.setText(haha+ee);
                 break;
             }
         }

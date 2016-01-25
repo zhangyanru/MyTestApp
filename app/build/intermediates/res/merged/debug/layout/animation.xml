@@ -56,5 +56,21 @@
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher"/>
+    <LinearLayout android:id="@+id/linear"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:orientation="vertical">
+        <EditText  android:id="@+id/edit"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:hint="edit"
+            android:background="@color/primary"/>
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:hint="edit"
+            android:background="@color/primary_light"/>
+    </LinearLayout>
+
 
 </GridLayout><!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/src/main/res/layout/animation.xml -->

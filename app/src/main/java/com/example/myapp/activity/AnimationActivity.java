@@ -17,7 +17,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.*;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+
 import com.example.myapp.R;
 
 import java.security.spec.EllipticCurve;
@@ -37,6 +40,8 @@ public class AnimationActivity extends Activity implements View.OnClickListener{
     private Button valueAnim;
     private Button animSet;
     private ImageView imageView;
+    private EditText editText;
+    private LinearLayout linearLayout;
     private Button transX;
     private Button transX2;
     @Override
@@ -54,6 +59,8 @@ public class AnimationActivity extends Activity implements View.OnClickListener{
         rotate = (Button)findViewById(R.id.rotate);
         scale = (Button)findViewById(R.id.scale);
         imageView = (ImageView)findViewById(R.id.image);
+        editText = (EditText)findViewById(R.id.edit);
+        linearLayout = (LinearLayout)findViewById(R.id.linear);
         all = (Button)findViewById(R.id.all);
         xml = (Button)findViewById(R.id.xml);
         objAnim = (Button)findViewById(R.id.object_anim);
@@ -274,8 +281,8 @@ public class AnimationActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.tran_x2:
                 AnimatorSet animatorSet2 = new AnimatorSet();
-                ObjectAnimator objectAnimator3 = ObjectAnimator.ofFloat(imageView,"translationX",300).setDuration(5000);
-                ObjectAnimator objectAnimator4 = ObjectAnimator.ofFloat(imageView,"translationY",300).setDuration(5000);
+                ObjectAnimator objectAnimator3 = ObjectAnimator.ofFloat(linearLayout,"translationX",300).setDuration(5000);
+                ObjectAnimator objectAnimator4 = ObjectAnimator.ofFloat(linearLayout,"translationY",300).setDuration(5000);
                 animatorSet2.playTogether(objectAnimator3,objectAnimator4);
                 animatorSet2.start();
                 break;

@@ -46,6 +46,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button mutilItemListView;
     private Button yindao;
     private Button autoEdittext;
+    private Button xmlTest;
+    private Button bitmapShaderTest;
+    private Button dragGridView;
+    private Button surfaceView;
+    private Button pullToRefreshTest;
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
 
@@ -86,6 +91,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
         mutilItemListView = (Button)findViewById(R.id.mutil_item_listview);
         yindao = (Button)findViewById(R.id.yindao);
         autoEdittext = (Button)findViewById(R.id.auto_textview);
+        xmlTest = (Button)findViewById(R.id.xml_test);
+        bitmapShaderTest = (Button)findViewById(R.id.bitmap_shader_test);
+        dragGridView = (Button)findViewById(R.id.drag_gridview);
+        surfaceView = (Button)findViewById(R.id.surface_view);
+        pullToRefreshTest = (Button)findViewById(R.id.pull_to_refresh_test);
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
@@ -119,6 +129,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
         mutilItemListView.setOnClickListener(this);
         yindao.setOnClickListener(this);
         autoEdittext.setOnClickListener(this);
+        xmlTest.setOnClickListener(this);
+        bitmapShaderTest.setOnClickListener(this);
+        dragGridView.setOnClickListener(this);
+        surfaceView.setOnClickListener(this);
+        pullToRefreshTest.setOnClickListener(this);
     }
 
     public void show(Class<? extends Activity> activity){
@@ -253,6 +268,21 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.auto_textview:
                 show(AutoCompleteEdittextActivity.class);
+                break;
+            case R.id.xml_test:
+                show(XmlTestActivity.class);
+                break;
+            case R.id.bitmap_shader_test:
+                show(BitmapShaderTestActivity.class);
+                break;
+            case R.id.drag_gridview:
+                show(DragGridActivity.class);
+                break;
+            case R.id.surface_view:
+                show(MySuraceViewActivity.class);
+                break;
+            case R.id.pull_to_refresh_test:
+                show(PullToRefreshTestActivity.class);
                 break;
             default:
                 break;

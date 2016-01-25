@@ -71,6 +71,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dex-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.askerov/DynamicGrid/e3072b7c26/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jacoco" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javaResources" />
@@ -92,5 +93,7 @@
     <orderEntry type="library" exported="" name="weiboSDKCore_3.1.2" level="project" />
     <orderEntry type="library" exported="" name="support-v4-19.1.0" level="project" />
     <orderEntry type="library" exported="" name="android-support-v7-appcompat" level="project" />
+    <orderEntry type="library" exported="" name="DynamicGrid-e3072b7c26" level="project" />
+    <orderEntry type="module" module-name="pulltorefresh" exported="" />
   </component>
 </module>

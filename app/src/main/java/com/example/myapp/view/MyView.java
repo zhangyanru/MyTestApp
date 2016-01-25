@@ -36,7 +36,7 @@ public class MyView extends View {
                 Log.d("zyr","View dispatchTouchEvent ACTION_MOVE");
                 break;
             case MotionEvent.ACTION_UP:
-                Log.d("zyr","View dispatchTouchEvent ACTION_UP");
+//                Log.d("zyr","View dispatchTouchEvent ACTION_UP");
                 break;
             default:
                 break;
@@ -54,11 +54,11 @@ public class MyView extends View {
                 Log.d("zyr","View onTouchEvent ACTION_MOVE");
                 break;
             case MotionEvent.ACTION_UP:
-                Log.d("zyr","View onTouchEvent ACTION_UP");
+//                Log.d("zyr","View onTouchEvent ACTION_UP");
                 break;
             default:
                 break;
         }
-        return super.onTouchEvent(event);
+        return false;
     }
 }

@@ -53,6 +53,11 @@
         <activity android:name=".activity.MutilItemListViewActivity"/>
         <activity android:name=".activity.YindaoActivity"/>
         <activity android:name=".activity.AutoCompleteEdittextActivity"/>
+        <activity android:name=".activity.XmlTestActivity"/>
+        <activity android:name=".activity.BitmapShaderTestActivity"/>
+        <activity android:name=".activity.DragGridActivity"/>
+        <activity android:name=".activity.MySuraceViewActivity"/>
+        <activity android:name=".activity.PullToRefreshTestActivity"/>
 
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->

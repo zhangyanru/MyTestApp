@@ -30,50 +30,5 @@ public class TouchActivity extends Activity {
         button =(MyView) findViewById(R.id.button);
         textView = (TextView)findViewById(R.id.text);
         linearLayout = (MyLinearLayout)findViewById(R.id.linear_layout);
-
-
-//        linearLayout.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                switch (event.getAction()){
-//                    case MotionEvent.ACTION_DOWN:
-//                        textView.append("linearLayout ACTION_DOWN!\n");
-//                        break;
-//                    case MotionEvent.ACTION_UP:
-//                        textView.append("linearLayout ACTION_UP!\n");
-//
-//                        break;
-//                    case MotionEvent.ACTION_MOVE:
-//                        textView.append("linearLayout ACTION_MOVE!\n");
-//                        break;
-//                }
-//                return false;
-//            }
-//        });
-//
-//
-        button.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        Log.d("zyr","button ACTION_DOWN!");
-
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        Log.d("zyr", "button ACTION_UP!");
-
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        Log.d("zyr", "button ACTION_MOVE!");
-
-                        break;
-                    default:
-                        break;
-                }
-                return true;
-            }
-        });
-
     }
 }

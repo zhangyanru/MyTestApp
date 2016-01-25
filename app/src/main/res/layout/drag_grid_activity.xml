@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dip"
+    >
+    <com.example.myapp.view.DragGridView
+        android:id="@+id/drag_grid"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="#4682B4"
+        android:numColumns="4"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="5dip"
+        android:horizontalSpacing="5dip">
+    </com.example.myapp.view.DragGridView>
+</LinearLayout>

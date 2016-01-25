@@ -21,6 +21,7 @@ public class BActivity extends BaseActivity {
     @Override
     public void initViews() {
         super.initViews();
+        setResult(RESULT_OK);
         btn = (Button)containerView.findViewById(R.id.btn);
     }
 
@@ -50,10 +51,10 @@ public class BActivity extends BaseActivity {
                     Intent intent = new Intent();
                     Bundle bundle = new Bundle();
                     bundle.putString("haha",string);
-                    bundle.putString("ee","\nAlready finish B Activity!");
+                    bundle.putString("ee", "\nAlready finish B Activity!");
                     intent.putExtras(bundle);
-                    setResult(RESULT_OK,intent);
-                    finish();
+                    setResult(RESULT_OK, intent);
+//                    finish();
                     break;
             }
         }

@@ -9,6 +9,13 @@
         <dex dex="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-5a5332483cc3629e3f1c4e5397bcbcbf1b496a8b.jar" />
     </item>
     <item
+        jar="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/exploded-aar/MyTestApp/pulltorefresh/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1917ec5a8c7f63841964ff7f722c04ba755986cf">
+        <dex dex="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/pre-dexed/debug/classes-6a11a3807e343d711f0aea944bdb4ce44a488dc1.jar" />
+    </item>
+    <item
         jar="/home/zyr/project/Yanru/MyTestApp/app/libs/android-support-v7-recyclerview.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -21,6 +28,13 @@
         revision="22.0.1"
         sha1="1c0bfcddc15de1e8a90ff166da0b9abe011346af">
         <dex dex="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/pre-dexed/debug/weiboSDKCore_3.1.2-d296c6c1406ac2cd51a83563d3a5646464b42ca9.jar" />
+    </item>
+    <item
+        jar="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/exploded-aar/com.github.askerov/DynamicGrid/e3072b7c26/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8e70a0593dbe26512541acbcee822d8c8cfa4138">
+        <dex dex="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/pre-dexed/debug/classes-426abdb7827c46b127c02f79a0213a21455f8ff4.jar" />
     </item>
 
 </items>

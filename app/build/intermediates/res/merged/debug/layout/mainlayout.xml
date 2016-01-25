@@ -128,6 +128,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="输入自动补全"/>
+            <Button android:id="@+id/xml_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="xml test"/>
+            <Button android:id="@+id/bitmap_shader_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bitmap Shader Test"/>
+            <Button android:id="@+id/drag_gridview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="拖拽gridview"/>
+            <Button android:id="@+id/surface_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="自定义SurfaceView"/>
+            <Button android:id="@+id/pull_to_refresh_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PullToRefresh 测试"/>
         </LinearLayout>
     </ScrollView>
 
