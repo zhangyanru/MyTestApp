@@ -148,6 +148,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="PullToRefresh 测试"/>
+            <Button android:id="@+id/dynamic_grid_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DynamicGrid 测试"/>
+            <Button android:id="@+id/pull_to_refresh_and_dynamic_grid_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PullToRefresh ScrollView和DynamicGrid 测试"/>
+            <Button android:id="@+id/image_copy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="图片镜像"/>
         </LinearLayout>
     </ScrollView>
 

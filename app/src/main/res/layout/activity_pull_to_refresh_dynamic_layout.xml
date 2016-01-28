@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--<com.example.myapp.view.PullToRefreshLinearLayout-->
+        <!--android:id="@+id/pull_to_refresh_linearlayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--ptr:ptrMode="pullFromStart">-->
+        <!--<TextView android:id="@+id/text"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="HAHAHA"-->
+            <!--android:textColor="@color/primary"/>-->
+
+        <!--<org.askerov.dynamicgrid.DynamicGridView-->
+            <!--android:id="@+id/dgrid"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:numColumns="3">-->
+
+        <!--</org.askerov.dynamicgrid.DynamicGridView>-->
+    <!--</com.example.myapp.view.PullToRefreshLinearLayout>-->
+
+    <com.example.myapp.view.PullToRefreshDynamicGrid
+        android:id="@+id/pull_dy_grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="3"
+        ptr:ptrMode="both"
+        ptr:ptrDrawable="@drawable/icon_btn">
+
+    </com.example.myapp.view.PullToRefreshDynamicGrid>
+
+</LinearLayout>

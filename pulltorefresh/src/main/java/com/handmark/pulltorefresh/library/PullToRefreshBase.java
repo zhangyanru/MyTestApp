@@ -232,16 +232,21 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 		final int action = event.getAction();
 
 		if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
+			Log.d("zyr","action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP");
 			mIsBeingDragged = false;
 			return false;
 		}
 
 		if (action != MotionEvent.ACTION_DOWN && mIsBeingDragged) {
+			Log.d("zyr","action != MotionEvent.ACTION_DOWN && mIsBeingDragged");
+
 			return true;
 		}
 
 		switch (action) {
 			case MotionEvent.ACTION_MOVE: {
+				Log.d("zyr","MotionEvent.ACTION_MOVE");
+
 				// If we're refreshing, and the flag is set. Eat all MOVE events
 				if (!mScrollingWhileRefreshingEnabled && isRefreshing()) {
 					return true;
@@ -270,6 +275,8 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 						if (mMode.showHeaderLoadingLayout() && diff >= 1f && isReadyForPullStart()) {
 							mLastMotionY = y;
 							mLastMotionX = x;
+							Log.d("zyr","mMode.showHeaderLoadingLayout():" + mMode.showHeaderLoadingLayout() + " && diff >= 1f:" + (diff >= 1f)  + "&& isReadyForPullStart()");
+
 							mIsBeingDragged = true;
 							if (mMode == Mode.BOTH) {
 								mCurrentMode = Mode.PULL_FROM_START;
@@ -277,6 +284,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 						} else if (mMode.showFooterLoadingLayout() && diff <= -1f && isReadyForPullEnd()) {
 							mLastMotionY = y;
 							mLastMotionX = x;
+							Log.d("zyr","mMode.showFooterLoadingLayout() && diff <= -1f && isReadyForPullEnd()");
 							mIsBeingDragged = true;
 							if (mMode == Mode.BOTH) {
 								mCurrentMode = Mode.PULL_FROM_END;
@@ -287,9 +295,11 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 				break;
 			}
 			case MotionEvent.ACTION_DOWN: {
+				Log.d("zyr","MotionEvent.ACTION_DOWN");
 				if (isReadyForPull()) {
 					mLastMotionY = mInitialMotionY = event.getY();
 					mLastMotionX = mInitialMotionX = event.getX();
+					Log.d("zyr","MotionEvent.ACTION_DOWN  isReadyForPull()");
 					mIsBeingDragged = false;
 				}
 				break;

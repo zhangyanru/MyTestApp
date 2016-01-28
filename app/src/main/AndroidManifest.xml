@@ -58,6 +58,10 @@
         <activity android:name=".activity.DragGridActivity"/>
         <activity android:name=".activity.MySuraceViewActivity"/>
         <activity android:name=".activity.PullToRefreshTestActivity"/>
+        <activity android:name=".activity.DynamicGridTestActivity"/>
+        <activity android:name=".activity.PullToRefreshDynamicGridTestActivity"/>
+        <activity android:name=".activity.PullToRefreshViewPagerActivity"/>
+        <activity android:name=".activity.ImageCopyTestActivity"/>
 
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->

@@ -6,8 +6,12 @@ import android.animation.ObjectAnimator;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.PointF;
+import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -15,6 +19,7 @@ import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.animation.*;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,6 +49,9 @@ public class AnimationActivity extends Activity implements View.OnClickListener{
     private LinearLayout linearLayout;
     private Button transX;
     private Button transX2;
+
+    private BitmapDrawable mHoverCell;
+    private Rect mHoverCellOriginalBounds;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +77,26 @@ public class AnimationActivity extends Activity implements View.OnClickListener{
         animSet = (Button)findViewById(R.id.anim_set);
         transX = (Button)findViewById(R.id.tran_x);
         transX2 = (Button)findViewById(R.id.tran_x2);
+
+
+        ViewTreeObserver viewTreeObserver = imageView.getViewTreeObserver();
+        viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                int w = imageView.getWidth();
+                int h = imageView.getHeight();
+                int top = imageView.getTop();
+                int left = imageView.getLeft();
+
+                Bitmap b = getBitmapFromView(imageView);
+                BitmapDrawable drawable = new BitmapDrawable(getResources(), b);
+                mHoverCellOriginalBounds = new Rect(left + 200, top + 200, left + w, top + h);
+                drawable.setBounds(mHoverCellOriginalBounds);
+                drawable.draw(new Canvas());
+            }
+        });
+
+
     }
 
     public void initListener(){
@@ -85,6 +113,13 @@ public class AnimationActivity extends Activity implements View.OnClickListener{
         transX.setOnClickListener(this);
         transX2.setOnClickListener(this);
     }
+    private Bitmap getBitmapFromView(View v) {
+        Bitmap bitmap = Bitmap.createBitmap(v.getWidth(), v.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        v.draw(canvas);
+        return bitmap;
+    }
+
 
     /**
      * Tween Animations的通用方法

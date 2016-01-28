@@ -20,6 +20,7 @@ import android.content.Context;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.ScrollView;
 
@@ -61,6 +62,7 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
 
 	@Override
 	protected boolean isReadyForPullStart() {
+		Log.d("zyr", "isReadyForPullStart:" + (mRefreshableView.getScrollY() == 0) );
 		return mRefreshableView.getScrollY() == 0;
 	}
 
@@ -68,8 +70,11 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
 	protected boolean isReadyForPullEnd() {
 		View scrollViewChild = mRefreshableView.getChildAt(0);
 		if (null != scrollViewChild) {
+			Log.d("zyr", "isReadyForPullEnd:" + (mRefreshableView.getScrollY() >= (scrollViewChild.getHeight() - getHeight())) );
+
 			return mRefreshableView.getScrollY() >= (scrollViewChild.getHeight() - getHeight());
 		}
+		Log.d("zyr", "isReadyForPullEnd:false" );
 		return false;
 	}
 

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- From: file:/build/dynamicgrid/res/values/dimens.xml -->
-    <eat-comment/>
-    <dimen name="dgv_overlap_if_switch_straight_line">16dp</dimen>
-    <!-- From: file:/build/dynamicgrid/res/values/id.xml -->
-    <eat-comment/>
-    <item name="dgv_wobble_tag" type="id"/>
-</resources>

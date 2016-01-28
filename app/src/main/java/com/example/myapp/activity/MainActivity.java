@@ -51,6 +51,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button dragGridView;
     private Button surfaceView;
     private Button pullToRefreshTest;
+    private Button dynamicGridTest;
+    private Button pullDynamicGridTest;
+    private Button imageCopy;
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
 
@@ -96,6 +99,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
         dragGridView = (Button)findViewById(R.id.drag_gridview);
         surfaceView = (Button)findViewById(R.id.surface_view);
         pullToRefreshTest = (Button)findViewById(R.id.pull_to_refresh_test);
+        dynamicGridTest = (Button)findViewById(R.id.dynamic_grid_test);
+        imageCopy = (Button)findViewById(R.id.image_copy);
+        pullDynamicGridTest = (Button)findViewById(R.id.pull_to_refresh_and_dynamic_grid_test);
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
@@ -134,6 +140,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
         dragGridView.setOnClickListener(this);
         surfaceView.setOnClickListener(this);
         pullToRefreshTest.setOnClickListener(this);
+        dynamicGridTest.setOnClickListener(this);
+        pullDynamicGridTest.setOnClickListener(this);
+        imageCopy.setOnClickListener(this);
     }
 
     public void show(Class<? extends Activity> activity){
@@ -283,6 +292,17 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.pull_to_refresh_test:
                 show(PullToRefreshTestActivity.class);
+                break;
+            case R.id.dynamic_grid_test:
+                show(DynamicGridTestActivity.class);
+                break;
+            case R.id.pull_to_refresh_and_dynamic_grid_test:
+//                show(PullToRefreshViewPagerActivity.class);
+                show(PullToRefreshDynamicGridTestActivity.class);
+
+                break;
+            case R.id.image_copy:
+                show(ImageCopyTestActivity.class);
                 break;
             default:
                 break;

@@ -40,7 +40,7 @@
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/exploded-aar/com.github.askerov/DynamicGrid/e3072b7c26/res/values/values.xml -->
+    <!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/exploded-aar/MyTestApp/dynamicgrid/unspecified/res/values/values.xml -->
     <eat-comment/>
     <dimen name="dgv_overlap_if_switch_straight_line">16dp</dimen>
     <!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/exploded-aar/MyTestApp/pulltorefresh/unspecified/res/values/values.xml -->
@@ -50,13 +50,27 @@
     <dimen name="indicator_corner_radius">12dp</dimen>
     <dimen name="indicator_internal_padding">4dp</dimen>
     <dimen name="indicator_right_padding">10dp</dimen>
-    <!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/exploded-aar/com.github.askerov/DynamicGrid/e3072b7c26/res/values/values.xml -->
+    <!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/exploded-aar/MyTestApp/dynamicgrid/unspecified/res/values/values.xml -->
     <eat-comment/>
     <item name="dgv_wobble_tag" type="id"/>
+    <!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/src/main/res/values/ids.xml -->
+    <eat-comment/>
+    <item name="dygrid" type="id"/>
+    <item name="framelayout" type="id"/>
     <!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/exploded-aar/MyTestApp/pulltorefresh/unspecified/res/values/values.xml -->
     <eat-comment/>
     <item name="gridview" type="id"/>
+    <!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/src/main/res/values/ids.xml -->
+    <eat-comment/>
+    <item name="llll" type="id"/>
+    <!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/exploded-aar/MyTestApp/pulltorefresh/unspecified/res/values/values.xml -->
+    <eat-comment/>
     <item name="scrollview" type="id"/>
+    <!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/src/main/res/values/ids.xml -->
+    <eat-comment/>
+    <item name="viewpager" type="id"/>
+    <!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/exploded-aar/MyTestApp/pulltorefresh/unspecified/res/values/values.xml -->
+    <eat-comment/>
     <item name="webview" type="id"/>
     <!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/src/main/res/values/strings.xml -->
     <eat-comment/>
