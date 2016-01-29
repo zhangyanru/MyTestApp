@@ -32,8 +32,6 @@
         android:layout_height="match_parent"
         android:numColumns="3"
         ptr:ptrMode="both"
-        ptr:ptrDrawable="@drawable/icon_btn">
-
-    </com.example.myapp.view.PullToRefreshDynamicGrid>
+        ptr:ptrDrawable="@drawable/vc_0_0_1_newsfeed_loading_anim_repeat"/>
 
 </LinearLayout>
