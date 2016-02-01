@@ -24,48 +24,39 @@ import com.example.myapp.R;
  */
 public class ImageCopyTestActivity extends Activity {
     BitmapDrawable bitmapDrawable;
+
+    private ImageView imageView;
+    private ImageView imageCopyView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.activity_image_copy_layout);
+        imageView = (ImageView)findViewById(R.id.image);
+        imageCopyView = (ImageView)findViewById(R.id.image_copy);
 
-        setContentView(new DrawableTestView(this));
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                bitmapDrawable = new BitmapDrawable(getResources(), getBitmapFromView(imageView));
+//                imageCopyView.setImageDrawable(bitmapDrawable);
+
+                imageView.setDrawingCacheEnabled(true);
+                imageCopyView.setImageBitmap(Bitmap.createBitmap(imageView.getDrawingCache()));
+                imageView.setDrawingCacheEnabled(false);
+                imageView.setImageDrawable(getResources().getDrawable(R.drawable.icon_album));
+            }
+        });
 
     }
-    class DrawableTestView extends View {
-        public DrawableTestView(Context context) {
-            super(context);
-            // BitmapDrawable を作成
-            bitmapDrawable = (BitmapDrawable) context.getResources().getDrawable(R.drawable.icon_album);
-        }
-        @Override
-        public void onDraw(Canvas canvas) {
-            // BitmapDrawable の範囲を設定
-            bitmapDrawable.setBounds(0, 0, 48, 48);
-            // BitmapDrawable の描画
-            bitmapDrawable.draw(canvas);
 
-            // BitmapDrawable のアルファ値を設定
-            bitmapDrawable.setAlpha(128);
-            bitmapDrawable.setBounds(48, 0, 96, 48);
-            bitmapDrawable.draw(canvas);
-            bitmapDrawable.setAlpha(255);
-
-            // BitmapDrawable にアンチエイリアスを設定
-            bitmapDrawable.setAntiAlias(true);
-            bitmapDrawable.setBounds(0, 48, 240, 288);
-            bitmapDrawable.draw(canvas);
-
-            bitmapDrawable.setAntiAlias(false);
-            bitmapDrawable.setBounds(240, 48, 480, 288);
-            bitmapDrawable.draw(canvas);
-
-            bitmapDrawable.setBounds(0, 0, getWidth(), getHeight());
-            // BitmapDrawable にグラビティを設定
-            bitmapDrawable.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
-            bitmapDrawable.draw(canvas);
-        }
-    }
+    /***
+     * 也可以用getDrawingCache()，但是要注意
+     * 1.在调用getDrawingCache()方法从ImageView对象获取图像之前，一定要调用setDrawingCacheEnabled(true)方法，否则，无法从ImageView中获取图像；
+     * 2.在调用getDrawingCache()方法从ImageView对象获取图像之后，一定要调用setDrawingCacheEnabled(false)方法，以清空画图缓冲区，否则，下一次从ImageView对象iv_photo中获取的图像，还是原来的图像。
+     * @param v
+     * @return
+     */
     private Bitmap getBitmapFromView(View v) {
         Bitmap bitmap = Bitmap.createBitmap(v.getWidth(), v.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);

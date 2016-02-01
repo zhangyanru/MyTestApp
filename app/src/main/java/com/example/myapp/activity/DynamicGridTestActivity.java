@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 
 import com.example.myapp.R;
+import com.example.myapp.adapter.CommonAdapter;
 import com.example.myapp.adapter.DynamicGridTestAdapter;
 
 import org.askerov.dynamicgrid.DynamicGridView;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 public class DynamicGridTestActivity extends Activity {
     private DynamicGridView dynamicGridView;
     private DynamicGridTestAdapter adapter;
+    private CommonAdapter commonAdapter;
     private ArrayList<String> arrayList = new ArrayList<String>();
 
     @Override
@@ -33,8 +35,11 @@ public class DynamicGridTestActivity extends Activity {
         for(int i=0;i<10;i++){
             arrayList.add("zyr" + i);
         }
-        adapter = new DynamicGridTestAdapter(this,arrayList,3);
-        dynamicGridView.setAdapter(adapter);
+//        adapter = new DynamicGridTestAdapter(this,arrayList,3);
+//        dynamicGridView.setAdapter(adapter);
+
+        commonAdapter = new CommonAdapter(this,arrayList);
+        dynamicGridView.setAdapter(commonAdapter);
         dynamicGridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
