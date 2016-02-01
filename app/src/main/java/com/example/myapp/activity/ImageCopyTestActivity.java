@@ -38,13 +38,13 @@ public class ImageCopyTestActivity extends Activity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                bitmapDrawable = new BitmapDrawable(getResources(), getBitmapFromView(imageView));
-//                imageCopyView.setImageDrawable(bitmapDrawable);
+                bitmapDrawable = new BitmapDrawable(getResources(), getBitmapFromView(imageView));
+                imageCopyView.setImageDrawable(bitmapDrawable);
 
-                imageView.setDrawingCacheEnabled(true);
-                imageCopyView.setImageBitmap(Bitmap.createBitmap(imageView.getDrawingCache()));
-                imageView.setDrawingCacheEnabled(false);
-                imageView.setImageDrawable(getResources().getDrawable(R.drawable.icon_album));
+//                imageView.setDrawingCacheEnabled(true);
+//                imageCopyView.setImageBitmap(Bitmap.createBitmap(imageView.getDrawingCache()));
+//                imageView.setDrawingCacheEnabled(false);
+//                imageView.setImageDrawable(getResources().getDrawable(R.drawable.icon_album));
             }
         });
 
