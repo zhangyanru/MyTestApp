@@ -3,3 +3,23 @@
 app/build
 dynamicgrid/build
 pulltorefresh/build
+# Eclipse
+.DS_Store
+.settings/
+products/
+bin/
+gen/
+doc/
+obj/
+.classpath
+Thumbs.db
+local.properties
+*.iml
+out/
+.idea/
+.metadata
+/data
+/simian-log.xml
+.gradle
+/build
+/captures

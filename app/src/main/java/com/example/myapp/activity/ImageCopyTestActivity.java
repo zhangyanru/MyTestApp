@@ -41,6 +41,7 @@ public class ImageCopyTestActivity extends Activity {
                 bitmapDrawable = new BitmapDrawable(getResources(), getBitmapFromView(imageView));
                 imageCopyView.setImageDrawable(bitmapDrawable);
 
+
 //                imageView.setDrawingCacheEnabled(true);
 //                imageCopyView.setImageBitmap(Bitmap.createBitmap(imageView.getDrawingCache()));
 //                imageView.setDrawingCacheEnabled(false);
