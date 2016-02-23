@@ -54,6 +54,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button dynamicGridTest;
     private Button pullDynamicGridTest;
     private Button imageCopy;
+    private Button customDynamicGrid;
+    private Button edittextTest;
+    private Button liziTest;
+    private Button gridViewSwitchColums;
+    private Button snowTest;
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
 
@@ -102,6 +107,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
         dynamicGridTest = (Button)findViewById(R.id.dynamic_grid_test);
         imageCopy = (Button)findViewById(R.id.image_copy);
         pullDynamicGridTest = (Button)findViewById(R.id.pull_to_refresh_and_dynamic_grid_test);
+        customDynamicGrid = (Button)findViewById(R.id.custom_dynamic_grid);
+        edittextTest = (Button)findViewById(R.id.edittext_test);
+        liziTest = (Button)findViewById(R.id.lizi_test);
+        gridViewSwitchColums = (Button)findViewById(R.id.grid_view_switch_colums_count);
+        snowTest = (Button)findViewById(R.id.snow_test);
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
@@ -143,6 +153,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
         dynamicGridTest.setOnClickListener(this);
         pullDynamicGridTest.setOnClickListener(this);
         imageCopy.setOnClickListener(this);
+        customDynamicGrid.setOnClickListener(this);
+        edittextTest.setOnClickListener(this);
+        liziTest.setOnClickListener(this);
+        gridViewSwitchColums.setOnClickListener(this);
+        snowTest.setOnClickListener(this);
     }
 
     public void show(Class<? extends Activity> activity){
@@ -303,6 +318,21 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.image_copy:
                 show(ImageCopyTestActivity.class);
+                break;
+            case R.id.custom_dynamic_grid:
+                show(CustomDynamicGridActivity.class);
+                break;
+            case R.id.edittext_test:
+                show(EditTextTestActivity.class);
+                break;
+            case R.id.lizi_test:
+                show(LiziTestActivity.class);
+                break;
+            case R.id.grid_view_switch_colums_count:
+                show(GridViewSwitchColumsActivity.class);
+                break;
+            case R.id.snow_test:
+                show(SnowTestActivity.class);
                 break;
             default:
                 break;

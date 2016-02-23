@@ -68,6 +68,11 @@
         <activity android:name="com.example.myapp.activity.PullToRefreshDynamicGridTestActivity" />
         <activity android:name="com.example.myapp.activity.PullToRefreshViewPagerActivity" />
         <activity android:name="com.example.myapp.activity.ImageCopyTestActivity" />
+        <activity android:name="com.example.myapp.activity.CustomDynamicGridActivity" />
+        <activity android:name="com.example.myapp.activity.EditTextTestActivity" />
+        <activity android:name="com.example.myapp.activity.LiziTestActivity" />
+        <activity android:name="com.example.myapp.activity.GridViewSwitchColumsActivity" />
+        <activity android:name="com.example.myapp.activity.SnowTestActivity" />
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->
         <activity

@@ -1,6 +1,11 @@
 package org.askerov.dynamicgrid;
 
-import android.animation.*;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.TypeEvaluator;
+import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -16,15 +21,16 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.AnimationSet;
-import android.view.animation.ScaleAnimation;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListAdapter;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
 
 /**
  * Author: alex askerov
@@ -512,7 +518,6 @@ public class DynamicGridView extends GridView {
             if (mSelectedItemBitmapCreationListener != null)
                 mSelectedItemBitmapCreationListener.onPreSelectedItemBitmapCreation(selectedView, position, mMobileItemId);
             mHoverCell = getAndAddHoverView(selectedView);
-//            doHoverScaleAnim();
             if (mSelectedItemBitmapCreationListener != null)
                 mSelectedItemBitmapCreationListener.onPostSelectedItemBitmapCreation(selectedView, position, mMobileItemId);
             if (isPostHoneycomb())
@@ -524,16 +529,6 @@ public class DynamicGridView extends GridView {
             }
         }
     }
-
-    private void doHoverScaleAnim() {
-        ObjectAnimator alphaObjectAnimator = ObjectAnimator.ofFloat(mHoverCell,"alpha",1f,0.5f).setDuration(150);
-        ObjectAnimator leftObjectAnimator = ObjectAnimator.ofInt(mHoverCellCurrentBounds, "left", mHoverCellCurrentBounds.left, mHoverCellCurrentBounds.left - 50).setDuration(150);
-        ObjectAnimator rightObjectAnimator = ObjectAnimator.ofFloat(mHoverCellCurrentBounds,"right",mHoverCellCurrentBounds.right,mHoverCellCurrentBounds.right + 50).setDuration(150);
-        AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(alphaObjectAnimator, leftObjectAnimator, rightObjectAnimator);
-        animatorSet.start();
-    }
-
     private void handleMobileCellScroll() {
         mIsMobileScrolling = handleMobileCellScroll(mHoverCellCurrentBounds);
     }

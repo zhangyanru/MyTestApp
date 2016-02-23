@@ -160,6 +160,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="图片镜像"/>
+            <Button android:id="@+id/custom_dynamic_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="自己实现dynamic gridview"/>
+            <Button android:id="@+id/edittext_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="测试多个edittext的unable"/>
+            <Button android:id="@+id/lizi_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="破碎的粒子效果"/>
+            <Button android:id="@+id/grid_view_switch_colums_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="gridview切换列数"/>
+            <Button android:id="@+id/snow_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="下雪的效果"/>
         </LinearLayout>
     </ScrollView>
 

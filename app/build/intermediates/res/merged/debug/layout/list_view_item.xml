@@ -10,4 +10,8 @@
         android:textColor="@color/primary"
         android:textStyle="bold"
         android:paddingLeft="20dp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"/>
 </LinearLayout><!-- From: file:/home/zyr/project/Yanru/MyTestApp/app/src/main/res/layout/list_view_item.xml -->

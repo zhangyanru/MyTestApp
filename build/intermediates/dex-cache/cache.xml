@@ -2,18 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/home/zyr/project/Yanru/MyTestApp/app/libs/weiboSDKCore_3.1.2.jar"
+        jar="/home/zyr/soft/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="1c0bfcddc15de1e8a90ff166da0b9abe011346af">
-        <dex dex="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/pre-dexed/debug/weiboSDKCore_3.1.2-d296c6c1406ac2cd51a83563d3a5646464b42ca9.jar" />
-    </item>
-    <item
-        jar="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/exploded-aar/MyTestApp/dynamicgrid/unspecified/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="b724aa04c2bf9fcdb9f0f5a98e5a64147f77ffa0">
-        <dex dex="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/pre-dexed/debug/classes-1c4da71255dfaf7366aff1a0869fb1aa8970987b.jar" />
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-5a5332483cc3629e3f1c4e5397bcbcbf1b496a8b.jar" />
     </item>
     <item
         jar="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/exploded-aar/MyTestApp/pulltorefresh/unspecified/jars/classes.jar"
@@ -23,18 +16,25 @@
         <dex dex="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/pre-dexed/debug/classes-6a11a3807e343d711f0aea944bdb4ce44a488dc1.jar" />
     </item>
     <item
-        jar="/home/zyr/soft/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
-        <dex dex="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-5a5332483cc3629e3f1c4e5397bcbcbf1b496a8b.jar" />
-    </item>
-    <item
         jar="/home/zyr/project/Yanru/MyTestApp/app/libs/android-support-v7-recyclerview.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="d0a070bea031e60ee29ccf4b7d730c32253efd34">
         <dex dex="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/pre-dexed/debug/android-support-v7-recyclerview-f9bb95d9a4e851826967f16d693823dae03fb957.jar" />
+    </item>
+    <item
+        jar="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/exploded-aar/MyTestApp/dynamicgrid/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c62fa146b060402fac7e67dbda834a237cb9c8db">
+        <dex dex="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/pre-dexed/debug/classes-1c4da71255dfaf7366aff1a0869fb1aa8970987b.jar" />
+    </item>
+    <item
+        jar="/home/zyr/project/Yanru/MyTestApp/app/libs/weiboSDKCore_3.1.2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1c0bfcddc15de1e8a90ff166da0b9abe011346af">
+        <dex dex="/home/zyr/project/Yanru/MyTestApp/app/build/intermediates/pre-dexed/debug/weiboSDKCore_3.1.2-d296c6c1406ac2cd51a83563d3a5646464b42ca9.jar" />
     </item>
 
 </items>

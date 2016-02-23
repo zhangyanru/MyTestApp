@@ -1,8 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
-
-app/build
-dynamicgrid/build
-pulltorefresh/build
 # Eclipse
 .DS_Store
 .settings/
@@ -23,3 +19,7 @@ out/
 .gradle
 /build
 /captures
+
+app/build
+dynamicgrid/build
+pulltorefresh/build

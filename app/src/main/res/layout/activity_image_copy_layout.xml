@@ -10,5 +10,10 @@
     <ImageView android:id="@+id/image_copy"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="@color/white"/>
+        android:background="@color/white"
+        android:visibility="gone"/>
+    <com.example.myapp.view.MyImageView
+        android:id="@+id/my_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

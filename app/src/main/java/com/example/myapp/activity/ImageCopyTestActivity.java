@@ -1,5 +1,6 @@
 package com.example.myapp.activity;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -9,12 +10,17 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.example.myapp.R;
+import com.example.myapp.view.MyImageView;
+
+import java.lang.reflect.Method;
 
 /**
  * Created by zyr
@@ -24,9 +30,16 @@ import com.example.myapp.R;
  */
 public class ImageCopyTestActivity extends Activity {
     BitmapDrawable bitmapDrawable;
-
+    BitmapDrawable bitmapDrawable2;
+    Rect originalRect;
+    Rect currentRect;
+    MyImageView myImageView;
     private ImageView imageView;
     private ImageView imageCopyView;
+
+    private boolean isEditMode = false;
+    private float originalX,originalY,currentX,currentY,deltaX,deltaY;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,18 +47,71 @@ public class ImageCopyTestActivity extends Activity {
         setContentView(R.layout.activity_image_copy_layout);
         imageView = (ImageView)findViewById(R.id.image);
         imageCopyView = (ImageView)findViewById(R.id.image_copy);
+        myImageView = (MyImageView)findViewById(R.id.my_image);
 
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bitmapDrawable = new BitmapDrawable(getResources(), getBitmapFromView(imageView));
-                imageCopyView.setImageDrawable(bitmapDrawable);
-
+//        imageView.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View v) {
+//                Log.d("zyr","onLongClick");
+//                isEditMode = false;
+//                bitmapDrawable = new BitmapDrawable(getResources(), getBitmapFromView(imageView));
+//                imageCopyView.setImageDrawable(bitmapDrawable);
 
 //                imageView.setDrawingCacheEnabled(true);
 //                imageCopyView.setImageBitmap(Bitmap.createBitmap(imageView.getDrawingCache()));
 //                imageView.setDrawingCacheEnabled(false);
 //                imageView.setImageDrawable(getResources().getDrawable(R.drawable.icon_album));
+//
+//                return true;
+//            }
+//        });
+
+        imageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        Log.d("zyr", "onTouch ACTION_DOWN");
+                        originalX = event.getX();
+                        originalY = event.getY();
+                        bitmapDrawable2 = new BitmapDrawable(getResources(), getBitmapFromView(imageView));
+                        originalRect = new Rect((int)originalX,(int)originalY,imageView.getWidth()+100,imageView.getHeight()+100);
+                        currentRect = new Rect(originalRect);
+                        bitmapDrawable2.setBounds(currentRect);
+                        myImageView.setBitmapDrawable(bitmapDrawable2);
+                        myImageView.postInvalidate();
+                        Log.d("zyr", "originalX:" + originalX + "    originalY:" + originalY);
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        Log.d("zyr", "onTouch ACTION_MOVE");
+                        currentX = event.getX();
+                        currentY = event.getY();
+                        deltaX = currentX - originalX;
+                        deltaY = currentY - originalY;
+                        currentRect.offsetTo(originalRect.left + (int)deltaX, originalRect.top + (int)deltaY);
+                        bitmapDrawable2.setBounds(currentRect);
+                        myImageView.setBitmapDrawable(bitmapDrawable2);
+                        myImageView.postInvalidate();
+                        if (isEditMode) {
+                            imageCopyView.setTranslationX(deltaX);
+                            imageCopyView.setTranslationY(deltaY);
+                            Log.d("zyr", "deltaX:" + deltaX + "    deltaY:" + deltaY);
+                        }
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        Log.d("zyr", "onTouch ACTION_UP");
+                        isEditMode = false;
+                        break;
+                }
+                return false;
+            }
+        });
+
+
+        imageCopyView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("zyr", "click imageCopyView");
             }
         });
 
