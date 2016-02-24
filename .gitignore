@@ -20,6 +20,6 @@ out/
 /build
 /captures
 
-app/build
+/app/build
 dynamicgrid/build
 pulltorefresh/build

@@ -180,6 +180,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="下雪的效果"/>
+            <Button android:id="@+id/mask_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="蒙层"/>
         </LinearLayout>
     </ScrollView>
 
