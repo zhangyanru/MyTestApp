@@ -2,6 +2,7 @@
 # Eclipse
 local.properties
 *.iml
+*.apk
 .idea/
 .gradle/
 /build/
