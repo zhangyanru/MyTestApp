@@ -1,25 +1,11 @@
 # Created by .ignore support plugin (hsz.mobi)
 # Eclipse
-.DS_Store
-.settings/
-products/
-bin/
-gen/
-doc/
-obj/
-.classpath
-Thumbs.db
 local.properties
 *.iml
-out/
 .idea/
-.metadata
-/data
-/simian-log.xml
-.gradle
-/build
-/captures
+.gradle/
+/build/
 
-/app/build
-dynamicgrid/build
-pulltorefresh/build
+/app/build/
+dynamicgrid/build/
+pulltorefresh/build/

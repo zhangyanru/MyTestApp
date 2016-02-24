@@ -183,7 +183,7 @@
             <Button android:id="@+id/mask_test"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="蒙层"/>
+                android:text="蒙  层"/>
         </LinearLayout>
     </ScrollView>
 
