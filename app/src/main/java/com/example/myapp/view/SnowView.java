@@ -31,7 +31,7 @@ import com.example.myapp.Model.Snow;
  * -->  onDraw
  * -->  onDetackedFromWindow
  *
- *
+ *    
  *
      1、onFinishInflate() 当View中所有的子控件均被映射成xml后触发 。
      2、onMeasure( int , int ) 确定所有子元素的大小 。
