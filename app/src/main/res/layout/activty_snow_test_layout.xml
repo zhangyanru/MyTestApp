@@ -2,13 +2,44 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <LinearLayout android:id="@+id/btn_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <Button android:id="@+id/snow_btn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="雪花" />
+        <Button android:id="@+id/yunbao_btn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="元宝" />
+        <Button android:id="@+id/danmu_btn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="弹幕" />
+    </LinearLayout>
+
     <ImageView
+        android:id="@+id/image"
+        android:layout_below="@+id/btn_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/tree2"
         android:scaleType="centerCrop"/>
 
     <com.example.myapp.view.SnowView
+        android:id="@+id/snow_view"
+        android:layout_below="@+id/btn_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <com.example.myapp.view.DanMuViewGroup
+        android:layout_below="@+id/btn_layout"
+        android:id="@+id/danmu_viewgroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.example.myapp.view.DanMuViewGroup>
 </RelativeLayout>
