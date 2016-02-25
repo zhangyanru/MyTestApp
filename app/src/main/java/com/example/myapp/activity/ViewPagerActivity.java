@@ -43,25 +43,24 @@ public class ViewPagerActivity extends BaseActivity {
     }
 
     @Override
-    protected int onSetContainerViewId() {
-        return R.layout.viewpager;
-    }
-
-    @Override
-    public void initViews() {
-        super.initViews();
+    protected void initView() {
         viewPager = (ViewPager)containerView.findViewById(R.id.myviewpager);
         pagerTabStrip = (PagerTabStrip)containerView.findViewById(R.id.pagertab);
     }
 
     @Override
+    protected int onSetContainerViewId() {
+        return R.layout.viewpager;
+    }
+
+    @Override
     public void initListener() {
-        super.initListener();
+
     }
 
     @Override
     public void onClick(View v) {
-        super.onClick(v);
+
     }
 
     class MyAdapter extends PagerAdapter{

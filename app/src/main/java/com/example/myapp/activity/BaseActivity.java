@@ -14,25 +14,24 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initViews();
+        init();
+        initView();
         initListener();
     }
+
+    protected abstract void initView();
+
     protected abstract int onSetContainerViewId();
 
-    public void initViews(){
+    public void init(){
         containerView = View.inflate(this,onSetContainerViewId(),null);
         setContentView(containerView);
-
     }
 
-    public void initListener(){
-
-    }
+    public abstract void initListener();
 
     @Override
-    public void onClick(View v) {
-
-    }
+    public abstract void onClick(View v);
 
     public void show(Context context,Class<? extends Activity> activity){
         Intent intent = new Intent();

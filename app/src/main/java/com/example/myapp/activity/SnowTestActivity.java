@@ -1,6 +1,7 @@
 package com.example.myapp.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import com.example.myapp.R;
 import com.example.myapp.view.DanMuViewGroup;
 import com.example.myapp.view.SnowView;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -61,13 +63,13 @@ public class SnowTestActivity extends Activity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.snow_btn:
-                imageView.setImageResource(R.drawable.tree2);
+                imageView.setImageBitmap(readBitMap(this,R.drawable.tree2));
                 snowView.setVisibility(View.VISIBLE);
                 snowView.setBitmap(null);
                 danMuViewGroup.setVisibility(View.INVISIBLE);
                 break;
             case R.id.yunbao_btn:
-                imageView.setImageResource(R.drawable.caishen);
+                imageView.setImageBitmap(readBitMap(this, R.drawable.caishen));
                 snowView.setVisibility(View.VISIBLE);
                 snowView.setBitmap(bitmap);
                 danMuViewGroup.setVisibility(View.INVISIBLE);
@@ -84,5 +86,22 @@ public class SnowTestActivity extends Activity implements View.OnClickListener{
         Log.e("zyr","onDetachedFromWindow");
         super.onDetachedFromWindow();
         bitmap.recycle();
+    }
+
+    /**
+     * 以最省内存的方式读取本地资源的图片
+     *
+     * @param context
+     * @param resId
+     * @return
+     */
+    public static Bitmap readBitMap(Context context, int resId) {
+        BitmapFactory.Options opt = new BitmapFactory.Options();
+        opt.inPreferredConfig = Bitmap.Config.RGB_565;
+        opt.inPurgeable = true;
+        opt.inInputShareable = true;
+        // 获取资源图片
+        InputStream is = context.getResources().openRawResource(resId);
+        return BitmapFactory.decodeStream(is, null, opt);
     }
 }

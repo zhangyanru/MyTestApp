@@ -67,6 +67,7 @@
         <activity android:name=".activity.LiziTestActivity"/>
         <activity android:name=".activity.GridViewSwitchColumsActivity"/>
         <activity android:name=".activity.SnowTestActivity"/>
+        <activity android:name=".activity.MaskTestActivity"/>
 
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->

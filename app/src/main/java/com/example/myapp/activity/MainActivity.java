@@ -59,6 +59,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button liziTest;
     private Button gridViewSwitchColums;
     private Button snowTest;
+    private Button maskTest;
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
 
@@ -112,6 +113,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         liziTest = (Button)findViewById(R.id.lizi_test);
         gridViewSwitchColums = (Button)findViewById(R.id.grid_view_switch_colums_count);
         snowTest = (Button)findViewById(R.id.snow_test);
+        maskTest = (Button)findViewById(R.id.mask_test);
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
@@ -158,6 +160,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         liziTest.setOnClickListener(this);
         gridViewSwitchColums.setOnClickListener(this);
         snowTest.setOnClickListener(this);
+        maskTest.setOnClickListener(this);
     }
 
     public void show(Class<? extends Activity> activity){
@@ -333,6 +336,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.snow_test:
                 show(SnowTestActivity.class);
+                break;
+            case R.id.mask_test:
+                show(MaskTestActivity.class);
                 break;
             default:
                 break;

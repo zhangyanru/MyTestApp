@@ -21,7 +21,5 @@ public class DrawPathActivity extends Activity {
         setContentView(R.layout.drawpath);
 
         LinearLayout root= (LinearLayout)findViewById(R.id.linear);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        root.addView(new MaskView(this), params);
     }
 }

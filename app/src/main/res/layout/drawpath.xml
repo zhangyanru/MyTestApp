@@ -6,4 +6,7 @@
               android:layout_height="match_parent"
               android:background="@drawable/welcome_bg_810"
         >
+    <com.example.myapp.view.MaskView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

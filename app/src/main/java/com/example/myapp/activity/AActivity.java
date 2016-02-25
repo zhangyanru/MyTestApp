@@ -16,27 +16,27 @@ public class AActivity extends BaseActivity{
     private Button btn;
     private TextView tv;
     public final static int TO_B_ACTIVITY = 0;
+
+    @Override
+    protected void initView() {
+        btn= (Button)containerView.findViewById(R.id.btn);
+        tv = (TextView)containerView.findViewById(R.id.tv);
+    }
+
     @Override
     protected int onSetContainerViewId() {
         return R.layout.a_layout;
     }
 
     @Override
-    public void initViews() {
-        super.initViews();
-        btn= (Button)containerView.findViewById(R.id.btn);
-        tv = (TextView)containerView.findViewById(R.id.tv);
-    }
-
-    @Override
     public void initListener() {
-        super.initListener();
+
         btn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        super.onClick(v);
+
         switch (v.getId()){
             case R.id.btn:
                 showActivityForResult(this,BActivity.class,TO_B_ACTIVITY);

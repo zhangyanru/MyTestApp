@@ -1,11 +1,15 @@
 package com.example.myapp.activity;
 
+import android.app.Activity;
 import android.view.View;
 
 /**
- * Created by admin on 15/10/14.
+ * Created by zyr
+ * DATE: 16-2-24
+ * Time: 下午7:17
+ * Email: yanru.zhang@renren-inc.com
  */
-public class ImageConfirmCodeActivity extends BaseActivity {
+public class MainActivity2 extends BaseActivity {
     @Override
     protected void initView() {
 

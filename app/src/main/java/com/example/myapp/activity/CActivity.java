@@ -10,26 +10,24 @@ import com.example.myapp.R;
  */
 public class CActivity extends BaseActivity {
     private Button btn;
+
+    @Override
+    protected void initView() {
+        btn = (Button)containerView.findViewById(R.id.btn);
+    }
+
     @Override
     protected int onSetContainerViewId() {
         return R.layout.c_layout;
     }
 
     @Override
-    public void initViews() {
-        super.initViews();
-        btn = (Button)containerView.findViewById(R.id.btn);
-    }
-
-    @Override
     public void initListener() {
-        super.initListener();
         btn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        super.onClick(v);
         switch (v.getId()){
             case R.id.btn:
                 Intent intent = new Intent();

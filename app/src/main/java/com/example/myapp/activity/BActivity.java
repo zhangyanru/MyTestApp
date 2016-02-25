@@ -13,27 +13,26 @@ import com.example.myapp.R;
 public class BActivity extends BaseActivity {
     private Button btn;
     public final static int TO_C_ACTIVITY = 0;
-    @Override
-    protected int onSetContainerViewId() {
-        return R.layout.b_layout;
-    }
 
     @Override
-    public void initViews() {
-        super.initViews();
+    protected void initView() {
         setResult(RESULT_OK);
         btn = (Button)containerView.findViewById(R.id.btn);
     }
 
     @Override
+    protected int onSetContainerViewId() {
+        return R.layout.b_layout;
+    }
+
+
+    @Override
     public void initListener() {
-        super.initListener();
         btn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        super.onClick(v);
         switch (v.getId()){
             case R.id.btn:
                 showActivityForResult(this,CActivity.class,TO_C_ACTIVITY);

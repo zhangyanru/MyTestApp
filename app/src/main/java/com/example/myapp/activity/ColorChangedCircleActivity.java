@@ -18,6 +18,16 @@ public class ColorChangedCircleActivity extends BaseActivity {
     }
 
     @Override
+    public void initListener() {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         roundProgressBar = (RoundProgressBar)findViewById(R.id.round_progress_bar);
@@ -44,5 +54,10 @@ public class ColorChangedCircleActivity extends BaseActivity {
                 }).start();
             }
         });
+    }
+
+    @Override
+    protected void initView() {
+
     }
 }
