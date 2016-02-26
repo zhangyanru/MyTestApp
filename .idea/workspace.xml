@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="WARN" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="zyr" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="BookmarkManager">
@@ -14,24 +14,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1eb081db-f1d3-44fb-8086-f3f910557121" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MainActivity2.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MaskTestActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mask_test_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/AActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/AActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/view/CustomScrollLayout.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/view/ScrollerLayout.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ScrollerTestActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_scroller_test.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/BActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/BActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/BaseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/BaseActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/CActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/CActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ColorChangedCircleActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ColorChangedCircleActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/DrawPathActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/DrawPathActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ImageConfirmCodeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ImageConfirmCodeActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/EditTextTestActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/EditTextTestActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/SnowTestActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/SnowTestActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ViewPagerActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ViewPagerActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/drawpath.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/drawpath.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MainActivity2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MainActivity2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_edittext_test_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_edittext_test_layout.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/mainlayout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/mainlayout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MyTestApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,115 +53,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ViewPagerActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ViewPagerActivity.java">
+      <file leaf-file-name="EditTextTestActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/EditTextTestActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <caret line="31" column="28" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="28" />
               <folding>
-                <element signature="e#1688#1689#0" expanded="true" />
-                <element signature="e#1729#1730#0" expanded="true" />
+                <element signature="e#828#995#0" expanded="true" />
+                <element signature="e#994#995#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageConfirmCodeActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ImageConfirmCodeActivity.java">
+      <file leaf-file-name="activity_edittext_test_layout.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edittext_test_layout.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="60" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
-              <folding>
-                <element signature="e#275#276#0" expanded="true" />
-                <element signature="e#299#300#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/CActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-              <folding>
-                <element signature="e#433#434#0" expanded="true" />
-                <element signature="e#473#474#0" expanded="true" />
-                <element signature="e#521#522#0" expanded="true" />
-                <element signature="e#565#566#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/AActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-              <folding>
-                <element signature="e#681#682#0" expanded="true" />
-                <element signature="e#721#722#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/BActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-              <folding>
-                <element signature="e#568#569#0" expanded="true" />
-                <element signature="e#608#609#0" expanded="true" />
-                <element signature="e#657#658#0" expanded="true" />
-                <element signature="e#701#702#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ColorChangedCircleActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ColorChangedCircleActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SnowTestActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/SnowTestActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7760498">
-              <caret line="87" column="25" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activty_snow_test_layout.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activty_snow_test_layout.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.4242425">
-              <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.79358715">
+              <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
               <folding />
             </state>
           </provider>
           <provider editor-type-id="android-designer">
             <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/BaseActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
@@ -2843,19 +2751,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/AnimationActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/view/PullToRefreshDynamicGrid.java" />
-        <option value="$PROJECT_DIR$/pulltorefresh/src/main/res/layout/pull_to_refresh_header_vertical.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_pull_to_refresh_test.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/PullToRefreshTestActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_pull_to_refresh_dynamic_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/DynamicGridTestActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_image_copy_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ImageCopyTestActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/view/MyImageView.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_custom_dynamic_grid.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edittext_test_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/EditTextTestActivity.java" />
         <option value="$PROJECT_DIR$/dynamicgrid/src/org/askerov/dynamicgrid/DynamicGridView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/CustomDynamicGridActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/view/CustomDynamicGrid.java" />
@@ -2878,15 +2778,11 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/view/SnowView.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/mainlayout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MaskTestActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/drawpath.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/DrawPathActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_mask_test_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/BaseActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MainActivity2.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ViewPagerActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ImageConfirmCodeActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/CActivity.java" />
@@ -2894,6 +2790,18 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/BActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ColorChangedCircleActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/SnowTestActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/mainlayout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main2.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ScrollerTest.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MainActivity2.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/view/ScrollerLayout.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ScrollerTestActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_scroller_test.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/view/CustomScrollLayout.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edittext_test_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/EditTextTestActivity.java" />
       </list>
     </option>
   </component>
@@ -2992,14 +2900,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drawable" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -3009,6 +2909,14 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myapp" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -3027,6 +2935,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="myapp" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -3049,6 +2961,20 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="activity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MyTestApp" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -3126,7 +3052,7 @@
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="4d00af344c94501f" />
     <property name="FullScreen" value="false" />
     <property name="DEBUGGABLE_DEVICE" value="samsung-gt_i9500-4d00af344c94501f" />
     <property name="DEBUGGABLE_PROCESS" value="com.example.myapp" />
@@ -3451,14 +3377,14 @@
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2857143" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2857143" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23376623" sideWeight="0.49524415" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31709957" sideWeight="0.49524415" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27380952" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3939394" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30054054" sideWeight="0.50475585" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38961038" sideWeight="0.4952381" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38961038" sideWeight="0.4952381" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33549783" sideWeight="0.50476193" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3030303" sideWeight="0.7178186" order="12" side_tool="false" content_ui="tabs" />
@@ -3537,97 +3463,18 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="42" />
+      <option name="time" value="45" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="Remote">
+        <watch expression="getScaleX() &gt; (getChildCount()-1)*getMeasuredWidth()" />
+        <watch expression="getScaleX() &lt; getChildCount() * getMeasuredWidth()" />
+        <watch expression="getMeasuredWidth()" />
+        <watch expression="getScaleX()" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/soft/sdk/sources/android-19/android/animation/AnimatorSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="155" column="30" selection-start-line="155" selection-start-column="30" selection-end-line="155" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ImageCopyTestActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24609375">
-          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/LiziTestActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.009765625">
-          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
-          <folding>
-            <element signature="e#1015#1016#0" expanded="false" />
-            <element signature="e#1083#1084#0" expanded="false" />
-            <element signature="e#1304#1542#0" expanded="false" />
-            <element signature="e#1541#1542#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/view/CustomDynamicGrid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71875">
-          <caret line="268" column="5" selection-start-line="268" selection-start-column="5" selection-end-line="268" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_grid_switch_colums_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23076923">
-          <caret line="8" column="37" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="37" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_view_item.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3846154">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pulltorefresh/src/main/java/com/handmark/pulltorefresh/library/PullToRefreshAdapterViewBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26171875">
-          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/adapter/CommonAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19140625">
-          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_view_item2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42307693">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/soft/sdk/sources/android-19/android/widget/GridView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="831" column="27" selection-start-line="831" selection-start-column="27" selection-end-line="831" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/soft/sdk/sources/android-19/android/widget/AbsListView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33203125">
@@ -3670,6 +3517,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3325792">
           <caret line="240" column="32" selection-start-line="240" selection-start-column="32" selection-end-line="240" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3697,6 +3545,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1052631">
           <caret line="2357" column="32" selection-start-line="2357" selection-start-column="20" selection-end-line="2357" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3704,6 +3553,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33252427">
           <caret line="3389" column="33" selection-start-line="3389" selection-start-column="33" selection-end-line="3389" selection-end-column="33" />
+          <folding>
+            <element signature="e#127457#127458#0" expanded="false" />
+            <element signature="e#127499#127500#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3737,6 +3590,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.420965">
           <caret line="198" column="63" selection-start-line="198" selection-start-column="63" selection-end-line="198" selection-end-column="63" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3758,13 +3612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/soft/sdk/sources/android-19/android/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24292845">
-          <caret line="669" column="2" selection-start-line="669" selection-start-column="2" selection-end-line="669" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/view/SnowView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.03780069">
@@ -3782,29 +3629,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.82196337">
-          <caret line="69" column="61" selection-start-line="69" selection-start-column="61" selection-end-line="69" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/view/MyImageView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.55074877">
           <caret line="32" column="25" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="25" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/mainlayout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5880282">
-          <caret line="182" column="46" selection-start-line="182" selection-start-column="37" selection-end-line="182" selection-end-column="46" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -3824,16 +3653,6 @@
       </provider>
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MaskTestActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23960066">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/drawpath.xml">
@@ -3861,41 +3680,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="329" column="19" selection-start-line="329" selection-start-column="19" selection-end-line="329" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MainActivity2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#348#349#0" expanded="true" />
-            <element signature="e#372#373#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/BaseActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ViewPagerActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
-            <element signature="e#1688#1689#0" expanded="true" />
-            <element signature="e#1729#1730#0" expanded="true" />
+            <element signature="e#1688#1689#0" expanded="false" />
+            <element signature="e#1729#1730#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3905,8 +3696,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="60" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
           <folding>
-            <element signature="e#275#276#0" expanded="true" />
-            <element signature="e#299#300#0" expanded="true" />
+            <element signature="e#275#276#0" expanded="false" />
+            <element signature="e#299#300#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3916,10 +3707,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding>
-            <element signature="e#433#434#0" expanded="true" />
-            <element signature="e#473#474#0" expanded="true" />
-            <element signature="e#521#522#0" expanded="true" />
-            <element signature="e#565#566#0" expanded="true" />
+            <element signature="e#433#434#0" expanded="false" />
+            <element signature="e#473#474#0" expanded="false" />
+            <element signature="e#521#522#0" expanded="false" />
+            <element signature="e#565#566#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3929,8 +3720,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
           <folding>
-            <element signature="e#681#682#0" expanded="true" />
-            <element signature="e#721#722#0" expanded="true" />
+            <element signature="e#681#682#0" expanded="false" />
+            <element signature="e#721#722#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3940,19 +3731,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
           <folding>
-            <element signature="e#568#569#0" expanded="true" />
-            <element signature="e#608#609#0" expanded="true" />
-            <element signature="e#657#658#0" expanded="true" />
-            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#568#569#0" expanded="false" />
+            <element signature="e#608#609#0" expanded="false" />
+            <element signature="e#657#658#0" expanded="false" />
+            <element signature="e#701#702#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ColorChangedCircleActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3963,7 +3746,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activty_snow_test_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4242425">
+        <state vertical-scroll-proportion="0.26143792">
           <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
           <folding />
         </state>
@@ -3972,12 +3755,189 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/SnowTestActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MaskTestActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7760498">
-          <caret line="87" column="25" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.5221239">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/SnowTestActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6895425">
+          <caret line="71" column="63" selection-start-line="71" selection-start-column="63" selection-end-line="71" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ColorChangedCircleActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56047195">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/mainlayout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66976744">
+          <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="196" column="40" selection-start-line="196" selection-start-column="40" selection-end-line="196" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.58565736">
+          <caret line="71" column="65" selection-start-line="71" selection-start-column="65" selection-end-line="71" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46055436">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/BaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12598425">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/MainActivity2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#346#347#0" expanded="false" />
+            <element signature="e#417#418#0" expanded="false" />
+            <element signature="e#475#476#0" expanded="false" />
+            <element signature="e#521#522#0" expanded="false" />
+            <element signature="e#569#570#0" expanded="false" />
+            <element signature="e#622#623#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/soft/sdk/sources/android-19/android/widget/Scroller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33267716">
+          <caret line="379" column="16" selection-start-line="379" selection-start-column="16" selection-end-line="379" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/soft/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0-sources.jar!/android/support/v4/view/ViewConfigurationCompat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33215547">
+          <caret line="29" column="43" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/soft/sdk/sources/android-19/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36395758">
+          <caret line="10620" column="25" selection-start-line="10620" selection-start-column="17" selection-end-line="10620" selection-end-column="25" />
+          <folding>
+            <element signature="e#413895#413896#0" expanded="false" />
+            <element signature="e#413947#413948#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_scroller_test.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23076923">
+          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/ScrollerTestActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#381#382#0" expanded="true" />
+            <element signature="e#434#435#0" expanded="true" />
+            <element signature="e#492#493#0" expanded="true" />
+            <element signature="e#546#547#0" expanded="true" />
+            <element signature="e#594#595#0" expanded="true" />
+            <element signature="e#641#642#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/view/ScrollerLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.090909">
+          <caret line="99" column="26" selection-start-line="99" selection-start-column="16" selection-end-line="99" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/view/CustomScrollLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36749116">
+          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#569#570#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+            <element signature="e#674#675#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapp/activity/EditTextTestActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="28" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="28" />
+          <folding>
+            <element signature="e#828#995#0" expanded="true" />
+            <element signature="e#994#995#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edittext_test_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.79358715">
+          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
   </component>

@@ -19,6 +19,7 @@ import java.util.Calendar;
  * Created by admin on 15/9/8.
  */
 public class MainActivity extends Activity implements View.OnClickListener{
+    private Button main2;
     private Button shareweibo;
     private Button drawpath;
     private Button animation;
@@ -73,6 +74,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     }
 
     public void initViews(){
+        main2 = (Button)findViewById(R.id.main_activity2);
         shareweibo = (Button)findViewById(R.id.shareweibo);
         drawpath = (Button)findViewById(R.id.drawpath);
         animation = (Button)findViewById(R.id.animation);
@@ -120,6 +122,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     }
 
     public void initListener(){
+        main2.setOnClickListener(this);
         shareweibo.setOnClickListener(this);
         drawpath.setOnClickListener(this);
         animation.setOnClickListener(this);
@@ -190,6 +193,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            case R.id.main_activity2:
+                show(MainActivity2.class);
+                break;
             case R.id.shareweibo:
                 show(WeiboSsoAuthActivity.class);
                 break;

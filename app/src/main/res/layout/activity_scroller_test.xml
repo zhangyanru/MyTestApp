@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.example.myapp.view.ScrollerLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="This is first child view"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="This is second child view"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="This is third child view"/>
+
+    </com.example.myapp.view.ScrollerLayout>
+
+    <com.example.myapp.view.CustomScrollLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="This is 1st child view"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="This is 2st child view"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="This is 3st child view"/>
+    </com.example.myapp.view.CustomScrollLayout>
+
+    <Button android:id="@+id/t"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="test"
+        android:gravity="center"
+        android:background="@color/primary"
+        android:textColor="@color/white"/>
+</LinearLayout>

@@ -10,6 +10,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+            <Button android:id="@+id/main_activity2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/primary"
+                android:text="Main Activity2"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"/>
             <Button android:id="@+id/shareweibo"
                     android:layout_width="300dp"
                     android:layout_height="100dp"

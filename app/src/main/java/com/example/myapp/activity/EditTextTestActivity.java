@@ -24,7 +24,7 @@ public class EditTextTestActivity extends Activity{
 
         setContentView(R.layout.activity_edittext_test_layout);
         relativeLayout = (RelativeLayout)findViewById(R.id.root);
-        View view = new View(this);
+        View view = findViewById(R.id.mask_view);
         view.setFocusable(true);
         view.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -32,7 +32,7 @@ public class EditTextTestActivity extends Activity{
                 return true;
             }
         });
-        relativeLayout.addView(view,new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+//        relativeLayout.addView(view,new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         view.requestFocus();
     }
 }
