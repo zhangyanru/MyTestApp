@@ -2,15 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primary_light">
     <com.romainpiel.shimmer.ShimmerTextView
         android:id="@+id/shimmer_text_view"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
         android:text="Shimmer Text"
         android:gravity="center"
         android:textSize="40sp"
         android:textColor="#444"
         android:background="@color/gray"
         app:reflectionColor="#f00"/>
+
+    <com.example.myapp.view.MyShimmerTextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Shimmer Text"
+        android:gravity="center"
+        android:background="@color/gray"
+        android:textSize="40sp"/>
+
+    <com.example.myapp.view.MyLinearGradientView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

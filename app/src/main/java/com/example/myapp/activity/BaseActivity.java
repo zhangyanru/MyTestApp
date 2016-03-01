@@ -24,8 +24,7 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     protected abstract int onSetContainerViewId();
 
     public void init(){
-        containerView = View.inflate(this,onSetContainerViewId(),null);
-        setContentView(containerView);
+        setContentView(onSetContainerViewId());
     }
 
     public abstract void initListener();
