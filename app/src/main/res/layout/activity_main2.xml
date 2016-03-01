@@ -11,5 +11,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="Scroller"/>
+        <Button android:id="@+id/shimmer_text"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="闪亮文字效果"/>
     </LinearLayout>
 </ScrollView>

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.myapp"
-          android:versionCode="1"
-          android:versionName="1.0">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.myapp"
+    android:versionCode="1"
+    android:versionName="1.0">
     <uses-sdk
             android:minSdkVersion="14"
-            android:targetSdkVersion="18" />
+            android:targetSdkVersion="18"
+        tools:overrideLibrary="com.romainpiel.shimmer"/>
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -70,6 +72,7 @@
         <activity android:name=".activity.MaskTestActivity"/>
         <activity android:name=".activity.MainActivity2"/>
         <activity android:name=".activity.ScrollerTestActivity"/>
+        <activity android:name=".activity.ShimmerTextViewTestActivity"/>
 
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->
