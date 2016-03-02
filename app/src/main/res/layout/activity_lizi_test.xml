@@ -7,7 +7,7 @@
     <ImageView android:id="@+id/camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/icon_camera2" />
+        android:src="@drawable/icon_flower" />
     <com.example.myapp.view.LiziCopyView
         android:id="@+id/copy"
         android:layout_width="wrap_content"

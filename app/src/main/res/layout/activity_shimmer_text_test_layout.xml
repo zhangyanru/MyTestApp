@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/primary_light">
+    android:background="@color/primary_light"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <com.romainpiel.shimmer.ShimmerTextView
         android:id="@+id/shimmer_text_view"
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         android:textSize="40sp"
         android:textColor="#444"
         android:background="@color/gray"
-        app:reflectionColor="#f00"/>
+        app:reflectionColor="#ff0"/>
 
     <com.example.myapp.view.MyShimmerTextView
         android:layout_width="match_parent"
@@ -23,6 +23,18 @@
         android:gravity="center"
         android:background="@color/gray"
         android:textSize="40sp"/>
+
+    <com.example.myapp.view.MyShimmerButton
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Shimmer Text"
+        android:textColor="#444"
+        android:gravity="center"
+        android:background="@color/gray"
+        android:textSize="40sp"/>
+    <com.example.myapp.view.MyComposeShaderView
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
 
     <com.example.myapp.view.MyLinearGradientView
         android:layout_width="match_parent"
