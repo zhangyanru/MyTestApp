@@ -3,6 +3,8 @@ package com.example.myapp.activity;
 import android.view.View;
 
 import com.example.myapp.R;
+import com.example.myapp.view.Titanic;
+import com.example.myapp.view.TitanicTextView;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 
@@ -15,11 +17,17 @@ import com.romainpiel.shimmer.ShimmerTextView;
 public class ShimmerTextViewTestActivity extends BaseActivity {
     private Shimmer shimmer;
     private ShimmerTextView shimmerTextView;
+    private Titanic titanic;
+    private TitanicTextView myTitanicTextView;
     @Override
     protected void initView() {
         shimmerTextView = (ShimmerTextView)findViewById(R.id.shimmer_text_view);
         shimmer = new Shimmer();
         shimmer.start(shimmerTextView);
+
+        myTitanicTextView = (TitanicTextView)findViewById(R.id.titanic_tv);
+        titanic = new Titanic();
+        titanic.start(myTitanicTextView);
     }
 
     @Override
