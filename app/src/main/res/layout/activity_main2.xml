@@ -15,5 +15,13 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="闪亮文字效果"/>
+        <Button android:id="@+id/quxian_animator"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="曲线动画"/>
+        <Button android:id="@+id/path_animator"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="跟随path运动动画"/>
     </LinearLayout>
 </ScrollView>

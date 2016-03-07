@@ -15,10 +15,14 @@ import com.romainpiel.shimmer.ShimmerTextView;
 public class MainActivity2 extends BaseActivity {
     private Button scrollerTest;
     private Button shimmerText;
+    private Button quxianAnimator;
+    private Button pathAnimator;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
         shimmerText = (Button)findViewById(R.id.shimmer_text);
+        quxianAnimator = (Button)findViewById(R.id.quxian_animator);
+        pathAnimator = (Button)findViewById(R.id.path_animator);
     }
 
     @Override
@@ -30,6 +34,8 @@ public class MainActivity2 extends BaseActivity {
     public void initListener() {
         scrollerTest.setOnClickListener(this);
         shimmerText.setOnClickListener(this);
+        quxianAnimator.setOnClickListener(this);
+        pathAnimator.setOnClickListener(this);
     }
 
     @Override
@@ -41,6 +47,13 @@ public class MainActivity2 extends BaseActivity {
             case R.id.shimmer_text:
                 show(this, ShimmerTextViewTestActivity.class);
                 break;
+            case R.id.quxian_animator:
+                show(this,QuXianAnimatorActivity.class);
+                break;
+            case R.id.path_animator:
+                show(this,PathAnimatorActivity.class);
+                break;
         }
+
     }
 }

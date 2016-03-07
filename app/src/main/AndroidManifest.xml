@@ -7,7 +7,7 @@
     <uses-sdk
             android:minSdkVersion="14"
             android:targetSdkVersion="18"
-        tools:overrideLibrary="com.romainpiel.shimmer"/>
+        tools:overrideLibrary="com.romainpiel.shimmer,com.eftimoff.mylibrary,com.dk.view.patheffect" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -73,6 +73,8 @@
         <activity android:name=".activity.MainActivity2"/>
         <activity android:name=".activity.ScrollerTestActivity"/>
         <activity android:name=".activity.ShimmerTextViewTestActivity"/>
+        <activity android:name=".activity.QuXianAnimatorActivity"/>
+        <activity android:name=".activity.PathAnimatorActivity"/>
 
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->
