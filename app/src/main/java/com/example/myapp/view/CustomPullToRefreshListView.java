@@ -197,6 +197,11 @@ public class CustomPullToRefreshListView extends FrameLayout{
                     currentStatus = STATUS_REFRESHING;
                     textView.setText("正在刷新。。。");
                     onRefreshListener.onRefresh();
+                }else{
+                    refreshViewLayoutParams.setMargins(0, -mRefreshHeight, 0, 0);
+                    refreshView.setLayoutParams(refreshViewLayoutParams);
+                    listViewLayoutParams.setMargins(0,0 , 0,0);
+                    listView.setLayoutParams(listViewLayoutParams);
                 }
                 break;
         }
