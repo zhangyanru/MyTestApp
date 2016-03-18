@@ -47,15 +47,13 @@ public class MyLinearLayout extends LinearLayout {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         switch (ev.getAction()){
             case MotionEvent.ACTION_DOWN:
-                Log.d("zyr", "LinearLayout dispatchTouchEvent ACTION_DOWN");
+                Log.d("zyr", "A DIS ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.d("zyr","LinearLayout dispatchTouchEvent ACTION_MOVE");
+                Log.d("zyr","A DIS ACTION_MOVE");
                 break;
             case MotionEvent.ACTION_UP:
-//                Log.d("zyr","LinearLayout dispatchTouchEvent ACTION_UP");
-                break;
-            default:
+                Log.d("zyr","A DIS ACTION_UP");
                 break;
         }
         return super.dispatchTouchEvent(ev);
@@ -65,35 +63,31 @@ public class MyLinearLayout extends LinearLayout {
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         switch (ev.getAction()){
             case MotionEvent.ACTION_DOWN:
-                Log.d("zyr", "LinearLayout onInterceptTouchEvent ACTION_DOWN");
-                break;
+                Log.d("zyr", "A INT ACTION_DOWN");
+                return false;
             case MotionEvent.ACTION_MOVE:
-                Log.d("zyr","LinearLayout onInterceptTouchEvent ACTION_MOVE");
-                return  true;
+                Log.d("zyr","A INT ACTION_MOVE");
+                return true;
             case MotionEvent.ACTION_UP:
-//                Log.d("zyr","LinearLayout onInterceptTouchEvent ACTION_UP");
-                break;
-            default:
-                break;
+                Log.d("zyr","A INT ACTION_UP");
+                return false;
         }
-        return false;
+        return true;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
-                Log.d("zyr", "LinearLayout onTouchEvent ACTION_DOWN");
-                break;
+                Log.d("zyr", "A TOU ACTION_DOWN");
+                return false;
             case MotionEvent.ACTION_MOVE:
-                Log.d("zyr","LinearLayout onTouchEvent ACTION_MOVE");
-                break;
+                Log.d("zyr","A TOU ACTION_MOVE");
+                return true;
             case MotionEvent.ACTION_UP:
-//                Log.d("zyr","LinearLayout onTouchEvent ACTION_UP");
-                break;
-            default:
-                break;
+                Log.d("zyr","A TOU ACTION_UP");
+                return false;
         }
-        return true;
+        return false;
     }
 }

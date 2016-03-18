@@ -2,7 +2,6 @@ package com.example.myapp.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -166,7 +165,7 @@ public class CustomPullToRefreshListView extends FrameLayout{
             case MotionEvent.ACTION_MOVE:
                 if(isScrollDown && listView.getFirstVisiblePosition() ==0 && listView.getScrollY() == 0){
                     currentStatus = STATUS_PULL_TO_REFRESH;
-                    textView.setText("下拉去刷新");
+                    textView.setText("下拉可以刷新");
                     startX =(int) ev.getX();
                     startY =(int) ev.getY();
                     return true;

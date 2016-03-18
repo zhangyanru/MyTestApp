@@ -8,9 +8,8 @@
 
     <com.example.myapp.view.MyView
         android:id="@+id/button"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:background="@drawable/grid_0"/>
 
 </com.example.myapp.view.MyLinearLayout>

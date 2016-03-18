@@ -30,15 +30,13 @@ public class MyView extends View {
     public boolean dispatchTouchEvent(MotionEvent event) {
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
-                Log.d("zyr","View dispatchTouchEvent ACTION_DOWN");
+                Log.e("zyr","B DIS ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.d("zyr","View dispatchTouchEvent ACTION_MOVE");
+                Log.e("zyr","B DIS ACTION_MOVE");
                 break;
             case MotionEvent.ACTION_UP:
-//                Log.d("zyr","View dispatchTouchEvent ACTION_UP");
-                break;
-            default:
+                Log.e("zyr","B DIS ACTION_UP");
                 break;
         }
         return super.dispatchTouchEvent(event);
@@ -48,17 +46,15 @@ public class MyView extends View {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
-                Log.d("zyr","View onTouchEvent ACTION_DOWN");
+                Log.e("zyr","B TOU ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.d("zyr","View onTouchEvent ACTION_MOVE");
+                Log.e("zyr","B TOU ACTION_MOVE");
                 break;
             case MotionEvent.ACTION_UP:
-//                Log.d("zyr","View onTouchEvent ACTION_UP");
-                break;
-            default:
+                Log.e("zyr","B TOU ACTION_UP");
                 break;
         }
-        return false;
+        return true;
     }
 }
