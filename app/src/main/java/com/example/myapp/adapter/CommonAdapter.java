@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.myapp.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by zyr
@@ -20,19 +21,19 @@ import java.util.ArrayList;
  * Email: yanru.zhang@renren-inc.com
  */
 public class CommonAdapter extends BaseAdapter implements Filterable{
-    public ArrayList<String> arrayList = new ArrayList<String>();
+    public List<String> arrayList = new ArrayList<String>();
     private Context context;
     private MyFilter mFilter;
 
     public CommonAdapter(Context context){
         this.context = context;
     }
-    public CommonAdapter(Context context,ArrayList<String> arrayList){
+    public CommonAdapter(Context context,List<String> arrayList){
         this.context = context;
         this.arrayList = new ArrayList<String>(arrayList);
     }
 
-    public void setData(ArrayList<String> array){
+    public void setData(List<String> array){
         if(array ==null){
             return;
         }

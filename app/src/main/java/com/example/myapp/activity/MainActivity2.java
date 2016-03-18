@@ -17,12 +17,14 @@ public class MainActivity2 extends BaseActivity {
     private Button shimmerText;
     private Button quxianAnimator;
     private Button pathAnimator;
+    private Button customPullToRefreshListViewTest;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
         shimmerText = (Button)findViewById(R.id.shimmer_text);
         quxianAnimator = (Button)findViewById(R.id.quxian_animator);
         pathAnimator = (Button)findViewById(R.id.path_animator);
+        customPullToRefreshListViewTest = (Button) findViewById(R.id.custom_pull_to_refresh_listview);
     }
 
     @Override
@@ -36,6 +38,7 @@ public class MainActivity2 extends BaseActivity {
         shimmerText.setOnClickListener(this);
         quxianAnimator.setOnClickListener(this);
         pathAnimator.setOnClickListener(this);
+        customPullToRefreshListViewTest.setOnClickListener(this);
     }
 
     @Override
@@ -52,6 +55,9 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.path_animator:
                 show(this,PathAnimatorActivity.class);
+                break;
+            case R.id.custom_pull_to_refresh_listview:
+                show(this,CustomPullToRefreshListViewActivity.class);
                 break;
         }
 

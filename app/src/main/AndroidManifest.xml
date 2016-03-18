@@ -75,6 +75,7 @@
         <activity android:name=".activity.ShimmerTextViewTestActivity"/>
         <activity android:name=".activity.QuXianAnimatorActivity"/>
         <activity android:name=".activity.PathAnimatorActivity"/>
+        <activity android:name=".activity.CustomPullToRefreshListViewActivity"/>
 
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->
