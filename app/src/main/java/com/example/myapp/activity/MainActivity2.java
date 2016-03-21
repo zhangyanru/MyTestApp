@@ -4,7 +4,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.myapp.R;
-import com.romainpiel.shimmer.ShimmerTextView;
 
 /**
  * Created by zyr
@@ -18,6 +17,7 @@ public class MainActivity2 extends BaseActivity {
     private Button quxianAnimator;
     private Button pathAnimator;
     private Button customPullToRefreshListViewTest;
+    private Button customSlideDeleteListViewTest;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -25,6 +25,7 @@ public class MainActivity2 extends BaseActivity {
         quxianAnimator = (Button)findViewById(R.id.quxian_animator);
         pathAnimator = (Button)findViewById(R.id.path_animator);
         customPullToRefreshListViewTest = (Button) findViewById(R.id.custom_pull_to_refresh_listview);
+        customSlideDeleteListViewTest = (Button) findViewById(R.id.custom_slid_delete_list_view);
     }
 
     @Override
@@ -39,6 +40,7 @@ public class MainActivity2 extends BaseActivity {
         quxianAnimator.setOnClickListener(this);
         pathAnimator.setOnClickListener(this);
         customPullToRefreshListViewTest.setOnClickListener(this);
+        customSlideDeleteListViewTest.setOnClickListener(this);
     }
 
     @Override
@@ -58,6 +60,9 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.custom_pull_to_refresh_listview:
                 show(this,CustomPullToRefreshListViewActivity.class);
+                break;
+            case R.id.custom_slid_delete_list_view:
+                show(this,CustomSlideDeleteListViewTestActivity.class);
                 break;
         }
 

@@ -49,4 +49,12 @@
         <attr name="pointId3" format="integer"/>
         <attr name="isPointById3" format="boolean"/>
     </declare-styleable>
+
+    <declare-styleable name="CustomSlideDeleteListView">
+        <attr name="rightViewId" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="CustomSlideDeleteItemView">
+        <attr name="contentViewId" format="integer"/>
+    </declare-styleable>
 </resources>

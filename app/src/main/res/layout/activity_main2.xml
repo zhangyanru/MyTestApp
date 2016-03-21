@@ -27,5 +27,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="自定义一个下拉刷新的listview!"/>
+        <Button android:id="@+id/custom_slid_delete_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="自定义滑动删除的listview"/>
     </LinearLayout>
 </ScrollView>
