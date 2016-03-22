@@ -31,6 +31,12 @@ public class CustomSlideDeleteItemView extends FrameLayout{
     private int contentViewId;
     private int contentViewWidth,contentViewHeight,menuWidth,menuHeight;
 
+    public boolean isMenuOpen() {
+        return isMenuOpen;
+    }
+
+    private boolean isMenuOpen = false;
+
     public void setOnMenuClickListener(OnMenuClickListener onMenuClickListener) {
         this.onMenuClickListener = onMenuClickListener;
     }
@@ -67,7 +73,7 @@ public class CustomSlideDeleteItemView extends FrameLayout{
         menuViewContainer = new LinearLayout(mContext);
         menuViewContainer.setOrientation(LinearLayout.HORIZONTAL);
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        addView(menuViewContainer,layoutParams);
+        addView(menuViewContainer, layoutParams);
     }
 
     @Override
@@ -121,26 +127,59 @@ public class CustomSlideDeleteItemView extends FrameLayout{
     }
 
     private void layoutMenu() {
-        menuViewContainer.layout(contentViewWidth,0,contentViewWidth+menuWidth*menuViews.size(),contentViewHeight);
+        menuViewContainer.layout(contentViewWidth, 0, contentViewWidth + menuWidth * menuViews.size(), contentViewHeight);
     }
 
-    public void scroll(int deltaX) {
-        if(Math.abs(deltaX) > menuWidth * menuViews.size()){
-            scrollTo(menuWidth * menuViews.size(), 0);
+    public void scroll(int deltaX,int lastDeltaX) {
+        if(deltaX < 0){
+            Log.d("zyr","deltaX:" + deltaX);
+            Log.e("zyr","menuWidth * menuViews.size():" + menuWidth * menuViews.size());
+
+            if(Math.abs(deltaX) > menuWidth * menuViews.size() ){
+                scrollTo(menuWidth * menuViews.size(), 0);
+                isMenuOpen = true;
+            }else{
+                scrollBy(-lastDeltaX, 0);
+            }
         }else{
-            scrollTo(-deltaX, 0);
+            if(isMenuOpen()){
+                Log.d("zyr","deltaX:" + deltaX);
+                Log.e("zyr", "menuWidth * menuViews.size():" + menuWidth * menuViews.size());
+
+                if(Math.abs(deltaX) > menuWidth * menuViews.size()){
+                    scrollTo(0,0);
+                    isMenuOpen = false;
+                }else{
+                    scrollBy(-lastDeltaX, 0);
+                }
+            }
         }
     }
 
-    public void autoScrollBack(int deltaX){
-        if(Math.abs(deltaX) < menuWidth){
-            scrollTo(0, 0);
+    public void autoScroll(int deltaX){
+        if(deltaX < 0){
+            if(Math.abs(deltaX) < menuWidth){
+                scrollTo(0, 0);
+                isMenuOpen = false;
+            }else{
+                scrollTo(menuWidth * menuViews.size(), 0);
+                isMenuOpen = true;
+            }
         }else{
-            scrollTo(menuWidth * menuViews.size(), 0);
+            if(isMenuOpen()){
+                if(Math.abs(deltaX) < menuWidth){
+                    scrollTo(menuWidth * menuViews.size(), 0);
+                    isMenuOpen = true;
+                }else{
+                    scrollTo(0,0);
+                    isMenuOpen = false;
+                }
+            }
         }
     }
 
     public void scrollBack(){
         scrollTo(0,0);
+        isMenuOpen = false;
     }
 }

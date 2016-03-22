@@ -5,11 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.myapp.R;
@@ -24,11 +20,8 @@ public class CustomSlideDeleteListView extends ListView {
     private Context mContext;
     private CustomSlideDeleteItemView mCurrentView;
     private int currentItemId;
-    private int downX,downY,moveX,moveY,deltaX,upX,upY,lastX,lastDeltaX;
-    private boolean isSlideLeft = false;
-    private boolean canShowRightView = false;
-    private boolean isRightOpen = false;
-    public final static int SLIDE_MIN_Y = 200;
+    private int downX,downY,moveX,moveY,deltaX,deltaY,upX,upY,lastX,lastDeltaX;
+    public final static int MIN_SCROLL_DIS = 100;
     public CustomSlideDeleteListView(Context context) {
         this(context, null);
     }
@@ -63,37 +56,28 @@ public class CustomSlideDeleteListView extends ListView {
 //                Log.e("zyr","currentItemId:" + currentItemId);
                 break;
             case MotionEvent.ACTION_MOVE:
+                /**还要区分上下滑动listview的时候**/
                 moveX = (int) ev.getX();
                 moveY = (int) ev.getY();
                 deltaX = moveX - downX;
-                lastDeltaX = moveX - lastX;
-                lastX = moveX;
+                deltaY = moveY - downY;
+                if(Math.abs(deltaX) > Math.abs(deltaY)){
+                    lastDeltaX = moveX - lastX;
+                    lastX = moveX;
 //                Log.d("zyr","deltaX:" + deltaX);
-                /***判断左滑还是右滑**/
-                if(lastDeltaX > 0){
-                    isSlideLeft = false;
-                }else{
-                    isSlideLeft = true;
-                }
-                /***判断左滑还是右滑**/
-                if(Math.abs(deltaX) > SLIDE_MIN_Y && isSlideLeft){
-                    canShowRightView = true;
-                }else{
-                    canShowRightView = false;
-                }
 //                Log.e("zyr","canShowRightView " + canShowRightView);
-                if(canShowRightView && mCurrentView!=null){
-                    isRightOpen = true;
-                    mCurrentView.scroll(deltaX);
-                    return true;
+                    if(Math.abs(deltaX) > MIN_SCROLL_DIS && mCurrentView!=null){
+                        mCurrentView.scroll(deltaX,lastDeltaX);
+                        return true;
+                    }
                 }
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
                 upX = (int)ev.getX();
                 upY = (int)ev.getY();
-                if(mCurrentView!=null && isRightOpen){
-                    mCurrentView.autoScrollBack(upX-downX);
+                if(mCurrentView!=null && Math.abs(upX-downX) > MIN_SCROLL_DIS){
+                    mCurrentView.autoScroll(upX-downX);
                 }
                 break;
         }
