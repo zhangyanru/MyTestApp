@@ -9,7 +9,6 @@ import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.myapp.R;
 import com.example.myapp.view.CustomSlideDeleteItemView;
@@ -71,7 +70,7 @@ public class CustomSlideDeleteListViewAdapter extends BaseAdapter implements Fil
         viewHolder.itemView.clearAllMenu();
         viewHolder.itemView.addMenu("Delete", Color.RED);
         viewHolder.itemView.addMenu("Open", Color.BLUE);
-        viewHolder.itemView.scrollBack();
+        viewHolder.itemView.scrollClose();
         viewHolder.textView.setText(arrayList.get(position));
         viewHolder.itemView.setOnMenuClickListener(new CustomSlideDeleteItemView.OnMenuClickListener() {
             @Override

@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -27,15 +28,19 @@ public class CustomSlideDeleteItemView extends FrameLayout{
     private Context mContext;
     private List<View> menuViews = new ArrayList<>();
     private View contentView;
+
+    public LinearLayout getMenuViewContainer() {
+        return menuViewContainer;
+    }
+
     private LinearLayout menuViewContainer;
     private int contentViewId;
     private int contentViewWidth,contentViewHeight,menuWidth,menuHeight;
+    private int menuState = MENU_STATE_CLOSE;
 
-    public boolean isMenuOpen() {
-        return isMenuOpen;
-    }
-
-    private boolean isMenuOpen = false;
+    public final static int MENU_STATE_CLOSE = 0;
+    public final static int MENU_STATE_OPEN = 1;
+    public final static int MENU_STATE_HALF_OPEN = 2;
 
     public void setOnMenuClickListener(OnMenuClickListener onMenuClickListener) {
         this.onMenuClickListener = onMenuClickListener;
@@ -57,7 +62,7 @@ public class CustomSlideDeleteItemView extends FrameLayout{
         super(context, attrs, defStyleAttr);
         mContext = context;
         menuWidth = Methods.computePixelsWithDensity(mContext,100);
-        Log.d("zyr","menuWidth:" + menuWidth);
+//        Log.d("zyr","menuWidth:" + menuWidth);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomSlideDeleteItemView);
         for(int i=0;i<typedArray.length();i++){
             int attr = typedArray.getIndex(i);
@@ -113,7 +118,7 @@ public class CustomSlideDeleteItemView extends FrameLayout{
                 public void onClick(View v) {
                     if(onMenuClickListener!=null){
                         onMenuClickListener.onMenuClick(position,menuViews.size());
-                        scrollBack();
+                        scrollClose();
                     }
                 }
             });
@@ -132,25 +137,27 @@ public class CustomSlideDeleteItemView extends FrameLayout{
 
     public void scroll(int deltaX,int lastDeltaX) {
         if(deltaX < 0){
-            Log.d("zyr","deltaX:" + deltaX);
-            Log.e("zyr","menuWidth * menuViews.size():" + menuWidth * menuViews.size());
+//            Log.d("zyr","deltaX:" + deltaX);
+//            Log.e("zyr","menuWidth * menuViews.size():" + menuWidth * menuViews.size());
 
             if(Math.abs(deltaX) > menuWidth * menuViews.size() ){
                 scrollTo(menuWidth * menuViews.size(), 0);
-                isMenuOpen = true;
+                menuState = MENU_STATE_OPEN;
             }else{
                 scrollBy(-lastDeltaX, 0);
+                menuState = MENU_STATE_HALF_OPEN;
             }
         }else{
-            if(isMenuOpen()){
-                Log.d("zyr","deltaX:" + deltaX);
-                Log.e("zyr", "menuWidth * menuViews.size():" + menuWidth * menuViews.size());
+            if( !isClosed() ){
+//                Log.d("zyr","deltaX:" + deltaX);
+//                Log.e("zyr", "menuWidth * menuViews.size():" + menuWidth * menuViews.size());
 
                 if(Math.abs(deltaX) > menuWidth * menuViews.size()){
                     scrollTo(0,0);
-                    isMenuOpen = false;
+                    menuState = MENU_STATE_CLOSE;
                 }else{
                     scrollBy(-lastDeltaX, 0);
+                    menuState = MENU_STATE_HALF_OPEN;
                 }
             }
         }
@@ -160,26 +167,35 @@ public class CustomSlideDeleteItemView extends FrameLayout{
         if(deltaX < 0){
             if(Math.abs(deltaX) < menuWidth){
                 scrollTo(0, 0);
-                isMenuOpen = false;
+                menuState = MENU_STATE_CLOSE;
             }else{
                 scrollTo(menuWidth * menuViews.size(), 0);
-                isMenuOpen = true;
+                menuState = MENU_STATE_OPEN;
             }
         }else{
-            if(isMenuOpen()){
+            if( !isClosed() ){
                 if(Math.abs(deltaX) < menuWidth){
                     scrollTo(menuWidth * menuViews.size(), 0);
-                    isMenuOpen = true;
+                    menuState = MENU_STATE_OPEN;
                 }else{
                     scrollTo(0,0);
-                    isMenuOpen = false;
+                    menuState = MENU_STATE_CLOSE;
                 }
             }
         }
     }
 
-    public void scrollBack(){
+    public void scrollClose(){
         scrollTo(0,0);
-        isMenuOpen = false;
+        menuState = MENU_STATE_CLOSE;
     }
+
+    public boolean isClosed(){
+        if(menuState == MENU_STATE_CLOSE){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

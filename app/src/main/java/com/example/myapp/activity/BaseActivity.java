@@ -10,10 +10,12 @@ import android.view.View;
  * Created by admin on 15/9/16.
  */
 public abstract class BaseActivity extends Activity implements View.OnClickListener{
+    public Context mContext;
     public View containerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContext = this;
         init();
         initView();
         initListener();

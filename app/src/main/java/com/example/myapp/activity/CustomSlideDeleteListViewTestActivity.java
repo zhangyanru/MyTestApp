@@ -1,10 +1,13 @@
 package com.example.myapp.activity;
 
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.example.myapp.R;
 import com.example.myapp.adapter.CommonAdapter;
 import com.example.myapp.adapter.CustomSlideDeleteListViewAdapter;
+import com.example.myapp.util.Methods;
 import com.example.myapp.view.CustomSlideDeleteListView;
 
 import java.util.ArrayList;
@@ -29,7 +32,12 @@ public class CustomSlideDeleteListViewTestActivity extends BaseActivity {
         customSlideDeleteListViewAdapter = new CustomSlideDeleteListViewAdapter(this,stringList);
         customSlideDeleteListView.setAdapter(customSlideDeleteListViewAdapter);
 
-
+        customSlideDeleteListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Methods.toast(mContext,"position:" + position);
+            }
+        });
     }
 
     @Override

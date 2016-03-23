@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.example.myapp.util.Methods;
+
 /**
  * Created by zyr
  * DATE: 15-12-10
@@ -30,6 +32,7 @@ public class MyView extends View {
     public boolean dispatchTouchEvent(MotionEvent event) {
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
+                Log.d("zyrr","isInRange:" + Methods.inRangeOfView(MyView.this,event));
                 Log.e("zyr","B DIS ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
