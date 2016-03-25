@@ -18,6 +18,7 @@ public class MainActivity2 extends BaseActivity {
     private Button pathAnimator;
     private Button customPullToRefreshListViewTest;
     private Button customSlideDeleteListViewTest;
+    private Button popWindowTest;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -26,6 +27,7 @@ public class MainActivity2 extends BaseActivity {
         pathAnimator = (Button)findViewById(R.id.path_animator);
         customPullToRefreshListViewTest = (Button) findViewById(R.id.custom_pull_to_refresh_listview);
         customSlideDeleteListViewTest = (Button) findViewById(R.id.custom_slid_delete_list_view);
+        popWindowTest = (Button) findViewById(R.id.popwindow_test);
     }
 
     @Override
@@ -41,6 +43,7 @@ public class MainActivity2 extends BaseActivity {
         pathAnimator.setOnClickListener(this);
         customPullToRefreshListViewTest.setOnClickListener(this);
         customSlideDeleteListViewTest.setOnClickListener(this);
+        popWindowTest.setOnClickListener(this);
     }
 
     @Override
@@ -63,6 +66,9 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.custom_slid_delete_list_view:
                 show(this,CustomSlideDeleteListViewTestActivity.class);
+                break;
+            case R.id.popwindow_test:
+                show(this,PopupWindowTestActivity.class);
                 break;
         }
 

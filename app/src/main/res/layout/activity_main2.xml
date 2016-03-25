@@ -31,5 +31,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="自定义滑动删除的listview"/>
+        <Button android:id="@+id/popwindow_test"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="PopupWindow探究"/>
     </LinearLayout>
 </ScrollView>

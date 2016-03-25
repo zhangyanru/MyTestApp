@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 
 /**
@@ -26,7 +27,8 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     protected abstract int onSetContainerViewId();
 
     public void init(){
-        setContentView(onSetContainerViewId());
+        containerView = LayoutInflater.from(mContext).inflate(onSetContainerViewId(),null);
+        setContentView(containerView);
     }
 
     public abstract void initListener();
