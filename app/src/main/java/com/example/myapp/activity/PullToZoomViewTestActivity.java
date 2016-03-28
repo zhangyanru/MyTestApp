@@ -1,9 +1,11 @@
 package com.example.myapp.activity;
 
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.myapp.R;
 import com.example.myapp.adapter.CommonAdapter;
+import com.example.myapp.util.Methods;
 import com.example.myapp.view.CustomPullToRefreshListView;
 import com.example.myapp.view.CustomPullToZoomListView;
 
@@ -17,6 +19,8 @@ import java.util.ArrayList;
  */
 public class PullToZoomViewTestActivity extends BaseActivity {
     private CustomPullToZoomListView customPullToZoomListView;
+    private TextView signUpBtn;
+    private TextView loginBtn;
     private CommonAdapter commonAdapter;
     private ArrayList<String> strings  = new ArrayList<>();
     @Override
@@ -27,6 +31,9 @@ public class PullToZoomViewTestActivity extends BaseActivity {
         }
         commonAdapter = new CommonAdapter(this,strings);
         customPullToZoomListView.setAdapter(commonAdapter);
+
+        signUpBtn = (TextView) findViewById(R.id.sign_up);
+        loginBtn = (TextView) findViewById(R.id.login);
     }
 
     @Override
@@ -36,11 +43,19 @@ public class PullToZoomViewTestActivity extends BaseActivity {
 
     @Override
     public void initListener() {
-
+        signUpBtn.setOnClickListener(this);
+        loginBtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.sign_up:
+                Methods.toast(mContext,"sign up");
+                break;
+            case R.id.login:
+                Methods.toast(mContext,"login");
+                break;
+        }
     }
 }

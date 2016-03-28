@@ -32,7 +32,7 @@ public class MyView extends View {
     public boolean dispatchTouchEvent(MotionEvent event) {
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
-                Log.d("zyrr","isInRange:" + Methods.inRangeOfView(MyView.this,event));
+//                Log.d("zyrr","isInRange:" + Methods.inRangeOfView(MyView.this,event));
                 Log.e("zyr","B DIS ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
