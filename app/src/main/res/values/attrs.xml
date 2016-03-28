@@ -57,4 +57,9 @@
     <declare-styleable name="CustomSlideDeleteItemView">
         <attr name="contentViewId" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="CustomPullToZoomListView">
+        <attr name="headerLayout" format="reference"/>
+        <attr name="zoomLayout" format="reference"/>
+    </declare-styleable>
 </resources>

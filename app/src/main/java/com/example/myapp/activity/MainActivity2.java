@@ -19,6 +19,7 @@ public class MainActivity2 extends BaseActivity {
     private Button customPullToRefreshListViewTest;
     private Button customSlideDeleteListViewTest;
     private Button popWindowTest;
+    private Button pullToZoomView;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -28,6 +29,7 @@ public class MainActivity2 extends BaseActivity {
         customPullToRefreshListViewTest = (Button) findViewById(R.id.custom_pull_to_refresh_listview);
         customSlideDeleteListViewTest = (Button) findViewById(R.id.custom_slid_delete_list_view);
         popWindowTest = (Button) findViewById(R.id.popwindow_test);
+        pullToZoomView = (Button) findViewById(R.id.pull_to_zoom_view_test);
     }
 
     @Override
@@ -44,6 +46,7 @@ public class MainActivity2 extends BaseActivity {
         customPullToRefreshListViewTest.setOnClickListener(this);
         customSlideDeleteListViewTest.setOnClickListener(this);
         popWindowTest.setOnClickListener(this);
+        pullToZoomView.setOnClickListener(this);
     }
 
     @Override
@@ -69,6 +72,9 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.popwindow_test:
                 show(this,PopupWindowTestActivity.class);
+                break;
+            case R.id.pull_to_zoom_view_test:
+                show(this,PullToZoomViewTestActivity.class);
                 break;
         }
 

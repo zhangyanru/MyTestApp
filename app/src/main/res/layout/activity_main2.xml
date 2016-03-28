@@ -35,5 +35,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="PopupWindow探究"/>
+        <Button android:id="@+id/pull_to_zoom_view_test"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="PullToZoomView"/>
     </LinearLayout>
 </ScrollView>

@@ -51,7 +51,7 @@ public class MyLinearLayout extends LinearLayout {
                 break;
             case MotionEvent.ACTION_MOVE:
                 Log.d("zyr","A DIS ACTION_MOVE");
-                break;
+                return true;
             case MotionEvent.ACTION_UP:
                 Log.d("zyr","A DIS ACTION_UP");
                 break;
@@ -67,12 +67,12 @@ public class MyLinearLayout extends LinearLayout {
                 return false;
             case MotionEvent.ACTION_MOVE:
                 Log.d("zyr","A INT ACTION_MOVE");
-                return true;
+                return false;
             case MotionEvent.ACTION_UP:
                 Log.d("zyr","A INT ACTION_UP");
                 return false;
         }
-        return true;
+        return false;
     }
 
     @Override
@@ -83,7 +83,7 @@ public class MyLinearLayout extends LinearLayout {
                 return false;
             case MotionEvent.ACTION_MOVE:
                 Log.d("zyr","A TOU ACTION_MOVE");
-                return true;
+                return false;
             case MotionEvent.ACTION_UP:
                 Log.d("zyr","A TOU ACTION_UP");
                 return false;
