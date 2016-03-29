@@ -1,6 +1,7 @@
 package com.example.myapp.activity;
 
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.example.myapp.R;
@@ -31,6 +32,12 @@ public class PullToZoomViewTestActivity extends BaseActivity {
         }
         commonAdapter = new CommonAdapter(this,strings);
         customPullToZoomListView.setAdapter(commonAdapter);
+        customPullToZoomListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Methods.toast(mContext,strings.get((int)id));
+            }
+        });
 
         signUpBtn = (TextView) findViewById(R.id.sign_up);
         loginBtn = (TextView) findViewById(R.id.login);

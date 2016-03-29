@@ -1,5 +1,6 @@
 package com.example.myapp.view;
 
+import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
@@ -14,6 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -27,6 +29,7 @@ import com.example.myapp.util.Methods;
  * DATE: 16-3-28
  * Time: 下午2:58
  * Email: yanru.zhang@renren-inc.com
+ * github：
  */
 public class CustomPullToZoomListView extends LinearLayout {
     private Context mContext;
@@ -184,12 +187,22 @@ public class CustomPullToZoomListView extends LinearLayout {
     }
 
     private void autoScrollToOrig() {
-        layoutParams.height = mHeaderContainerOriHeight ;
-        mHeaderContainer.setLayoutParams(layoutParams);
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(layoutParams.height,mHeaderContainerOriHeight);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int value = (Integer)animation.getAnimatedValue();
+                Log.d("zyr","value:" + value);
+                layoutParams.height = value;
+                mHeaderContainer.setLayoutParams(layoutParams);
+            }
+        });
+        valueAnimator.setDuration(100);
+        valueAnimator.start();
     }
 
     private void pullEvent() {
-//        Log.d("zyr","pullEvent deltaY:" + deltaY);
+        Log.d("zyr","pullEvent deltaY:" + deltaY);
         layoutParams.height = mHeaderContainerOriHeight + deltaY > mScreenHeight*3/4 ? mScreenHeight*3/4 : mHeaderContainerOriHeight + deltaY;
         mHeaderContainer.setLayoutParams(layoutParams);
     }
@@ -204,5 +217,9 @@ public class CustomPullToZoomListView extends LinearLayout {
 
     public void setAdapter(ListAdapter adapter){
         mListView.setAdapter(adapter);
+    }
+
+    public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener){
+        mListView.setOnItemClickListener(onItemClickListener);
     }
 }
