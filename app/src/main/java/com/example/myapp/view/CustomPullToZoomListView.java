@@ -1,11 +1,9 @@
 package com.example.myapp.view;
 
 import android.animation.ValueAnimator;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -15,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -31,7 +30,7 @@ import com.example.myapp.util.Methods;
  * Email: yanru.zhang@renren-inc.com
  * github：
  */
-public class CustomPullToZoomListView extends LinearLayout {
+public class CustomPullToZoomListView extends LinearLayout implements AbsListView.OnScrollListener{
     private Context mContext;
     /***************** View*********************/
     private FrameLayout mHeaderContainer;
@@ -39,7 +38,7 @@ public class CustomPullToZoomListView extends LinearLayout {
     private View mZoomView;//可拉伸的那个view
     private ListView mListView;
     private int mHeadViewId,mZoomViewId;
-    ViewGroup.LayoutParams layoutParams;
+    ViewGroup.LayoutParams mHeaderContainerLp;
     private int mHeaderContainerOriHeight;
     /***************** 状态*********************/
     private boolean isBeingDragged;
@@ -77,6 +76,7 @@ public class CustomPullToZoomListView extends LinearLayout {
         mHeaderContainer = new FrameLayout(mContext);
         mListView = new ListView(mContext);
 
+
         DisplayMetrics localDisplayMetrics = new DisplayMetrics();
         ((Activity) getContext()).getWindowManager().getDefaultDisplay().getMetrics(localDisplayMetrics);
         mScreenHeight = localDisplayMetrics.heightPixels;
@@ -88,13 +88,16 @@ public class CustomPullToZoomListView extends LinearLayout {
         setOrientation(VERTICAL);
         setGravity(Gravity.CENTER);
         mHeaderContainer.addView(mZoomView);
-        FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        lp.gravity = Gravity.BOTTOM;
-        mHeaderContainer.addView(mHeadView, lp);
-        mHeaderContainer.setMinimumHeight(Methods.computePixelsWithDensity(mContext,200));
-        addView(mHeaderContainer);
+        FrameLayout.LayoutParams mHeaderViewlp = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        mHeaderViewlp.gravity = Gravity.BOTTOM;
+        mHeaderContainer.addView(mHeadView, mHeaderViewlp);
+        mHeaderContainer.setMinimumHeight(Methods.computePixelsWithDensity(mContext, 200));
+        //给listview添加header
+        mHeaderContainerLp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        mListView.addHeaderView(mHeaderContainer,mHeaderContainerLp,true);
+        //给listview添加onScroll监听
+        mListView.setOnScrollListener(this);
         addView(mListView);
-        layoutParams = mHeaderContainer.getLayoutParams();
 
         mHeaderContainer.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
@@ -187,14 +190,14 @@ public class CustomPullToZoomListView extends LinearLayout {
     }
 
     private void autoScrollToOrig() {
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(layoutParams.height,mHeaderContainerOriHeight);
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(mHeaderContainerLp.height,mHeaderContainerOriHeight);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 int value = (Integer)animation.getAnimatedValue();
                 Log.d("zyr","value:" + value);
-                layoutParams.height = value;
-                mHeaderContainer.setLayoutParams(layoutParams);
+                mHeaderContainerLp.height = value;
+                mHeaderContainer.setLayoutParams(mHeaderContainerLp);
             }
         });
         valueAnimator.setDuration(100);
@@ -203,12 +206,13 @@ public class CustomPullToZoomListView extends LinearLayout {
 
     private void pullEvent() {
         Log.d("zyr","pullEvent deltaY:" + deltaY);
-        layoutParams.height = mHeaderContainerOriHeight + deltaY > mScreenHeight*3/4 ? mScreenHeight*3/4 : mHeaderContainerOriHeight + deltaY;
-        mHeaderContainer.setLayoutParams(layoutParams);
+        mHeaderContainerLp.height = mHeaderContainerOriHeight + deltaY > mScreenHeight*3/4 ? mScreenHeight*3/4 : mHeaderContainerOriHeight + deltaY;
+        mHeaderContainer.setLayoutParams(mHeaderContainerLp);
     }
 
     private boolean isReadyForPullStart() {
-        if(mListView.getFirstVisiblePosition() == 0){
+        Log.e("zyr","mHeaderContainer.getBottom():" + mHeaderContainer.getBottom());
+        if(mHeaderContainer.getBottom() >= mHeaderContainerOriHeight){
             return true;
         }else{
             return false;
@@ -221,5 +225,16 @@ public class CustomPullToZoomListView extends LinearLayout {
 
     public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener){
         mListView.setOnItemClickListener(onItemClickListener);
+    }
+
+    @Override
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+        Log.d("zyr", "onScrollStateChanged --> ");
+    }
+
+    @Override
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+        Log.d("zyr", "onScroll --> ");
+
     }
 }
