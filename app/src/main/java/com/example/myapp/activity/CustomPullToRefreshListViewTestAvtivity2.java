@@ -31,58 +31,27 @@ public class CustomPullToRefreshListViewTestAvtivity2 extends BaseActivity {
     @Override
     protected void initView() {
         listView = (CustomPullToRefreshListView2) findViewById(R.id.listview);
-//        View head =  LayoutInflater.from(this).inflate(R.layout.header_listview,null);
-        headRoot =  (FrameLayout)LayoutInflater.from(this).inflate(R.layout.header_listview, listView, false);//这样做headRoot不会被忽视
-        headContainer = (FrameLayout) headRoot.findViewById(R.id.head_container);
-        Log.d("zyr", "-Methods.computePixelsWithDensity(this,100) :" + -Methods.computePixelsWithDensity(this, 100));
-
-//        listView = (PullToRefreshListView) findViewById(R.id.listview);
-
-        listView.addHeaderView(headRoot, null, false);
-//
-//        View v = LayoutInflater.from(this).inflate(R.layout.header_listview2, null);
-//        listView.addHeaderView(v);
-//
-//
         for(int i=0;i<20;i++){
             strings.add("zyr" + i);
         }
         commonAdapter = new CommonAdapter(this,strings);
         listView.setAdapter(commonAdapter);
-//        listView.setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                new Thread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        try {
-//                            Thread.sleep(1000);
-//                        } catch (InterruptedException e) {
-//                            e.printStackTrace();
-//                        }
-//                        listView.post(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                listView.onRefreshComplete();
-//                            }
-//                        });
-//
-//                    }
-//                }).start();
-//
-//            }
-//
-//            @Override
-//            public void onLoadMore() {
-//
-//            }
-//        });
-//
-
-//        headRoot.setVisibility(View.GONE);//没做用
-//        headContainer.setVisibility(View.GONE);//可以变为不可见
-        headRoot.setPadding(0, -Methods.computePixelsWithDensity(this, 100), 0, 0);//没做用，晕死
-        listView.requestLayout();
+        listView.setOnRefreshListener(new CustomPullToRefreshListView2.OnRefreshListener() {
+            @Override
+            public void onDownPullRefresh() {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        listView.hideHeaderView();
+                    }
+                }).start();
+            }
+        });
     }
 
     @Override

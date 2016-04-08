@@ -2,17 +2,15 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/head_root"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:background="@color/primary">
+    android:layout_height="wrap_content">
 
     <FrameLayout android:id="@+id/head_container"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:background="@color/primary_light">
-        <TextView
+        <TextView android:id="@+id/header_tv"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@color/white"
             android:text="Header1"
             android:gravity="center"
             android:textSize="30sp" />

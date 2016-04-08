@@ -1,2 +1,2 @@
-include ':app', ':dynamicgrid'
+include ':app', ':dynamicgrid', ':SearchListView'
 include ':pulltorefresh'
