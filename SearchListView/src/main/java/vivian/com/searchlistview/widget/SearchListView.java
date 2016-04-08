@@ -72,11 +72,11 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
     /**
      * 松开更新
      **/
-    private final static int TOUCH_STATE_RELEASE_TO_REFRESH = 1;
+    private final static int TOUCH_STATE_RELEASE_TO_REFRESH = 2;
     /**
      * 下拉更新
      **/
-    private final static int TOUCH_STATE_PULL_TO_REFRESH = 2;
+    private final static int TOUCH_STATE_PULL_TO_REFRESH = 1;
     /**
      * 正在刷新
      **/
@@ -84,7 +84,7 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
     /**
      * 已加载全部
      */
-    private final static int LOAD_ALL=4;
+    private final static int LOAD_ALL= 4;
 
     /**
      * 标识查看更多状态
@@ -112,12 +112,12 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
     private ProgressBar progressBarHeader;
 
     /**
-     * 内容显示
+     * Search Bar内容显示
      **/
     private RelativeLayout layoutContent;
 
     /**
-     * 头部高度
+     * 整个header头部高度
      **/
     private int headHeight;
 
@@ -152,6 +152,10 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
 
     private OnRefreshListener onRefreshListener;
     private OnLastItemVisibleListener onLastItemVisibleListener;
+    /**
+     * 区别点击的移动的最小的Y距离
+     */
+    private static final int MIN_MOVE_Y = 50;
 
     public SearchListView(Context context) {
         super(context);
@@ -176,6 +180,7 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
 
         measureView(getHeaderView());
         headHeight = getHeaderView().getMeasuredHeight();
+        Log.d("zyr","init headHeight :" + headHeight);
         getHeaderView().setPadding(0, -1 * headHeight, 0, 0);
         getHeaderView().invalidate();
 
@@ -260,6 +265,7 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
         headerContentHeight = header.getMeasuredHeight();
 
         headHeight += headerContentHeight;
+        Log.d("zyr","after addSearchBar headHeight :" + headHeight);
 
         getHeaderView().setPadding(0, -1 * headHeight, 0, 0);
     }
@@ -374,8 +380,17 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
 
                 final float deltaY = ev.getRawY() - lastY;
                 lastY = ev.getRawY();
+                /**
+                 *第一个item可见
+                 * header的paddingTop < headHeight || 向下滑动
+                 */
 
-                if (getFirstVisiblePosition() == 0 && (Math.abs(getHeaderView().getPaddingTop()) < headHeight || deltaY > 0)) {
+                /**新加的 By yanru.zhang
+                 * 移动的距离大于一定的值的时候，才执行下拉刷新判断，否则视为点击
+                 */
+                if (getFirstVisiblePosition() == 0 &&
+                        (Math.abs(getHeaderView().getPaddingTop()) < headHeight || deltaY > 0)
+                        && Math.abs(lastY - firstY) > MIN_MOVE_Y) {
                     final int paddingTop = getHeaderView().getPaddingTop();
 
                     // change paddingTop with the movement of the finger
@@ -392,6 +407,7 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
                             changeHeaderViewByState();
                         }
                     }
+                    Log.d("zyr" , "---------state :" + state);
                     return true;
                 } else if (getLastVisiblePosition() == totalItemCount - 1 && deltaY < 0) {
                     Log.i(TAG, "Footer" + String.valueOf(-deltaY / OFFSET_RADIO));
@@ -403,35 +419,62 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
                 if (getFirstVisiblePosition() == 0 || getFirstVisiblePosition() == 1) {
                     if (enablePullRefresh) {
                         final int paddingTop = getHeaderView().getPaddingTop();
-
+                        Log.d("zyr","-------action up paddingTop :" + paddingTop);
+                        Log.d("zyr","-------action up state :" + state ) ;
                         switch (state) {
                             case TOUCH_STATE_REFRESHING:
                                 scroller.startScroll(0, paddingTop, 0, -paddingTop, SCROLL_DURATION);
+                                postInvalidate();
                                 break;
-                            case TOUCH_STATE_PULL_TO_REFRESH:
-                                if (paddingTop + headHeight > headHeight * 0.75) { //高过搜索框0.75的 那么显示搜索框
-                                    scroller.startScroll(0, paddingTop, 0, -(headHeight - headerContentHeight + paddingTop), SCROLL_DURATION);
-                                } else if (paddingTop + headHeight > 0 && paddingTop + headHeight < headHeight * 0.25) {
-                                    if (firstY - lastY < 0) {//向下
-                                        scroller.startScroll(0, paddingTop, 0, -(headHeight - headerContentHeight + paddingTop), SCROLL_DURATION);
-                                    } else {//向上
-                                        scroller.startScroll(0, paddingTop, 0, (headHeight - headerContentHeight + paddingTop), SCROLL_DURATION);
+                            case TOUCH_STATE_PULL_TO_REFRESH: // paddingTop < 0 ,移动距离小于headHeight
+                                if(paddingTop + headHeight == headerContentHeight ){
+                                    Log.d("zyr", "搜索框显示的时候点击了");
+                                } else {
+                                    if (paddingTop + headHeight > headerContentHeight * 0.75) { // 移动的距离高过搜索框0.75的 那么显示搜索框
+                                        Log.d("zyr", "移动的距离高过搜索框0.75的  那么显示搜索框");
+                                        Log.d("zyr" , "deltaY :" +( -(headHeight - headerContentHeight ) -  paddingTop) );
+                                        scroller.startScroll(0, paddingTop, 0, -(headHeight - headerContentHeight) - paddingTop, SCROLL_DURATION);
+                                        postInvalidate();
+                                    } else if (paddingTop + headHeight > 0 && paddingTop + headHeight < headerContentHeight * 0.25) { // 移动的距离少于搜索框0.25的
+                                        if (firstY - lastY < 0) {//向下
+                                            // 显示搜索框
+                                            Log.d("zyr", "移动的距离少于搜索框0.25的  向下 那么显示搜索框");
+                                            Log.d("zyr" , "deltaY :" +( -(headHeight - headerContentHeight ) - paddingTop) );
+                                            scroller.startScroll(0, paddingTop, 0, -(headHeight - headerContentHeight) - paddingTop, SCROLL_DURATION);
+                                            postInvalidate();
+                                        } else { //向上
+                                            // 不显示搜索框
+                                            Log.d("zyr", "移动的距离少于搜索框0.25的  向上 不显示搜索框");
+                                            Log.d("zyr" , "deltaY :" +( - headHeight - paddingTop) );
+                                            scroller.startScroll(0, paddingTop, 0, -headHeight - paddingTop, SCROLL_DURATION);
+                                            postInvalidate();
+                                        }
+                                    } else if (firstY - lastY < 0) {//向下 ,在0.25 * 搜索框高度 ～ 0.75 * 搜索框高度 之间
+                                        // 显示搜索框
+                                        Log.d("zyr", "移动的距离在0.25 * 搜索框高度 ～ 0.75 * 搜索框高度 之间  向下 那么显示搜索框");
+                                        Log.d("zyr" , "deltaY :" +( - (headHeight - headerContentHeight ) - paddingTop) );
+                                        scroller.startScroll(0, paddingTop, 0, -(headHeight - headerContentHeight) - paddingTop, SCROLL_DURATION);
+                                        postInvalidate();
+                                    } else {//向上 ,在0.25 * 搜索框高度 ～ 0.75 * 搜索框高度 之间
+                                        // 不显示搜索框
+                                        Log.d("zyr", "移动的距离在0.25 * 搜索框高度 ～ 0.75 * 搜索框高度 之间  向上 不显示搜索框");
+                                        Log.d("zyr" , "deltaY :" +( - headHeight - paddingTop) );
+                                        scroller.startScroll(0, paddingTop, 0, -headHeight - paddingTop, SCROLL_DURATION);
+                                        postInvalidate();
                                     }
-                                } else if (firstY - lastY < 0) {//向下
-                                    scroller.startScroll(0, paddingTop, 0, -(headHeight - headerContentHeight + paddingTop));
-                                } else {//向上
-                                    scroller.startScroll(0, paddingTop, 0, -(headHeight + paddingTop));
+                                    return true ;
                                 }
                                 break;
-                            case TOUCH_STATE_RELEASE_TO_REFRESH:
+                            case TOUCH_STATE_RELEASE_TO_REFRESH: // paddingTop > 0
                                 state = TOUCH_STATE_REFRESHING;  //将进度切换到正在刷新
                                 changeHeaderViewByState();
                                 scroller.startScroll(0, paddingTop, 0, -paddingTop, SCROLL_DURATION);
+                                postInvalidate();
 
                                 if (onRefreshListener != null) {
                                     onRefreshListener.onRefresh();
                                 }
-                                break;
+                                return true ;
 
                             default:
                                 break;
@@ -478,6 +521,7 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
     @Override
     public void computeScroll() {
         if (scroller.computeScrollOffset()) {
+            Log.d("zyr","------------scroll : " + scroller.getCurrY());
             getHeaderView().setPadding(0, scroller.getCurrY(), 0, 0);
             postInvalidate();
         }
@@ -492,6 +536,7 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
         if (show) {
             imgHeader.setVisibility(View.GONE);
             scroller.startScroll(0, paddingTop, 0, -paddingTop, SCROLL_DURATION);
+            postInvalidate();
         }
     }
 

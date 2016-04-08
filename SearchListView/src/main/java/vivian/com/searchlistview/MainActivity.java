@@ -6,10 +6,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import vivian.com.searchlistview.widget.SearchBar;
@@ -36,7 +39,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 // 15/11/23  the click event
-                Log.e("MainActivity", "SearchBar click");
+                Toast.makeText(MainActivity.this,"Click SearchBar",Toast.LENGTH_SHORT).show();
             }
         });
 //        layout.addView(mSearchBar);
@@ -104,7 +107,7 @@ public class MainActivity extends Activity {
                         }
                         mAdappter.notifyDataSetChanged();
                         mListView.onRefreshComplete();
-                        if(mList.size()>30){
+                        if (mList.size() > 30) {
                             mListView.setLoadAll();
                         }
                     }
@@ -113,6 +116,12 @@ public class MainActivity extends Activity {
             }
         });
 
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(MainActivity.this,"position :" + id,Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     class MyAdapter extends BaseAdapter {

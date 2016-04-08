@@ -56,6 +56,7 @@ public class CustomPullToRefreshListView2 extends ListView implements AbsListVie
         mContext = context;
 
         initHeaderView();
+        setOnScrollListener(this);
     }
 
     private void initHeaderView() {
@@ -64,10 +65,12 @@ public class CustomPullToRefreshListView2 extends ListView implements AbsListVie
         headerTv = (TextView) headerView.findViewById(R.id.header_tv);
         headerView.measure(0, 0); // 系统会帮我们测量出headerView的高度
         headerHeight = headerView.getMeasuredHeight();
-        Log.d("zyr","--------------------headerHeight :" + headerHeight);
+        Log.d("zyr", "--------------------headerHeight :" + headerHeight);
         headerView.setPadding(0, -headerHeight, 0, 0);
+        headerView.invalidate();
         Log.d("zyr", "----------------------headerPaddingTop :" + headerView.getPaddingTop());
-        this.addHeaderView(headerView); // 向ListView的顶部添加一个view对象
+//        this.addHeaderView(headerView); // 向ListView的顶部添加一个view对象
+        super.addHeaderView(headerView, null, false);
     }
 
     /**************************     Scroll******************************/
