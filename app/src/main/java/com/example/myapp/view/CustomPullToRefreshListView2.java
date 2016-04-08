@@ -5,8 +5,12 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.AbsListView;
 import android.widget.ListView;
+import android.widget.Scroller;
 import android.widget.TextView;
 
 import com.example.myapp.R;
@@ -28,6 +32,8 @@ public class CustomPullToRefreshListView2 extends ListView implements AbsListVie
 
     private int headerHeight;
 
+    private Scroller mScroller;
+
     public static final int STATE_NONE  = 0;
     public static final int STATE_PULL_TO_REFRESH = 1;
     public static final int STATE_RELEASE_TO_REFRESH = 2;
@@ -35,6 +41,8 @@ public class CustomPullToRefreshListView2 extends ListView implements AbsListVie
 
     private int state = STATE_NONE;
     private int downY;
+
+    public static final int DURATION = 500;
     private OnRefreshListener mOnRefreshListener;
 
     public interface OnRefreshListener{
@@ -55,21 +63,32 @@ public class CustomPullToRefreshListView2 extends ListView implements AbsListVie
         super(context, attrs, defStyleAttr);
         mContext = context;
 
+        initScroller();
         initHeaderView();
         setOnScrollListener(this);
     }
 
+    private void initScroller() {
+        mScroller = new Scroller(getContext(), new DecelerateInterpolator());
+    }
+
+    @Override
+    public void computeScroll() {
+        super.computeScroll();
+        if(mScroller.computeScrollOffset()){
+            headerView.setPadding(0, mScroller.getCurrY(), 0, 0);
+        }
+    }
+
     private void initHeaderView() {
         headerView =  View.inflate(getContext(), R.layout.header_listview, null);
-//        headerView = LayoutInflater.from(mContext).inflate(R.layout.header_listview,this,false);
-        headerTv = (TextView) headerView.findViewById(R.id.header_tv);
+        headerTv = (TextView) headerView.findViewById(R.id.tvHead);
         headerView.measure(0, 0); // 系统会帮我们测量出headerView的高度
         headerHeight = headerView.getMeasuredHeight();
         Log.d("zyr", "--------------------headerHeight :" + headerHeight);
         headerView.setPadding(0, -headerHeight, 0, 0);
-        headerView.invalidate();
+        invalidate();
         Log.d("zyr", "----------------------headerPaddingTop :" + headerView.getPaddingTop());
-//        this.addHeaderView(headerView); // 向ListView的顶部添加一个view对象
         super.addHeaderView(headerView, null, false);
     }
 
@@ -118,7 +137,8 @@ public class CustomPullToRefreshListView2 extends ListView implements AbsListVie
                 if (state == STATE_RELEASE_TO_REFRESH) {
                     Log.i("zyr", "刷新数据.");
                     // 把头布局设置为完全显示状态
-                    headerView.setPadding(0, 0, 0, 0);
+                    mScroller.startScroll(0,headerView.getPaddingTop(),0,0-headerView.getPaddingTop(),DURATION);
+                    postInvalidate();
                     // 进入到正在刷新中状态
                     state = STATE_REFRESHING;
                     refreshHeaderView();
@@ -128,7 +148,8 @@ public class CustomPullToRefreshListView2 extends ListView implements AbsListVie
                     }
                 } else if (state == STATE_PULL_TO_REFRESH) {
                     // 隐藏头布局
-                    headerView.setPadding(0, -headerHeight, 0, 0);
+                    mScroller.startScroll(0,headerView.getPaddingTop(),0,- headerHeight -headerView.getPaddingTop(),DURATION);
+                    postInvalidate();
                 }
                 break;
             default :
