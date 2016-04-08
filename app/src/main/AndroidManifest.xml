@@ -80,6 +80,7 @@
         <activity android:name=".activity.PopupWindowTestActivity"/>
         <activity android:name=".activity.PullToZoomViewTestActivity"/>
         <activity android:name=".activity.CustomPullToRefreshListViewTestAvtivity2"/>
+        <activity android:name=".activity.CustomSearchListViewTestActivity"/>
 
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->

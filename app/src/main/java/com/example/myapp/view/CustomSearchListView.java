@@ -5,8 +5,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.AbsListView;
 import android.widget.ListView;
@@ -17,13 +15,13 @@ import com.example.myapp.R;
 
 /**
  * Created by zyr
- * DATE: 16-4-6
- * Time: 下午4:02
+ * DATE: 16-4-8
+ * Time: 下午7:09
  * Email: yanru.zhang@renren-inc.com
  *
  * 通过listview addHeaderView来实现下拉刷新
  */
-public class CustomPullToRefreshListView2 extends ListView implements AbsListView.OnScrollListener {
+public class CustomSearchListView extends ListView implements AbsListView.OnScrollListener {
     private Context mContext;
 
     private View headerView;
@@ -51,15 +49,15 @@ public class CustomPullToRefreshListView2 extends ListView implements AbsListVie
 
     /************************   构造****************************************/
 
-    public CustomPullToRefreshListView2(Context context) {
+    public CustomSearchListView(Context context) {
         this(context, null);
     }
 
-    public CustomPullToRefreshListView2(Context context, AttributeSet attrs) {
+    public CustomSearchListView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CustomPullToRefreshListView2(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomSearchListView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
 
