@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loadmore_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingBottom="15dip"
+    android:paddingTop="10dip" >
+
+    <!--     <Button
+            android:id="@+id/loadmore_btn"
+            android:layout_width="match_parent"
+            android:layout_height="60.0dip"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0.0dip"
+            android:background="@drawable/weibo_list_item_selector"
+            android:text="@string/loadmore_label"
+            android:textColor="@color/loadmore_btn_selector"
+            android:textSize="18.0sp" />
+     -->
+    <ProgressBar
+        android:id="@+id/loadmore_progress"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginTop="10dip"
+        android:indeterminate="true"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/loadmore_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingTop="5dip"
+        android:text="loadmore_label"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+</RelativeLayout> 
