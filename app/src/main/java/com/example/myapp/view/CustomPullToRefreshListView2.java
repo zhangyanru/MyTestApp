@@ -183,7 +183,8 @@ public class CustomPullToRefreshListView2 extends ListView implements AbsListVie
         post(new Runnable() {
             @Override
             public void run() {
-                headerView.setPadding(0, -headerHeight, 0, 0);
+                mScroller.startScroll(0,headerView.getPaddingTop(),0,- headerHeight -headerView.getPaddingTop(),DURATION);
+                postInvalidate();
                 headerTv.setText("下拉刷新");
                 state = STATE_NONE;
             }
