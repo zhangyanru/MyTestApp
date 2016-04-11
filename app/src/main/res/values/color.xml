@@ -16,4 +16,9 @@
     <color name="gray_light">#eeeeee</color>
     <color name="gray_ececec">#00FFFFFF</color>
     <color name="black">#000000</color>
+
+    <color name="red_light">#ffff4444</color>
+    <color name="green_light">#ff99cc00</color>
+    <color name="orange_light">#ffffbb33</color>
+    <color name="blue_light">#ff33b5e5</color>
 </resources>

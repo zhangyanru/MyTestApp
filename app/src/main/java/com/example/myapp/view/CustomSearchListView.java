@@ -144,7 +144,7 @@ public class CustomSearchListView extends ListView implements AbsListView.OnScro
                 diff = moveY - downY;
                 //
                 int paddingTop =   headerView.getPaddingTop() + moveDiff ;
-                // 如果: 第一个可见，向下拉
+                // 如果: 第一个可见
                 if(getFirstVisiblePosition() == 0 && Math.abs(diff) > 50){
                     switch (state){
                         case STATE_NONE :
@@ -190,7 +190,7 @@ public class CustomSearchListView extends ListView implements AbsListView.OnScro
                 if(Math.abs(upY - downY) < 50 && Math.abs(upX - downX) < 50){
                     super.onTouchEvent(ev);
                 }
-                // 判断当前的状态是松开刷新还是下拉刷新
+                // 判断当前的状态
                 int headPaddingTop = headerView.getPaddingTop();
                 Log.d("zyr","--------------MotionEvent.ACTION_UP paddingTop:" + headPaddingTop);
                 Log.d("zyr","--------------MotionEvent.ACTION_UP state:" + state);

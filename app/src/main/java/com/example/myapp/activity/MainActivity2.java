@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.myapp.R;
+import com.example.myapp.github.pinnedsectionlistview.PinnedSectionListActivity;
 
 /**
  * Created by zyr
@@ -22,6 +23,7 @@ public class MainActivity2 extends BaseActivity {
     private Button pullToZoomView;
     private Button customPullToRefreshListViewTest2;
     private Button customSearchListViewTest;
+    private Button pinnedSectionListView;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -34,6 +36,7 @@ public class MainActivity2 extends BaseActivity {
         pullToZoomView = (Button) findViewById(R.id.pull_to_zoom_view_test);
         customPullToRefreshListViewTest2 = (Button) findViewById(R.id.pull_to_refresh_list_view2);
         customSearchListViewTest = (Button) findViewById(R.id.search_list_view);
+        pinnedSectionListView = (Button) findViewById(R.id.pinned_section_list_view);
     }
 
     @Override
@@ -53,6 +56,7 @@ public class MainActivity2 extends BaseActivity {
         pullToZoomView.setOnClickListener(this);
         customPullToRefreshListViewTest2.setOnClickListener(this);
         customSearchListViewTest.setOnClickListener(this);
+        pinnedSectionListView.setOnClickListener(this);
     }
 
     @Override
@@ -87,6 +91,9 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.search_list_view:
                 show(this,CustomSearchListViewTestActivity.class);
+                break;
+            case R.id.pinned_section_list_view:
+                show(this, PinnedSectionListActivity.class);
                 break;
         }
 

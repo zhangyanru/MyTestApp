@@ -47,5 +47,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="自定义SearchListView"/>
+        <Button android:id="@+id/pinned_section_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="自定义PinnedSectionListView"/>
     </LinearLayout>
 </ScrollView>

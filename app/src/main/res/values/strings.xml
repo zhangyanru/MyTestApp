@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GridPassWordViewDemo</string>
+    <string name="app_name">ZyrDemo</string>
     <string name="title_activity_main">MainActivity</string>
 
     <string name="hello_world">Hello world!</string>
@@ -11,4 +11,10 @@
         <item>textVisiblePassword</item>
         <item>textWebPassword</item>
     </string-array>
+
+    <string name="action_fastscroll">Fast scroll</string>
+    <string name="action_addpadding">Add padding</string>
+    <string name="action_showShadow">Show shadow</string>
+    <string name="action_showHeaderAndFooter">Show Header &amp; Footer</string>
+    <string name="action_updateDataset">Update dataset</string>
 </resources>
