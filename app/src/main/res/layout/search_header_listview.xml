@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><!-- ListView的头部 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- 内容 -->
+
+    <RelativeLayout
+        android:id="@+id/head_contentLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <RelativeLayout android:id="@+id/refresh_container"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/tvHead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pull_to_refresh_pull_label"
+                android:textColor="@color/black"
+                android:textSize="15.5sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout android:id="@+id/search_container"
+            android:layout_below="@+id/refresh_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,11 +1,14 @@
 package com.example.myapp.activity;
 
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 
 import com.example.myapp.R;
 import com.example.myapp.adapter.CommonAdapter;
+import com.example.myapp.util.Methods;
 import com.example.myapp.view.CustomPullToRefreshListView2;
+import com.example.myapp.view.CustomSearchListView;
 
 import java.util.ArrayList;
 
@@ -18,7 +21,7 @@ import java.util.ArrayList;
 public class CustomSearchListViewTestActivity extends BaseActivity {
     private FrameLayout headRoot;
     private FrameLayout headContainer;
-    private CustomPullToRefreshListView2 listView;
+    private CustomSearchListView listView;
 //    private PullToRefreshListView listView;
 
     private CommonAdapter commonAdapter;
@@ -26,13 +29,13 @@ public class CustomSearchListViewTestActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        listView = (CustomPullToRefreshListView2) findViewById(R.id.listview);
+        listView = (CustomSearchListView) findViewById(R.id.listview);
         for(int i=0;i<20;i++){
             strings.add("zyr" + i);
         }
         commonAdapter = new CommonAdapter(this,strings);
         listView.setAdapter(commonAdapter);
-        listView.setOnRefreshListener(new CustomPullToRefreshListView2.OnRefreshListener() {
+        listView.setOnRefreshListener(new CustomSearchListView.OnRefreshListener() {
             @Override
             public void onDownPullRefresh() {
                 new Thread(new Runnable() {
@@ -48,11 +51,17 @@ public class CustomSearchListViewTestActivity extends BaseActivity {
                 }).start();
             }
         });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Methods.toast(CustomSearchListViewTestActivity.this,id+"");
+            }
+        });
     }
 
     @Override
     protected int onSetContainerViewId() {
-        return R.layout.activity_custom_pull_to_refresh_listview2;
+        return R.layout.activity_custom_search_listview;
     }
 
     @Override
