@@ -26,6 +26,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.GradientDrawable.Orientation;
 import android.os.Parcelable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
 import android.view.View;
@@ -111,22 +112,27 @@ public class PinnedSectionListView extends ListView {
                     isItemViewTypePinned(adapter, adapter.getItemViewType(firstVisibleItem));
 
             if (isFirstVisibleItemSection) {
+                Log.d("zyr","isFirstVisibleItemSection : " + isFirstVisibleItemSection);
                 View sectionView = getChildAt(0);
                 if (sectionView.getTop() == getPaddingTop()) { // view sticks to the top, no need for pinned shadow
+                    Log.d("zyr","组的第一个元素头部和组名挨着，不需要显示shadow,使mPinnedSection = null; view sticks to the top, no need for pinned shadow");
                     destroyPinnedShadow();
                 } else { // section doesn't stick to the top, make sure we have a pinned shadow
-                    ensureShadowForPosition(firstVisibleItem, firstVisibleItem, visibleItemCount);
+                    Log.d("zyr","组的第一个元素头部和组名没有挨着, mPinnedSection赋值 ， make sure we have a pinned shadow");
+                    ensureShadowForPosition(firstVisibleItem , firstVisibleItem, visibleItemCount);
                 }
 
             } else { // section is not at the first visible position
+                Log.d("zyr","isFirstVisibleItemSection : " + isFirstVisibleItemSection);
                 int sectionPosition = findCurrentSectionPosition(firstVisibleItem);
+                Log.d("zyr","CurrentSectionPosition: " + sectionPosition);
                 if (sectionPosition > -1) { // we have section position
                     ensureShadowForPosition(sectionPosition, firstVisibleItem, visibleItemCount);
                 } else { // there is no section for the first visible item, destroy shadow
                     destroyPinnedShadow();
                 }
             }
-		};
+		}
 
 	};
 
@@ -135,7 +141,7 @@ public class PinnedSectionListView extends ListView {
         @Override
         public void onChanged() {
             recreatePinnedShadow();
-        };
+        }
         @Override
         public void onInvalidated() {
             recreatePinnedShadow();
@@ -187,9 +193,9 @@ public class PinnedSectionListView extends ListView {
         }
     }
 
-	/** Create shadow wrapper with a pinned view for a view at given position */
+	/** 创建一个指定位置的带shadow的pinnedSection , Create shadow wrapper with a pinned view for a view at given position */
 	void createPinnedShadow(int position) {
-
+        Log.d("zyr","createPinnedShadow position: " + position);
 		// try to recycle shadow
 		PinnedSection pinnedShadow = mRecycleSection;
 		mRecycleSection = null;
@@ -230,7 +236,7 @@ public class PinnedSectionListView extends ListView {
 		mPinnedSection = pinnedShadow;
 	}
 
-	/** Destroy shadow wrapper for currently pinned view */
+	/** 销毁一个带shadow的pinnedSection ， Destroy shadow wrapper for currently pinned view */
 	void destroyPinnedShadow() {
 	    if (mPinnedSection != null) {
 	        // keep shadow for being recycled later
@@ -240,6 +246,12 @@ public class PinnedSectionListView extends ListView {
 	}
 
 	/** Makes sure we have an actual pinned shadow for given position. */
+    /**
+     *
+     * @param sectionPosition
+     * @param firstVisibleItem 第一个可见的位置position
+     * @param visibleItemCount 可见item总数
+     */
     void ensureShadowForPosition(int sectionPosition, int firstVisibleItem, int visibleItemCount) {
         if (visibleItemCount < 2) { // no need for creating shadow at all, we have a single visible item
             destroyPinnedShadow();
@@ -298,6 +310,11 @@ public class PinnedSectionListView extends ListView {
 		return -1;
 	}
 
+    /**
+     *
+     * @param fromPosition
+     * @return
+     */
 	int findCurrentSectionPosition(int fromPosition) {
 		ListAdapter adapter = getAdapter();
 
@@ -519,6 +536,12 @@ public class PinnedSectionListView extends ListView {
         return false;
     }
 
+    /**
+     * 判断第一个可见的item view是否是pinned类型
+     * @param adapter
+     * @param viewType
+     * @return
+     */
     public static boolean isItemViewTypePinned(ListAdapter adapter, int viewType) {
         if (adapter instanceof HeaderViewListAdapter) {
             adapter = ((HeaderViewListAdapter)adapter).getWrappedAdapter();

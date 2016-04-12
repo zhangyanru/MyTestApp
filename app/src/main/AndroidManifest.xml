@@ -82,6 +82,7 @@
         <activity android:name=".activity.CustomPullToRefreshListViewTestAvtivity2"/>
         <activity android:name=".activity.CustomSearchListViewTestActivity"/>
         <activity android:name=".github.pinnedsectionlistview.PinnedSectionListActivity"/>
+        <activity android:name=".github.pinnedheaderlistview.PinnedHeaderListViewMainActivity"/>
 
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->

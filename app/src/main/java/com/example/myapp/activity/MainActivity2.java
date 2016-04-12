@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.myapp.R;
+import com.example.myapp.github.pinnedheaderlistview.PinnedHeaderListViewMainActivity;
 import com.example.myapp.github.pinnedsectionlistview.PinnedSectionListActivity;
 
 /**
@@ -93,7 +94,7 @@ public class MainActivity2 extends BaseActivity {
                 show(this,CustomSearchListViewTestActivity.class);
                 break;
             case R.id.pinned_section_list_view:
-                show(this, PinnedSectionListActivity.class);
+                show(this, PinnedHeaderListViewMainActivity.class);
                 break;
         }
 

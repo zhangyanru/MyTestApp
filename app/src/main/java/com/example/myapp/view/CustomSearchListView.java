@@ -188,7 +188,7 @@ public class CustomSearchListView extends ListView implements AbsListView.OnScro
                 upX = (int)ev.getX();
                 // 判读是不是点击事件
                 if(Math.abs(upY - downY) < 50 && Math.abs(upX - downX) < 50){
-                    super.onTouchEvent(ev);
+                    return super.onTouchEvent(ev);
                 }
                 // 判断当前的状态
                 int headPaddingTop = headerView.getPaddingTop();
