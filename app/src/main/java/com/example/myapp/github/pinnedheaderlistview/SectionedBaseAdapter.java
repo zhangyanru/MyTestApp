@@ -107,25 +107,6 @@ public abstract class SectionedBaseAdapter extends BaseAdapter implements Pinned
         return getItemViewTypeCount() + getSectionHeaderViewTypeCount();
     }
 
-    public final int getSectionForPosition(int position) {
-        // first try to retrieve values from cache
-        Integer cachedSection = mSectionCache.get(position);
-        if (cachedSection != null) {
-            return cachedSection;
-        }
-        int sectionStart = 0;
-        for (int i = 0; i < internalGetSectionCount(); i++) {
-            int sectionCount = internalGetCountForSection(i);
-            int sectionEnd = sectionStart + sectionCount + 1;
-            if (position >= sectionStart && position < sectionEnd) {
-                mSectionCache.put(position, i);
-                return i;
-            }
-            sectionStart = sectionEnd;
-        }
-        return 0;
-    }
-
     public int getPositionInSectionForPosition(int position) {
         // first try to retrieve values from cache
         Integer cachedPosition = mSectionPositionCache.get(position);
@@ -145,7 +126,12 @@ public abstract class SectionedBaseAdapter extends BaseAdapter implements Pinned
         }
         return 0;
     }
-
+    /*******************    以下 ， 实现了PinnedSectionedHeaderAdapter接口****************************/
+    /**
+     * 是否是组的头部
+     * @param position
+     * @return
+     */
     public final boolean isSectionHeader(int position) {
         int sectionStart = 0;
         for (int i = 0; i < internalGetSectionCount(); i++) {
@@ -159,16 +145,56 @@ public abstract class SectionedBaseAdapter extends BaseAdapter implements Pinned
         return false;
     }
 
+    /**
+     * 根据位置得到对应的组号
+     * @param position
+     * @return
+     */
+    public final int getSectionForPosition(int position) {
+        // first try to retrieve values from cache
+        Integer cachedSection = mSectionCache.get(position);
+        if (cachedSection != null) {
+            return cachedSection;
+        }
+        int sectionStart = 0;
+        for (int i = 0; i < internalGetSectionCount(); i++) {
+            int sectionCount = internalGetCountForSection(i);
+            int sectionEnd = sectionStart + sectionCount + 1;
+            if (position >= sectionStart && position < sectionEnd) {
+                mSectionCache.put(position, i);
+                return i;
+            }
+            sectionStart = sectionEnd;
+        }
+        return 0;
+    }
+
+    /**
+     *
+     * @param section
+     * @param convertView
+     * @param parent
+     * @return
+     */
+    public abstract View getSectionHeaderView(int section, View convertView, ViewGroup parent);
+
+    /**
+     *
+     * @param section
+     * @return
+     */
+    public int getSectionHeaderViewType(int section) {
+        return HEADER_VIEW_TYPE;
+    }
+
+    /*******************    以上 ， 实现了PinnedSectionedHeaderAdapter接口****************************/
+
     public int getItemViewType(int section, int position) {
         return ITEM_VIEW_TYPE;
     }
 
     public int getItemViewTypeCount() {
         return 1;
-    }
-
-    public int getSectionHeaderViewType(int section) {
-        return HEADER_VIEW_TYPE;
     }
 
     public int getSectionHeaderViewTypeCount() {
@@ -184,8 +210,6 @@ public abstract class SectionedBaseAdapter extends BaseAdapter implements Pinned
     public abstract int getCountForSection(int section);
 
     public abstract View getItemView(int section, int position, View convertView, ViewGroup parent);
-
-    public abstract View getSectionHeaderView(int section, View convertView, ViewGroup parent);
 
     private int internalGetCountForSection(int section) {
         Integer cachedSectionCount = mSectionCountCache.get(section);

@@ -24,12 +24,12 @@ public class TestSectionedAdapter extends SectionedBaseAdapter {
     }
 
     @Override
-    public int getSectionCount() {
+    public int getSectionCount() { //组的个数
         return 7;
     }
 
     @Override
-    public int getCountForSection(int section) {
+    public int getCountForSection(int section) { //组里面的内容个数
         return 15;
     }
 

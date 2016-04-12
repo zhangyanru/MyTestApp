@@ -5,10 +5,13 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.myapp.R;
+import com.example.myapp.util.Methods;
 
 public class PinnedHeaderListViewMainActivity extends Activity {
 
@@ -29,6 +32,27 @@ public class PinnedHeaderListViewMainActivity extends Activity {
         listView.addFooterView(footer);
         TestSectionedAdapter sectionedAdapter = new TestSectionedAdapter();
         listView.setAdapter(sectionedAdapter);
+        listView.setOnItemClickListener(new PinnedHeaderListView.OnItemClickListener() {
+            @Override
+            public void onSectionItemClick(AdapterView<?> adapterView, View view, int section, int position, long id) {
+                Methods.toast(PinnedHeaderListViewMainActivity.this,"onItemClick section :" + section + " position :" + position);
+            }
+
+            @Override
+            public void onSectionClick(AdapterView<?> adapterView, View view, int section, long id) {
+                Methods.toast(PinnedHeaderListViewMainActivity.this,"onSectionClick section :" + section);
+            }
+
+            @Override
+            public void onHeaderClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Methods.toast(PinnedHeaderListViewMainActivity.this,"onHeaderClick header :" + position);
+            }
+
+            @Override
+            public void onFooterClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Methods.toast(PinnedHeaderListViewMainActivity.this,"onFooterClick footer :" + position);
+            }
+        });
     }
 
     @Override

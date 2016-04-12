@@ -13,12 +13,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Scroller;
 
 import com.example.myapp.R;
 import com.example.myapp.util.Methods;
@@ -30,16 +32,17 @@ import com.example.myapp.util.Methods;
  * Email: yanru.zhang@renren-inc.com
  * github：
  */
-public class CustomPullToZoomListView extends LinearLayout implements AbsListView.OnScrollListener{
+public class CustomPullToZoomListView extends ListView implements AbsListView.OnScrollListener{
     private Context mContext;
     /***************** View*********************/
+    private View mHeaderRootView;
     private FrameLayout mHeaderContainer;
     private View mHeadView;//不可拉伸的那部分
     private View mZoomView;//可拉伸的那个view
-    private ListView mListView;
     private int mHeadViewId,mZoomViewId;
-    ViewGroup.LayoutParams mHeaderContainerLp;
+    FrameLayout.LayoutParams mHeaderContainerLp;
     private int mHeaderContainerOriHeight;
+    private Scroller mScroller;
     /***************** 状态*********************/
     private boolean isBeingDragged;
     private boolean isZooming;
@@ -47,6 +50,8 @@ public class CustomPullToZoomListView extends LinearLayout implements AbsListVie
     private int mDownX,mDownY,mMoveX,mMoveY,deltaX,deltaY;
     private int mScreenHeight,mScreenWidth;
     public final static int MIN_MOVE_Y = 50;
+    public final static int SCROLL_DURATION = 200;
+
 
     public CustomPullToZoomListView(Context context) {
         this(context, null);
@@ -71,11 +76,18 @@ public class CustomPullToZoomListView extends LinearLayout implements AbsListVie
                     break;
             }
         }
-        mHeadView = LayoutInflater.from(mContext).inflate(mHeadViewId,null);
-        mZoomView = LayoutInflater.from(mContext).inflate(mZoomViewId, null);
-        mHeaderContainer = new FrameLayout(mContext);
-        mListView = new ListView(mContext);
 
+        initScroller();
+
+        mHeaderRootView = LayoutInflater.from(mContext).inflate(R.layout.pull_to_zoom_header_layout,null);
+        mHeaderContainer = (FrameLayout) mHeaderRootView.findViewById(R.id.pull_to_zoom_header_content_ly);
+        mHeaderContainerLp = (FrameLayout.LayoutParams)mHeaderContainer.getLayoutParams();
+        if(mHeaderContainerLp == null){
+            mHeaderContainerLp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+        }
+        //给listview添加onScroll监听
+        setOnScrollListener(this);
+        addHeaderView(mHeaderRootView, null, false);
 
         DisplayMetrics localDisplayMetrics = new DisplayMetrics();
         ((Activity) getContext()).getWindowManager().getDefaultDisplay().getMetrics(localDisplayMetrics);
@@ -84,20 +96,28 @@ public class CustomPullToZoomListView extends LinearLayout implements AbsListVie
         init();
     }
 
+    private void initScroller() {
+        mScroller = new Scroller(mContext,new DecelerateInterpolator());
+    }
+
+    @Override
+    public void computeScroll() {
+        super.computeScroll();
+        if(mScroller.computeScrollOffset()){
+            mHeaderContainerLp.height = mScroller.getCurrY();
+            mHeaderContainer.setLayoutParams(mHeaderContainerLp);
+        }
+    }
+
     private void init() {
-        setOrientation(VERTICAL);
-        setGravity(Gravity.CENTER);
+        mHeadView = LayoutInflater.from(mContext).inflate(mHeadViewId,null);
+        mZoomView = LayoutInflater.from(mContext).inflate(mZoomViewId, null);
+
         mHeaderContainer.addView(mZoomView);
         FrameLayout.LayoutParams mHeaderViewlp = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         mHeaderViewlp.gravity = Gravity.BOTTOM;
         mHeaderContainer.addView(mHeadView, mHeaderViewlp);
         mHeaderContainer.setMinimumHeight(Methods.computePixelsWithDensity(mContext, 200));
-        //给listview添加header
-        mHeaderContainerLp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        mListView.addHeaderView(mHeaderContainer,mHeaderContainerLp,true);
-        //给listview添加onScroll监听
-        mListView.setOnScrollListener(this);
-        addView(mListView);
 
         mHeaderContainer.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
@@ -111,97 +131,49 @@ public class CustomPullToZoomListView extends LinearLayout implements AbsListVie
     }
 
     @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        switch (ev.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                mDownX = (int)ev.getX();
-                mDownY = (int)ev.getY();
-                break;
-            case MotionEvent.ACTION_MOVE:
-                mMoveX = (int)ev.getX();
-                mMoveY = (int)ev.getY();
-                deltaX = mMoveX - mDownX;
-                deltaY = mMoveY - mDownY;
-                break;
-            case MotionEvent.ACTION_CANCEL:
-            case MotionEvent.ACTION_UP:
-                    break;
-        }
-        return super.dispatchTouchEvent(ev);
-    }
-
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        switch (ev.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                Log.d("zyr","INT ACTION_DOWN");
-                if(isReadyForPullStart()){
-                    return false;
-                }
-                break;
-            case MotionEvent.ACTION_MOVE:
-                Log.d("zyr","INT ACTION_MOVE");
-                if(isReadyForPullStart()){
-                    //y向滑动
-                    //y向滑动超过一定距离
-                    if(Math.abs(deltaY) > Math.abs(deltaX)
-                            && Math.abs(deltaY) > MIN_MOVE_Y
-                            && deltaY > 0){
-                        isBeingDragged = true;
-                        return true;
-                    }else{
-                        isBeingDragged = false;
-                    }
-                }
-                break;
-        }
-
-        return super.onInterceptTouchEvent(ev);
-    }
-
-    @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
                 Log.d("zyr","TOU ACTION_DOWN");
+                mDownX = (int) event.getX();
+                mDownY = (int) event.getY();
                 if(isReadyForPullStart()){
+                    Log.d("zyr","--------------isReadyForPullStart");
                     isBeingDragged = true;
-                    return true;
+                }else{
+                    isBeingDragged = false;
                 }
                 break;
             case MotionEvent.ACTION_MOVE:
                 Log.d("zyr","TOU ACTION_MOVE");
-                if(isBeingDragged && deltaY > 0){
+                mMoveX = (int) event.getX();
+                mMoveY = (int) event.getY();
+                deltaX = mMoveX - mDownX;
+                deltaY = mMoveY - mDownY;
+                if(isReadyForPullStart() && isBeingDragged && deltaY > 0){
+                    Log.d("zyr","--------------isReadyForPullStart");
                     pullEvent();
                     isZooming = true;
-                    return true;
+                }else{
+                    isZooming = false;
                 }
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
                 if(isBeingDragged && isZooming){
                     autoScrollToOrig();
+                    isBeingDragged = false;
+                    isZooming = false;
+                    return true;
                 }
-                isBeingDragged = false;
-                isZooming = false;
                 break;
         }
         return super.onTouchEvent(event);
     }
 
     private void autoScrollToOrig() {
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(mHeaderContainerLp.height,mHeaderContainerOriHeight);
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                int value = (Integer)animation.getAnimatedValue();
-                Log.d("zyr","value:" + value);
-                mHeaderContainerLp.height = value;
-                mHeaderContainer.setLayoutParams(mHeaderContainerLp);
-            }
-        });
-        valueAnimator.setDuration(100);
-        valueAnimator.start();
+        mScroller.startScroll(0,mHeaderContainerLp.height,0,mHeaderContainerOriHeight - mHeaderContainerLp.height,SCROLL_DURATION);
+        postInvalidate();
     }
 
     private void pullEvent() {
@@ -211,20 +183,12 @@ public class CustomPullToZoomListView extends LinearLayout implements AbsListVie
     }
 
     private boolean isReadyForPullStart() {
-        Log.e("zyr","mHeaderContainer.getBottom():" + mHeaderContainer.getBottom());
-        if(mHeaderContainer.getBottom() >= mHeaderContainerOriHeight){
+        Log.e("zyr", "mHeaderContainer.getBottom():" + mHeaderContainer.getBottom());
+        if(mHeaderRootView.getBottom() >= mHeaderContainerOriHeight){
             return true;
         }else{
             return false;
         }
-    }
-
-    public void setAdapter(ListAdapter adapter){
-        mListView.setAdapter(adapter);
-    }
-
-    public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener){
-        mListView.setOnItemClickListener(onItemClickListener);
     }
 
     @Override
