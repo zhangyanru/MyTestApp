@@ -132,6 +132,11 @@ public class CustomPinnedHeaderListView extends ListView implements AbsListView.
 
     }
 
+    /*********************************************************************************************
+     *
+     * 实现dispatchDraw,最精髓的部分哦
+     *
+     **********************************************************************************************/
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
