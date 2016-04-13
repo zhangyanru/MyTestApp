@@ -94,7 +94,7 @@ public class MainActivity2 extends BaseActivity {
                 show(this,CustomSearchListViewTestActivity.class);
                 break;
             case R.id.pinned_section_list_view:
-                show(this, PinnedHeaderListViewMainActivity.class);
+                show(this, CustomPinnedHeaderListViewTestActivity.class);
                 break;
         }
 

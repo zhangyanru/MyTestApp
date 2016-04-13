@@ -14,7 +14,8 @@
     <color name="trans_black">#88000000</color>
     <color name="gray">#888888</color>
     <color name="gray_light">#eeeeee</color>
-    <color name="gray_ececec">#00FFFFFF</color>
+    <color name="gray_ececec">#ececec</color>
+    <color name="gray_cccccc">#cccccc</color>
     <color name="black">#000000</color>
 
     <color name="red_light">#ffff4444</color>

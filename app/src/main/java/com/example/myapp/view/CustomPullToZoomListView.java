@@ -150,7 +150,7 @@ public class CustomPullToZoomListView extends ListView implements AbsListView.On
                 mMoveY = (int) event.getY();
                 deltaX = mMoveX - mDownX;
                 deltaY = mMoveY - mDownY;
-                if(isReadyForPullStart() && isBeingDragged && deltaY > 0){
+                if(isReadyForPullStart() && isBeingDragged && deltaY > 0 && deltaY > MIN_MOVE_Y){
                     Log.d("zyr","--------------isReadyForPullStart");
                     pullEvent();
                     isZooming = true;
