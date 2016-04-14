@@ -25,6 +25,7 @@ public class MainActivity2 extends BaseActivity {
     private Button customPullToRefreshListViewTest2;
     private Button customSearchListViewTest;
     private Button pinnedSectionListView;
+    private Button recyclerViewTest;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -38,6 +39,7 @@ public class MainActivity2 extends BaseActivity {
         customPullToRefreshListViewTest2 = (Button) findViewById(R.id.pull_to_refresh_list_view2);
         customSearchListViewTest = (Button) findViewById(R.id.search_list_view);
         pinnedSectionListView = (Button) findViewById(R.id.pinned_section_list_view);
+        recyclerViewTest = (Button) findViewById(R.id.recycler_view_test);
     }
 
     @Override
@@ -58,6 +60,7 @@ public class MainActivity2 extends BaseActivity {
         customPullToRefreshListViewTest2.setOnClickListener(this);
         customSearchListViewTest.setOnClickListener(this);
         pinnedSectionListView.setOnClickListener(this);
+        recyclerViewTest.setOnClickListener(this);
     }
 
     @Override
@@ -95,6 +98,9 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.pinned_section_list_view:
                 show(this, CustomPinnedHeaderListViewTestActivity.class);
+                break;
+            case R.id.recycler_view_test:
+                show(this, RecyclerViewTestActivity.class);
                 break;
         }
 
