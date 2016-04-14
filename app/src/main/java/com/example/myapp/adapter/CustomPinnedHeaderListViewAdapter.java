@@ -53,7 +53,7 @@ public class CustomPinnedHeaderListViewAdapter extends CustomPinnedHeaderListVie
         int position = 0;
         for(int i=0;i<sectionCounts;i++){
             Section section = new Section();
-            int sectionItemCounts = random.nextInt(10);
+            int sectionItemCounts = random.nextInt(10) + 1;
             section.sectionItemCounts = sectionItemCounts;
             for(int j=0;j < sectionItemCounts;j++){
                 Item item;

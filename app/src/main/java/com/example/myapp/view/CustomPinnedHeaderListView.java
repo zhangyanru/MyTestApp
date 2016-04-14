@@ -112,10 +112,6 @@ public class CustomPinnedHeaderListView extends ListView implements AbsListView.
                 break;
             }
         }
-        //比较currentSectionHeader == nextSectionHeader ???
-        if(currentSectionHeader!=null && nextSectionHeader!=null && currentSectionHeader.position == nextSectionHeader.position){
-            return;
-        }
         //得到currentSectionHeader
         currentSectionHeader = new SectionHeader(mAdapter.getSectionHeaderView(mAdapter.getSectionId(firstVisibleItem),null,this),
                 mAdapter.getSectionPosition(mAdapter.getSectionId(firstVisibleItem)),mAdapter.getSectionId(firstVisibleItem));
@@ -125,7 +121,7 @@ public class CustomPinnedHeaderListView extends ListView implements AbsListView.
 
             if(nextIsSectionHeaderView.getTop() >= 0 && currentSectionHeader!=null && nextIsSectionHeaderView.getTop() < currentSectionHeader.height){
                 currentSectionHeaderOffest = nextIsSectionHeaderView.getTop() - currentSectionHeader.height; // <0的哦
-                Log.d(TAG,"move current section header view");
+//                Log.d(TAG,"move current section header view");
             }
             invalidate();
         }
