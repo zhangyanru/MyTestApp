@@ -113,9 +113,12 @@ public class CustomPinnedHeaderListView extends ListView implements AbsListView.
             }
         }
         //得到currentSectionHeader
-        currentSectionHeader = new SectionHeader(mAdapter.getSectionHeaderView(mAdapter.getSectionId(firstVisibleItem),null,this),
-                mAdapter.getSectionPosition(mAdapter.getSectionId(firstVisibleItem)),mAdapter.getSectionId(firstVisibleItem));
-        currentSectionHeader.view.layout(0,0,currentSectionHeader.width,currentSectionHeader.height);//!!!!!一定不能少
+        //优化，当当前需要展示的和当前展示的不一致时，才new
+        if(currentSectionHeader==null || currentSectionHeader.sectionId != mAdapter.getSectionId(firstVisibleItem)){
+            currentSectionHeader = new SectionHeader(mAdapter.getSectionHeaderView(mAdapter.getSectionId(firstVisibleItem),null,this),
+                    mAdapter.getSectionPosition(mAdapter.getSectionId(firstVisibleItem)),mAdapter.getSectionId(firstVisibleItem));
+            currentSectionHeader.view.layout(0,0,currentSectionHeader.width,currentSectionHeader.height);//!!!!!一定不能少
+        }
         //判断nextSectionHeader的位置，如果距离顶部高度小于currentSectionHeader高度，使currentSectionHeader向上推移动
         if(nextIsSectionHeaderView!=null ){
 

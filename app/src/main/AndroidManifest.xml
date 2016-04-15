@@ -85,6 +85,7 @@
         <activity android:name=".github.pinnedheaderlistview.PinnedHeaderListViewMainActivity"/>
         <activity android:name=".activity.CustomPinnedHeaderListViewTestActivity"/>
         <activity android:name=".activity.RecyclerViewTestActivity"/>
+        <activity android:name=".activity.RecyclerViewGalleryTestActivity"/>
 
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->

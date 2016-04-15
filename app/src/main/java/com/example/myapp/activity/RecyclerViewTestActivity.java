@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.myapp.R;
 import com.example.myapp.adapter.CommonRecyclerViewAdapter;
+import com.example.myapp.util.Methods;
 
 import org.w3c.dom.Text;
 
@@ -43,9 +44,9 @@ public class RecyclerViewTestActivity extends BaseActivity {
 
         //设置布局管理器
 
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
 //        recyclerView.setLayoutManager(new GridLayoutManager(this,4));
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(4,StaggeredGridLayoutManager.VERTICAL));
+//        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL));
         //设置adapter
 
         for(int i=0;i<30;i++){
@@ -54,9 +55,17 @@ public class RecyclerViewTestActivity extends BaseActivity {
         adapter = new CommonRecyclerViewAdapter(this,strings);
         recyclerView.setAdapter(adapter);
 
+        adapter.setOnItemClickListener(new CommonRecyclerViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Methods.toast(RecyclerViewTestActivity.this,position+"");
+            }
+        });
+
         //设置Item增加、移除动画
 
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+
 
     }
 

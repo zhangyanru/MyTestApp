@@ -28,6 +28,16 @@ public class CommonRecyclerViewAdapter extends RecyclerView.Adapter<CommonRecycl
 
     private Random random;
 
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
+    private OnItemClickListener onItemClickListener;
+
+    public interface OnItemClickListener{
+        public void onItemClick(int position);
+    }
+
     public CommonRecyclerViewAdapter(Context context,List<String> strings){
         this.mContext = context;
         this.strings = new ArrayList<>(strings);
@@ -54,13 +64,15 @@ public class CommonRecyclerViewAdapter extends RecyclerView.Adapter<CommonRecycl
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.textView.setText(strings.get(position));
-        ViewGroup.LayoutParams layoutParams = holder.textView.getLayoutParams();
-        layoutParams.height = random.nextInt(400) + 100;
-        holder.textView.setLayoutParams(layoutParams);
+//        ViewGroup.LayoutParams layoutParams = holder.textView.getLayoutParams();
+//        layoutParams.height = random.nextInt(400) + 100;
+//        holder.textView.setLayoutParams(layoutParams);
         holder.itemRootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Methods.toast(mContext,position+"");
+                if(onItemClickListener!=null){
+                    onItemClickListener.onItemClick(position);
+                }
             }
         });
     }
@@ -68,6 +80,10 @@ public class CommonRecyclerViewAdapter extends RecyclerView.Adapter<CommonRecycl
     @Override
     public int getItemCount() {
         return strings.size();
+    }
+
+    public List<String> getStrings() {
+        return strings;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

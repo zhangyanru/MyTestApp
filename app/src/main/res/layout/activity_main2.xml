@@ -55,5 +55,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="Recycler View测试与使用"/>
+        <Button android:id="@+id/recycler_view_gallery_test"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="使用Recycler View打造画廊效果"/>
     </LinearLayout>
 </ScrollView>
