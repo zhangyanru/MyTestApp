@@ -2,5 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp" android:orientation="horizontal"
+        android:background="@color/gray_light">
+        <TextView android:id="@+id/insert_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Insert A Item"
+            android:gravity="center"
+            android:textColor="@color/gray_333333" />
+        <TextView android:id="@+id/delete_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Delete A Item"
+            android:gravity="center"
+            android:textColor="@color/gray_333333" />
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 </LinearLayout>

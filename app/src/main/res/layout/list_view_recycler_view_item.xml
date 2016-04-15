@@ -2,16 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white">
+    android:padding="3dp">
     <TextView android:id="@+id/list_view_text"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center|left"
         android:textColor="@color/gray_333333"
         android:textStyle="bold"
-        android:paddingLeft="20dp" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/gray_light"/>
+        android:paddingLeft="20dp"
+        android:background="@drawable/common_recycler_view_item_bg"/>
 </LinearLayout>
