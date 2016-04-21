@@ -59,7 +59,7 @@ public class CommonAdapter extends BaseAdapter implements Filterable{
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if(convertView ==null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.list_view_item,null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.list_view_item_layout,null);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         }else{

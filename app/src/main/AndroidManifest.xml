@@ -86,6 +86,7 @@
         <activity android:name=".activity.CustomPinnedHeaderListViewTestActivity"/>
         <activity android:name=".activity.RecyclerViewTestActivity"/>
         <activity android:name=".activity.RecyclerViewGalleryTestActivity"/>
+        <activity android:name=".activity.CustomExpandableLayoutTestActivity"/>
 
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->

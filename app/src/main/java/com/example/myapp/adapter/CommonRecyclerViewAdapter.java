@@ -64,7 +64,67 @@ public class CommonRecyclerViewAdapter extends RecyclerView.Adapter<CommonRecycl
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.textView.setText(strings.get(position));
-//        ViewGroup.LayoutParams layoutParams = holder.textView.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = holder.textView.getLayoutParams();
+//        switch (position){
+//            case 0:
+//                layoutParams.height = 100;
+//                break;
+//            case 1:
+//                layoutParams.height = 200;
+//                break;
+//            case 2:
+//                layoutParams.height = 300;
+//                break;
+//            case 3:
+//                layoutParams.height = 150;
+//                break;
+//            case 4:
+//                layoutParams.height = 250;
+//                break;
+//            case 5:
+//                layoutParams.height = 210;
+//                break;
+//            case 6:
+//                layoutParams.height = 130;
+//                break;
+//            case 7:
+//                layoutParams.height = 180;
+//                break;
+//            case 8:
+//                layoutParams.height = 150;
+//                break;
+//            case 9:
+//                layoutParams.height = 250;
+//                break;
+//            case 10:
+//                layoutParams.height = 210;
+//            case 11:
+//                layoutParams.height = 250;
+//                break;
+//            case 12:
+//                layoutParams.height = 210;
+//            case 13:
+//                layoutParams.height = 100;
+//                break;
+//            case 14:
+//                layoutParams.height = 200;
+//                break;
+//            case 15:
+//                layoutParams.height = 300;
+//                break;
+//            case 16:
+//                layoutParams.height = 150;
+//                break;
+//            case 17:
+//                layoutParams.height = 250;
+//                break;
+//            case 18:
+//                layoutParams.height = 210;
+//                break;
+//            case 19:
+//                layoutParams.height = 130;
+//                break;
+//        }
 //        layoutParams.height = random.nextInt(400) + 100;
 //        holder.textView.setLayoutParams(layoutParams);
         holder.itemRootView.setOnClickListener(new View.OnClickListener() {

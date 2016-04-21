@@ -62,4 +62,9 @@
         <attr name="headerLayout" format="reference"/>
         <attr name="zoomLayout" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="CustomExpandableLayout">
+        <attr name="contentLayout" format="reference"/>
+        <attr name="headLayout" format="reference"/>
+    </declare-styleable>
 </resources>

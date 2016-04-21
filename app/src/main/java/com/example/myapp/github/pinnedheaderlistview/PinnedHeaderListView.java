@@ -111,12 +111,9 @@ public class PinnedHeaderListView extends ListView implements OnScrollListener ,
 
         for (int i = firstVisibleItem; i < firstVisibleItem + visibleItemCount; i++) {
             if (mAdapter.isSectionHeader(i)) {
-                Log.d("zyr","-----------------i :" + i);
                 View header = getChildAt(i - firstVisibleItem);
                 float headerTop = header.getTop();
-                Log.d("zyr","-----------------headerTop :" + headerTop);
                 float pinnedHeaderHeight = mCurrentHeader.getMeasuredHeight();
-                Log.d("zyr","-----------------pinnedHeaderHeight :" + pinnedHeaderHeight);
                 header.setVisibility(VISIBLE);
                 if (pinnedHeaderHeight >= headerTop && headerTop > 0) { // 下一个组的头部快滑动到顶部，距离顶部的距离小于现在在顶部悬浮的head的高度了
                     mHeaderOffset = headerTop - header.getHeight(); //MheaderOffset是小于0的

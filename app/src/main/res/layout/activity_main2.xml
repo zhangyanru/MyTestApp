@@ -59,5 +59,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="使用Recycler View打造画廊效果"/>
+        <Button android:id="@+id/custom_expandable_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="自定义expandable layout"/>
     </LinearLayout>
 </ScrollView>

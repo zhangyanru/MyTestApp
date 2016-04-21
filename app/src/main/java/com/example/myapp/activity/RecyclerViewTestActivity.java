@@ -44,9 +44,9 @@ public class RecyclerViewTestActivity extends BaseActivity {
 
         //设置布局管理器
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
-//        recyclerView.setLayoutManager(new GridLayoutManager(this,4));
-//        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL));
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,4));
+//        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL));
         //设置adapter
 
         for(int i=0;i<30;i++){

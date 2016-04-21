@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.myapp.view.CustomExpandableLayout
+        android:id="@+id/expandlayout_ly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headLayout="@layout/custom_expandable_header_view"
+        app:contentLayout="@layout/custom_expandable_content_view"/>
+
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
