@@ -67,4 +67,9 @@
         <attr name="contentLayout" format="reference"/>
         <attr name="headLayout" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="CustomExpandableLayoutItem">
+        <attr name="itemLayout" format="reference"/>
+        <attr name="menuLayout" format="reference"/>
+    </declare-styleable>
 </resources>

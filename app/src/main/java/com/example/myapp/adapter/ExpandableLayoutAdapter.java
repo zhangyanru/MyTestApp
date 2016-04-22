@@ -28,7 +28,6 @@ public class ExpandableLayoutAdapter extends BaseAdapter{
     public List<String> arrayList = new ArrayList<String>();
     private Context context;
 
-    private int height;
     public ExpandableLayoutAdapter(Context context){
         this.context = context;
     }
@@ -70,31 +69,25 @@ public class ExpandableLayoutAdapter extends BaseAdapter{
             viewHolder = (ViewHolder)convertView.getTag();
         }
 
-        viewHolder.showTv.setText(arrayList.get(position));
-        viewHolder.clickShowTv.setText("I am showing by click item " + position + "!!!!") ;
-        viewHolder.clickShowly.measure(0, 0);
-        height = viewHolder.clickShowly.getMeasuredHeight();
-        viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
+        viewHolder.itemTv.setText(arrayList.get(position));
+        viewHolder.menuTv.setText("menu " + position + "!!!!") ;
+        viewHolder.menuLy.measure(0, 0);
+        final int height = viewHolder.menuLy.getMeasuredHeight();
+        viewHolder.itemTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(viewHolder.clickShowly.getVisibility() == View.GONE){
-                    show(viewHolder.clickShowly);
-                }else{
-                    dismiss(viewHolder.clickShowly);
+                if (viewHolder.menuLy.getVisibility() == View.GONE) {
+                    show(viewHolder.menuLy, height);
+                } else {
+                    dismiss(viewHolder.menuLy, height);
                 }
             }
         });
 
-        viewHolder.clickShowTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Methods.toast(context,"click green layout " + position);
-            }
-        });
         return convertView;
     }
 
-    public void show(final View v){
+    public void show(final View v ,int height){
         v.setVisibility(View.VISIBLE);
         ValueAnimator animator = ValueAnimator.ofInt(0,height);
         animator.setDuration(500);
@@ -109,7 +102,7 @@ public class ExpandableLayoutAdapter extends BaseAdapter{
         animator.start();
     }
 
-    public void dismiss(final View v){
+    public void dismiss(final View v ,int height){
 
         ValueAnimator animator = ValueAnimator.ofInt(height,0);
         animator.setDuration(500);
@@ -129,14 +122,14 @@ public class ExpandableLayoutAdapter extends BaseAdapter{
 
     class ViewHolder{
         View rootView;
-        TextView showTv;
-        TextView clickShowTv;
-        FrameLayout clickShowly;
+        TextView itemTv;
+        TextView menuTv;
+        FrameLayout menuLy;
         public ViewHolder(View view){
             rootView = view;
-            showTv = (TextView)view.findViewById(R.id.show_layout);
-            clickShowTv = (TextView) view.findViewById(R.id.click_show_tv);
-            clickShowly = (FrameLayout) view.findViewById(R.id.click_show_layout);
+            itemTv = (TextView)view.findViewById(R.id.item_layout);
+            menuTv = (TextView) view.findViewById(R.id.menu_tv);
+            menuLy = (FrameLayout) view.findViewById(R.id.menu_layout);
         }
     }
 }

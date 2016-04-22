@@ -5,14 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.myapp.view.CustomExpandableLayout
+    <!--<com.example.myapp.view.CustomExpandableLayout-->
+        <!--android:id="@+id/expandlayout_ly"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:headLayout="@layout/custom_expandable_header_view"-->
+        <!--app:contentLayout="@layout/custom_expandable_content_view"-->
+        <!--android:visibility="gone"/>-->
+
+    <com.example.myapp.view.CustomExpandableLayoutItem
         android:id="@+id/expandlayout_ly"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:headLayout="@layout/custom_expandable_header_view"
-        app:contentLayout="@layout/custom_expandable_content_view"/>
+        app:itemLayout="@layout/custom_expandable_item_view"
+        app:menuLayout="@layout/custom_expandable_menu_view"
+        android:visibility="gone">
 
-    <ListView
+    </com.example.myapp.view.CustomExpandableLayoutItem>
+
+
+    <!--<ListView-->
+        <!--android:id="@+id/lv"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"/>-->
+
+    <com.example.myapp.view.CustomExpandableListView
         android:id="@+id/lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

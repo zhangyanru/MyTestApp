@@ -7,7 +7,10 @@ import android.widget.ListView;
 import com.example.myapp.R;
 import com.example.myapp.adapter.CommonAdapter;
 import com.example.myapp.adapter.ExpandableLayoutAdapter;
+import com.example.myapp.adapter.ExpandableLayoutAdapter2;
 import com.example.myapp.view.CustomExpandableLayout;
+import com.example.myapp.view.CustomExpandableLayoutItem;
+import com.example.myapp.view.CustomExpandableListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,25 +23,21 @@ import java.util.List;
  */
 public class CustomExpandableLayoutTestActivity extends BaseActivity {
 
-    private CustomExpandableLayout customExpandableLayout;
+    private CustomExpandableListView listView;
 
-    private ListView listView;
-
-    private ExpandableLayoutAdapter adapter;
+    private ExpandableLayoutAdapter2 adapter;
 
     private List<String> strings = new ArrayList<>();
 
     @Override
     protected void initView() {
-        customExpandableLayout = (CustomExpandableLayout)findViewById(R.id.expandlayout_ly);
-        Log.d("zyr","child count : " + customExpandableLayout.getChildCount());
-        listView = (ListView) findViewById(R.id.lv);
+        listView = (CustomExpandableListView) findViewById(R.id.lv);
 
         for(int i=0;i<30;i++){
             strings.add("zyr" + i);
         }
 
-        adapter = new ExpandableLayoutAdapter(this,strings);
+        adapter = new ExpandableLayoutAdapter2(this,strings);
 
         listView.setAdapter(adapter);
 

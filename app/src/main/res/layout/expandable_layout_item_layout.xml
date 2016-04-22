@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-    <TextView android:id="@+id/show_layout"
+    <TextView android:id="@+id/item_layout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
@@ -13,11 +13,11 @@
         android:paddingLeft="20dp"
         android:background="@color/gray_light"/>
 
-    <FrameLayout android:id="@+id/click_show_layout"
+    <FrameLayout android:id="@+id/menu_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone">
-        <TextView android:id="@+id/click_show_tv"
+        <TextView android:id="@+id/menu_tv"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
