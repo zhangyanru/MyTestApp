@@ -28,6 +28,8 @@ public class MainActivity2 extends BaseActivity {
     private Button recyclerViewTest;
     private Button recyclerViewGalleryTest;
     private Button customExpandableLv;
+    private Button searchAnim;
+    private Button netWork;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -44,6 +46,8 @@ public class MainActivity2 extends BaseActivity {
         recyclerViewTest = (Button) findViewById(R.id.recycler_view_test);
         recyclerViewGalleryTest = (Button) findViewById(R.id.recycler_view_gallery_test);
         customExpandableLv = (Button) findViewById(R.id.custom_expandable_layout);
+        searchAnim = (Button) findViewById(R.id.search_anim);
+        netWork = (Button) findViewById(R.id.net_work);
     }
 
     @Override
@@ -67,6 +71,8 @@ public class MainActivity2 extends BaseActivity {
         recyclerViewTest.setOnClickListener(this);
         recyclerViewGalleryTest.setOnClickListener(this);
         customExpandableLv.setOnClickListener(this);
+        searchAnim.setOnClickListener(this);
+        netWork.setOnClickListener(this);
     }
 
     @Override
@@ -113,6 +119,12 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.custom_expandable_layout:
                 show(this,CustomExpandableLayoutTestActivity.class);
+                break;
+            case R.id.search_anim:
+                show(this,SearchAnimTestActivity.class);
+                break;
+            case R.id.net_work:
+                show(this,NetWorkTestActivity.class);
                 break;
         }
 
