@@ -13,7 +13,6 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
 }
@@ -31,4 +30,5 @@ dependencies {
     //    compile 'com.github.askerov:DynamicGrid:e3072b7c26'
     compile project(':pulltorefresh')
     compile project(':dynamicgrid')
+    compile 'com.github.frank-zhu:pullzoomview:1.0.0'
 }
