@@ -19,7 +19,7 @@ android {
 repositories {
     maven {
         url "https://jitpack.io"
-    }/**/
+    }
 }
 dependencies {
     compile 'com.android.support:appcompat-v7:22.0.0'
