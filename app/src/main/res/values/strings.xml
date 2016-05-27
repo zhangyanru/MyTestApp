@@ -17,4 +17,19 @@
     <string name="action_showShadow">Show shadow</string>
     <string name="action_showHeaderAndFooter">Show Header &amp; Footer</string>
     <string name="action_updateDataset">Update dataset</string>
+
+    <string name="title_pull_to_zoom_list_view">ZoomListView</string>
+    <string name="title_pull_to_zoom_scroll_view">ZoomScrollView</string>
+    <string name="title_pull_to_zoom_recycler_view">ZoomRecyclerView</string>
+    <string name="action_normal">Normal</string>
+    <string name="action_parallax">Parallax</string>
+    <string name="action_show_head">Show Head</string>
+    <string name="action_hide_head">Hide Head</string>
+    <string name="action_disable_zoom">Disable Zoom</string>
+    <string name="action_enable_zoom">Enable Zoom</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="long_text">asdasdasdas sadasdasd asdasdad asdasdasd dasdasdasdasdasd dasdasdas dasdasdasdasd dasdasdasdasdas dasdasdasdasdad dadadasadasdasd asdasdadasd asdasdadasdasdedcergrfgbvtegb gqergregqrevggvefvrvqgbvewbv</string>
+    <string name="medium_text">asdasdasdas sadasdasd asdasdad asdasdasd dasdasdasdasdasd dasdasdas dasdasdasdasd dasdasdasdasdas dasdasdasdasdad dadadasadasdasd asdasdadasd asda</string>
+    <string name="short_text">adasd pqeriewpfnqpf eenvcjri eochrhfeivehgi dfbdcwehfei epfeh</string>
 </resources>

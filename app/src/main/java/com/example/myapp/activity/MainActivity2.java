@@ -4,8 +4,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.myapp.R;
+import com.example.myapp.github.parallaxheaderviewpager.demo.ParallaxHeaderViewPagerMainActivity;
 import com.example.myapp.github.pinnedheaderlistview.PinnedHeaderListViewMainActivity;
 import com.example.myapp.github.pinnedsectionlistview.PinnedSectionListActivity;
+import com.example.myapp.github.pullzoomview.demo.PullZoomViewMainActivity;
 
 /**
  * Created by zyr
@@ -30,6 +32,8 @@ public class MainActivity2 extends BaseActivity {
     private Button customExpandableLv;
     private Button searchAnim;
     private Button netWork;
+    private Button githubPullZoomView;
+    private Button githubParallaxHeaderViewPager;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -48,6 +52,8 @@ public class MainActivity2 extends BaseActivity {
         customExpandableLv = (Button) findViewById(R.id.custom_expandable_layout);
         searchAnim = (Button) findViewById(R.id.search_anim);
         netWork = (Button) findViewById(R.id.net_work);
+        githubPullZoomView = (Button) findViewById(R.id.github_pullzoomview);
+        githubParallaxHeaderViewPager = (Button) findViewById(R.id.github_parallax_headerviewpager);
     }
 
     @Override
@@ -73,6 +79,8 @@ public class MainActivity2 extends BaseActivity {
         customExpandableLv.setOnClickListener(this);
         searchAnim.setOnClickListener(this);
         netWork.setOnClickListener(this);
+        githubPullZoomView.setOnClickListener(this);
+        githubParallaxHeaderViewPager.setOnClickListener(this);
     }
 
     @Override
@@ -125,6 +133,12 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.net_work:
                 show(this,NetWorkTestActivity.class);
+                break;
+            case R.id.github_pullzoomview:
+                show(this, PullZoomViewMainActivity.class);
+                break;
+            case R.id.github_parallax_headerviewpager:
+                show(this, ParallaxHeaderViewPagerMainActivity.class);
                 break;
         }
 

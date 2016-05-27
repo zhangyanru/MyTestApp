@@ -71,5 +71,13 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="网络请求"/>
+        <Button android:id="@+id/github_pullzoomview"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="github pullzoomview"/>
+        <Button android:id="@+id/github_parallax_headerviewpager"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="github parallax headerviewpager"/>
     </LinearLayout>
 </ScrollView>

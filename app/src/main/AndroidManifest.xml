@@ -17,7 +17,8 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <application android:label="@string/app_name" android:icon="@drawable/logo"
                  android:hardwareAccelerated="false"
-        tools:replace="android:icon">
+        tools:replace="android:icon"
+        android:allowBackup="true">
         <activity android:name=".activity.MainActivity"
                   android:label="@string/app_name">
             <intent-filter>
@@ -32,9 +33,7 @@
         <activity android:name=".activity.XListViewActivity"></activity>
         <activity android:name=".activity.GridPasswardActivity"></activity>
         <activity android:name=".activity.FlowLayoutActivity"></activity>
-        <activity android:name=".activity.BaseActivity"></activity>
         <activity android:name=".activity.ViewPagerActivity"></activity>
-        <activity android:name=".activity.ViewPagerFragmentActivity"></activity>
         <activity android:name=".activity.TopBarActivity"></activity>
         <activity android:name=".activity.AActivity"></activity>
         <activity android:name=".activity.BActivity"></activity>
@@ -90,6 +89,20 @@
         <activity android:name=".activity.CustomExpandableLayoutTestActivity"/>
         <activity android:name=".activity.SearchAnimTestActivity"/>
         <activity android:name=".activity.NetWorkTestActivity"/>
+
+        <!--github pullzoomviwq-->
+        <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"
+            android:theme="@style/Theme.AppCompat"/>
+        <activity android:name=".github.pullzoomview.demo.PullToZoomScrollActivity"
+            android:theme="@style/Theme.AppCompat"/>
+        <activity android:name=".github.pullzoomview.demo.PullToZoomListActivity"
+            android:theme="@style/Theme.AppCompat"/>
+        <activity android:name=".github.pullzoomview.demo.recyclerview.PullToZoomRecyclerActivity"
+            android:theme="@style/Theme.AppCompat"/>
+
+        <!--github parallax header viewpager-->
+        <activity android:name=".github.parallaxheaderviewpager.demo.ParallaxHeaderViewPagerMainActivity"
+            android:theme="@style/Theme.AppCompat"/>
 
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->
