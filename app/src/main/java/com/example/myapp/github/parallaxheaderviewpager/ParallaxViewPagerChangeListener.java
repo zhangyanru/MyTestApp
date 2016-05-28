@@ -7,6 +7,10 @@ import android.view.View;
 
 /**
  * Created by desmond on 1/6/15.
+ *
+ * TODO add by yanru
+ * 主要变动：修改了切换tab,listview or scrollview之前滑动位置不保存的bug
+ * Viewpager的listener,需要设置
  */
 public class ParallaxViewPagerChangeListener implements ViewPager.OnPageChangeListener {
 

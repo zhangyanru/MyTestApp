@@ -69,4 +69,9 @@ public class DemoRecyclerViewFragment extends RecyclerViewFragment {
         }
         return list;
     }
+
+    @Override
+    public void setDelta() {
+
+    }
 }

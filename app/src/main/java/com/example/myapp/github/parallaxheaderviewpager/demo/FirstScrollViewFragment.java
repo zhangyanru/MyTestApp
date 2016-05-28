@@ -40,4 +40,9 @@ public class FirstScrollViewFragment extends ScrollViewFragment {
         setScrollViewOnScrollListener();
         return view;
     }
+
+    @Override
+    public void setDelta() {
+
+    }
 }

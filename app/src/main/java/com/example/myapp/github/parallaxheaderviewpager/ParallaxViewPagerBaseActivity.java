@@ -10,6 +10,7 @@ import android.widget.ScrollView;
 
 /**
  * Created by desmond on 1/6/15.
+ * TODO 不要yanru.zhang，修改了切换tab,listview or scrollview之前滑动位置不保存的bug
  */
 public abstract class ParallaxViewPagerBaseActivity extends AppCompatActivity implements ScrollTabHolder {
 
@@ -23,14 +24,31 @@ public abstract class ParallaxViewPagerBaseActivity extends AppCompatActivity im
     protected ParallaxFragmentPagerAdapter mAdapter;
 
     protected int mMinHeaderHeight;
-    protected int mHeaderHeight;
-    protected int mMinHeaderTranslation;
-    protected int mNumFragments;
+    protected int mHeaderHeight;//viewpager共享header的高度
+    protected int mMinHeaderTranslation;//最小滑动距离，及Math.abs(scrollY)最大
+    protected int mNumFragments;//viewpager的滑动fragment数目
 
+    //TODO 继承该activity的需要实现的方法
+
+    //初始化变量，包括mHeaderHeight、mMinHeaderTranslation、mNumFragments（mMinHeaderHeight暂无意义）
     protected abstract void initValues();
+
+    //listview或scrollview滑动时，同步调整header的translationY
     protected abstract void scrollHeader(int scrollY);
+
+    //下拉刷新,header放大的处理
+    protected abstract void zoomHeader(int scrollY);
+
+    //下拉刷新结束时的相关操作
+    protected abstract void zoomEnd();
+
+
+    //viewPager、adapter及ParallaxViewPagerChangeListener的设置
     protected abstract void setupAdapter();
 
+    /**
+     * 获取Y方向上listview的滚动距离
+     */
     protected int getScrollYOfListView(AbsListView view) {
         View child = view.getChildAt(0);
         if (child == null) {
@@ -52,6 +70,12 @@ public abstract class ParallaxViewPagerBaseActivity extends AppCompatActivity im
         return new ParallaxViewPagerChangeListener(mViewPager, mAdapter, mHeader);
     }
 
+
+    /**
+     * 页面切换时，调整header高度
+     * @param scrollHeight
+     * @param headerHeight
+     */
     @Override
     public void adjustScroll(int scrollHeight, int headerHeight) {}
 

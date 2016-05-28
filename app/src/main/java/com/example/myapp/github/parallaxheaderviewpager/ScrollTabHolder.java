@@ -18,4 +18,9 @@ public interface ScrollTabHolder {
                             int oldX, int oldY, int pagePosition);
 
     void onRecyclerViewScroll(RecyclerView view, int dx, int dy, int scrollY, int pagePosition);
+
+    //TODO add by yanru,onHeaderZoom、onHeaderZoomEnd是添加下拉放大刷新加入的，activity中实现响应逻辑
+    void onHeaderZoom(int scrollY, int pagePosition);
+
+    void onHeaderZoomEnd(int pagePosition);
 }

@@ -62,4 +62,9 @@ public class DemoListViewFragment extends ListViewFragment {
 
         mListView.setAdapter(adapter);
     }
+
+    @Override
+    public void setDelta() {
+
+    }
 }

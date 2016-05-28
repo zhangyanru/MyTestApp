@@ -73,6 +73,26 @@ public class ParallaxHeaderViewPagerMainActivity extends ParallaxViewPagerBaseAc
         mTopImage.setTranslationY(-translationY / 3);
     }
 
+    @Override
+    protected void zoomHeader(int scrollY) {
+
+    }
+
+    @Override
+    protected void zoomEnd() {
+
+    }
+
+    @Override
+    public void onHeaderZoom(int scrollY, int pagePosition) {
+
+    }
+
+    @Override
+    public void onHeaderZoomEnd(int pagePosition) {
+
+    }
+
 //    private int getActionBarHeight() {
 //        if (mActionBarHeight != 0) {
 //            return mActionBarHeight;

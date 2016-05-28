@@ -40,4 +40,9 @@ public class SecondScrollViewFragment extends ScrollViewFragment {
 
         return view;
     }
+
+    @Override
+    public void setDelta() {
+
+    }
 }

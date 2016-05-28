@@ -9,12 +9,21 @@ import android.widget.ScrollView;
 /**
  * Created by desmond on 12/4/15.
  */
-public class ScrollTabHolderFragment extends Fragment implements ScrollTabHolder {
+public abstract class ScrollTabHolderFragment extends Fragment implements ScrollTabHolder {
 
     protected static final String ARG_POSITION = "position";
 
     protected ScrollTabHolder mScrollTabHolder;
     protected int mPosition;
+    //TODO add by yanru,delta 指的是header.height 和 header.translationY之间的差值，及滚动到最顶端时刻的差值
+    protected int delta = 100;
+    /**
+     * 必须设置该值，否则tab切换会导致,每次返回都显示第一条
+     * delta = **;
+     *
+     * */
+    //TODO add by yanru
+    public abstract void setDelta();
 
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -44,4 +53,14 @@ public class ScrollTabHolderFragment extends Fragment implements ScrollTabHolder
 
     @Override
     public void onRecyclerViewScroll(RecyclerView view, int dx, int dy, int scrollY, int pagePosition) {}
+
+    @Override
+    public void onHeaderZoom(int scrollY, int pagePosition) {
+
+    }
+
+    @Override
+    public void onHeaderZoomEnd(int pagePosition) {
+
+    }
 }
