@@ -34,6 +34,7 @@ public class MainActivity2 extends BaseActivity {
     private Button netWork;
     private Button githubPullZoomView;
     private Button githubParallaxHeaderViewPager;
+    private Button javaMutilThread;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -54,6 +55,7 @@ public class MainActivity2 extends BaseActivity {
         netWork = (Button) findViewById(R.id.net_work);
         githubPullZoomView = (Button) findViewById(R.id.github_pullzoomview);
         githubParallaxHeaderViewPager = (Button) findViewById(R.id.github_parallax_headerviewpager);
+        javaMutilThread = (Button) findViewById(R.id.muti_thread);
     }
 
     @Override
@@ -81,6 +83,7 @@ public class MainActivity2 extends BaseActivity {
         netWork.setOnClickListener(this);
         githubPullZoomView.setOnClickListener(this);
         githubParallaxHeaderViewPager.setOnClickListener(this);
+        javaMutilThread.setOnClickListener(this);
     }
 
     @Override
@@ -139,6 +142,9 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.github_parallax_headerviewpager:
                 show(this, ParallaxHeaderViewPagerMainActivity.class);
+                break;
+            case R.id.muti_thread:
+                show(this,MutilThreadTestActivity.class);
                 break;
         }
 

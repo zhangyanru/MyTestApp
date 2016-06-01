@@ -79,5 +79,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="github parallax headerviewpager"/>
+        <Button android:id="@+id/muti_thread"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="java多线程"/>
     </LinearLayout>
 </ScrollView>

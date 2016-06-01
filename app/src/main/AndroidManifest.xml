@@ -89,6 +89,7 @@
         <activity android:name=".activity.CustomExpandableLayoutTestActivity"/>
         <activity android:name=".activity.SearchAnimTestActivity"/>
         <activity android:name=".activity.NetWorkTestActivity"/>
+        <activity android:name=".activity.MutilThreadTestActivity"/>
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"
