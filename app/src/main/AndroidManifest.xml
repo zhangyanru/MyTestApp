@@ -90,6 +90,7 @@
         <activity android:name=".activity.SearchAnimTestActivity"/>
         <activity android:name=".activity.NetWorkTestActivity"/>
         <activity android:name=".activity.MutilThreadTestActivity"/>
+        <activity android:name=".activity.HandlerTestActivity"/>
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"
