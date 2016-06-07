@@ -57,11 +57,10 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
                 <TextView android:id="@+id/server_tv"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:textSize="20sp"
-                    android:textColor="@color/gray_333333"/>
+                    android:textColor="@color/gray_333333" />
             </ScrollView>
 
             <TextView android:id="@+id/server_send_tv"

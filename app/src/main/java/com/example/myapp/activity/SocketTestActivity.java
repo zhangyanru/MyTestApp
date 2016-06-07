@@ -96,8 +96,9 @@ public class SocketTestActivity extends BaseActivity {
                 Bundle bundle = msg.getData();
                 switch (msg.what){
                     case 0:
-                        Log.d("zyr","00000000000000");
-                        serverTv.append(bundle.getString("data"));
+                        String s = bundle.getString("data");
+                        Log.d("zyr","s :" + s);
+                        serverTv.append(s + "\n");
                         break;
                 }
             }
