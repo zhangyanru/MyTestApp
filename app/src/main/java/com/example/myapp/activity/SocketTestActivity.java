@@ -3,6 +3,7 @@ package com.example.myapp.activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -92,10 +93,11 @@ public class SocketTestActivity extends BaseActivity {
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
-
+                Bundle bundle = msg.getData();
                 switch (msg.what){
                     case 0:
-                        serverTv.append(msg.obj.toString());
+                        Log.d("zyr","00000000000000");
+                        serverTv.append(bundle.getString("data"));
                         break;
                 }
             }
@@ -153,11 +155,13 @@ public class SocketTestActivity extends BaseActivity {
                 //由Socket对象得到输chu流
                 bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 final String line = bufferedReader.readLine();
-                System.out.print("line:" + line);
+                Log.d("zyr","line:" + line);
 
                 Message message = new Message();
                 message.what = 0;
-                message.obj = line;
+                Bundle bundle = new Bundle();
+                bundle.putString("data",line);
+                message.setData(bundle);
                 myHandler.sendMessage(message);
 
             } catch (SocketException e) {
