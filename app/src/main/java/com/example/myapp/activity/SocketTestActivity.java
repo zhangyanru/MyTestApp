@@ -97,7 +97,6 @@ public class SocketTestActivity extends BaseActivity {
                 switch (msg.what){
                     case 0:
                         String s = bundle.getString("serverMsg");
-                        Log.d("zyr","handler serverMsg :" + s);
                         serverTv.append(s + "\n");
                         break;
                 }
@@ -157,7 +156,7 @@ public class SocketTestActivity extends BaseActivity {
                 //读取服务端的消息
                 bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 String serverMsg = bufferedReader.readLine();
-                Log.d("zyr","serverMsg:" + serverMsg);
+                Log.e("zyr","serverMsg:" + serverMsg);
 
                 Message message = new Message();
                 message.what = 0;
@@ -169,7 +168,7 @@ public class SocketTestActivity extends BaseActivity {
                 //给服务端发消息
                 bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
                 String clientMsg = "hi server! I'm " + socket.getLocalPort();
-                Log.d("zyr","serverMsg:" + serverMsg);
+                Log.d("zyr","clientMsg:" + clientMsg);
                 bufferedWriter.write(clientMsg);
                 bufferedWriter.flush();
                 bufferedWriter.close();
