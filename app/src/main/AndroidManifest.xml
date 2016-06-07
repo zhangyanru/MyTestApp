@@ -92,6 +92,7 @@
         <activity android:name=".activity.MutilThreadTestActivity"/>
         <activity android:name=".activity.HandlerTestActivity"/>
         <activity android:name=".activity.ThreadPoolTestActivity"/>
+        <activity android:name=".activity.SocketTestActivity"/>
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"

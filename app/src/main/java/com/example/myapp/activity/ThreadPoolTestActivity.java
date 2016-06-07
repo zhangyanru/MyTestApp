@@ -64,6 +64,9 @@ public class ThreadPoolTestActivity extends BaseActivity {
             }
         });
 
+
+        //阅读 : http://blog.sina.com.cn/s/blog_5da93c8f0101ofdq.html
+
     }
 
     private void loadImage(final String s, final ImageView imageView) {

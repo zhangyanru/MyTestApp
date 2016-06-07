@@ -51,11 +51,14 @@ import java.util.concurrent.TimeUnit;
  * DATE: 16-4-26
  * Time: 上午10:52
  * Email: yanru.zhang@renren-inc.com
+ *
+ * tcp,udp,http,socket,tcp/ip的区别是什么？链接：http://zyc-to.blog.163.com/blog/static/17152400201338354067/
+ * http,socket的区别：http://blog.csdn.net/zeng622peng/article/details/5546384
  */
 public class NetWorkTestActivity extends BaseActivity {
 
     private TextView textView;
-    private Button httpClientBtn,urlConnectionBtn,okHttpBtn,imageLoaderBtn;
+    private Button httpClientBtn,urlConnectionBtn,socketBtn,okHttpBtn,imageLoaderBtn;
     private ImageView imageView;
     private ScrollView scrollView;
     private Handler handler;
@@ -75,6 +78,7 @@ public class NetWorkTestActivity extends BaseActivity {
         imageView = (ImageView) findViewById(R.id.image_view);
         httpClientBtn = (Button) findViewById(R.id.http_client_btn);
         urlConnectionBtn = (Button) findViewById(R.id.url_connection_btn);
+        socketBtn = (Button) findViewById(R.id.socket_btn);
         okHttpBtn = (Button) findViewById(R.id.ok_http);
         imageLoaderBtn = (Button) findViewById(R.id.image_loader);
 
@@ -108,6 +112,7 @@ public class NetWorkTestActivity extends BaseActivity {
     public void initListener() {
         httpClientBtn.setOnClickListener(this);
         urlConnectionBtn.setOnClickListener(this);
+        socketBtn.setOnClickListener(this);
         okHttpBtn.setOnClickListener(this);
         imageLoaderBtn.setOnClickListener(this);
     }
@@ -122,11 +127,18 @@ public class NetWorkTestActivity extends BaseActivity {
             case R.id.url_connection_btn:
                 doUrlConnection();
                 break;
+            case R.id.socket_btn:
+                doSocket();
+                break;
             case R.id.ok_http:
                 break;
             case R.id.image_loader:
                 break;
         }
+    }
+
+    private void doSocket() {
+        show(this,SocketTestActivity.class);
     }
 
     private void doUrlConnection() {

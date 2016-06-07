@@ -29,6 +29,12 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:text="url connection"/>
+        <Button android:id="@+id/socket_btn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="socket"
+            android:background="@color/red_light"/>
         <Button android:id="@+id/ok_http"
             android:layout_width="0dp"
             android:layout_weight="1"
