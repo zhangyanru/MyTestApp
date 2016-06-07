@@ -96,8 +96,8 @@ public class SocketTestActivity extends BaseActivity {
                 Bundle bundle = msg.getData();
                 switch (msg.what){
                     case 0:
-                        String s = bundle.getString("data");
-                        Log.d("zyr","s :" + s);
+                        String s = bundle.getString("serverMsg");
+                        Log.d("zyr","handler serverMsg :" + s);
                         serverTv.append(s + "\n");
                         break;
                 }
@@ -144,6 +144,7 @@ public class SocketTestActivity extends BaseActivity {
         //定义当前线程所处理的Socket
         private Socket socket = null;
         private BufferedReader bufferedReader = null;
+        private BufferedWriter bufferedWriter = null;
 
 
         public ClientThread(Socket socket) throws IOException {
@@ -153,18 +154,25 @@ public class SocketTestActivity extends BaseActivity {
 
         public void run() {
             try {
-                //由Socket对象得到输chu流
+                //读取服务端的消息
                 bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                final String line = bufferedReader.readLine();
-                Log.d("zyr","line:" + line);
+                String serverMsg = bufferedReader.readLine();
+                Log.d("zyr","serverMsg:" + serverMsg);
 
                 Message message = new Message();
                 message.what = 0;
                 Bundle bundle = new Bundle();
-                bundle.putString("data",line);
+                bundle.putString("serverMsg",serverMsg);
                 message.setData(bundle);
                 myHandler.sendMessage(message);
 
+                //给服务端发消息
+                bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+                String clientMsg = "hi server! I'm " + socket.getLocalPort();
+                Log.d("zyr","serverMsg:" + serverMsg);
+                bufferedWriter.write(clientMsg);
+                bufferedWriter.flush();
+                bufferedWriter.close();
             } catch (SocketException e) {
                 e.printStackTrace();
             } catch (IOException e) {

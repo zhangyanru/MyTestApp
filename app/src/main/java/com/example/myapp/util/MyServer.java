@@ -1,7 +1,9 @@
 package com.example.myapp.util;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -42,11 +44,13 @@ public class MyServer {
         //定义当前线程所处理的Socket
         private Socket clientSocket = null;
         private BufferedWriter bufferedWriter = null;
+        private BufferedReader bufferedReader = null;
 
 
         public ServerThread(Socket clientSocket) throws IOException {
             this.clientSocket = clientSocket;
             bufferedWriter = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+            bufferedReader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         }
 
 
@@ -60,6 +64,13 @@ public class MyServer {
                     bufferedWriter.write(answer);
                     bufferedWriter.flush();
                     bufferedWriter.close();
+
+                    //读取客户端的消息
+                    String clientMsg = null;
+                    while ( (clientMsg = bufferedReader.readLine()) != null){
+                        System.out.println("clientMsg :" + clientMsg);
+                    }
+                    bufferedReader.close();
                 }else{
                     System.out.println("socket is closed!");
                 }
