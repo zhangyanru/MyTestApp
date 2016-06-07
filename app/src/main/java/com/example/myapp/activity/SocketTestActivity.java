@@ -96,8 +96,14 @@ public class SocketTestActivity extends BaseActivity {
                 Bundle bundle = msg.getData();
                 switch (msg.what){
                     case 0:
-                        String s = bundle.getString("serverMsg");
-                        serverTv.append(s + "\n");
+                        String serverMsg = bundle.getString("serverMsg");
+                        Log.d("zyr","handler server:" + serverMsg);
+                        serverTv.append(serverMsg + "\n");
+                        break;
+                    case 1:
+                        String clientMsg = bundle.getString("clientMsg");
+                        Log.d("zyr","handler client:" + clientMsg);
+                        clientTv.append(clientMsg + "\n");
                         break;
                 }
             }
@@ -125,7 +131,7 @@ public class SocketTestActivity extends BaseActivity {
                     public void run() {
                         Socket socket = new Socket();
                         try {
-                            socket.connect(new InetSocketAddress("10.2.52.54",7000));
+                            socket.connect(new InetSocketAddress("10.2.52.54",8000));
 
                             new ClientThread(socket).start();
                         } catch (IOException e) {
@@ -146,6 +152,7 @@ public class SocketTestActivity extends BaseActivity {
         private BufferedWriter bufferedWriter = null;
 
 
+
         public ClientThread(Socket socket) throws IOException {
             this.socket = socket;
         }
@@ -156,6 +163,7 @@ public class SocketTestActivity extends BaseActivity {
                 //读取服务端的消息
                 bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 String serverMsg = bufferedReader.readLine();
+                socket.shutdownInput();
                 Log.e("zyr","serverMsg:" + serverMsg);
 
                 Message message = new Message();
@@ -168,10 +176,20 @@ public class SocketTestActivity extends BaseActivity {
                 //给服务端发消息
                 bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
                 String clientMsg = "hi server! I'm " + socket.getLocalPort();
-                Log.d("zyr","clientMsg:" + clientMsg);
                 bufferedWriter.write(clientMsg);
                 bufferedWriter.flush();
                 bufferedWriter.close();
+                Log.d("zyr","clientMsg:" + clientMsg);
+
+                Message message2 = new Message();
+                message2.what = 1;
+                Bundle bundle2 = new Bundle();
+                bundle2.putString("clientMsg",clientMsg);
+                message2.setData(bundle2);
+                myHandler.sendMessage(message2);
+
+                bufferedReader.close();
+                socket.close();
             } catch (SocketException e) {
                 e.printStackTrace();
             } catch (IOException e) {

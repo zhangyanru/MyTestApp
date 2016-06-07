@@ -17,7 +17,7 @@ public class MyServer {
 
     //定义ServerSocket的端口号
 
-    private static final int SOCKET_PORT = 7000;
+    private static final int SOCKET_PORT = 8000;
 
     public void initMyServer() {
         try {
@@ -49,8 +49,6 @@ public class MyServer {
 
         public ServerThread(Socket clientSocket) throws IOException {
             this.clientSocket = clientSocket;
-            bufferedWriter = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-            bufferedReader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         }
 
 
@@ -58,19 +56,21 @@ public class MyServer {
             System.out.println("run...");
             try {
                 if(!clientSocket.isClosed()){
+                    bufferedWriter = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
                     //向客户端发消息
                     String answer = "hi client!" + clientSocket.getLocalPort();
                     System.out.println("send to client:" + answer);
                     bufferedWriter.write(answer);
                     bufferedWriter.flush();
-                    bufferedWriter.close();
+                    clientSocket.shutdownOutput();
 
                     //读取客户端的消息
-                    String clientMsg = null;
-                    while ( (clientMsg = bufferedReader.readLine()) != null){
-                        System.out.println("clientMsg :" + clientMsg);
-                    }
+                    bufferedReader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                    String clientMsg = bufferedReader.readLine();
+                    System.out.println("clientMsg :" + clientMsg);
                     bufferedReader.close();
+                    bufferedWriter.close();
+                    clientSocket.close();
                 }else{
                     System.out.println("socket is closed!");
                 }
