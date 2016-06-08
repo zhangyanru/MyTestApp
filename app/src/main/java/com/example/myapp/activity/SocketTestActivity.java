@@ -3,6 +3,7 @@ package com.example.myapp.activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -13,7 +14,9 @@ import com.example.myapp.R;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -82,12 +85,18 @@ public class SocketTestActivity extends BaseActivity {
 
     private Handler myHandler;
 
+    private boolean isConnect;
+
+    private ClientThread clientThread;
+
     @Override
     protected void initView() {
         clientTv = (TextView) findViewById(R.id.client_tv);
         serverTv = (TextView) findViewById(R.id.server_tv);
         clientSendTv = (TextView) findViewById(R.id.client_send_tv);
         serverSendTv = (TextView) findViewById(R.id.server_send_tv);
+
+        isConnect = true;
 
         myHandler = new Handler(){
             @Override
@@ -98,16 +107,29 @@ public class SocketTestActivity extends BaseActivity {
                     case 0:
                         String serverMsg = bundle.getString("serverMsg");
                         Log.d("zyr","handler server:" + serverMsg);
-                        serverTv.append(serverMsg + "\n");
+                        serverTv.append(serverMsg);
                         break;
                     case 1:
                         String clientMsg = bundle.getString("clientMsg");
                         Log.d("zyr","handler client:" + clientMsg);
-                        clientTv.append(clientMsg + "\n");
+                        clientTv.append(clientMsg);
+                        break;
+                    case -1:
+                        Toast.makeText(SocketTestActivity.this,"connect failed",Toast.LENGTH_SHORT).show();
+
                         break;
                 }
             }
         };
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                clientThread = new ClientThread();
+            }
+        }).start();
+
+
     }
 
     @Override
@@ -126,19 +148,10 @@ public class SocketTestActivity extends BaseActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.client_send_tv:
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Socket socket = new Socket();
-                        try {
-                            socket.connect(new InetSocketAddress("10.2.52.54",8000));
-
-                            new ClientThread(socket).start();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }).start();
+                Log.d("zyr","click sendMsg ..." );
+                if(clientThread!=null){
+                    clientThread.sendMsg();
+                }
                 break;
             case R.id.server_send_tv:
                 break;
@@ -147,38 +160,63 @@ public class SocketTestActivity extends BaseActivity {
 
     public class ClientThread extends Thread {
         //定义当前线程所处理的Socket
-        private Socket socket = null;
+        private Socket clientSocket = null;
         private BufferedReader bufferedReader = null;
         private BufferedWriter bufferedWriter = null;
 
 
 
-        public ClientThread(Socket socket) throws IOException {
-            this.socket = socket;
+        public ClientThread(){
+            try {
+                clientSocket = new Socket("10.2.52.54",8000);
+                bufferedWriter = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+                bufferedReader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                start();
+            } catch (IOException e) {
+                myHandler.sendEmptyMessage(-1);
+                e.printStackTrace();
+            }
         }
 
 
         public void run() {
             try {
-                //读取服务端的消息
-                bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                String serverMsg = bufferedReader.readLine();
-                socket.shutdownInput();
-                Log.e("zyr","serverMsg:" + serverMsg);
+                while (isConnect){
 
-                Message message = new Message();
-                message.what = 0;
-                Bundle bundle = new Bundle();
-                bundle.putString("serverMsg",serverMsg);
-                message.setData(bundle);
-                myHandler.sendMessage(message);
+                    Log.d("zyr","isConnect is true");
+                    //读取服务端的消息
+                    String serverMsg = bufferedReader.readLine();
+                    Log.e("zyr","serverMsg:" + serverMsg);
+                    if( serverMsg!=null ){
+                        Message message = new Message();
+                        message.what = 0;
+                        Bundle bundle = new Bundle();
+                        bundle.putString("serverMsg",serverMsg + "\n");
+                        message.setData(bundle);
+                        myHandler.sendMessage(message);
+                    }
 
-                //给服务端发消息
-                bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-                String clientMsg = "hi server! I'm " + socket.getLocalPort();
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (SocketException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        public void sendMsg(){
+            //给服务端发消息
+            String clientMsg = "hi server! I'm " + clientSocket.getLocalPort() + "\n";
+            try {
                 bufferedWriter.write(clientMsg);
                 bufferedWriter.flush();
-                bufferedWriter.close();
                 Log.d("zyr","clientMsg:" + clientMsg);
 
                 Message message2 = new Message();
@@ -187,15 +225,22 @@ public class SocketTestActivity extends BaseActivity {
                 bundle2.putString("clientMsg",clientMsg);
                 message2.setData(bundle2);
                 myHandler.sendMessage(message2);
-
-                bufferedReader.close();
-                socket.close();
-            } catch (SocketException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isConnect = true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        isConnect = false;
     }
 }
