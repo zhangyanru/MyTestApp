@@ -37,6 +37,7 @@ public class MainActivity2 extends BaseActivity {
     private Button javaMutilThread;
     private Button handlerTest;
     private Button threadPoolTest;
+    private Button singleTaskTest;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -60,6 +61,7 @@ public class MainActivity2 extends BaseActivity {
         javaMutilThread = (Button) findViewById(R.id.muti_thread);
         handlerTest = (Button) findViewById(R.id.handler_test);
         threadPoolTest = (Button) findViewById(R.id.thread_pool_test);
+        singleTaskTest = (Button) findViewById(R.id.activity_single_task_test);
     }
 
     @Override
@@ -90,6 +92,7 @@ public class MainActivity2 extends BaseActivity {
         javaMutilThread.setOnClickListener(this);
         handlerTest.setOnClickListener(this);
         threadPoolTest.setOnClickListener(this);
+        singleTaskTest.setOnClickListener(this);
     }
 
     @Override
@@ -157,6 +160,9 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.thread_pool_test:
                 show(this,ThreadPoolTestActivity.class);
+                break;
+            case R.id.activity_single_task_test:
+                show(this,SingleTaskTestActivity.class);
                 break;
         }
 

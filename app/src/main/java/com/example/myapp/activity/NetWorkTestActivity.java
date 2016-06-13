@@ -138,7 +138,7 @@ public class NetWorkTestActivity extends BaseActivity {
     }
 
     private void doSocket() {
-        show(this,SocketTestActivity.class);
+        show(this,SocketTestActivity2.class);
     }
 
     private void doUrlConnection() {
