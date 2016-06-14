@@ -3,23 +3,25 @@ package com.example.myapp.activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapp.Model.ListData;
 import com.example.myapp.R;
-import com.example.myapp.util.ChatMessage;
+import com.example.myapp.thread.ClientReadThread;
+import com.example.myapp.thread.ClientWriteThread;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStreamWriter;
 import java.net.Socket;
-import java.net.SocketException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by yanru.zhang on 16/6/4.
@@ -27,22 +29,32 @@ import java.net.SocketException;
  */
 public class SocketTestActivity2 extends BaseActivity {
 
-    private TextView clientTv, serverTv, clientSendTv, serverSendTv;
+    private TextView clientSendTv;
+
+    private EditText editText;
+
+    private ListView listView;
 
     private Handler myHandler;
 
-    private boolean isConnect;
+    private ClientReadThread clientReadThread;
 
-    private ClientThread clientThread;
+    private ClientWriteThread clientWriteThread;
+
+    private List<ListData> datas = new ArrayList<>();
+
+    private MsgAdapter msgAdapter;
+
+    private Socket clientSocket;
 
     @Override
     protected void initView() {
-        clientTv = (TextView) findViewById(R.id.client_tv);
-        serverTv = (TextView) findViewById(R.id.server_tv);
+        listView = (ListView) findViewById(R.id.list_view);
         clientSendTv = (TextView) findViewById(R.id.client_send_tv);
-        serverSendTv = (TextView) findViewById(R.id.server_send_tv);
+        editText = (EditText) findViewById(R.id.edit_tv);
 
-        isConnect = true;
+        msgAdapter = new MsgAdapter(datas);
+        listView.setAdapter(msgAdapter);
 
         myHandler = new Handler(){
             @Override
@@ -50,15 +62,23 @@ public class SocketTestActivity2 extends BaseActivity {
                 super.handleMessage(msg);
                 Bundle bundle = msg.getData();
                 switch (msg.what){
-                    case 0:
+                    case ListData.SERVER_MSG:
                         String serverMsg = bundle.getString("serverMsg");
                         Log.d("zyr","handler server:" + serverMsg);
-                        serverTv.append(serverMsg);
+                        datas.add(new ListData(ListData.SERVER_MSG,serverMsg));
+                        msgAdapter.setData(datas);
                         break;
-                    case 1:
+                    case ListData.CLIENT_MSG:
                         String clientMsg = bundle.getString("clientMsg");
                         Log.d("zyr","handler client:" + clientMsg);
-                        clientTv.append(clientMsg);
+                        datas.add(new ListData(ListData.CLIENT_MSG,clientMsg));
+                        msgAdapter.setData(datas);
+                        break;
+                    case ListData.TIP_MSG:
+                        String tipMsg = bundle.getString("tipMsg");
+                        Log.d("zyr","handler tip:" + tipMsg);
+                        datas.add(new ListData(ListData.TIP_MSG,tipMsg));
+                        msgAdapter.setData(datas);
                         break;
                     case -1:
                         Toast.makeText(SocketTestActivity2.this,"connect failed",Toast.LENGTH_SHORT).show();
@@ -71,8 +91,23 @@ public class SocketTestActivity2 extends BaseActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                clientThread = new ClientThread();
-                clientThread.start();
+                try {
+                    clientSocket = new Socket("10.2.52.54",8000);
+                    clientSocket.setKeepAlive(true);
+                    clientSocket.setOOBInline(true);
+                    clientSocket.setSoTimeout(5000); //定义心跳时间
+                    Log.d("zyr","new clientThread success");
+                    clientReadThread = new ClientReadThread(clientSocket,myHandler);
+                    clientReadThread.start();
+                    clientWriteThread = new ClientWriteThread(clientSocket,myHandler);
+                    clientWriteThread.start();
+                    clientWriteThread.startHeartBeatTimerTask();
+                    clientWriteThread.getFriendList();
+                } catch (Exception e) {
+                    myHandler.sendEmptyMessage(-1);
+                    e.printStackTrace();
+                    Log.d("zyr",e.toString());
+                }
             }
         }).start();
 
@@ -81,14 +116,12 @@ public class SocketTestActivity2 extends BaseActivity {
 
     @Override
     protected int onSetContainerViewId() {
-        return R.layout.activity_socket_test;
+        return R.layout.activity_socket_test2;
     }
 
     @Override
     public void initListener() {
         clientSendTv.setOnClickListener(this);
-        serverSendTv.setOnClickListener(this);
-
     }
 
     @Override
@@ -96,8 +129,10 @@ public class SocketTestActivity2 extends BaseActivity {
         switch (v.getId()) {
             case R.id.client_send_tv:
                 Log.d("zyr","click sendMsg ..." );
-                if(clientThread!=null){
-                    clientThread.sendMsg();
+                if(clientWriteThread!=null && !TextUtils.isEmpty(editText.getText().toString())){
+                    clientWriteThread.sendMsg(editText.getText().toString());
+                }else{
+                    Toast.makeText(SocketTestActivity2.this,"cannot send message",Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.server_send_tv:
@@ -105,93 +140,88 @@ public class SocketTestActivity2 extends BaseActivity {
         }
     }
 
-    class ClientThread extends Thread {
-        //定义当前线程所处理的Socket
-        private Socket clientSocket = null;
-        private ObjectInputStream objectInputStream = null;
-        private ObjectOutputStream objectOutputStream = null;
-
-
-
-        public ClientThread(){
-            try {
-                clientSocket = new Socket("10.2.52.54",8000);
-                Log.d("zyr","new clientThread success");
-            } catch (Exception e) {
-                myHandler.sendEmptyMessage(-1);
-                e.printStackTrace();
-                Log.d("zyr",e.toString());
-            }
-        }
-
-
-        public void run() {
-            try {
-                while (isConnect){
-
-                    Log.d("zyr","isConnect is true");
-                    //读取服务端的消息
-                    objectInputStream = new ObjectInputStream(clientSocket.getInputStream());
-                    ChatMessage serverMessage = (ChatMessage) objectInputStream.readObject();
-                    Log.e("zyr","serverMsg:" + serverMessage.toString());
-                    if( serverMessage != null ){
-                        Message message = new Message();
-                        message.what = 0;
-                        Bundle bundle = new Bundle();
-                        bundle.putString("serverMsg",serverMessage.toString() + "\n");
-                        message.setData(bundle);
-                        myHandler.sendMessage(message);
-                    }
-
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            } catch (SocketException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-
-        public void sendMsg(){
-            //给服务端发消息
-            ChatMessage clientMessage = new ChatMessage();
-            clientMessage.setToAddress(clientSocket.getLocalAddress());
-            clientMessage.setBody("hi server,I am " + clientSocket.getLocalPort() );
-            try {
-                objectOutputStream = new ObjectOutputStream(clientSocket.getOutputStream());
-                objectOutputStream.writeObject(clientMessage);
-                objectOutputStream.flush();
-
-                Log.d("zyr","clientMsg:" + clientMessage.toString());
-
-                Message message2 = new Message();
-                message2.what = 1;
-                Bundle bundle2 = new Bundle();
-                bundle2.putString("clientMsg",clientMessage.toString());
-                message2.setData(bundle2);
-                myHandler.sendMessage(message2);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        isConnect = true;
-    }
-
     @Override
     protected void onPause() {
         super.onPause();
-        isConnect = false;
+        if(clientReadThread!=null){
+            clientReadThread.setConnect(false);
+        }
+        if(clientWriteThread!=null){
+            clientWriteThread.setConnect(false);
+        }
     }
+
+    class MsgAdapter extends BaseAdapter{
+
+        private List<ListData> listDatas = new ArrayList<>();
+
+        public MsgAdapter(List<ListData> listDatas){
+            this.listDatas.clear();
+            this.listDatas.addAll(listDatas);
+        }
+
+        public void setData(List<ListData> listDatas){
+            this.listDatas.clear();
+            this.listDatas.addAll(listDatas);
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public int getCount() {
+            return listDatas.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return listDatas.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolder viewHolder = null;
+            if(convertView == null){
+                convertView = LayoutInflater.from(SocketTestActivity2.this).inflate(R.layout.adapter_socket_test2,null);
+                viewHolder = new ViewHolder(convertView);
+                convertView.setTag(viewHolder);
+            }else{
+                viewHolder = (ViewHolder) convertView.getTag();
+            }
+
+            if(listDatas.get(position).type == ListData.SERVER_MSG){
+                viewHolder.receiveTv.setVisibility(View.VISIBLE);
+                viewHolder.sendTv.setVisibility(View.GONE);
+                viewHolder.tipMsgTv.setVisibility(View.GONE);
+                viewHolder.receiveTv.setText(listDatas.get(position).message);
+            }else if(listDatas.get(position).type == ListData.CLIENT_MSG){
+                viewHolder.receiveTv.setVisibility(View.GONE);
+                viewHolder.sendTv.setVisibility(View.VISIBLE);
+                viewHolder.tipMsgTv.setVisibility(View.GONE);
+                viewHolder.sendTv.setText(listDatas.get(position).message);
+            } else if(listDatas.get(position).type == ListData.TIP_MSG){
+                viewHolder.receiveTv.setVisibility(View.GONE);
+                viewHolder.sendTv.setVisibility(View.GONE);
+                viewHolder.tipMsgTv.setVisibility(View.VISIBLE);
+                viewHolder.tipMsgTv.setText(listDatas.get(position).message);
+            }
+            return convertView;
+        }
+
+        class ViewHolder{
+            private TextView receiveTv;
+            private TextView sendTv;
+            private TextView tipMsgTv;
+            public ViewHolder(View rootView){
+                receiveTv = (TextView) rootView.findViewById(R.id.receive_msg_tv);
+                sendTv = (TextView) rootView.findViewById(R.id.send_msg_tv);
+                tipMsgTv = (TextView) rootView.findViewById(R.id.tip_msg_tv);
+            }
+        }
+    }
+
+
 }

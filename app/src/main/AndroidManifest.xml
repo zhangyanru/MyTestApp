@@ -96,10 +96,6 @@
         <activity android:name=".activity.SocketTestActivity2"/>
         <activity android:name=".activity.SingleTaskTestActivity"
             android:taskAffinity="com.example.myapp.activity.singletasktestactivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".activity.SingleTaskActivity"
             android:launchMode="singleTask"

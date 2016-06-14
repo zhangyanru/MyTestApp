@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green_light2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ListView android:id="@+id/list_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        </ListView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginBottom="10dp">
+            <EditText android:id="@+id/edit_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/white_cornor_bg"
+                android:textColor="@color/black"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:hint="say something"
+                android:textColorHint="@color/gray_cccccc"/>
+            <TextView android:id="@+id/client_send_tv"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Send"
+                android:gravity="center"
+                android:background="@drawable/red_cornor_bg"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
