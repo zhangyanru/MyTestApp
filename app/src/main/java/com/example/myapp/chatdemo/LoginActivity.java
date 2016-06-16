@@ -1,5 +1,9 @@
 package com.example.myapp.chatdemo;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -8,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.example.myapp.Model.ChatMessage;
 import com.example.myapp.R;
@@ -22,6 +27,20 @@ public class LoginActivity extends BaseActivity{
     private EditText accountEditTv,passwordEditTv;
     private TextView loginBtn,registerBtn;
 
+
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String data = intent.getStringExtra("data");
+            JSONObject jsonObject = JSONObject.parseObject(data);
+            if(jsonObject.getIntValue("type") == MessageType.LOGIN){
+                Toast.makeText(LoginActivity.this,jsonObject.getString("status_msg"),Toast.LENGTH_SHORT).show();
+                if(jsonObject.getIntValue("status") == MessageType.STATUS_SUCCESS){
+                    show(LoginActivity.this,FriendListActivity.class);
+                }
+            }
+        }
+    };
     @Override
     protected void initView() {
         accountEditTv = (EditText) findViewById(R.id.account);
@@ -70,29 +89,21 @@ public class LoginActivity extends BaseActivity{
         chatMessage.put("type",ChatMessage.LOGIN);
         chatMessage.put("account",account);
         chatMessage.put("password",password);
-        getSocketServiceBinder().getService().sendMsg(chatMessage);
+
+        Intent intent = new Intent(SocketService.SEND_ACTION);
+        intent.putExtra("data",chatMessage.toJSONString());
+        sendBroadcast(intent);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.listener = new SocketService.SocketListener() {
-            @Override
-            public void onGetChatMsgSuccess(final JSONObject chatMessage) {
-                Log.e("zyr","loginActivity onGetChatMsg");
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if(chatMessage.getIntValue("type") == ChatMessage.LOGIN){
-                            Log.d("zyr","toast");
-                            Toast.makeText(LoginActivity.this,chatMessage.getString("status_msg"),Toast.LENGTH_SHORT).show();
-                            if(chatMessage.getIntValue("status") == ChatMessage.STATUS_SUCCESS){
-                                getSocketServiceBinder().getService().startHeartBeatTimerTask();
-                            }
-                        }
-                    }
-                });
-            }
-        };
+        registerReceiver(receiver,new IntentFilter(SocketService.RECEIVE_ACTION));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(receiver);
     }
 }

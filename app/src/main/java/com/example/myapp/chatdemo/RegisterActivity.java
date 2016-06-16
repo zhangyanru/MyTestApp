@@ -1,5 +1,9 @@
 package com.example.myapp.chatdemo;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -20,6 +24,21 @@ import com.example.myapp.activity.BaseActivity;
 public class RegisterActivity extends BaseActivity {
     private EditText accountEditTv,passwordEditTv,password2EditTv;
     private TextView registerBtn;
+
+
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String data = intent.getStringExtra("data");
+            JSONObject jsonObject = JSONObject.parseObject(data);
+            if(jsonObject.getIntValue("type") == ChatMessage.REGISTER){
+                Toast.makeText(RegisterActivity.this,jsonObject.getString("status_msg"),Toast.LENGTH_SHORT).show();
+                if(jsonObject.getIntValue("status") == ChatMessage.STATUS_SUCCESS){
+                    show(RegisterActivity.this,FriendListActivity.class);
+                }
+            }
+        }
+    };
 
     @Override
     protected void initView() {
@@ -73,31 +92,23 @@ public class RegisterActivity extends BaseActivity {
         chatMessage.put("type",ChatMessage.REGISTER);
         chatMessage.put("account",account);
         chatMessage.put("password",password);
-        getSocketServiceBinder().getService().sendMsg(chatMessage);
+
+        Intent intent = new Intent(SocketService.SEND_ACTION);
+        intent.putExtra("data",chatMessage.toJSONString());
+        sendBroadcast(intent);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.listener = new SocketService.SocketListener() {
-            @Override
-            public void onGetChatMsgSuccess(final JSONObject chatMessage) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if(chatMessage!=null){
-                            Log.e("zyr","RegisterActivity onGetChatMsg");
-                            if(chatMessage.getIntValue("type") == ChatMessage.REGISTER){
-                                Toast.makeText(RegisterActivity.this,chatMessage.getString("status_msg"),Toast.LENGTH_SHORT).show();
-                                if(chatMessage.getIntValue("status") == ChatMessage.STATUS_SUCCESS){
+        registerReceiver(receiver,new IntentFilter(SocketService.RECEIVE_ACTION));
+    }
 
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-        };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(receiver);
     }
 
 }

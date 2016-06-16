@@ -110,6 +110,8 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".chatdemo.RegisterActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".chatdemo.FriendListActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"

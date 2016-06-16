@@ -21,10 +21,6 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     public View containerView;
     public Activity mContext;
 
-    public SocketService.SocketServiceBinder socketServiceBinder;
-    private ServiceConnection connection;
-    public SocketService.SocketListener listener;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,26 +34,11 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     protected void onResume() {
         Log.d("zyr","BaseActivity onResume");
         super.onResume();
-        connection = new ServiceConnection() {
-            @Override
-            public void onServiceConnected(ComponentName name, IBinder service) {
-                Log.d("zyr","onServiceConnected");
-                socketServiceBinder = (SocketService.SocketServiceBinder)service;
-                socketServiceBinder.getService().setSocketListener(listener);
-            }
-
-            @Override
-            public void onServiceDisconnected(ComponentName name) {
-                Log.d("zyr","onServiceDisconnected");
-            }
-        };
-        bindService(MyApplication.getSocketServiceIntent(), connection, Context.BIND_AUTO_CREATE);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unbindService(connection);
     }
 
     protected abstract void initView();
@@ -83,9 +64,5 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
         Intent intent = new Intent();
         intent.setClass(context,activity);
         this.startActivityForResult(intent,requestCode);
-    }
-
-    public SocketService.SocketServiceBinder getSocketServiceBinder() {
-        return socketServiceBinder;
     }
 }

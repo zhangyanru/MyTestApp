@@ -1,13 +1,20 @@
 package com.example.myapp.chatdemo;
 
 import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
+import java.io.DataInputStream;
+import java.io.DataOutput;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -30,6 +37,18 @@ public class SocketService extends Service {
     private Socket clientSocket;
     private SocketReadThread socketReadThread;
     private SocketWriteThread socketWriteThread;
+
+    public final static String SEND_ACTION = "send_msg";
+    public final static String RECEIVE_ACTION = "receive_msg";
+
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String data = intent.getStringExtra("data");
+            sendMsg(data);
+        }
+    };
+
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -59,6 +78,7 @@ public class SocketService extends Service {
                     socketReadThread.start();
                     socketWriteThread = new SocketWriteThread(clientSocket);
                     socketWriteThread.start();
+                    registerReceiver(receiver,new IntentFilter(SEND_ACTION));
                 } catch (Exception e) {
                     Log.d("zyr","connect server failed");
                     Log.d("zyr",e.toString());
@@ -78,6 +98,7 @@ public class SocketService extends Service {
     public void onDestroy() {
         super.onDestroy();
         Log.d("zyr","socket service destroy");
+        unregisterReceiver(receiver);
     }
 
 
@@ -85,13 +106,7 @@ public class SocketService extends Service {
         void onGetChatMsgSuccess(JSONObject chatMessage);
     }
 
-    private SocketListener socketListener;
-
-    public void setSocketListener(SocketListener listener){
-        this.socketListener = listener;
-    }
-
-    public void sendMsg(JSONObject chatMessage){
+    public void sendMsg(String chatMessage){
         socketWriteThread.sendMsg(chatMessage);
     }
 
@@ -103,7 +118,7 @@ public class SocketService extends Service {
     public class SocketReadThread extends Thread {
         //定义当前线程所处理的Socket
         private Socket socket = null;
-        private ObjectInputStream objectInputStream = null;
+        private DataInputStream dataInputStream = null;
         private Timer heartBeatTimer;
 
         public SocketReadThread(Socket clientSocket){
@@ -116,11 +131,19 @@ public class SocketService extends Service {
                 try {
                     Log.d("zyr","socket.isConnected() is true");
                     //读取服务端的消息
-                    objectInputStream = new ObjectInputStream(socket.getInputStream());
-                    JSONObject serverMessage = (JSONObject) objectInputStream.readObject();
-                    Log.e("zyr","serverMsg:" + (serverMessage==null?"null":serverMessage.toString()) );
+                    dataInputStream = new DataInputStream(socket.getInputStream());
+                    String serverMessage =  dataInputStream.readUTF();
+                    Log.e("zyr","serverMsg:" + (serverMessage==null?"null":serverMessage) );
                     if(serverMessage!=null){
-                        socketListener.onGetChatMsgSuccess(serverMessage);
+                        Intent intent = new Intent(RECEIVE_ACTION);
+                        intent.putExtra("data",serverMessage);
+                        sendBroadcast(intent);
+
+                        JSONObject jsonObject = JSON.parseObject(serverMessage);
+                        if(jsonObject.getIntValue("type") == MessageType.LOGIN
+                                && jsonObject.getIntValue("status") == MessageType.STATUS_SUCCESS){
+                            startHeartBeatTimerTask();
+                        }
                     }
                 } catch (SocketException e) {
                     e.printStackTrace();
@@ -137,7 +160,7 @@ public class SocketService extends Service {
     }
 
     public class SocketWriteThread extends Thread{
-        private ObjectOutputStream objectOutputStream;
+        private DataOutputStream dataOutputStream;
         private Socket socket;
         private Timer heartBeatTimer;
 
@@ -166,10 +189,11 @@ public class SocketService extends Service {
                 @Override
                 public void run() {
                     try {
-                        objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-                        if(objectOutputStream!=null){
-                            objectOutputStream.writeObject(new JSONObject());
-                            objectOutputStream.flush();
+                        dataOutputStream = new DataOutputStream(socket.getOutputStream());
+                        if(dataOutputStream!=null){
+                            JSONObject jsonObject = new JSONObject();
+                            dataOutputStream.writeUTF(jsonObject.toJSONString());
+                            dataOutputStream.flush();
                         }
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
@@ -181,13 +205,13 @@ public class SocketService extends Service {
             heartBeatTimer.schedule(heartBeatTask, 10000, 10000);
         }
 
-        public void sendMsg(JSONObject chatMessage){
+        public void sendMsg(String chatMessage){
             //给服务端发消息
             if(socket.isConnected()){
                 try {
-                    objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-                    objectOutputStream.writeObject(chatMessage);
-                    objectOutputStream.flush();
+                    dataOutputStream = new DataOutputStream(socket.getOutputStream());
+                    dataOutputStream.writeUTF(chatMessage);
+                    dataOutputStream.flush();
 
                     Log.d("zyr","clientMsg:" + chatMessage.toString());
                 } catch (IOException e) {
