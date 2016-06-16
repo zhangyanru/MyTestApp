@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_ececec"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <EditText android:id="@+id/register_account"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:layout_marginTop="100dp"
+        android:hint="账户"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/color_282828"
+        android:textColorHint="@color/hint_text"
+        android:textSize="15sp"
+        android:singleLine="true"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_ececec"/>
+    <EditText android:id="@+id/register_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:hint="请输入密码"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/color_282828"
+        android:textColorHint="@color/hint_text"
+        android:textSize="15sp"
+        android:singleLine="true"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_ececec"/>
+    <EditText android:id="@+id/register_password2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:hint="请再次输入密码"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/color_282828"
+        android:textColorHint="@color/hint_text"
+        android:textSize="15sp"
+        android:singleLine="true"/>
+    <TextView android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/orange_light"
+        android:text="注 册"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"/>
+</LinearLayout>

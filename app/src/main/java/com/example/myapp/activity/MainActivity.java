@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Toast;
 import com.example.myapp.R;
+import com.example.myapp.chatdemo.LoginActivity;
 import com.example.myapp.fragment.AnimFragment;
 import com.example.myapp.view.DatePickerDialogWithMaxMin;
 
@@ -61,6 +62,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button gridViewSwitchColums;
     private Button snowTest;
     private Button maskTest;
+    private Button chatDemo;
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
 
@@ -75,6 +77,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     public void initViews(){
         main2 = (Button)findViewById(R.id.main_activity2);
+        chatDemo = (Button)findViewById(R.id.chat_demo);
         shareweibo = (Button)findViewById(R.id.shareweibo);
         drawpath = (Button)findViewById(R.id.drawpath);
         animation = (Button)findViewById(R.id.animation);
@@ -123,6 +126,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     public void initListener(){
         main2.setOnClickListener(this);
+        chatDemo.setOnClickListener(this);
         shareweibo.setOnClickListener(this);
         drawpath.setOnClickListener(this);
         animation.setOnClickListener(this);
@@ -345,6 +349,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.mask_test:
                 show(MaskTestActivity.class);
+                break;
+            case R.id.chat_demo:
+                show(LoginActivity.class);
                 break;
             default:
                 break;

@@ -17,6 +17,13 @@
                 android:text="Main Activity2"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/white"/>
+            <Button android:id="@+id/chat_demo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/red_cornor_bg"
+                android:text="聊天程序"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"/>
             <Button android:id="@+id/shareweibo"
                     android:layout_width="300dp"
                     android:layout_height="100dp"

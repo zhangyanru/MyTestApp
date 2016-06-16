@@ -22,7 +22,9 @@ dependencies {
     compile 'com.romainpiel.shimmer:library:1.4.0@aar'
     compile 'com.eftimoff:android-pathview:1.0.8@aar'
     compile files('libs/weiboSDKCore_3.1.2.jar')
+    //    compile 'com.alibaba:fastjson:latest.integration'
     //    compile 'com.github.askerov:DynamicGrid:e3072b7c26'
     compile project(':pulltorefresh')
     compile project(':dynamicgrid')
+    compile files('libs/fastjson-1.2.9.jar')
 }

@@ -25,6 +25,7 @@
     <color name="green_light2">#aacc88</color>
     <color name="orange_light">#ffffbb33</color>
     <color name="blue_light">#ff33b5e5</color>
+    <color name="hint_text">#B6B6B6</color>
 
     <color name="theme_color">#33BBFF</color>
 </resources>

@@ -97,36 +97,36 @@ public class MainActivity2 extends BaseActivity {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.scroller_test:
-                show(this,ScrollerTestActivity.class);
+                show(this, ScrollerTestActivity.class);
                 break;
             case R.id.shimmer_text:
                 show(this, ShimmerTextViewTestActivity.class);
                 break;
             case R.id.quxian_animator:
-                show(this,QuXianAnimatorActivity.class);
+                show(this, QuXianAnimatorActivity.class);
                 break;
             case R.id.path_animator:
-                show(this,PathAnimatorActivity.class);
+                show(this, PathAnimatorActivity.class);
                 break;
             case R.id.custom_pull_to_refresh_listview:
-                show(this,CustomPullToRefreshListViewActivity.class);
+                show(this, CustomPullToRefreshListViewActivity.class);
                 break;
             case R.id.custom_slid_delete_list_view:
-                show(this,CustomSlideDeleteListViewTestActivity.class);
+                show(this, CustomSlideDeleteListViewTestActivity.class);
                 break;
             case R.id.popwindow_test:
-                show(this,PopupWindowTestActivity.class);
+                show(this, PopupWindowTestActivity.class);
                 break;
             case R.id.pull_to_zoom_view_test:
-                show(this,PullToZoomViewTestActivity.class);
+                show(this, PullToZoomViewTestActivity.class);
                 break;
             case R.id.pull_to_refresh_list_view2:
-                show(this,CustomPullToRefreshListViewTestAvtivity2.class);
+                show(this, CustomPullToRefreshListViewTestAvtivity2.class);
                 break;
             case R.id.search_list_view:
-                show(this,CustomSearchListViewTestActivity.class);
+                show(this, CustomSearchListViewTestActivity.class);
                 break;
             case R.id.pinned_section_list_view:
                 show(this, CustomPinnedHeaderListViewTestActivity.class);
@@ -135,16 +135,16 @@ public class MainActivity2 extends BaseActivity {
                 show(this, RecyclerViewTestActivity.class);
                 break;
             case R.id.recycler_view_gallery_test:
-                show(this,RecyclerViewGalleryTestActivity.class);
+                show(this, RecyclerViewGalleryTestActivity.class);
                 break;
             case R.id.custom_expandable_layout:
-                show(this,CustomExpandableLayoutTestActivity.class);
+                show(this, CustomExpandableLayoutTestActivity.class);
                 break;
             case R.id.search_anim:
-                show(this,SearchAnimTestActivity.class);
+                show(this, SearchAnimTestActivity.class);
                 break;
             case R.id.net_work:
-                show(this,NetWorkTestActivity.class);
+                show(this, NetWorkTestActivity.class);
                 break;
             case R.id.github_pullzoomview:
                 show(this, PullZoomViewMainActivity.class);
@@ -153,16 +153,16 @@ public class MainActivity2 extends BaseActivity {
                 show(this, ParallaxHeaderViewPagerMainActivity.class);
                 break;
             case R.id.muti_thread:
-                show(this,MutilThreadTestActivity.class);
+                show(this, MutilThreadTestActivity.class);
                 break;
             case R.id.handler_test:
-                show(this,HandlerTestActivity.class);
+                show(this, HandlerTestActivity.class);
                 break;
             case R.id.thread_pool_test:
-                show(this,ThreadPoolTestActivity.class);
+                show(this, ThreadPoolTestActivity.class);
                 break;
             case R.id.activity_single_task_test:
-                show(this,SingleTaskTestActivity.class);
+                show(this, SingleTaskTestActivity.class);
                 break;
         }
 
