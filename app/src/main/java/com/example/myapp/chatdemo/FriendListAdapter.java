@@ -58,7 +58,7 @@ public class FriendListAdapter extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if(convertView ==null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.list_view_item2,null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.chat_friend_list_adapter,null);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         }else{
@@ -72,7 +72,7 @@ public class FriendListAdapter extends BaseAdapter{
     class ViewHolder{
         TextView textView;
         public ViewHolder(View view){
-            textView = (TextView)view.findViewById(R.id.list_view_text);
+            textView = (TextView)view.findViewById(R.id.chat_friend);
         }
     }
 }
