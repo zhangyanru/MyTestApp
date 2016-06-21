@@ -17,6 +17,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.myapp.Model.ChatMessage;
 import com.example.myapp.R;
 import com.example.myapp.activity.BaseActivity;
+import com.example.myapp.util.PrefrenceManager;
 
 
 /**
@@ -36,6 +37,7 @@ public class LoginActivity extends BaseActivity{
             if(jsonObject.getIntValue("type") == MessageType.LOGIN){
                 Toast.makeText(LoginActivity.this,jsonObject.getString("status_msg"),Toast.LENGTH_SHORT).show();
                 if(jsonObject.getIntValue("status") == MessageType.STATUS_SUCCESS){
+                    PrefrenceManager.getInstance().setAccount(accountEditTv.getText().toString());
                     show(LoginActivity.this,FriendListActivity.class);
                 }
             }

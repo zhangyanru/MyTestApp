@@ -16,6 +16,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.myapp.Model.ChatMessage;
 import com.example.myapp.R;
 import com.example.myapp.activity.BaseActivity;
+import com.example.myapp.util.PrefrenceManager;
 
 /**
  * Created by yanru.zhang on 16/6/14.
@@ -34,6 +35,7 @@ public class RegisterActivity extends BaseActivity {
             if(jsonObject.getIntValue("type") == ChatMessage.REGISTER){
                 Toast.makeText(RegisterActivity.this,jsonObject.getString("status_msg"),Toast.LENGTH_SHORT).show();
                 if(jsonObject.getIntValue("status") == ChatMessage.STATUS_SUCCESS){
+                    PrefrenceManager.getInstance().setAccount(accountEditTv.getText().toString());
                     show(RegisterActivity.this,FriendListActivity.class);
                 }
             }
@@ -87,7 +89,6 @@ public class RegisterActivity extends BaseActivity {
     private void register() {
         String account = accountEditTv.getText().toString();
         String password = passwordEditTv.getText().toString();
-        String password2 = password2EditTv.getText().toString();
         JSONObject chatMessage = new JSONObject();
         chatMessage.put("type",ChatMessage.REGISTER);
         chatMessage.put("account",account);

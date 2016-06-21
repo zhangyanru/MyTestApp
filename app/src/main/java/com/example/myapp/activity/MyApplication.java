@@ -17,16 +17,22 @@ import com.example.myapp.chatdemo.SocketService;
  */
 public class MyApplication extends Application {
     private static Intent socketServiceIntent;
+    private static Application mContext;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = this;
         socketServiceIntent = new Intent(MyApplication.this,SocketService.class);
         startService(socketServiceIntent);
     }
 
     public static Intent getSocketServiceIntent() {
         return socketServiceIntent;
+    }
+
+    public static Context getContext(){
+        return mContext;
     }
 
 }

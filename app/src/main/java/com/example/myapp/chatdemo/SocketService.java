@@ -213,7 +213,7 @@ public class SocketService extends Service {
                     dataOutputStream.writeUTF(chatMessage);
                     dataOutputStream.flush();
 
-                    Log.d("zyr","clientMsg:" + chatMessage.toString());
+                    Log.e("zyr","clientMsg:" + chatMessage.toString());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
