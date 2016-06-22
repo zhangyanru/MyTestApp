@@ -1,5 +1,7 @@
 package com.example.myapp.activity;
 
+import android.content.ComponentName;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
@@ -162,7 +164,13 @@ public class MainActivity2 extends BaseActivity {
                 show(this, ThreadPoolTestActivity.class);
                 break;
             case R.id.activity_single_task_test:
-                show(this, SingleTaskTestActivity.class);
+//                show(this, SingleTaskTestActivity.class);
+
+                Intent intent = new Intent();
+//                intent.setComponent(
+//                        new ComponentName("com.example.yanruzhang.myapplicationbb","com.example.yanruzhang.myapplicationbb.YActivity"));
+                intent.setAction("yactivity");
+                startActivity(intent);
                 break;
         }
 
