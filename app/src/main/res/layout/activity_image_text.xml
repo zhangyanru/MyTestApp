@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="~实现图文混排效果~"
+        android:drawableLeft="@drawable/f000"
+        android:textColor="@color/gray_333333"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_333333"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="~安卓实现展示gif问题~"
+        android:textColor="@color/gray_333333"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_333333"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="~正常图文混排~"
+        android:textColor="@color/gray_333333"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView android:id="@+id/normal_image_text_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray_333333"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_333333"/>
+
+    <TextView android:id="@+id/close_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="~文字折叠展开文字~"
+        android:textColor="@color/gray_333333"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_333333"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="~解决提前换行~"
+        android:textColor="@color/gray_333333"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_333333"/>
+</LinearLayout>

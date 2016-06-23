@@ -95,5 +95,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="activity启动模式singleTask模式"/>
+        <Button android:id="@+id/image_text_show"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="图文混排"/>
     </LinearLayout>
 </ScrollView>

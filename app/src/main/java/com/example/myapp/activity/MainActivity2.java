@@ -40,6 +40,7 @@ public class MainActivity2 extends BaseActivity {
     private Button handlerTest;
     private Button threadPoolTest;
     private Button singleTaskTest;
+    private Button imageTextShowTest;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -64,6 +65,7 @@ public class MainActivity2 extends BaseActivity {
         handlerTest = (Button) findViewById(R.id.handler_test);
         threadPoolTest = (Button) findViewById(R.id.thread_pool_test);
         singleTaskTest = (Button) findViewById(R.id.activity_single_task_test);
+        imageTextShowTest = (Button) findViewById(R.id.image_text_show);
     }
 
     @Override
@@ -95,6 +97,7 @@ public class MainActivity2 extends BaseActivity {
         handlerTest.setOnClickListener(this);
         threadPoolTest.setOnClickListener(this);
         singleTaskTest.setOnClickListener(this);
+        imageTextShowTest.setOnClickListener(this);
     }
 
     @Override
@@ -171,6 +174,9 @@ public class MainActivity2 extends BaseActivity {
 //                        new ComponentName("com.example.yanruzhang.myapplicationbb","com.example.yanruzhang.myapplicationbb.YActivity"));
                 intent.setAction("yactivity");
                 startActivity(intent);
+                break;
+            case R.id.image_text_show:
+                show(this,ImageTextShowTestActivity.class);
                 break;
         }
 
