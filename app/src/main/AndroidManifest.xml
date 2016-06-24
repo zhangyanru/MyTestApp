@@ -13,6 +13,14 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.CAMERA" /><!-- check here -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera.flash" />
+
+    我把    <uses-feature android:name="android.hardware.camera.flash" />
     <!-- 用于调用 JNI -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <application android:name=".activity.MyApplication"
@@ -113,6 +121,8 @@
         <activity android:name=".chatdemo.FriendListActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".activity.ImageTextShowTestActivity"/>
+        <activity android:name=".activity.CameraActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"

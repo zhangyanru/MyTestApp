@@ -2,8 +2,13 @@ package com.example.myapp.activity;
 
 import android.content.ComponentName;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.myapp.R;
 import com.example.myapp.github.parallaxheaderviewpager.demo.ParallaxHeaderViewPagerMainActivity;
@@ -41,6 +46,8 @@ public class MainActivity2 extends BaseActivity {
     private Button threadPoolTest;
     private Button singleTaskTest;
     private Button imageTextShowTest;
+    private Button cameraTest;
+    private ImageView imageView;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -66,6 +73,8 @@ public class MainActivity2 extends BaseActivity {
         threadPoolTest = (Button) findViewById(R.id.thread_pool_test);
         singleTaskTest = (Button) findViewById(R.id.activity_single_task_test);
         imageTextShowTest = (Button) findViewById(R.id.image_text_show);
+        cameraTest = (Button) findViewById(R.id.camera_test);
+        imageView = (ImageView) findViewById(R.id.image_view);
     }
 
     @Override
@@ -98,6 +107,7 @@ public class MainActivity2 extends BaseActivity {
         threadPoolTest.setOnClickListener(this);
         singleTaskTest.setOnClickListener(this);
         imageTextShowTest.setOnClickListener(this);
+        cameraTest.setOnClickListener(this);
     }
 
     @Override
@@ -178,7 +188,49 @@ public class MainActivity2 extends BaseActivity {
             case R.id.image_text_show:
                 show(this,ImageTextShowTestActivity.class);
                 break;
+            case R.id.camera_test:
+                Intent intent1 = new Intent(this,CameraActivity.class);
+                startActivityForResult(intent1,1);
+                break;
         }
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case 1:
+                if(data != null){
+
+
+                    Bundle bundle = data.getExtras();
+
+                    // 获得照片uri
+                    Uri uri = Uri.parse(bundle.getString("uriStr"));
+
+                    // 获得拍照时间
+                    long dateTaken = bundle.getLong("dateTaken");
+                    try {
+                        // 从媒体数据库获取该照片
+                        Bitmap cameraBitmap = MediaStore.Images.Media.getBitmap(
+                                getContentResolver(), uri);
+                        imageView.setImageBitmap(cameraBitmap); // 预览图像
+
+
+                        // 从媒体数据库删除该照片（按拍照时间）
+                        getContentResolver().delete(
+                                CameraActivity.IMAGE_URI,
+                                MediaStore.Images.Media.DATE_TAKEN + "="
+                                        + String.valueOf(dateTaken), null);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }else{
+
+                }
+                break;
+        }
     }
 }

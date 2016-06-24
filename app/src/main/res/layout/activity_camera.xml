@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.myapp.view.CameraPreview
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <Button android:id="@+id/btn_take_picture"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/circle_blue_trans"
+        android:layout_marginBottom="20dp"/>
+
+    <Button android:id="@+id/btn_swich_camera"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:background="@drawable/blue_cornor_bg"
+        android:text="Switch"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"/>
+
+    <ImageView android:id="@+id/focusView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>
