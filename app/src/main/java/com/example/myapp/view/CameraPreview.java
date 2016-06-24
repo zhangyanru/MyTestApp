@@ -18,19 +18,16 @@ import java.util.List;
  * Created by yanru.zhang on 16/6/23.
  * Email:yanru.zhang@renren-inc.com
  */
-public class CameraPreview extends SurfaceView
-        implements SurfaceHolder.Callback {
+public class CameraPreview extends SurfaceView  implements SurfaceHolder.Callback{
     /** LOG标识 */
      private static final String TAG = "CameraPreview";
 
     /** 分辨率 */
     private int previewWidth =0, previewHeight =0;
 
-    /** 监听接口 */
+    /** 相机拍照监听接口 */
     private OnCameraStatusListener listener;
-    /**
-     * 相机拍照监听接口
-     */
+
     public interface OnCameraStatusListener {
 
         // 相机拍照结束事件
@@ -41,6 +38,10 @@ public class CameraPreview extends SurfaceView
 
         // 触摸屏幕对焦事件
         void onTouchFocus(Camera mCamera);
+    }
+
+    public void setOnCameraStatusListener(OnCameraStatusListener listener) {
+        this.listener = listener;
     }
 
     private SurfaceHolder mHolder;
@@ -82,13 +83,7 @@ public class CameraPreview extends SurfaceView
 
         }
     };
-    /*public AutoFocusCallback autoFocusCallback = new AutoFocusCallback() {
 
-        @Override
-        public void onAutoFocus(boolean success, Camera mCamera) {
-            System.out.println("----> onAutoFocus");
-        }
-    };*/
     // Preview类的构造方法
     public CameraPreview(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -105,6 +100,7 @@ public class CameraPreview extends SurfaceView
     }
 
     // 在surface创建时激发
+    @Override
     public void surfaceCreated(SurfaceHolder holder) {
          Log.e(TAG, "==surfaceCreated==");
         try {
@@ -120,6 +116,7 @@ public class CameraPreview extends SurfaceView
     }
 
     // 在surface销毁时激发
+    @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
          Log.e(TAG, "==surfaceDestroyed==");
         if (mCamera != null) {
@@ -133,6 +130,7 @@ public class CameraPreview extends SurfaceView
     }
 
     // 在surface的大小发生改变时激发
+    @Override
     public void surfaceChanged(final SurfaceHolder holder, int format, int w, int h) {
 
     }
@@ -144,6 +142,8 @@ public class CameraPreview extends SurfaceView
     protected void initCamera(int i) throws IOException{
         // 获得Camera对象
         mCamera = Camera.open(i);
+        // 设置竖屏
+        mCamera.setDisplayOrientation(90);
         // 获取照相机参数
         Camera.Parameters parameters = mCamera.getParameters();
         // 设置照片格式
@@ -211,11 +211,6 @@ public class CameraPreview extends SurfaceView
         }
     }
 
-    // 设置监听事件
-    public void setOnCameraStatusListener(OnCameraStatusListener listener) {
-        this.listener = listener;
-    }
-
     /**
      * 选择前置还是后置摄像头
      */
@@ -266,13 +261,4 @@ public class CameraPreview extends SurfaceView
 
         }
     }
-
-//  /**
-//   * 打开默认摄像头
-//   */
-//  public void openCamera() {
-//      int cameraId = CameraHelper.getFutureCameraId(mActivity);
-//      openCamera(cameraId);
-//  }
-
 }

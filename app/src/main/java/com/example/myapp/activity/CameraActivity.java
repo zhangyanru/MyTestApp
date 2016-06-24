@@ -37,8 +37,7 @@ import java.io.OutputStream;
  * Created by yanru.zhang on 16/6/23.
  * Email:yanru.zhang@renren-inc.com
  */
-public class CameraActivity extends Activity
-        implements CameraPreview.OnCameraStatusListener,View.OnClickListener {
+public class CameraActivity extends Activity implements CameraPreview.OnCameraStatusListener,View.OnClickListener {
 
     public static final Uri IMAGE_URI = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
     public static final String PATH = Environment.getExternalStorageDirectory().toString() + "/AndroidMedia/";
@@ -62,7 +61,7 @@ public class CameraActivity extends Activity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // 设置横屏
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+//        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         // 设置全屏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -90,8 +89,6 @@ public class CameraActivity extends Activity
 
             }
         });
-
-
 
         mBtnTakePicture.setOnClickListener(this);
         // 焦点图片
@@ -157,6 +154,22 @@ public class CameraActivity extends Activity
         return cr.insert(IMAGE_URI, values);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_take_picture:
+                isTaking = true;
+                mCameraPreview.takePicture(isAutoFocus);
+                break;
+            case R.id.btn_swich_camera:
+                mCameraPreview.switchCamera();
+                break;
+            default:
+                break;
+        }
+
+    }
+
     /**
      * 相机拍照结束事件
      */
@@ -178,7 +191,7 @@ public class CameraActivity extends Activity
         intent.putExtra("dateTaken", dateTaken);
         // intent.putExtra("filePath", PATH + filename);
         // intent.putExtra("orientation", orientation);  // 拍摄方向
-        setResult(20, intent);
+        setResult(Activity.RESULT_OK, intent);
 
         finish();
     }
@@ -198,30 +211,12 @@ public class CameraActivity extends Activity
         }
     }
 
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_take_picture:
-                isTaking = true;
-                mCameraPreview.takePicture(isAutoFocus);
-                break;
-            case R.id.btn_swich_camera:
-                mCameraPreview.switchCamera();
-                break;
-            default:
-                break;
-        }
-
-    }
-
-    /*
+    /**
      * 触摸屏幕对焦事件
      */
     @Override
     public void onTouchFocus(Camera mCamera){
         camera = mCamera;
-
     }
 
 

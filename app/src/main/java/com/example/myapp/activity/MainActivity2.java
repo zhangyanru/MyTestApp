@@ -1,5 +1,6 @@
 package com.example.myapp.activity;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -199,38 +200,41 @@ public class MainActivity2 extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode){
-            case 1:
-                if(data != null){
+        if(resultCode == Activity.RESULT_OK){
+            switch (requestCode){
+                case 1:
+                    if(data != null){
 
 
-                    Bundle bundle = data.getExtras();
+                        Bundle bundle = data.getExtras();
 
-                    // 获得照片uri
-                    Uri uri = Uri.parse(bundle.getString("uriStr"));
+                        // 获得照片uri
+                        Uri uri = Uri.parse(bundle.getString("uriStr"));
 
-                    // 获得拍照时间
-                    long dateTaken = bundle.getLong("dateTaken");
-                    try {
-                        // 从媒体数据库获取该照片
-                        Bitmap cameraBitmap = MediaStore.Images.Media.getBitmap(
-                                getContentResolver(), uri);
-                        imageView.setImageBitmap(cameraBitmap); // 预览图像
+                        // 获得拍照时间
+                        long dateTaken = bundle.getLong("dateTaken");
+                        try {
+                            // 从媒体数据库获取该照片
+                            Bitmap cameraBitmap = MediaStore.Images.Media.getBitmap(
+                                    getContentResolver(), uri);
+                            imageView.setImageBitmap(cameraBitmap); // 预览图像
 
 
-                        // 从媒体数据库删除该照片（按拍照时间）
-                        getContentResolver().delete(
-                                CameraActivity.IMAGE_URI,
-                                MediaStore.Images.Media.DATE_TAKEN + "="
-                                        + String.valueOf(dateTaken), null);
+                            // 从媒体数据库删除该照片（按拍照时间）
+                            getContentResolver().delete(
+                                    CameraActivity.IMAGE_URI,
+                                    MediaStore.Images.Media.DATE_TAKEN + "="
+                                            + String.valueOf(dateTaken), null);
 
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }else{
+
                     }
-                }else{
-
-                }
-                break;
+                    break;
+            }
         }
+
     }
 }
