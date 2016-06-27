@@ -1,7 +1,6 @@
 package com.example.myapp.activity;
 
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -13,11 +12,9 @@ import android.widget.ImageView;
 
 import com.example.myapp.R;
 import com.example.myapp.github.parallaxheaderviewpager.demo.ParallaxHeaderViewPagerMainActivity;
-import com.example.myapp.github.pinnedheaderlistview.PinnedHeaderListViewMainActivity;
-import com.example.myapp.github.pinnedsectionlistview.PinnedSectionListActivity;
 import com.example.myapp.github.pullzoomview.demo.PullZoomViewMainActivity;
 
-import youmengchatdemo.YMLoginActivity;
+import umengchatdemo.UMLoginActivity;
 
 /**
  * Created by zyr
@@ -199,7 +196,7 @@ public class MainActivity2 extends BaseActivity {
                 startActivityForResult(intent1,1);
                 break;
             case R.id.umeng_chat_test:
-                show(this, YMLoginActivity.class);
+                show(this, UMLoginActivity.class);
                 break;
         }
 

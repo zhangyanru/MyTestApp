@@ -1,10 +1,5 @@
-package youmengchatdemo;
+package umengchatdemo;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -12,30 +7,23 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.alibaba.fastjson.JSONObject;
 import com.alibaba.mobileim.IYWLoginService;
 import com.alibaba.mobileim.YWAPI;
 import com.alibaba.mobileim.YWIMKit;
 import com.alibaba.mobileim.YWLoginParam;
 import com.alibaba.mobileim.channel.event.IWxCallback;
-import com.example.myapp.Model.ChatMessage;
 import com.example.myapp.R;
 import com.example.myapp.activity.BaseActivity;
-import com.example.myapp.activity.MyApplication;
-import com.example.myapp.chatdemo.FriendListActivity;
-import com.example.myapp.chatdemo.MessageType;
 import com.example.myapp.chatdemo.RegisterActivity;
-import com.example.myapp.chatdemo.SocketService;
 import com.example.myapp.util.Methods;
-import com.example.myapp.util.PrefrenceManager;
 
 
 /**
  * Created by yanru.zhang on 16/6/14.
  * Email:yanru.zhang@renren-inc.com
  */
-public class YMLoginActivity extends BaseActivity{
-    private static final String TAG = "YMLoginActivity";
+public class UMLoginActivity extends BaseActivity{
+    private static final String TAG = "UMLoginActivity";
     private EditText accountEditTv,passwordEditTv;
     private TextView loginBtn,registerBtn;
 
@@ -67,17 +55,17 @@ public class YMLoginActivity extends BaseActivity{
         switch (v.getId()){
             case R.id.login:
                 if(TextUtils.isEmpty(accountEditTv.getText().toString())){
-                    Toast.makeText(YMLoginActivity.this,"account cannot be empty",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UMLoginActivity.this,"account cannot be empty",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(passwordEditTv.getText().toString())){
-                    Toast.makeText(YMLoginActivity.this,"password cannot be empty",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UMLoginActivity.this,"password cannot be empty",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 login();
                 break;
             case R.id.register_btn:
-                show(YMLoginActivity.this,RegisterActivity.class);
+                show(UMLoginActivity.this,RegisterActivity.class);
                 break;
         }
     }
@@ -97,13 +85,13 @@ public class YMLoginActivity extends BaseActivity{
 
                 @Override
                 public void onSuccess(Object... arg0) {
-                    Methods.toast(YMLoginActivity.this,"login success");
+                    Methods.toast(UMLoginActivity.this,"login success");
                 }
 
                 @Override
                 public void onProgress(int arg0) {
                     // TODO Auto-generated method stub
-                    Methods.toast(YMLoginActivity.this,"login ing....");
+                    Methods.toast(UMLoginActivity.this,"login ing....");
 
                 }
 
@@ -111,7 +99,7 @@ public class YMLoginActivity extends BaseActivity{
                 public void onError(int errCode, String description) {
                     //如果登录失败，errCode为错误码,description是错误的具体描述信息
                     Log.d(TAG,"loginService onError description:" + description);
-                    Methods.toast(YMLoginActivity.this,"login failed " + description);
+                    Methods.toast(UMLoginActivity.this,"login failed " + description);
 
                 }
             });
