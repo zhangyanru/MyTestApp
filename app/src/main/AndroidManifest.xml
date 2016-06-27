@@ -123,6 +123,8 @@
         <activity android:name=".activity.ImageTextShowTestActivity"/>
         <activity android:name=".activity.CameraActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name="youmengchatdemo.YMLoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"
@@ -149,5 +151,16 @@
 
 
         <service android:name=".chatdemo.SocketService"/>
+
+
+        <!--友盟相关-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="@string/umeng_appkey" >
+        </meta-data>
+        <meta-data
+            android:name="APP_KEY"
+            android:value="@string/app_key" >
+        </meta-data>
     </application>
 </manifest>

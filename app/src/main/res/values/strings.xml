@@ -32,4 +32,9 @@
     <string name="long_text">asdasdasdas sadasdasd asdasdad asdasdasd dasdasdasdasdasd dasdasdas dasdasdasdasd dasdasdasdasdas dasdasdasdasdad dadadasadasdasd asdasdadasd asdasdadasdasdedcergrfgbvtegb gqergregqrevggvefvrvqgbvewbv</string>
     <string name="medium_text">asdasdasdas sadasdasd asdasdad asdasdasd dasdasdasdasdasd dasdasdas dasdasdasdasd dasdasdasdasdas dasdasdasdasdad dadadasadasdasd asdasdadasd asda</string>
     <string name="short_text">adasd pqeriewpfnqpf eenvcjri eochrhfeivehgi dfbdcwehfei epfeh</string>
+
+
+    <!--友盟相关-->
+    <string name="app_key">23394761</string>
+    <string name="umeng_appkey">26c383355bea8b013e814cfcc5df8c28</string>
 </resources>

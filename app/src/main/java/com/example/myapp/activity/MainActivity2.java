@@ -17,6 +17,8 @@ import com.example.myapp.github.pinnedheaderlistview.PinnedHeaderListViewMainAct
 import com.example.myapp.github.pinnedsectionlistview.PinnedSectionListActivity;
 import com.example.myapp.github.pullzoomview.demo.PullZoomViewMainActivity;
 
+import youmengchatdemo.YMLoginActivity;
+
 /**
  * Created by zyr
  * DATE: 16-2-24
@@ -49,6 +51,7 @@ public class MainActivity2 extends BaseActivity {
     private Button imageTextShowTest;
     private Button cameraTest;
     private ImageView imageView;
+    private Button umengTest;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -76,6 +79,7 @@ public class MainActivity2 extends BaseActivity {
         imageTextShowTest = (Button) findViewById(R.id.image_text_show);
         cameraTest = (Button) findViewById(R.id.camera_test);
         imageView = (ImageView) findViewById(R.id.image_view);
+        umengTest = (Button) findViewById(R.id.umeng_chat_test);
     }
 
     @Override
@@ -109,6 +113,7 @@ public class MainActivity2 extends BaseActivity {
         singleTaskTest.setOnClickListener(this);
         imageTextShowTest.setOnClickListener(this);
         cameraTest.setOnClickListener(this);
+        umengTest.setOnClickListener(this);
     }
 
     @Override
@@ -192,6 +197,9 @@ public class MainActivity2 extends BaseActivity {
             case R.id.camera_test:
                 Intent intent1 = new Intent(this,CameraActivity.class);
                 startActivityForResult(intent1,1);
+                break;
+            case R.id.umeng_chat_test:
+                show(this, YMLoginActivity.class);
                 break;
         }
 

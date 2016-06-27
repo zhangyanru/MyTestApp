@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:color="@color/aliwx_common_text_color2" android:state_enabled="false"/>
+    <item android:color="@color/aliwx_white"/>
+
+</selector><!-- From: file:/Users/renren/Documents/MyTestApp/openimSDK/res/drawable/aliwx_contacts_search_btn_text_bg.xml -->

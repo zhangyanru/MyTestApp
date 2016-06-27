@@ -16,6 +16,7 @@ android {
     }
 }
 dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')
     compile 'com.android.support:appcompat-v7:22.+'
     compile 'com.android.support:recyclerview-v7:22.+'
     compile 'com.android.support:cardview-v7:22+'
@@ -27,4 +28,5 @@ dependencies {
     compile project(':pulltorefresh')
     compile project(':dynamicgrid')
     compile files('libs/fastjson-1.2.9.jar')
+    compile project(':openimSDK')
 }

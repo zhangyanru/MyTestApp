@@ -20,10 +20,12 @@ import com.example.myapp.chatdemo.SocketService;
 public abstract class BaseActivity extends Activity implements View.OnClickListener{
     public View containerView;
     public Activity mContext;
+    public MyApplication myApplication;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        myApplication = (MyApplication)getApplication();
         mContext = this;
         init();
         initView();
