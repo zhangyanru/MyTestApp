@@ -16,10 +16,4 @@
         android:layout_alignParentBottom="true"
         style="@style/tabLayout"/>
 
-    <!--app:tabIndicatorColor="@color/white"-->
-    <!--app:tabSelectedTextColor="@color/orange_light"-->
-    <!--app:tabTextColor="@color/white"-->
-    <!--app:tabMode="scrollable"-->
-    <!--app:tabGravity="center"-->
-
 </RelativeLayout>

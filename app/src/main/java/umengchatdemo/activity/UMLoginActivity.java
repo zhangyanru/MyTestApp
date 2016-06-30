@@ -16,6 +16,8 @@ import com.example.myapp.R;
 import com.example.myapp.activity.BaseActivity;
 import com.example.myapp.util.Methods;
 
+import umengchatdemo.utils.UMUtils;
+
 
 /**
  * Created by yanru.zhang on 16/6/14.
@@ -71,14 +73,14 @@ public class UMLoginActivity extends BaseActivity{
 
     private void login() {
         //开始登录
-        String userid = "zyr";
-        String password = "123456";
+        String userid = accountEditTv.getText().toString();
+        String password = passwordEditTv.getText().toString();
 
-        YWIMKit mIMKit = YWAPI.getIMKitInstance(userid,myApplication.APP_KEY );
+        UMUtils.getInstance().initMIMKit(userid,myApplication.APP_KEY);
         Log.d(TAG," myApplication.APP_KEY :" +  myApplication.APP_KEY);
-        Log.d(TAG,"mIMKit:" + (mIMKit==null?null:mIMKit));
-        if(mIMKit!=null){
-            IYWLoginService loginService = mIMKit.getLoginService();
+        Log.d(TAG,"mIMKit:" + (UMUtils.getInstance().getmIMKit()==null?null:UMUtils.getInstance().getmIMKit()));
+        if(UMUtils.getInstance().getmIMKit()!=null){
+            IYWLoginService loginService = UMUtils.getInstance().getmIMKit().getLoginService();
             YWLoginParam loginParam = YWLoginParam.createLoginParam(userid, password);
             loginService.login(loginParam, new IWxCallback() {
 

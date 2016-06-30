@@ -129,6 +129,8 @@
             android:theme="@style/AppThemeUM"/>
         <activity android:name="umengchatdemo.activity.UMMainActivity"
             android:theme="@style/AppThemeUM" />
+        <activity android:name="umengchatdemo.activity.FindContactActivity"
+            android:theme="@style/AppThemeUM" />
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"
