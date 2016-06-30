@@ -1,25 +1,15 @@
-package umengchatdemo;
+package umengchatdemo.activity;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.alibaba.fastjson.JSONObject;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.example.myapp.Model.ChatMessage;
 import com.example.myapp.R;
 import com.example.myapp.activity.BaseActivity;
-import com.example.myapp.chatdemo.FriendListActivity;
-import com.example.myapp.chatdemo.SocketService;
-import com.example.myapp.util.PrefrenceManager;
 
 /**
  * Created by yanru.zhang on 16/6/14.

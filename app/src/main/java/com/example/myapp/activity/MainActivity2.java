@@ -14,7 +14,7 @@ import com.example.myapp.R;
 import com.example.myapp.github.parallaxheaderviewpager.demo.ParallaxHeaderViewPagerMainActivity;
 import com.example.myapp.github.pullzoomview.demo.PullZoomViewMainActivity;
 
-import umengchatdemo.UMLoginActivity;
+import umengchatdemo.activity.UMLoginActivity;
 
 /**
  * Created by zyr

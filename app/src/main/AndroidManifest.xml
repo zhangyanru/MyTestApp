@@ -123,11 +123,11 @@
         <activity android:name=".activity.ImageTextShowTestActivity"/>
         <activity android:name=".activity.CameraActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name="umengchatdemo.UMLoginActivity"
+        <activity android:name="umengchatdemo.activity.UMLoginActivity"
             android:theme="@style/AppThemeUM"/>
-        <activity android:name="umengchatdemo.UMRegisterActivity"
+        <activity android:name="umengchatdemo.activity.UMRegisterActivity"
             android:theme="@style/AppThemeUM"/>
-        <activity android:name="umengchatdemo.UMMainActivity"
+        <activity android:name="umengchatdemo.activity.UMMainActivity"
             android:theme="@style/AppThemeUM" />
 
         <!--github pullzoomviwq-->

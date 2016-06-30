@@ -1,4 +1,4 @@
-package umengchatdemo;
+package umengchatdemo.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,12 +13,12 @@ import com.example.myapp.R;
  * Created by yanru.zhang on 16/6/28.
  * Email:yanru.zhang@renren-inc.com
  */
-public class UMGroupFragment extends Fragment {
+public class UMMessageFragment extends Fragment {
     private View rootView;
 
-    public static UMGroupFragment newInstance(Bundle args) {
+    public static UMMessageFragment newInstance(Bundle args) {
 
-        UMGroupFragment fragment = new UMGroupFragment();
+        UMMessageFragment fragment = new UMMessageFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -26,7 +26,7 @@ public class UMGroupFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_um_group,null);
+        rootView = inflater.inflate(R.layout.fragment_um_message,null);
         return rootView;
     }
 }

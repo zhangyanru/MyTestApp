@@ -1,19 +1,13 @@
-package umengchatdemo;
+package umengchatdemo.activity;
 
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.TabHost;
-import android.widget.TabWidget;
-import android.widget.TableLayout;
-import android.widget.TextView;
 
 import com.example.myapp.R;
 import com.example.myapp.activity.BaseActivity;
 
-import java.util.ArrayList;
-import java.util.List;
+import umengchatdemo.adapter.UMMainAdapter;
 
 /**
  * Created by yanru.zhang on 16/6/28.

@@ -1,8 +1,13 @@
-package umengchatdemo;
+package umengchatdemo.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import umengchatdemo.fragment.UMFriendsFragment;
+import umengchatdemo.fragment.UMGroupFragment;
+import umengchatdemo.fragment.UMMessageFragment;
+import umengchatdemo.fragment.UMSettingFragment;
 
 /**
  * Created by yanru.zhang on 16/6/28.

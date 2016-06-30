@@ -1,4 +1,4 @@
-package umengchatdemo;
+package umengchatdemo.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

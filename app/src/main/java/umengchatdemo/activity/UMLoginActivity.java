@@ -1,4 +1,4 @@
-package umengchatdemo;
+package umengchatdemo.activity;
 
 import android.text.TextUtils;
 import android.util.Log;
@@ -14,7 +14,6 @@ import com.alibaba.mobileim.YWLoginParam;
 import com.alibaba.mobileim.channel.event.IWxCallback;
 import com.example.myapp.R;
 import com.example.myapp.activity.BaseActivity;
-import com.example.myapp.chatdemo.RegisterActivity;
 import com.example.myapp.util.Methods;
 
 
@@ -65,7 +64,7 @@ public class UMLoginActivity extends BaseActivity{
                 login();
                 break;
             case R.id.register_btn:
-                show(UMLoginActivity.this,UMRegisterActivity.class);
+                show(UMLoginActivity.this, UMRegisterActivity.class);
                 break;
         }
     }
