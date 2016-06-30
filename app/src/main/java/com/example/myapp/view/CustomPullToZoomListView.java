@@ -68,8 +68,8 @@ public class CustomPullToZoomListView extends ListView implements AbsListView.On
         for(int i=0;i<typedArray.length();i++){
             int attr = typedArray.getIndex(i);
             switch (attr){
-                case R.styleable.CustomPullToZoomListView_headerLayout:
-                    mHeadViewId = typedArray.getResourceId(R.styleable.CustomPullToZoomListView_headerLayout,0);
+                case R.styleable.CustomPullToZoomListView_headerlayout:
+                    mHeadViewId = typedArray.getResourceId(R.styleable.CustomPullToZoomListView_headerlayout,0);
                     break;
                 case R.styleable.CustomPullToZoomListView_zoomLayout:
                     mZoomViewId = typedArray.getResourceId(R.styleable.CustomPullToZoomListView_zoomLayout,0);

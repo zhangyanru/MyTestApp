@@ -59,7 +59,7 @@
     </declare-styleable>
 
     <declare-styleable name="CustomPullToZoomListView">
-        <attr name="headerLayout" format="reference"/>
+        <attr name="headerlayout" format="reference"/>
         <attr name="zoomLayout" format="reference"/>
     </declare-styleable>
 
@@ -83,7 +83,7 @@
     <declare-styleable name="SlidingTabLayout">
         <attr name="indicatorColor" format="color"/>
         <attr name="shouldExpand" format="boolean" />
-        <attr name="tabBackground" format="reference" />
+        <attr name="tabbackground" format="reference" />
         <attr name="tabBackgroundTextViewId" format="reference"/>
     </declare-styleable>
 

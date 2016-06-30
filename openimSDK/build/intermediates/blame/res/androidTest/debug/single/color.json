@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/res/merged/androidTest/debug/color/aliwx_tab_text_color.xml",
+        "source": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/bundles/debug/res/color/aliwx_tab_text_color.xml"
+    },
+    {
+        "merged": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/res/merged/androidTest/debug/color/aliwx_at_msg_mark_all_read_text_color.xml",
+        "source": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/bundles/debug/res/color/aliwx_at_msg_mark_all_read_text_color.xml"
+    }
+]

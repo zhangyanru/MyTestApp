@@ -95,7 +95,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
         setSelectedIndicatorColors(selectedIndicatorColor);
 
         mShouldExpand = typedArray.getBoolean(R.styleable.SlidingTabLayout_shouldExpand, true);
-        mTabViewLayoutId = typedArray.getResourceId(R.styleable.SlidingTabLayout_tabBackground, mTabViewLayoutId);
+        mTabViewLayoutId = typedArray.getResourceId(R.styleable.SlidingTabLayout_tabbackground, mTabViewLayoutId);
         mTabViewTextViewId = typedArray.getResourceId(R.styleable.SlidingTabLayout_tabBackgroundTextViewId, mTabViewTextViewId);
 
         typedArray.recycle();

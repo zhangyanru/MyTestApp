@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +18,7 @@ import com.example.myapp.chatdemo.SocketService;
 /**
  * Created by admin on 15/9/16.
  */
-public abstract class BaseActivity extends Activity implements View.OnClickListener{
+public abstract class BaseActivity extends FragmentActivity implements View.OnClickListener{
     public View containerView;
     public Activity mContext;
     public MyApplication myApplication;

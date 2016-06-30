@@ -255,7 +255,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 DatePicker datePicker = datePickerDialogWithMaxMin.getDatePicker();
                 datePicker.setMinDate(calendar.getTimeInMillis());
                 datePickerDialogWithMaxMin.show();
-//                DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this,
+//                DatePickerDialog datePickerDialog = new DatePickerDialog(UMMainActivity.this,
 //                        new DatePickerDialog.OnDateSetListener() {
 //                            @Override
 //                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {

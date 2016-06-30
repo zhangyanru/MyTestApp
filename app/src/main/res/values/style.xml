@@ -1,3 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="AppThemeUM" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
+    <style name="tabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabPaddingStart">0dp</item>
+        <item name="tabPaddingEnd">0dp</item>
+        <item name="tabIndicatorColor">@null</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+        <item name="tabTextColor">@color/gray_333333</item>
+        <item name="android:background">@color/primary</item>
+    </style>
 </resources>

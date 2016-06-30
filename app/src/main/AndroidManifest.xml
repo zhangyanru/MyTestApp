@@ -5,7 +5,7 @@
     android:versionCode="1"
     android:versionName="1.0">
     <uses-sdk
-            android:minSdkVersion="11"
+            android:minSdkVersion="16"
             android:targetSdkVersion="22"
         tools:overrideLibrary="com.romainpiel.shimmer,com.eftimoff.mylibrary,com.dk.view.patheffect,com.ecloud.pulltozoomview" />
 
@@ -124,7 +124,11 @@
         <activity android:name=".activity.CameraActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name="umengchatdemo.UMLoginActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/AppThemeUM"/>
+        <activity android:name="umengchatdemo.UMRegisterActivity"
+            android:theme="@style/AppThemeUM"/>
+        <activity android:name="umengchatdemo.UMMainActivity"
+            android:theme="@style/AppThemeUM" />
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"

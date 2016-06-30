@@ -65,7 +65,7 @@ public class UMLoginActivity extends BaseActivity{
                 login();
                 break;
             case R.id.register_btn:
-                show(UMLoginActivity.this,RegisterActivity.class);
+                show(UMLoginActivity.this,UMRegisterActivity.class);
                 break;
         }
     }
@@ -86,6 +86,7 @@ public class UMLoginActivity extends BaseActivity{
                 @Override
                 public void onSuccess(Object... arg0) {
                     Methods.toast(UMLoginActivity.this,"login success");
+                    show(UMLoginActivity.this,UMMainActivity.class);
                 }
 
                 @Override
