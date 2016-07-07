@@ -110,5 +110,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="友盟聊天"/>
+        <Button android:id="@+id/vector_test"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Vector低版本兼容"/>
     </LinearLayout>
 </ScrollView>

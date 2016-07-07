@@ -49,6 +49,7 @@ public class MainActivity2 extends BaseActivity {
     private Button cameraTest;
     private ImageView imageView;
     private Button umengTest;
+    private Button vectorTest;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -77,6 +78,7 @@ public class MainActivity2 extends BaseActivity {
         cameraTest = (Button) findViewById(R.id.camera_test);
         imageView = (ImageView) findViewById(R.id.image_view);
         umengTest = (Button) findViewById(R.id.umeng_chat_test);
+        vectorTest = (Button) findViewById(R.id.vector_test);
     }
 
     @Override
@@ -111,6 +113,7 @@ public class MainActivity2 extends BaseActivity {
         imageTextShowTest.setOnClickListener(this);
         cameraTest.setOnClickListener(this);
         umengTest.setOnClickListener(this);
+        vectorTest.setOnClickListener(this);
     }
 
     @Override
@@ -197,6 +200,9 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.umeng_chat_test:
                 show(this, UMLoginActivity.class);
+                break;
+            case R.id.vector_test:
+                show(this,VectorTestActivity.class);
                 break;
         }
 
