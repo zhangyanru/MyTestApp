@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView android:id="@+id/image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/gou"/>
+
+    <EditText android:id="@+id/edit_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="http://10.4.24.116:8080/document/chat/add"/>
+    <Button android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="点击按钮上传图片"/>
+    <ProgressBar android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+</LinearLayout>

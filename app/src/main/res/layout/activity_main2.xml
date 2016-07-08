@@ -114,5 +114,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="Vector低版本兼容"/>
+        <Button android:id="@+id/http_multi_part_test"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="安卓上传文件http multipart/form-data"/>
     </LinearLayout>
 </ScrollView>
