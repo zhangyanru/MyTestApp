@@ -3,20 +3,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView android:id="@+id/image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/gou"/>
-
     <EditText android:id="@+id/edit_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="http://10.4.24.116:8080/document/chat/add"/>
+        android:text="这里写入你调用的接口的地址"/>
     <Button android:id="@+id/btn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="点击按钮上传图片"/>
-    <ProgressBar android:id="@+id/progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="10dp" />
 </LinearLayout>
