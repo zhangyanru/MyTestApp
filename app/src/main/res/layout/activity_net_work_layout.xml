@@ -15,36 +15,52 @@
         android:layout_width="100dp"
         android:layout_height="100dp" />
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+        <TableRow>
+            <Button android:id="@+id/http_client_get_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="http client get"/>
+            <Button android:id="@+id/http_client_post_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="http client post"/>
+            <Button android:id="@+id/url_connection_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="url connection"/>
+            <Button android:id="@+id/socket_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="socket"
+                android:background="@drawable/red_cornor_bg" />
+        </TableRow>
+        <TableRow>
+            <Button android:id="@+id/ok_http"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="ok http"/>
+            <Button android:id="@+id/image_loader"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="image loader"/>
+        </TableRow>
+    </TableLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <Button android:id="@+id/http_client_btn"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="http client"/>
-        <Button android:id="@+id/url_connection_btn"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="url connection"/>
-        <Button android:id="@+id/socket_btn"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="socket"
-            android:background="@color/red_light"/>
-        <Button android:id="@+id/ok_http"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="ok http"/>
-        <Button android:id="@+id/image_loader"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="image loader"/>
+
+
     </LinearLayout>
 
 </LinearLayout>

@@ -2,7 +2,6 @@ package com.example.myapp.activity;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.http.AndroidHttpClient;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -16,35 +15,25 @@ import com.example.myapp.R;
 import com.example.myapp.util.Methods;
 
 import org.apache.http.HttpEntity;
-import org.apache.http.HttpHost;
-import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
-import org.apache.http.client.ClientProtocolException;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.conn.ClientConnectionManager;
-import org.apache.http.conn.ClientConnectionRequest;
-import org.apache.http.conn.ConnectionPoolTimeoutException;
-import org.apache.http.conn.ManagedClientConnection;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.HttpParams;
-import org.apache.http.protocol.HttpContext;
-import org.apache.http.util.EntityUtils;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by zyr
@@ -58,7 +47,7 @@ import java.util.concurrent.TimeUnit;
 public class NetWorkTestActivity extends BaseActivity {
 
     private TextView textView;
-    private Button httpClientBtn,urlConnectionBtn,socketBtn,okHttpBtn,imageLoaderBtn;
+    private Button httpClientGetBtn,httpClientPostBtn,urlConnectionBtn,socketBtn,okHttpBtn,imageLoaderBtn;
     private ImageView imageView;
     private ScrollView scrollView;
     private Handler handler;
@@ -76,7 +65,8 @@ public class NetWorkTestActivity extends BaseActivity {
         textView.setText("参考 : http://www.open-open.com/lib/view/open1453008154245.html");
         scrollView = (ScrollView) findViewById(R.id.scroll_view);
         imageView = (ImageView) findViewById(R.id.image_view);
-        httpClientBtn = (Button) findViewById(R.id.http_client_btn);
+        httpClientGetBtn = (Button) findViewById(R.id.http_client_get_btn);
+        httpClientPostBtn = (Button) findViewById(R.id.http_client_post_btn);
         urlConnectionBtn = (Button) findViewById(R.id.url_connection_btn);
         socketBtn = (Button) findViewById(R.id.socket_btn);
         okHttpBtn = (Button) findViewById(R.id.ok_http);
@@ -110,7 +100,8 @@ public class NetWorkTestActivity extends BaseActivity {
 
     @Override
     public void initListener() {
-        httpClientBtn.setOnClickListener(this);
+        httpClientGetBtn.setOnClickListener(this);
+        httpClientPostBtn.setOnClickListener(this);
         urlConnectionBtn.setOnClickListener(this);
         socketBtn.setOnClickListener(this);
         okHttpBtn.setOnClickListener(this);
@@ -120,9 +111,12 @@ public class NetWorkTestActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.http_client_btn:
-                doHttpClient();
+            case R.id.http_client_get_btn:
+                doHttpClientGet();
                 doHttpClientDownImage();
+                break;
+            case R.id.http_client_post_btn:
+                doHttpClientPost();
                 break;
             case R.id.url_connection_btn:
                 doUrlConnection();
@@ -179,7 +173,7 @@ public class NetWorkTestActivity extends BaseActivity {
         }).start();
     }
 
-    private void doHttpClient() {
+    private void doHttpClientGet() {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -188,6 +182,56 @@ public class NetWorkTestActivity extends BaseActivity {
                 HttpClient httpclient = new DefaultHttpClient();
                 try {
                     HttpResponse httpResponse = httpclient.execute(httpGet);
+                    HttpEntity httpEntity = httpResponse.getEntity();
+
+                    InputStreamReader isr = new InputStreamReader(httpEntity.getContent());
+                    //使用缓冲一行行的读入，加速InputStreamReader的速度
+                    BufferedReader buffer = new BufferedReader(isr);
+                    String inputLine;
+                    StringBuffer resultData = new StringBuffer();
+
+                    while((inputLine = buffer.readLine()) != null){
+                        resultData.append(inputLine);
+                        resultData.append("\n");
+                    }
+                    buffer.close();
+                    isr.close();
+
+                    Message message = new Message();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("response", resultData.toString());
+                    bundle.putInt("result", HTTP_CLIENT);
+                    message.setData(bundle);
+                    handler.sendMessage(message);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+
+                }
+            }
+        }).start();
+
+    }
+
+    private void doHttpClientPost() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    // 创建默认的httpClient实例.
+                    HttpClient httpclient = new DefaultHttpClient();
+                    HttpPost httpPost = new HttpPost("http://10.4.24.116:8080/transaction/count");
+                    httpPost.setHeader("Accept-Encoding","identity");
+                    httpPost.setHeader("content-type","application/x-www-form-urlencoded; charset=UTF-8");
+                    httpPost.setHeader("User-Agent","Dalvik/2.1.0(Linux; U; Android 5.0.1; GT-I9500 Build/LRX22C)");
+                    httpPost.setHeader("Accept","*/*");
+                    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+                    nameValuePairs.add(new BasicNameValuePair("sessionKey","6664cda0cf87a13eec12b6860128d302"));
+                    nameValuePairs.add(new BasicNameValuePair("client_info","%7B%22deviceId%22%3A%22357747050997167%22%2C%22mac%22%3A%2240%3A0E%3A85%3A5B%3A63%3A13%22%2C%22version%22%3A%221.3.0%22%2C%22fromId%22%3A0%2C%22appId%22%3A481559%2C%22timezone%22%3A28800%2C%22os%22%3A%2221_5.0.1%22%2C%22model%22%3A%22GT-I9500%22%7D"));
+                    nameValuePairs.add(new BasicNameValuePair("sig","406cb5cea65e7611b60eec19f383eaa4"));
+                    httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs,"UTF-8"));
+
+                    HttpResponse httpResponse = httpclient.execute(httpPost);
                     HttpEntity httpEntity = httpResponse.getEntity();
 
                     InputStreamReader isr = new InputStreamReader(httpEntity.getContent());
