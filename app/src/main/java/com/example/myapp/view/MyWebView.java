@@ -23,7 +23,6 @@ import com.example.myapp.R;
  * Email:yanru.zhang@renren-inc.com
  */
 public class MyWebView extends LinearLayout implements View.OnClickListener , CustomWebView.OnScrollChangedCallBack{
-    private WebSettings webSetting;
     private MyWebViewClient webViewClient;
     private final String mimeType = "text/html";
     private final String encoding = "utf-8";
@@ -57,11 +56,7 @@ public class MyWebView extends LinearLayout implements View.OnClickListener , Cu
     }
 
     private void init() {
-        webSetting = webView.getSettings();
-        webSetting.setJavaScriptEnabled(true); //在webView中使用JavaScript
-        webSetting.setSupportZoom(true); // 允许缩放
-        webSetting.setBuiltInZoomControls(true); //原网页基础上缩放
-        webSetting.setUseWideViewPort(true); //任意比例缩放
+
         webViewClient = new MyWebViewClient(getContext());
         webViewClient.setOnPageUpdateListener(new MyWebViewClient.OnPageUpdateListener() {
             @Override
