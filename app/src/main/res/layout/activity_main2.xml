@@ -118,5 +118,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="安卓上传文件http multipart/form-data"/>
+        <Button android:id="@+id/web_view_test"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Web View使用"/>
     </LinearLayout>
 </ScrollView>

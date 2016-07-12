@@ -7,4 +7,6 @@
     <dimen name="imageview_height">200dp</dimen>
     <dimen name="header_height">250dp</dimen>
     <dimen name="min_header_height">250dp</dimen>
+
+    <dimen name="web_view_title_height">45dp</dimen>
 </resources>

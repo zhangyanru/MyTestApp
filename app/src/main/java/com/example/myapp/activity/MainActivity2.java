@@ -51,6 +51,7 @@ public class MainActivity2 extends BaseActivity {
     private Button umengTest;
     private Button vectorTest;
     private Button httpMultiPartTest;
+    private Button webViewTest;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -81,6 +82,7 @@ public class MainActivity2 extends BaseActivity {
         umengTest = (Button) findViewById(R.id.umeng_chat_test);
         vectorTest = (Button) findViewById(R.id.vector_test);
         httpMultiPartTest = (Button) findViewById(R.id.http_multi_part_test);
+        webViewTest = (Button) findViewById(R.id.web_view_test);
     }
 
     @Override
@@ -117,6 +119,7 @@ public class MainActivity2 extends BaseActivity {
         umengTest.setOnClickListener(this);
         vectorTest.setOnClickListener(this);
         httpMultiPartTest.setOnClickListener(this);
+        webViewTest.setOnClickListener(this);
     }
 
     @Override
@@ -209,6 +212,9 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.http_multi_part_test:
                 show(this,HttpMultiPartTestActivity.class);
+                break;
+            case R.id.web_view_test:
+                show(this,WebViewTestActivity.class);
                 break;
         }
 
