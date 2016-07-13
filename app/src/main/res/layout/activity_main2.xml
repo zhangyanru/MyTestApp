@@ -122,5 +122,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="Web View使用"/>
+        <Button android:id="@+id/xml_parse_test"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="XML解析的三种方法和写入"/>
     </LinearLayout>
 </ScrollView>

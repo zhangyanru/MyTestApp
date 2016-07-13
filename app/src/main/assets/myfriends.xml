@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<friends>
+    <friend id="0">
+        <name>哇哈哈</name>
+        <favorites>
+            <favorite type="1">篮球</favorite>
+            <favorite type="2">足球</favorite>
+            <favorite type="3">乒乓</favorite>
+        </favorites>
+        <city>北京</city>
+        <age>18</age>
+        <school>北京大学</school>
+    </friend>
+    <friend id="1">
+        <name>爽歪歪</name>
+        <city>武汉</city>
+        <age>28</age>
+        <school>武汉大学</school>
+    </friend>
+    <friend id="2">
+        <name>乳娃娃</name>
+        <favorites>
+            <favorite type="1">泡吧</favorite>
+        </favorites>
+        <city>上海</city>
+        <age>10</age>
+        <school>无</school>
+    </friend>
+</friends>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<launchs>
+    <launch type="0">
+        <name>咖喱鸡块饭</name>
+        <price>
+            <num value="1">50元</num>
+            <num value="2">100元</num>
+        </price>
+    </launch>
+    <launch type="1">
+        <name>三鲜水饺</name>
+        <price>30元</price>
+    </launch>
+    <launch type="2">
+        <name>麻辣小龙虾</name>
+        <price>100元</price>
+    </launch>
+</launchs>
