@@ -54,6 +54,7 @@ public class MainActivity2 extends BaseActivity {
     private Button webViewTest;
     private Button xmlParseTest;
     private Button wifiTest;
+    private Button frameAnimTest;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -87,6 +88,7 @@ public class MainActivity2 extends BaseActivity {
         webViewTest = (Button) findViewById(R.id.web_view_test);
         xmlParseTest = (Button) findViewById(R.id.xml_parse_test);
         wifiTest = (Button) findViewById(R.id.wifi_test);
+        frameAnimTest = (Button) findViewById(R.id.frame_amin_test);
     }
 
     @Override
@@ -126,6 +128,7 @@ public class MainActivity2 extends BaseActivity {
         webViewTest.setOnClickListener(this);
         xmlParseTest.setOnClickListener(this);
         wifiTest.setOnClickListener(this);
+        frameAnimTest.setOnClickListener(this);
     }
 
     @Override
@@ -227,6 +230,9 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.wifi_test:
                 show(this,WifiTestActivity.class);
+                break;
+            case R.id.frame_amin_test:
+                show(this,FrameAnimTestActivity.class);
                 break;
         }
 

@@ -130,5 +130,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="Wifi操作"/>
+        <Button android:id="@+id/frame_amin_test"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="帧动画"/>
     </LinearLayout>
 </ScrollView>
