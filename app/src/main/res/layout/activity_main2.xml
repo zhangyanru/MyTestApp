@@ -126,5 +126,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="XML解析的三种方法和写入"/>
+        <Button android:id="@+id/wifi_test"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Wifi操作"/>
     </LinearLayout>
 </ScrollView>

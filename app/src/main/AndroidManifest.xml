@@ -9,6 +9,7 @@
             android:targetSdkVersion="23"
         tools:overrideLibrary="com.romainpiel.shimmer,com.eftimoff.mylibrary,com.dk.view.patheffect,com.ecloud.pulltozoomview" />
 
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -130,6 +131,7 @@
         <activity android:name=".activity.HttpMultiPartTestActivity"/>
         <activity android:name=".activity.WebViewTestActivity"/>
         <activity android:name=".activity.XMLParseTestActivity"/>
+        <activity android:name=".activity.WifiTestActivity"/>
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"
