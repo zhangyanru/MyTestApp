@@ -8,12 +8,11 @@
     <TextView android:id="@+id/wifi_strength"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:gravity="center|left"
+        android:gravity="center"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
         android:textColor="@color/gray_333333"
         android:textSize="14sp"
-        android:textStyle="italic"
         tools:text="特别强"
         android:background="@color/gray_light" />
 
@@ -26,7 +25,7 @@
         android:layout_marginTop="10dp"
         android:textColor="@color/primary"
         android:textSize="14sp"
-        android:textStyle="italic"
+        android:textStyle="bold"
         tools:text="name"/>
 
     <TextView android:id="@+id/wifi_address"
@@ -51,8 +50,18 @@
         android:layout_marginTop="10dp"
         android:textColor="@color/gray_333333"
         android:textSize="14sp"
-        android:textStyle="italic"
         tools:text="gray"/>
+
+    <TextView android:id="@+id/position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/gray_333333"
+        android:textSize="14sp"
+        tools:text="position"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"/>
     <View android:layout_width="match_parent"
         android:layout_height="1px"
         android:layout_alignParentBottom="true"

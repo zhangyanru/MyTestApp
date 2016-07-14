@@ -9,6 +9,7 @@ import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,6 +21,7 @@ public class WifiUtils {
     private WifiManager mWifiManager;
     private WifiInfo mWifiInfo; //当前连接wifi的信息
     private ConnectivityManager mConnectivityManager;
+    private List<WifiConfiguration> configurations = new ArrayList<WifiConfiguration>();
 
     public WifiUtils(Context context) {
         mContext = context;
@@ -138,6 +140,27 @@ public class WifiUtils {
     public void addWifiAndConnect(WifiConfiguration configuration){
         int netId = mWifiManager.addNetwork(configuration);
         mWifiManager.enableNetwork(netId,true);
+    }
+
+    /**
+     *得到WIFi的配置好的信息，包含配置好的密码
+     */
+    public void getConfiguration(){
+        configurations = mWifiManager.getConfiguredNetworks();
+    }
+
+    /**
+     * 判定指定WIFI是否已经配置好，配置好则返回其networkId，用于连接
+     * @param BSSID
+     * @return
+     */
+    public int isConfigurated(String BSSID){
+        for(int i=0;i<configurations.size();i++){
+            if(configurations.get(i).BSSID.equals(BSSID)){
+                return configurations.get(i).networkId;
+            }
+        }
+        return -1;
     }
 
 }
