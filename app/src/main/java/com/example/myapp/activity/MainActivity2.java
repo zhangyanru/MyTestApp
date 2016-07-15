@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.myapp.R;
+import com.example.myapp.Test;
 import com.example.myapp.github.parallaxheaderviewpager.demo.ParallaxHeaderViewPagerMainActivity;
 import com.example.myapp.github.pullzoomview.demo.PullZoomViewMainActivity;
 
@@ -55,6 +56,7 @@ public class MainActivity2 extends BaseActivity {
     private Button xmlParseTest;
     private Button wifiTest;
     private Button frameAnimTest;
+    private Button saiBeiErTest;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -89,6 +91,7 @@ public class MainActivity2 extends BaseActivity {
         xmlParseTest = (Button) findViewById(R.id.xml_parse_test);
         wifiTest = (Button) findViewById(R.id.wifi_test);
         frameAnimTest = (Button) findViewById(R.id.frame_amin_test);
+        saiBeiErTest = (Button) findViewById(R.id.sai_bei_er_test);
     }
 
     @Override
@@ -129,6 +132,7 @@ public class MainActivity2 extends BaseActivity {
         xmlParseTest.setOnClickListener(this);
         wifiTest.setOnClickListener(this);
         frameAnimTest.setOnClickListener(this);
+        saiBeiErTest.setOnClickListener(this);
     }
 
     @Override
@@ -233,6 +237,9 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.frame_amin_test:
                 show(this,FrameAnimTestActivity.class);
+                break;
+            case R.id.sai_bei_er_test:
+                show(this,SaiBeiErTestActivity.class);
                 break;
         }
 

@@ -380,12 +380,12 @@
         "source": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/aliwx_s075.png"
     },
     {
-        "merged": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/aliwx_friends_search_icon.png",
-        "source": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/aliwx_friends_search_icon.png"
-    },
-    {
         "merged": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/aliwx_s004.png",
         "source": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/aliwx_s004.png"
+    },
+    {
+        "merged": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/aliwx_friends_search_icon.png",
+        "source": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/aliwx_friends_search_icon.png"
     },
     {
         "merged": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/aliwx_s031.png",
@@ -552,12 +552,12 @@
         "source": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/aliwx_s080.png"
     },
     {
-        "merged": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/aliwx_common_back_btn_white_pressed.png",
-        "source": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/aliwx_common_back_btn_white_pressed.png"
-    },
-    {
         "merged": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/aliwx_s058.png",
         "source": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/aliwx_s058.png"
+    },
+    {
+        "merged": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/aliwx_common_back_btn_white_pressed.png",
+        "source": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/aliwx_common_back_btn_white_pressed.png"
     },
     {
         "merged": "/Users/renren/Documents/MyTestApp/openimSDK/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/aliwx_picture_unselect.png",

@@ -8,4 +8,31 @@
         android:layout_height="wrap_content"
         android:src="@drawable/frame_anim_drawable"
         android:layout_margin="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="zhang,beijing,23 test"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ren,wuhan,60 haha"/>
+
+    <Button android:id="@+id/btn1_write"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="write1"/>
+    <Button android:id="@+id/btn2_write"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="write2"/>
+    <Button android:id="@+id/btn1_read"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="read1"/>
+    <Button android:id="@+id/btn2_read"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="read2"/>
 </LinearLayout>

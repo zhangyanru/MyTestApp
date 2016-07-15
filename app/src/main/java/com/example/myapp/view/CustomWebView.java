@@ -35,14 +35,14 @@ public class CustomWebView extends WebView{
         if(android.os.Build.VERSION.SDK_INT>=11){
             webSetting.setDisplayZoomControls(false); //隐藏缩放控件
         }else{
-            try {
-                Class webview = Class.forName("android.webkit.WebView");
-                Method method = webview.getMethod("getZoomButtonsController");
-                ZoomButtonsController zoomController = (ZoomButtonsController) method.invoke(this, null);
-                zoomController.setVisible(false);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+//            try {
+//                Class webview = Class.forName("android.webkit.WebView");
+//                Method method = webview.getMethod("getZoomButtonsController");
+//                ZoomButtonsController zoomController = (ZoomButtonsController) method.invoke(this, null);
+//                zoomController.setVisible(false);
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
         }
     }
 
