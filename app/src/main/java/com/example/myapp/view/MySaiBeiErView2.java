@@ -1,20 +1,23 @@
 package com.example.myapp.view;
 
-import android.app.Activity;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PathMeasure;
 import android.graphics.Point;
-import android.hardware.display.DisplayManager;
+import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.DecelerateInterpolator;
 
 /**
  * Created by yanru.zhang on 16/7/14.
@@ -23,11 +26,17 @@ import android.view.WindowManager;
 public class MySaiBeiErView2 extends View {
     private Context mContext;
     private Paint myPaint;
-    private Point p0 , p1, p2 ,bitmapPoint;
+    private Point p0 , p1, p2 ;
     private Path path;
     private int downX,downY,moveX,moveY,upX,upY;
     private Bitmap bitmap;
+    private Bitmap paintBitmap;
     private int width,height;
+    private PathMeasure pathMeasure;
+    private float[] bitmapPosition = new float[2]; //触摸事件操作的时候bitmap的位置
+    private boolean isAmin = false;
+    private BitmapShader bitmapShader;
+
     public MySaiBeiErView2(Context context) {
         this(context,null);
     }
@@ -48,7 +57,8 @@ public class MySaiBeiErView2 extends View {
 
         myPaint = new Paint();
         myPaint.setAntiAlias(true);
-        myPaint.setStrokeWidth(5);
+        myPaint.setStrokeWidth(10);
+        myPaint.setColor(Color.WHITE);
 
         path = new Path();
 
@@ -76,28 +86,32 @@ public class MySaiBeiErView2 extends View {
 //      Android在API=1的时候就提供了贝塞尔曲线的画法，只是隐藏在Path#quadTo()和Path#cubicTo()方法中，一个是二阶贝塞尔曲线，一个是三阶贝塞尔曲线。
 
         //画背景
-        myPaint.setColor(Color.WHITE);
         myPaint.setStyle(Paint.Style.FILL);
+        myPaint.setShader(null);
         canvas.drawRect(0,0,width,height,myPaint);
 
-        myPaint.setStyle(Paint.Style.STROKE);
-
-        //画点组成的线
-        myPaint.setColor(Color.LTGRAY);
-        canvas.drawLine(p0.x,p0.y,p1.x,p1.y,myPaint);
-        canvas.drawLine(p1.x,p1.y,p2.x,p2.y,myPaint);
-        canvas.drawLine(p2.x,p2.y,p0.x,p0.y,myPaint);
-
         //画曲线
-        myPaint.setColor(Color.RED);
+        if(paintBitmap != null){
+            bitmapShader = new BitmapShader(paintBitmap, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
+            myPaint.setShader(bitmapShader);
+        }
+        myPaint.setStyle(Paint.Style.STROKE);
         path.reset();
         path.moveTo(p0.x,p0.y);
         path.quadTo(p1.x,p1.y,p2.x,p2.y);
         canvas.drawPath(path,myPaint);
 
+        if(!isAmin){
+            pathMeasure = new PathMeasure(path,false);
+            pathMeasure.getPosTan( pathMeasure.getLength()/2 , bitmapPosition,null);
+        }
+
         //画icon
         if(bitmap!=null){
-            canvas.drawBitmap(bitmap,bitmapPoint.x,bitmapPoint.y,myPaint);
+            canvas.drawBitmap(bitmap,
+                    bitmapPosition[0] - bitmap.getWidth()/2,
+                    bitmapPosition[1] - bitmap.getHeight()/2,
+                    myPaint);
         }
     }
 
@@ -108,8 +122,13 @@ public class MySaiBeiErView2 extends View {
                 Log.d("zyr","ACTION_DOWN");
                 downX =(int)event.getRawX();
                 downY =(int)event.getRawY();
-                p1.x = bitmapPoint.x = downX;
-                p1.y = bitmapPoint.y = downY;
+                if(isAmin){
+                    return false;
+                }
+                bitmapPosition[0] = downX;
+                p1.x = downX;
+                bitmapPosition[1] = downY;
+                p1.y = downY;
                 invalidate();
                 return true;
             case MotionEvent.ACTION_MOVE:
@@ -117,8 +136,10 @@ public class MySaiBeiErView2 extends View {
 
                 moveX =(int)event.getRawX();
                 moveY =(int)event.getRawY();
-                p1.x = bitmapPoint.x = moveX;
-                p1.y = bitmapPoint.y = moveY;
+                bitmapPosition[0] = moveX;
+                p1.x = moveX;
+                bitmapPosition[1] = moveY;
+                p1.y = moveY;
                 invalidate();
                 break;
             case MotionEvent.ACTION_CANCEL:
@@ -127,15 +148,64 @@ public class MySaiBeiErView2 extends View {
 
                 upX =(int)event.getRawX();
                 upY =(int)event.getRawY();
+                bitmapMove();
+
                 break;
         }
         return super.onTouchEvent(event);
     }
 
+    public void setPaintBitmap(Bitmap bitmap){
+        if(bitmap == null) return;
+        this.paintBitmap = bitmap;
+        invalidate();
+    }
+
     public void setBitmap(Bitmap bitmap){
         if(bitmap == null) return;
         this.bitmap = bitmap;
-        bitmapPoint = new Point(width-bitmap.getWidth()/2,height/2);
         invalidate();
+    }
+
+    private void bitmapMove(){
+        if(bitmap == null) return;
+        //得到p1在p0的上方还是下方
+
+        if(p1.y - p0.y >=0){ //向上飞
+            bitmapAnim((int) bitmapPosition[1],0);
+        }else{//向下飞
+            bitmapAnim((int) bitmapPosition[1],height);
+        }
+    }
+
+    private void bitmapAnim(final int startY, final int endY){
+        //计算斜率
+        final float xBy = (float) Math.abs( width/2 - p1.x) / (float) Math.abs(p0.y - p1.y) ;
+        Log.d("zyr","xBy :" + xBy);
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(startY,endY);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int value = (int)animation.getAnimatedValue();
+                if(value == startY){
+                    isAmin = true;
+                }
+                if(value == endY){
+                    isAmin = false;
+                }
+                bitmapPosition[1] = value;
+                if( p1.x < width/2 ){
+                    bitmapPosition[0] = p1.x + Math.abs(p1.y - value) * xBy;
+                }else if( p1.x > width/2 ){
+                    bitmapPosition[0] = p1.x - Math.abs(p1.y - value) * xBy;
+                }else{
+                    bitmapPosition[0] = (p0.x+p2.x)/2 ;
+                }
+                invalidate();
+            }
+        });
+        valueAnimator.setDuration(1000);
+        valueAnimator.setInterpolator(new DecelerateInterpolator());
+        valueAnimator.start();
     }
 }

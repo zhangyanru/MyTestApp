@@ -7,8 +7,14 @@
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content" />-->
 
-    <com.example.myapp.view.MySaiBeiErView2
-        android:id="@+id/my_saibeier2"
+    <!--<com.example.myapp.view.MySaiBeiErView2-->
+        <!--android:id="@+id/my_saibeier2"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/gray"/>-->
+
+    <com.example.myapp.view.MySaiBeiErView3
+        android:id="@+id/my_saibeier3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray"/>
