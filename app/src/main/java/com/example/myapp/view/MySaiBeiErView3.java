@@ -204,14 +204,26 @@ public class MySaiBeiErView3 extends View {
         if(moveAnzai == null) return;
         //得到p1在p0的上方还是下方
 
-        if(p.x <= centerP.x){
+        if(bitmapP.y == centerP.y){
+            return;
+        }
+
+        if(bitmapP.x < centerP.x){
             shootPath.reset();
             shootPath.moveTo(bitmapP.x,bitmapP.y);
-            shootPath.lineTo( width + 100, (width + 100 - p.x) * (centerP.y - p.y) / (centerP.x - p.x) + p.y);
-        }else{//向下飞
+            shootPath.lineTo( width, (width - bitmapP.x) * (centerP.y - bitmapP.y) / (centerP.x - bitmapP.x) + bitmapP.y);
+        }else if(bitmapP.x > centerP.x){
             shootPath.reset();
             shootPath.moveTo(bitmapP.x,bitmapP.y);
-            shootPath.lineTo(-100, (-100 - p.x) * (centerP.y - p.y) / (centerP.x - p.x) + p.y);
+            shootPath.lineTo(0, (0 - bitmapP.x) * (centerP.y - bitmapP.y) / (centerP.x - bitmapP.x) + bitmapP.y);
+        }else{
+            shootPath.reset();
+            shootPath.moveTo(bitmapP.x,bitmapP.y);
+            if(bitmapP.y > centerP.y){
+                shootPath.lineTo(width/2,0);
+            }else if(bitmapP.y < centerP.y){
+                shootPath.lineTo(width/2,height);
+            }
         }
         bitmapAnim();
 
@@ -256,7 +268,7 @@ public class MySaiBeiErView3 extends View {
             }
         });
         valueAnimator.setDuration(1000);
-        valueAnimator.setInterpolator(new OvershootInterpolator());
+        valueAnimator.setInterpolator(new DecelerateInterpolator());
         valueAnimator.start();
     }
 

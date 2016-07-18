@@ -49,7 +49,7 @@
             <Button android:id="@+id/gridPasswardView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="GridPasswardView"/>
+                    android:text="九宫格解锁手势GridPasswardView"/>
             <Button android:id="@+id/viewpager"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
