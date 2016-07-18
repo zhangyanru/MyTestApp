@@ -134,6 +134,7 @@
         <activity android:name=".activity.WifiTestActivity"/>
         <activity android:name=".activity.FrameAnimTestActivity"/>
         <activity android:name=".activity.SaiBeiErTestActivity"/>
+        <activity android:name=".activity.OptimizeViewTestActivity"/>
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"
