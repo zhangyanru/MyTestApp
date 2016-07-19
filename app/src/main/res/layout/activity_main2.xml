@@ -142,5 +142,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="自定义View的优化"/>
+        <Button android:id="@+id/qq_side_slide"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="QQ侧滑菜单效果用ViewDragHelper实现"/>
     </LinearLayout>
 </ScrollView>

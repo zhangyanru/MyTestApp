@@ -135,6 +135,7 @@
         <activity android:name=".activity.FrameAnimTestActivity"/>
         <activity android:name=".activity.SaiBeiErTestActivity"/>
         <activity android:name=".activity.OptimizeViewTestActivity"/>
+        <activity android:name=".activity.QQSideSlideTestActivity"/>
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"

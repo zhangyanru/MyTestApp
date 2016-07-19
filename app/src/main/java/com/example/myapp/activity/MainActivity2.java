@@ -57,6 +57,7 @@ public class MainActivity2 extends BaseActivity {
     private Button frameAnimTest;
     private Button saiBeiErTest;
     private Button optimizeViewTest;
+    private Button qqSideSlideTest;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -93,6 +94,7 @@ public class MainActivity2 extends BaseActivity {
         frameAnimTest = (Button) findViewById(R.id.frame_amin_test);
         saiBeiErTest = (Button) findViewById(R.id.sai_bei_er_test);
         optimizeViewTest = (Button) findViewById(R.id.optimised_view_test);
+        qqSideSlideTest = (Button) findViewById(R.id.qq_side_slide);
     }
 
     @Override
@@ -135,6 +137,7 @@ public class MainActivity2 extends BaseActivity {
         frameAnimTest.setOnClickListener(this);
         saiBeiErTest.setOnClickListener(this);
         optimizeViewTest.setOnClickListener(this);
+        qqSideSlideTest.setOnClickListener(this);
     }
 
     @Override
@@ -245,6 +248,9 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.optimised_view_test:
                 show(this,OptimizeViewTestActivity.class);
+                break;
+            case R.id.qq_side_slide:
+                show(this,QQSideSlideTestActivity.class);
                 break;
         }
 
