@@ -136,6 +136,9 @@
         <activity android:name=".activity.SaiBeiErTestActivity"/>
         <activity android:name=".activity.OptimizeViewTestActivity"/>
         <activity android:name=".activity.QQSideSlideTestActivity"/>
+        <activity android:name=".activity.MainActivity3"/>
+        <activity android:name=".activity.ColorMatrixTestActivity"/>
+        <activity android:name=".activity.ColorMatrixTestActivity2"/>
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"

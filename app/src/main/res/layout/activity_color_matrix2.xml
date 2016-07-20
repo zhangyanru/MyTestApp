@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.myapp.view.MyColorMatrixView
+        android:id="@+id/image_view"
+        android:layout_below="@+id/brightness_ly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0,1,2"
+        android:layout_alignParentBottom="true">
+        <TableRow>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="常用颜色矩阵处理效果"
+                android:gravity="center"/>
+        </TableRow>
+        <TableRow>
+            <Button android:id="@+id/hui_du"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="灰度效果"/>
+            <Button android:id="@+id/fan_zhuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="图像反转"/>
+            <Button android:id="@+id/huai_jiu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="怀旧效果"/>
+        </TableRow>
+        <TableRow>
+            <Button android:id="@+id/qu_se"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="去色效果"/>
+            <Button android:id="@+id/gao_bao_he_du"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="高饱和度"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="常用图像像素点处理效果"
+                android:gravity="center"/>
+        </TableRow>
+        <TableRow>
+            <Button android:id="@+id/di_pian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="底片效果"/>
+            <Button android:id="@+id/old_picture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="老照片"/>
+            <Button android:id="@+id/fu_diao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="浮雕效果"/>
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>

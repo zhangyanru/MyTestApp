@@ -17,6 +17,14 @@
                 android:text="Main Activity2"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/white"/>
+
+            <Button android:id="@+id/main_activity3"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/green_light"
+                android:text="Main Activity3"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"/>
             <Button android:id="@+id/chat_demo"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
