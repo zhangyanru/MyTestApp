@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="20dp">
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="85dp"
+        android:src="@drawable/prize"/>
+    <com.example.myapp.view.EraserView
+        android:layout_width="110dp"
+        android:layout_height="85dp" />
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isScrollContainer="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.example.myapp.view.PorterDuffXfermodeTestView
+                android:id="@+id/clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.example.myapp.view.PorterDuffXfermodeTestView
+                android:id="@+id/src"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.example.myapp.view.PorterDuffXfermodeTestView
+                android:id="@+id/dst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.example.myapp.view.PorterDuffXfermodeTestView
+                android:id="@+id/srcover"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.example.myapp.view.PorterDuffXfermodeTestView
+                android:id="@+id/dstover"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.example.myapp.view.PorterDuffXfermodeTestView
+                android:id="@+id/srcin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.example.myapp.view.PorterDuffXfermodeTestView
+                android:id="@+id/dstin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.example.myapp.view.PorterDuffXfermodeTestView
+                android:id="@+id/srcout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.example.myapp.view.PorterDuffXfermodeTestView
+                android:id="@+id/dstout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.example.myapp.view.PorterDuffXfermodeTestView
+                android:id="@+id/srcatop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.example.myapp.view.PorterDuffXfermodeTestView
+                android:id="@+id/dstatop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.example.myapp.view.PorterDuffXfermodeTestView
+                android:id="@+id/xor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.example.myapp.view.PorterDuffXfermodeTestView
+                android:id="@+id/darken"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.example.myapp.view.PorterDuffXfermodeTestView
+                android:id="@+id/lighten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.example.myapp.view.PorterDuffXfermodeTestView
+                android:id="@+id/multiply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.example.myapp.view.PorterDuffXfermodeTestView
+                android:id="@+id/screen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+
+    </ScrollView>
+</RelativeLayout>

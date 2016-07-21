@@ -11,3 +11,4 @@ local.properties
 dynamicgrid/build/
 pulltorefresh/build/
 SearchListView/build/
+openimSDK/build
