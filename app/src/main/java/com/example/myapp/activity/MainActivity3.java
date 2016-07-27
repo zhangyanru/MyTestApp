@@ -12,11 +12,13 @@ import com.example.myapp.R;
 public class MainActivity3 extends BaseActivity {
     private Button colorMatrixTest;
     private Button guaGuaLeTest;
+    private Button expandableTv;
 
     @Override
     protected void initView() {
         colorMatrixTest = (Button) findViewById(R.id.color_matrix_test);
         guaGuaLeTest = (Button) findViewById(R.id.gua_gua_le_test);
+        expandableTv = (Button) findViewById(R.id.expandable_tv_test);
     }
 
     @Override
@@ -28,6 +30,7 @@ public class MainActivity3 extends BaseActivity {
     public void initListener() {
         colorMatrixTest.setOnClickListener(this);
         guaGuaLeTest.setOnClickListener(this);
+        expandableTv.setOnClickListener(this);
     }
 
     @Override
@@ -40,6 +43,9 @@ public class MainActivity3 extends BaseActivity {
                 break;
             case R.id.gua_gua_le_test:
                 show(this,GuaGuaLeTestActivity.class);
+                break;
+            case R.id.expandable_tv_test:
+                show(this,ExpandableTvActivity.class);
                 break;
         }
 

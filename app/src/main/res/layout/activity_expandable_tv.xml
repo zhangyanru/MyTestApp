@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.myapp.view.ExpandableTextView
+        android:id="@+id/expandable_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView android:id="@+id/text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="相思 \n王维\n红豆生南国，\n春来发几枝。\n愿君多采撷，\n此物最相思。"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:padding="10dp"
+            android:src="@drawable/icon_up_arrow"/>
+    </com.example.myapp.view.ExpandableTextView>
+
+    <com.example.myapp.view.ExpandableTextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="O(∩_∩)O哈哈哈~"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:padding="10dp"
+            android:src="@drawable/icon_up_arrow"/>
+    </com.example.myapp.view.ExpandableTextView>
+</LinearLayout>

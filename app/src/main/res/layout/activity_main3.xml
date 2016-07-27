@@ -14,5 +14,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="刮刮乐效果"/>
+        <Button android:id="@+id/expandable_tv_test"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="可以展开的TextView"/>
     </LinearLayout>
 </ScrollView>
