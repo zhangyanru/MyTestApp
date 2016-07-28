@@ -18,5 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="可以展开的TextView"/>
+        <Button android:id="@+id/svg_anim_test"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="SVG动画"/>
     </LinearLayout>
 </ScrollView>

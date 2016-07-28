@@ -141,6 +141,7 @@
         <activity android:name=".activity.ColorMatrixTestActivity2"/>
         <activity android:name=".activity.GuaGuaLeTestActivity"/>
         <activity android:name=".activity.ExpandableTvActivity"/>
+        <activity android:name=".activity.SVGAnimTestActivity"/>
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"

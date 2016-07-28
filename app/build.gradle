@@ -14,8 +14,6 @@ android {
             minifyEnabled false //混淆开启
         }
     }
-    productFlavors {
-    }
 }
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')

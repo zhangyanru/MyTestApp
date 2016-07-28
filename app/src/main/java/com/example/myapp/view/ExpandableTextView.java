@@ -36,8 +36,6 @@ public class ExpandableTextView extends LinearLayout {
     }
 
     private void initView() {
-        mTextView = (TextView)getChildAt(0);
-        mOpenBtn = (ImageView)getChildAt(1);
 
         lineCounts = mTextView.getLineCount();
         if(lineCounts <= foldLines){
@@ -71,15 +69,18 @@ public class ExpandableTextView extends LinearLayout {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        Log.d("zyr","onMeasure");
         initView();
     }
 
-
     @Override
-    protected void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
-        Log.d("zyr","height:" + getMeasuredHeight());
-        Log.d("zyr","tv height:" + mTextView.getMeasuredHeight());
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        Log.d("zyr","onFinishInflate");
+        if(mTextView==null || mOpenBtn == null){
+            mTextView = (TextView)getChildAt(0);
+            mOpenBtn = (ImageView)getChildAt(1);
+        }
 
     }
 }
