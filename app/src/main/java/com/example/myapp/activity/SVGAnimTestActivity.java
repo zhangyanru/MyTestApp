@@ -2,6 +2,7 @@ package com.example.myapp.activity;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.graphics.Color;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Build;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.myapp.R;
+import com.example.myapp.view.ColorPickerDialog;
 
 /**
  * Created by yanru.zhang on 16/7/27.
@@ -40,6 +42,18 @@ public class SVGAnimTestActivity extends Activity {
         setContentView(R.layout.activity_svg_anim);
         normalAnimImageView = (ImageView) findViewById(R.id.normal_xml_anim_drawable);
         ((Animatable)normalAnimImageView.getDrawable()).start();
+        normalAnimImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ColorPickerDialog colorPickerDialog = new ColorPickerDialog(SVGAnimTestActivity.this, new ColorPickerDialog.OnColorChangedListener() {
+                    @Override
+                    public void colorChanged(int color) {
+
+                    }
+                }, Color.WHITE);
+                colorPickerDialog.show();
+            }
+        });
         svgAnimImageView = (ImageView) findViewById(R.id.svg_xml_anim_drawable);
         svgAnimImageView.setOnClickListener(new View.OnClickListener() {
             @Override

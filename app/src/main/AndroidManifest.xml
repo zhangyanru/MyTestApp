@@ -142,6 +142,8 @@
         <activity android:name=".activity.GuaGuaLeTestActivity"/>
         <activity android:name=".activity.ExpandableTvActivity"/>
         <activity android:name=".activity.SVGAnimTestActivity"/>
+        <activity android:name=".activity.MyNotesActivity"/>
+        <activity android:name=".activity.AddNotesActivity"/>
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"

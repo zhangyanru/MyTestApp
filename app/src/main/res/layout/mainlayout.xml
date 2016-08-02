@@ -25,6 +25,14 @@
                 android:text="Main Activity3"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/white"/>
+
+            <Button android:id="@+id/my_notes"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/orange_light"
+                android:text="我的备忘录特记在此"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"/>
             <Button android:id="@+id/chat_demo"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

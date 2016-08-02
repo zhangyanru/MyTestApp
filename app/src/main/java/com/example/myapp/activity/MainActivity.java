@@ -64,6 +64,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button maskTest;
     private Button chatDemo;
     private Button mainASctivity3;
+    private Button myNotes;
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
 
@@ -79,6 +80,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     public void initViews(){
         main2 = (Button)findViewById(R.id.main_activity2);
         mainASctivity3 = (Button) findViewById(R.id.main_activity3);
+        myNotes = (Button) findViewById(R.id.my_notes);
         chatDemo = (Button)findViewById(R.id.chat_demo);
         shareweibo = (Button)findViewById(R.id.shareweibo);
         drawpath = (Button)findViewById(R.id.drawpath);
@@ -129,6 +131,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     public void initListener(){
         main2.setOnClickListener(this);
         mainASctivity3.setOnClickListener(this);
+        myNotes.setOnClickListener(this);
         chatDemo.setOnClickListener(this);
         shareweibo.setOnClickListener(this);
         drawpath.setOnClickListener(this);
@@ -205,6 +208,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.main_activity3:
                 show(MainActivity3.class);
+                break;
+            case R.id.my_notes:
+                show(MyNotesActivity.class);
                 break;
             case R.id.shareweibo:
                 show(WeiboSsoAuthActivity.class);
