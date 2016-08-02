@@ -2,9 +2,12 @@ package com.example.myapp.view;
 
 import android.content.Context;
 import android.text.Editable;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapp.R;
+
+import java.io.UnsupportedEncodingException;
 
 
 /**
@@ -29,6 +34,7 @@ public class LimitLengthEditText extends RelativeLayout implements TextWatcher, 
     private final static String SEPARATOR = "/";
     private String limitToastS = "Maximum number of characters allowed is 140";
     private int nowLength;
+    private boolean allowCN = false; //是否允许输入中文
     public final static int OVER_LENGTH_SHOW_OVER_NUMBER = 1;//超过长度之后可以继续输入，但是会用红色的数字标出超过的个数
     public final static int OVER_LENGTH_LIMIT_INPUT = 2;//超过长度之后不能继续输入，弹toast提示超过了长度
     private int overLengthHintType = OVER_LENGTH_SHOW_OVER_NUMBER;
@@ -50,8 +56,42 @@ public class LimitLengthEditText extends RelativeLayout implements TextWatcher, 
         mDeleteBtn = (ImageView) root.findViewById(R.id.limit_length_delete_btn);
         mDeleteBtn.setOnClickListener(this);
         mEditText.addTextChangedListener(this);
+        if(!allowCN){
+            mEditText.setFilters(new InputFilter[]{
+                    new InputFilter(){
+
+                        @Override
+                        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                            //source,现在正输入的字符
+                            //dest,之前已经在ediText中的字符
+                            Log.d("zyr","source:" + source.toString() + " start:" + start + " end:" + end);
+                            Log.d("zyr","dest:" + dest.toString() + " dstart:" + dstart + " dend:" + dend);
+                            if(isCN(source.toString())){
+                                return "";
+                            }else{
+                                return source;
+                            }
+                        }
+                    }
+            });
+        }
         nowLength = mEditText.getText().length();
         mTextView.setText(nowLength + SEPARATOR + MAX_LENGTH);
+    }
+
+    public boolean isCN(String str){
+        try {
+            byte [] bytes = str.getBytes("UTF-8");
+            if(bytes.length == str.length()){
+                return false;
+            }else{
+                return true;
+            }
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
