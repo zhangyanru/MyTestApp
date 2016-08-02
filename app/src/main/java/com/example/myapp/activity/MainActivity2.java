@@ -13,9 +13,6 @@ import android.widget.ImageView;
 import com.example.myapp.R;
 import com.example.myapp.github.parallaxheaderviewpager.demo.ParallaxHeaderViewPagerMainActivity;
 import com.example.myapp.github.pullzoomview.demo.PullZoomViewMainActivity;
-
-import umengchatdemo.activity.UMLoginActivity;
-
 /**
  * Created by zyr
  * DATE: 16-2-24
@@ -25,7 +22,6 @@ import umengchatdemo.activity.UMLoginActivity;
 public class MainActivity2 extends BaseActivity {
     private Button scrollerTest;
     private Button shimmerText;
-    private Button quxianAnimator;
     private Button pathAnimator;
     private Button customPullToRefreshListViewTest;
     private Button customSlideDeleteListViewTest;
@@ -48,7 +44,6 @@ public class MainActivity2 extends BaseActivity {
     private Button imageTextShowTest;
     private Button cameraTest;
     private ImageView imageView;
-    private Button umengTest;
     private Button vectorTest;
     private Button httpMultiPartTest;
     private Button webViewTest;
@@ -62,7 +57,6 @@ public class MainActivity2 extends BaseActivity {
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
         shimmerText = (Button)findViewById(R.id.shimmer_text);
-        quxianAnimator = (Button)findViewById(R.id.quxian_animator);
         pathAnimator = (Button)findViewById(R.id.path_animator);
         customPullToRefreshListViewTest = (Button) findViewById(R.id.custom_pull_to_refresh_listview);
         customSlideDeleteListViewTest = (Button) findViewById(R.id.custom_slid_delete_list_view);
@@ -85,7 +79,6 @@ public class MainActivity2 extends BaseActivity {
         imageTextShowTest = (Button) findViewById(R.id.image_text_show);
         cameraTest = (Button) findViewById(R.id.camera_test);
         imageView = (ImageView) findViewById(R.id.image_view);
-        umengTest = (Button) findViewById(R.id.umeng_chat_test);
         vectorTest = (Button) findViewById(R.id.vector_test);
         httpMultiPartTest = (Button) findViewById(R.id.http_multi_part_test);
         webViewTest = (Button) findViewById(R.id.web_view_test);
@@ -106,7 +99,6 @@ public class MainActivity2 extends BaseActivity {
     public void initListener() {
         scrollerTest.setOnClickListener(this);
         shimmerText.setOnClickListener(this);
-        quxianAnimator.setOnClickListener(this);
         pathAnimator.setOnClickListener(this);
         customPullToRefreshListViewTest.setOnClickListener(this);
         customSlideDeleteListViewTest.setOnClickListener(this);
@@ -128,7 +120,6 @@ public class MainActivity2 extends BaseActivity {
         singleTaskTest.setOnClickListener(this);
         imageTextShowTest.setOnClickListener(this);
         cameraTest.setOnClickListener(this);
-        umengTest.setOnClickListener(this);
         vectorTest.setOnClickListener(this);
         httpMultiPartTest.setOnClickListener(this);
         webViewTest.setOnClickListener(this);
@@ -148,9 +139,6 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.shimmer_text:
                 show(this, ShimmerTextViewTestActivity.class);
-                break;
-            case R.id.quxian_animator:
-                show(this, QuXianAnimatorActivity.class);
                 break;
             case R.id.path_animator:
                 show(this, PathAnimatorActivity.class);
@@ -221,9 +209,6 @@ public class MainActivity2 extends BaseActivity {
             case R.id.camera_test:
                 Intent intent1 = new Intent(this,CameraActivity.class);
                 startActivityForResult(intent1,1);
-                break;
-            case R.id.umeng_chat_test:
-                show(this, UMLoginActivity.class);
                 break;
             case R.id.vector_test:
                 show(this,VectorTestActivity.class);

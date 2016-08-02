@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <EditText
+        android:id="@+id/limit_length_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="50dp"
+        android:minHeight="200dp"
+        android:background="@null"
+        android:gravity="start"
+        android:textSize="14sp"
+        android:textColor="@color/common_color_282828"
+        fontPath="fonts/SF_Light.otf"
+        tools:ignore="MissingPrefix"
+        tools:text="say some thing..."/>
+
+    <TextView android:id="@+id/limit_length_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textSize="12sp"
+        android:textColor="@color/common_color_787878"
+        tools:text="0/140"/>
+
+    <ImageView android:id="@+id/limit_length_delete_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:src="@drawable/icon_delete"
+        android:scaleType="fitCenter"
+        android:layout_toLeftOf="@+id/limit_length_tv"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

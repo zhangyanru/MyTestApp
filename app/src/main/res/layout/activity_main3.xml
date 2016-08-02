@@ -18,6 +18,10 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="可以展开的TextView"/>
+        <Button android:id="@+id/limit_length_tv_test"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="限制输入长度的EditText"/>
         <Button android:id="@+id/svg_anim_test"
             android:layout_width="match_parent"
             android:layout_height="50dp"

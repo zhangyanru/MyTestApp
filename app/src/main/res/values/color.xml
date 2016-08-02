@@ -26,6 +26,9 @@
     <color name="orange_light">#ffffbb33</color>
     <color name="blue_light">#ff33b5e5</color>
     <color name="hint_text">#B6B6B6</color>
+    <color name="common_color_e94f4f">#e94f4f</color>
+    <color name="common_color_787878">#787878</color>
+    <color name="common_color_282828">#282828</color>
 
     <color name="theme_color">#33BBFF</color>
 </resources>
