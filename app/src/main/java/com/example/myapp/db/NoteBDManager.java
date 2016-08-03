@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,25 +14,26 @@ import java.util.List;
  * Email:yanru.zhang@renren-inc.com
  */
 public class NoteBDManager {
-    private NotesDataBaseHelper helper;
+    private DBeHelper helper;
     private SQLiteDatabase db;
 
     public NoteBDManager(Context context) {
-        helper = new NotesDataBaseHelper(context);
+        helper = new DBeHelper(context);
         //因为getWritableDatabase内部调用了mContext.openOrCreateDatabase(mName, 0, mFactory);
         //所以要确保context已初始化,我们可以把实例化DBManager的步骤放在Activity的onCreate里
         db = helper.getWritableDatabase();
+        Log.d("zyr","db:" + ((db==null)?"null":db.getPath()));
     }
 
-    /**
-     * add persons
-     * @param notes
-     */
+    /*********
+     * 增
+     * *******/
     public void add(List<NoteBean> notes) {
         db.beginTransaction();	//开始事务
         try {
             for (NoteBean note : notes) {
-                db.execSQL("INSERT INTO person VALUES(null, ?, ?, ?)", new Object[]{note.note, note.date});
+                String sql = "insert into " + DBeHelper.NOTE_TABLE + "(note,createDate,status) values(?,?,?)";
+                db.execSQL(sql, new Object[]{note.note, note.date,note.status});
             }
             db.setTransactionSuccessful();	//设置事务成功完成
         } finally {
@@ -42,35 +44,55 @@ public class NoteBDManager {
     public void add(NoteBean note) {
         db.beginTransaction();	//开始事务
         try {
-            db.execSQL("INSERT INTO person VALUES(null, ?, ?, ?)", new Object[]{note.id,note.note, note.date});
+            String sql = "insert into " + DBeHelper.NOTE_TABLE + "(note,createDate,status) values(?,?,?)";
+            db.execSQL(sql, new Object[]{note.note, note.date,note.status});
             db.setTransactionSuccessful();	//设置事务成功完成
         } finally {
             db.endTransaction();	//结束事务
         }
     }
 
-    /**
-     * update person's age
-     * @param note
-     */
-    public void updateAge(NoteBean note) {
-        ContentValues cv = new ContentValues();
-        cv.put("id", note.id);
-        db.update("person", cv, "id = ?", new String[]{note.id + ""});
+    /*********
+     * 删
+     * *******/
+    public void delete(long id){
+        db.beginTransaction();
+        try {
+            String sql = "delete from " + DBeHelper.NOTE_TABLE + " where id=?";
+            db.execSQL(sql,new Object[]{id});
+            db.setTransactionSuccessful();
+        }finally {
+            db.endTransaction();
+        }
     }
 
-    /**
-     * query all persons, return list
-     * @return List<Person>
-     */
+    /*********
+     * 改
+     * *******/
+    public void updateNote(String note,long id) {
+        db.beginTransaction();
+        try {
+            String sql = "update " + DBeHelper.NOTE_TABLE + " set note=? where id=?";
+            db.execSQL(sql,new Object[]{note,id});
+            db.setTransactionSuccessful();
+        }finally {
+            db.endTransaction();
+        }
+
+    }
+
+    /*********
+     * 查
+     * *******/
     public List<NoteBean> query() {
         ArrayList<NoteBean> notes = new ArrayList<NoteBean>();
         Cursor c = queryTheCursor();
         while (c.moveToNext()) {
             NoteBean noteBean = new NoteBean();
-            noteBean.id = c.getInt(c.getColumnIndex("_id"));
+            noteBean.id = c.getLong(c.getColumnIndex("id"));
             noteBean.note = c.getString(c.getColumnIndex("note"));
-            noteBean.date = c.getInt(c.getColumnIndex("date"));
+            noteBean.date = c.getInt(c.getColumnIndex("createDate"));
+            noteBean.status = c.getInt(c.getColumnIndex("status"));
             notes.add(noteBean);
         }
         c.close();
@@ -78,11 +100,13 @@ public class NoteBDManager {
     }
 
     /**
-     * query all persons, return cursor
+     * query all notes, return cursor
      * @return	Cursor
      */
     public Cursor queryTheCursor() {
-        Cursor c = db.rawQuery("SELECT * FROM " + NotesDataBaseHelper.DB_NAME, null);
+        String sql = "select * from note";
+        Log.d("zyr","sql: " + sql);
+        Cursor c = db.rawQuery(sql, null);
         return c;
     }
 
