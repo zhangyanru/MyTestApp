@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="实现线程的几种方式："
+        android:gravity="center|left"/>
+
+    <Button android:id="@+id/extends_thread"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="继承Thread"
+        android:textAllCaps="false"/>
+
+    <Button android:id="@+id/runnable_thread"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Runnable+Thread"
+        android:textAllCaps="false"/>
+
+    <Button android:id="@+id/callable_futuretask_thread"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Callable+FutureTask+Thread"
+        android:textAllCaps="false"/>
+
+    <Button android:id="@+id/executor_service_callable_future"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ExecutorService+Callable+Future"
+        android:textAllCaps="false"/>
+
+    <Button android:id="@+id/executor_service_runnable_future"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ExecutorService+Runnable+Future"
+        android:textAllCaps="false"/>
+
+    <Button android:id="@+id/executor_service_futuretask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ExecutorService+FutureTask"
+        android:textAllCaps="false"/>
+</LinearLayout>
