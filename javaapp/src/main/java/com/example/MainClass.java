@@ -2,6 +2,8 @@ package com.example;
 
 public class MainClass {
     public static void main(String[] args){
+
+        //二叉树
         BinaryTree binaryTree = new BinaryTree(5);
         binaryTree.insert(8);
         binaryTree.insert(9);
@@ -33,5 +35,28 @@ public class MainClass {
 
         System.out.print("\n广度遍历\n");
         binaryTree.travelOrder();
+
+        //计算N内的所有素数
+        PrimeNumber primeNumber = new PrimeNumber();
+        primeNumber.prime1(100);
+        primeNumber.prime2(100);
+        primeNumber.prime3(100);
+
+        //有序链表
+        LinkList<String> linkList = new LinkList<>();
+        linkList.insert("a");
+        linkList.insert("bcd");
+        linkList.insert("d");
+        linkList.insert("c");
+        System.out.println("\nlinkList:" + linkList.toString());
+        LinkList.Node find = linkList.find("c");
+        if(find != null){
+            System.out.println("find:" + find.data.toString());
+        }
+        LinkList.Node delete = linkList.delete("a");
+        if(delete != null){
+            System.out.println("delete:" + delete.data.toString());
+        }
+        System.out.println("linkList:" + linkList.toString());
     }
 }
