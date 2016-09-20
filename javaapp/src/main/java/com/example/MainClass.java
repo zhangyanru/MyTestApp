@@ -58,5 +58,12 @@ public class MainClass {
             System.out.println("delete:" + delete.data.toString());
         }
         System.out.println("linkList:" + linkList.toString());
+
+        //循环数组
+        CyclicOrderedArray array = new CyclicOrderedArray();
+        int index = array.find(0,new int[]{8,9,0,1,2,3,4,5,6,7});
+        System.out.println(index + "");
+        index = array.find(0,new int[]{3,2,1,0,9,8,7,6,5,4});
+        System.out.println(index + "");
     }
 }
