@@ -1,2 +1,2 @@
-include ':app', ':dynamicgrid', ':SearchListView', ':openimSDK'
+include ':app', ':dynamicgrid', ':SearchListView', ':openimSDK', ':javaapp'
 include ':pulltorefresh'
