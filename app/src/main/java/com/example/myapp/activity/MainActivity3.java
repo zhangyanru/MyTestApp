@@ -16,6 +16,7 @@ public class MainActivity3 extends BaseActivity {
     private Button svgAnimTest;
     private Button limitLengthTest;
     private Button futureTest;
+    private Button danMuTest;
 
     @Override
     protected void initView() {
@@ -25,6 +26,7 @@ public class MainActivity3 extends BaseActivity {
         svgAnimTest = (Button) findViewById(R.id.svg_anim_test);
         limitLengthTest = (Button) findViewById(R.id.limit_length_tv_test);
         futureTest = (Button) findViewById(R.id.future_test);
+        danMuTest = (Button) findViewById(R.id.danmu_test);
     }
 
     @Override
@@ -40,6 +42,7 @@ public class MainActivity3 extends BaseActivity {
         svgAnimTest.setOnClickListener(this);
         limitLengthTest.setOnClickListener(this);
         futureTest.setOnClickListener(this);
+        danMuTest.setOnClickListener(this);
     }
 
     @Override
@@ -64,6 +67,9 @@ public class MainActivity3 extends BaseActivity {
                 break;
             case R.id.future_test:
                 show(this,FutureTestActivity.class);
+                break;
+            case R.id.danmu_test:
+                show(this,DanMuActivity.class);
                 break;
         }
 

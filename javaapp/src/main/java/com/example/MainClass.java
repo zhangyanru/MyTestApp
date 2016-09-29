@@ -1,5 +1,8 @@
 package com.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainClass {
     public static void main(String[] args){
 
@@ -65,5 +68,16 @@ public class MainClass {
         System.out.println(index + "");
         index = array.find(0,new int[]{3,2,1,0,9,8,7,6,5,4});
         System.out.println(index + "");
+
+        List<String> list = new ArrayList<>();
+        for(int i=0;i<10;i++){
+            list.add(i+"");
+        }
+        System.out.println(list.toString());
+        for(int i=list.size()-1;i>=0;i--){
+            list.remove(i);
+            System.out.println(list.toString());
+
+        }
     }
 }

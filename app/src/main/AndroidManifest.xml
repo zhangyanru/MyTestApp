@@ -145,6 +145,7 @@
         <activity android:name=".activity.AddNotesActivity"/>
         <activity android:name=".activity.LimitLengthEditTextActivity"/>
         <activity android:name=".activity.FutureTestActivity"/>
+        <activity android:name=".activity.DanMuActivity"/>
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"
