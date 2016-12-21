@@ -146,6 +146,8 @@
         <activity android:name=".activity.LimitLengthEditTextActivity"/>
         <activity android:name=".activity.FutureTestActivity"/>
         <activity android:name=".activity.DanMuActivity"/>
+        <activity android:name=".activity.EditTextInListView"
+            android:windowSoftInputMode="adjustPan"/>
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion '24 rc4'
+    buildToolsVersion '23.0.1'
 
     defaultConfig {
         applicationId "vivian.com.searchlistview"

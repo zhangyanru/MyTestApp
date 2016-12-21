@@ -43,7 +43,7 @@ public class HttpMultiPartTestActivity extends Activity {
             public void onClick(View v) {
                 //上传图片
                 initTask();
-                asyncTask.execute(null);
+                asyncTask.execute();
 
             }
         });

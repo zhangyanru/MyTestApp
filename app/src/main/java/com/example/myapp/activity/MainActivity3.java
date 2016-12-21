@@ -63,7 +63,9 @@ public class MainActivity3 extends BaseActivity {
                 show(this,SVGAnimTestActivity.class);
                 break;
             case R.id.limit_length_tv_test:
-                show(this,LimitLengthEditTextActivity.class);
+//                show(this,LimitLengthEditTextActivity.class);
+                show(this,EditTextInListView.class);
+
                 break;
             case R.id.future_test:
                 show(this,FutureTestActivity.class);
