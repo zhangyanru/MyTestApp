@@ -138,5 +138,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="QQ侧滑菜单效果用ViewDragHelper实现"/>
+        <Button android:id="@+id/pull_to_refresh_webView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="下拉刷新WebView"/>
     </LinearLayout>
 </ScrollView>

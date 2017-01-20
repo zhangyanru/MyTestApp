@@ -5,6 +5,8 @@ import android.widget.Button;
 
 import com.example.myapp.R;
 
+import java.io.BufferedReader;
+
 /**
  * Created by yanru.zhang on 16/7/19.
  * Email:yanru.zhang@renren-inc.com
@@ -17,6 +19,7 @@ public class MainActivity3 extends BaseActivity {
     private Button limitLengthTest;
     private Button futureTest;
     private Button danMuTest;
+    private Button crashTest;
 
     @Override
     protected void initView() {
@@ -27,6 +30,7 @@ public class MainActivity3 extends BaseActivity {
         limitLengthTest = (Button) findViewById(R.id.limit_length_tv_test);
         futureTest = (Button) findViewById(R.id.future_test);
         danMuTest = (Button) findViewById(R.id.danmu_test);
+        crashTest = (Button) findViewById(R.id.crash_handler_test);
     }
 
     @Override
@@ -43,6 +47,7 @@ public class MainActivity3 extends BaseActivity {
         limitLengthTest.setOnClickListener(this);
         futureTest.setOnClickListener(this);
         danMuTest.setOnClickListener(this);
+        crashTest.setOnClickListener(this);
     }
 
     @Override
@@ -72,6 +77,9 @@ public class MainActivity3 extends BaseActivity {
                 break;
             case R.id.danmu_test:
                 show(this,DanMuActivity.class);
+                break;
+            case R.id.crash_handler_test:
+                show(this,TestUncaughtHandlerActivity.class);
                 break;
         }
 

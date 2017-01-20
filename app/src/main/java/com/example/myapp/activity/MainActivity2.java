@@ -53,6 +53,7 @@ public class MainActivity2 extends BaseActivity {
     private Button saiBeiErTest;
     private Button optimizeViewTest;
     private Button qqSideSlideTest;
+    private Button pullToRefreshWebView;
     @Override
     protected void initView() {
         scrollerTest = (Button)findViewById(R.id.scroller_test);
@@ -88,6 +89,7 @@ public class MainActivity2 extends BaseActivity {
         saiBeiErTest = (Button) findViewById(R.id.sai_bei_er_test);
         optimizeViewTest = (Button) findViewById(R.id.optimised_view_test);
         qqSideSlideTest = (Button) findViewById(R.id.qq_side_slide);
+        pullToRefreshWebView = (Button) findViewById(R.id.pull_to_refresh_webView);
     }
 
     @Override
@@ -129,6 +131,7 @@ public class MainActivity2 extends BaseActivity {
         saiBeiErTest.setOnClickListener(this);
         optimizeViewTest.setOnClickListener(this);
         qqSideSlideTest.setOnClickListener(this);
+        pullToRefreshWebView.setOnClickListener(this);
     }
 
     @Override
@@ -236,6 +239,9 @@ public class MainActivity2 extends BaseActivity {
                 break;
             case R.id.qq_side_slide:
                 show(this,QQSideSlideTestActivity.class);
+                break;
+            case R.id.pull_to_refresh_webView:
+                show(this,PullToRefreshWebViewTestActivity.class);
                 break;
         }
 

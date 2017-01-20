@@ -34,5 +34,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="用SurfaceView实现弹幕"/>
+        <Button android:id="@+id/crash_handler_test"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="crash_handler"/>
     </LinearLayout>
 </ScrollView>
