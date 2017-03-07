@@ -9,4 +9,6 @@
     <dimen name="min_header_height">250dp</dimen>
 
     <dimen name="web_view_title_height">45dp</dimen>
+
+    <dimen name="round_progress_bar_circle_width">500dp</dimen>
 </resources>

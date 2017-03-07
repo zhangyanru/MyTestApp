@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Toast;
+
 import com.example.myapp.R;
 import com.example.myapp.chatdemo.LoginActivity;
 import com.example.myapp.fragment.AnimFragment;
@@ -19,7 +20,7 @@ import java.util.Calendar;
 /**
  * Created by admin on 15/9/8.
  */
-public class MainActivity extends Activity implements View.OnClickListener{
+public class MainActivity extends Activity implements View.OnClickListener {
     private Button main2;
     private Button shareweibo;
     private Button drawpath;
@@ -65,10 +66,12 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button chatDemo;
     private Button mainASctivity3;
     private Button myNotes;
+    private Button mCustomVerticalLayout;
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
 
     private final static int TO_A_ACTIVITY = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,58 +80,59 @@ public class MainActivity extends Activity implements View.OnClickListener{
         initListener();
     }
 
-    public void initViews(){
-        main2 = (Button)findViewById(R.id.main_activity2);
+    public void initViews() {
+        main2 = (Button) findViewById(R.id.main_activity2);
         mainASctivity3 = (Button) findViewById(R.id.main_activity3);
         myNotes = (Button) findViewById(R.id.my_notes);
-        chatDemo = (Button)findViewById(R.id.chat_demo);
-        shareweibo = (Button)findViewById(R.id.shareweibo);
-        drawpath = (Button)findViewById(R.id.drawpath);
-        animation = (Button)findViewById(R.id.animation);
-        xListView = (Button)findViewById(R.id.xListView);
-        gridPasswardView = (Button)findViewById(R.id.gridPasswardView);
-        viewpager = (Button)findViewById(R.id.viewpager);
-        viewpager_fragment = (Button)findViewById(R.id.viewpager_fragment);
-        topbar = (Button)findViewById(R.id.topbar);
-        flowlayout = (Button)findViewById(R.id.flowlayout);
-        startForResult = (Button)findViewById(R.id.startAcyivityForResult);
-        colorChangedCircle = (Button)findViewById(R.id.color_changed_circle);
-        arcMenu = (Button)findViewById(R.id.arc_menu);
-        datePicker = (Button)findViewById(R.id.date_picker);
-        fragmentAnim = (Button)findViewById(R.id.fragment_anim);
-        arcMenu2 = (Button)findViewById(R.id.arc_menu2);
-        dragView = (Button)findViewById(R.id.drag_view);
-        slidListview = (Button)findViewById(R.id.hslid_listview);
-        autoSlid = (Button)findViewById(R.id.auto_slid);
-        lookBigImage = (Button)findViewById(R.id.look_big_image);
-        touchuEvent = (Button)findViewById(R.id.touch_event_dispatch);
-        customViewGroup = (Button)findViewById(R.id.custom_view_group);
-        dinamicLine = (Button)findViewById(R.id.dinamic_line);
-        randomImageCode = (Button)findViewById(R.id.random_image_code);
-        mutilListView = (Button)findViewById(R.id.mutil_listview);
-        mutilItemListView = (Button)findViewById(R.id.mutil_item_listview);
-        yindao = (Button)findViewById(R.id.yindao);
-        autoEdittext = (Button)findViewById(R.id.auto_textview);
-        xmlTest = (Button)findViewById(R.id.xml_test);
-        bitmapShaderTest = (Button)findViewById(R.id.bitmap_shader_test);
-        dragGridView = (Button)findViewById(R.id.drag_gridview);
-        surfaceView = (Button)findViewById(R.id.surface_view);
-        pullToRefreshTest = (Button)findViewById(R.id.pull_to_refresh_test);
-        dynamicGridTest = (Button)findViewById(R.id.dynamic_grid_test);
-        imageCopy = (Button)findViewById(R.id.image_copy);
-        pullDynamicGridTest = (Button)findViewById(R.id.pull_to_refresh_and_dynamic_grid_test);
-        customDynamicGrid = (Button)findViewById(R.id.custom_dynamic_grid);
-        edittextTest = (Button)findViewById(R.id.edittext_test);
-        liziTest = (Button)findViewById(R.id.lizi_test);
-        gridViewSwitchColums = (Button)findViewById(R.id.grid_view_switch_colums_count);
-        snowTest = (Button)findViewById(R.id.snow_test);
-        maskTest = (Button)findViewById(R.id.mask_test);
+        chatDemo = (Button) findViewById(R.id.chat_demo);
+        shareweibo = (Button) findViewById(R.id.shareweibo);
+        drawpath = (Button) findViewById(R.id.drawpath);
+        animation = (Button) findViewById(R.id.animation);
+        xListView = (Button) findViewById(R.id.xListView);
+        gridPasswardView = (Button) findViewById(R.id.gridPasswardView);
+        viewpager = (Button) findViewById(R.id.viewpager);
+        viewpager_fragment = (Button) findViewById(R.id.viewpager_fragment);
+        topbar = (Button) findViewById(R.id.topbar);
+        flowlayout = (Button) findViewById(R.id.flowlayout);
+        startForResult = (Button) findViewById(R.id.startAcyivityForResult);
+        colorChangedCircle = (Button) findViewById(R.id.color_changed_circle);
+        arcMenu = (Button) findViewById(R.id.arc_menu);
+        datePicker = (Button) findViewById(R.id.date_picker);
+        fragmentAnim = (Button) findViewById(R.id.fragment_anim);
+        arcMenu2 = (Button) findViewById(R.id.arc_menu2);
+        dragView = (Button) findViewById(R.id.drag_view);
+        slidListview = (Button) findViewById(R.id.hslid_listview);
+        autoSlid = (Button) findViewById(R.id.auto_slid);
+        lookBigImage = (Button) findViewById(R.id.look_big_image);
+        touchuEvent = (Button) findViewById(R.id.touch_event_dispatch);
+        customViewGroup = (Button) findViewById(R.id.custom_view_group);
+        dinamicLine = (Button) findViewById(R.id.dinamic_line);
+        randomImageCode = (Button) findViewById(R.id.random_image_code);
+        mutilListView = (Button) findViewById(R.id.mutil_listview);
+        mutilItemListView = (Button) findViewById(R.id.mutil_item_listview);
+        yindao = (Button) findViewById(R.id.yindao);
+        autoEdittext = (Button) findViewById(R.id.auto_textview);
+        xmlTest = (Button) findViewById(R.id.xml_test);
+        bitmapShaderTest = (Button) findViewById(R.id.bitmap_shader_test);
+        dragGridView = (Button) findViewById(R.id.drag_gridview);
+        surfaceView = (Button) findViewById(R.id.surface_view);
+        pullToRefreshTest = (Button) findViewById(R.id.pull_to_refresh_test);
+        dynamicGridTest = (Button) findViewById(R.id.dynamic_grid_test);
+        imageCopy = (Button) findViewById(R.id.image_copy);
+        pullDynamicGridTest = (Button) findViewById(R.id.pull_to_refresh_and_dynamic_grid_test);
+        customDynamicGrid = (Button) findViewById(R.id.custom_dynamic_grid);
+        edittextTest = (Button) findViewById(R.id.edittext_test);
+        liziTest = (Button) findViewById(R.id.lizi_test);
+        gridViewSwitchColums = (Button) findViewById(R.id.grid_view_switch_colums_count);
+        snowTest = (Button) findViewById(R.id.snow_test);
+        maskTest = (Button) findViewById(R.id.mask_test);
+        mCustomVerticalLayout = (Button) findViewById(R.id.custom_vertical_layout);
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
     }
 
-    public void initListener(){
+    public void initListener() {
         main2.setOnClickListener(this);
         mainASctivity3.setOnClickListener(this);
         myNotes.setOnClickListener(this);
@@ -174,26 +178,28 @@ public class MainActivity extends Activity implements View.OnClickListener{
         gridViewSwitchColums.setOnClickListener(this);
         snowTest.setOnClickListener(this);
         maskTest.setOnClickListener(this);
+        mCustomVerticalLayout.setOnClickListener(this);
     }
 
-    public void show(Class<? extends Activity> activity){
+    public void show(Class<? extends Activity> activity) {
         Intent intent = new Intent();
         intent.setClass(MainActivity.this, activity);
         this.startActivity(intent);
     }
-    public void showActivityForResult(Class<? extends Activity> activity,int requestCode){
+
+    public void showActivityForResult(Class<? extends Activity> activity, int requestCode) {
         Intent intent = new Intent();
-        intent.setClass(MainActivity.this,activity);
-        this.startActivityForResult(intent,requestCode);
+        intent.setClass(MainActivity.this, activity);
+        this.startActivityForResult(intent, requestCode);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == RESULT_OK){
-            switch (requestCode){
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
                 case TO_A_ACTIVITY:
-                    Toast.makeText(this,"to c activity result",Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "to c activity result", Toast.LENGTH_LONG).show();
                     break;
 
             }
@@ -202,7 +208,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.main_activity2:
                 show(MainActivity2.class);
                 break;
@@ -240,7 +246,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 show(FlowLayoutActivity.class);
                 break;
             case R.id.startAcyivityForResult:
-                showActivityForResult(AActivity.class,TO_A_ACTIVITY);
+                showActivityForResult(AActivity.class, TO_A_ACTIVITY);
                 break;
             case R.id.color_changed_circle:
                 show(ColorChangedCircleActivity.class);
@@ -248,7 +254,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
             case R.id.fragment_anim:
                 fragmentTransaction.setCustomAnimations(R.anim.sign_up_enter, R.anim.sign_up_exit);
                 AnimFragment animFragment = new AnimFragment();
-                fragmentTransaction.add(R.id.fragment_anim,animFragment);
+                fragmentTransaction.add(R.id.fragment_anim, animFragment);
                 break;
             case R.id.arc_menu:
                 show(ArcMenuActivity.class);
@@ -259,7 +265,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
                         new DatePickerDialogWithMaxMin.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                datePicker.setText(year+"/"+(monthOfYear+1)+"/"+dayOfMonth);
+                                datePicker.setText(year + "/" + (monthOfYear + 1) + "/" + dayOfMonth);
                             }
                         }, calendar.get(Calendar.YEAR),
                         calendar.get(Calendar.MONTH),
@@ -364,6 +370,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.chat_demo:
                 show(LoginActivity.class);
+                break;
+            case R.id.custom_vertical_layout:
+                show(CustomVerticalLayoutActivity.class);
                 break;
             default:
                 break;

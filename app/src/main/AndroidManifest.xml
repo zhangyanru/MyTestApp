@@ -150,6 +150,7 @@
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".activity.TestUncaughtHandlerActivity"/>
         <activity android:name=".activity.PullToRefreshWebViewTestActivity"/>
+        <activity android:name=".activity.CustomVerticalLayoutActivity"/>
 
         <!--github pullzoomviwq-->
         <activity android:name=".github.pullzoomview.demo.PullZoomViewMainActivity"

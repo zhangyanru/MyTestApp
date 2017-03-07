@@ -7,9 +7,9 @@
         <attr name="circleWidth" format="dimension"/>
     </declare-styleable>
     <declare-styleable name="RoundProgressBar">
-        <attr name="p_firstColor" format="color"/>
-        <attr name="p_secondColor" format="color"/>
-        <attr name="p_circleWidth" format="dimension"/>
+        <attr name="p_negativeColor" format="color"/>
+        <attr name="p_positiveColor" format="color"/>
+        <attr name="p_ringWidth" format="dimension"/>
         <attr name="p_textColor" format="color"/>
         <attr name="p_textSize" format="dimension"/>
         <attr name="p_progress" format="dimension"/>
